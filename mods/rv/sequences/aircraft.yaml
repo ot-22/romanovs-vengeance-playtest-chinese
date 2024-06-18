@@ -1,0 +1,157 @@
+asw:
+	icon:
+		Filename: cameo|xxicon.shp
+
+beag:
+	icon:
+		Filename: cameo|beagicon.shp
+
+cargoplane:
+	icon:
+		Filename: cameo|xxicon.shp
+
+falc:
+	icon:
+		Filename: cameo|falcicon.shp
+
+hornet:
+	icon:
+		Filename: cameo|xxicon.shp
+
+pdplane:
+	icon:
+		Filename: cameo|xxicon.shp
+
+shad:
+	Inherits@MUZZLE: ^WithMachineGunMuzzle
+	shadow:
+		Filename: bits/vehicles/aircraftshadows/shadshadow.shp
+		Facings: 32
+	icon:
+		Filename: cameo|shadicon.shp
+	muzzle:
+		Filename: shad.shp
+
+zep:
+	shadow:
+		Filename: bits/vehicles/aircraftshadows/zepshadow.shp
+		Facings: 32
+	icon:
+		Filename: cameo|zepicon.shp
+
+# Yuri's Revenge Aircraft
+spyp:
+	icon:
+		Filename: cameomd|spypicon.shp
+
+schp:
+	Inherits@MUZZLE: ^WithCannonMuzzle
+	dot:
+		Filename: bits/dot.shp
+		ZOffset: -9999
+	deploy:
+		Filename: conqmd|schpdepl.shp
+		Length: 11
+		ShadowStart: 11
+		Tick: 136
+	shadow:
+		Filename: bits/vehicles/aircraftshadows/schpshadow.shp
+		Facings: 32
+	icon:
+		Filename: cameomd|schpicon.shp
+
+bpln:
+	icon:
+		Filename: cameomd|bplnicon.shp
+
+disk:
+	muzzle:
+		Filename: conqmd|diskray.shp
+		Length: 4
+		Tick: 100
+	icon:
+		Filename: bits/cameos/diskicon.shp
+
+# Custom Aircraft
+hind:
+	shadow:
+		Filename: bits/vehicles/aircraftshadows/hindshadow.shp
+		Facings: 32
+		Scale: 1.15
+	icon:
+		Filename: bits/cameos/hindicon.shp
+
+alplane:
+	icon:
+		Filename: cameo|xxicon.shp
+
+civplane:
+	icon:
+		Filename: cameo|xxicon.shp
+
+pcplane:
+	icon:
+		Filename: cameo|xxicon.shp
+
+fortress:
+	icon:
+		Filename: bits/cameos/sprticon.shp
+
+sdrn:
+	icon:
+		Filename: bits/cameos/sdrnicon.shp
+
+a10:
+	icon:
+		Filename: bits/cameos/a101icon.shp
+
+txdx:
+	icon:
+		Filename: bits/cameos/txdxicon.shp
+
+txbmb:
+	icon:
+		Filename: cameo|xxicon.shp
+
+kite:
+	shadow:
+		Filename: bits/vehicles/aircraftshadows/kiteshadow.shp
+		Facings: 32
+	icon:
+		Filename: bits/cameos/kiteicon.shp
+
+magnedisk:
+	icon:
+		Filename: bits/cameos/mdskicon.png
+
+havoc:
+	shadow:
+		Filename: bits/vehicles/aircraftshadows/havocshadow.shp
+		Facings: 32
+	icon:
+		Filename: bits/cameos/havocicon.png
+
+b52:
+	icon:
+		Filename: cameo|xxicon.shp
+
+badgr:
+	icon:
+		Filename: bits/cameos/badgricon.png
+
+repdron:
+	idle:
+		Filename: bits/vehicles/repdron.shp
+		Facings: 1
+		Length: *
+	stand:
+		Filename: bits/vehicles/repdron.shp
+		Facings: 1
+		Length: *
+	run:
+		Filename: bits/vehicles/repdron.shp
+		Facings: 1
+		Length: *
+	die:
+		Filename: conquer|explosml.shp
+		Length: *

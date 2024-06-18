@@ -1,0 +1,402 @@
+^BasicInfantry:
+	stand:
+		Facings: 8
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+		Tick: 100
+	idle1:
+		Start: 56
+		Length: 15
+		Tick: 120
+	idle2:
+		Start: 71
+		Length: 15
+		Tick: 120
+	cheer:
+		Start: 245
+		Length: 8
+		Tick: 120
+	die1:
+		Start: 134
+		Length: 15
+	die2:
+		Start: 149
+		Length: 15
+	die4:
+		Filename: nukedie.shp
+		TilesetFilenames:
+			SNOW: nukedie.shp
+		Length: *
+		Tick: 50
+	die5:
+		Filename: yuridie.shp
+		TilesetFilenames:
+			SNOW: yuridie.shp
+		Length: *
+		Tick: 80
+	die6:
+		Filename: electro.shp
+		TilesetFilenames:
+			SNOW: electro.shp
+		Length: *
+		Tick: 80
+	die7:
+		Filename: virusd.shp
+		TilesetFilenames:
+			SNOW: virusd.shp
+		Length: *
+		Tick: 80
+	die8:
+		Filename: brutdie.shp
+		TilesetFilenames:
+			SNOW: brutdie.shp
+		Length: *
+		Tick: 80
+	die9:
+		Filename: gendeath.shp
+		TilesetFilenames:
+			SNOW: gendeath.shp
+		Length: *
+		Tick: 80
+	die10:
+		Filename: bits/animations/nukedieorange.shp
+		TilesetFilenames:
+			SNOW: bits/animations/nukedieorange.shp
+		Length: *
+		Facings: 1
+		Tick: 80
+	paradrop:
+
+^ProneInfantry:
+	liedown:
+		Start: 212
+		Length: 2
+		Facings: 8
+	standup:
+		Start: 228
+		Length: 2
+		Facings: 8
+	prone-stand:
+		Frames: 86, 92, 98, 104, 110, 116, 122, 128
+		Facings: 8
+	prone-run:
+		Start: 86
+		Length: 6
+		Facings: 8
+		Tick: 100
+
+^Infantry:
+	Inherits@1: ^BasicInfantry
+	Inherits@2: ^ProneInfantry
+
+^CivInfantry:
+	Inherits: ^Infantry
+	-idle2:
+	die1:
+		Start: 71
+	die2:
+		Start: 71
+	-standup:
+	-liedown:
+	prone-stand:
+		Frames: 182, 188, 194, 200, 206, 212, 218, 224
+	prone-run:
+		Start: 182
+	shoot:
+		Start: 86
+		Length: 6
+		Facings: 8
+	cheer:
+		Start: 230
+		Length: 8
+	panic-stand:
+		Facings: 8
+	panic-run:
+		Start: 134
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: cameo|xxicon.shp
+
+^ArmedInfantry:
+	Inherits: ^Infantry
+	shoot:
+		Start: 164
+		Length: 6
+		Facings: 8
+		Tick: 80
+	prone-shoot:
+		Start: 212
+		Length: 6
+		Facings: 8
+		Tick: 80
+	liedown:
+		Start: 260
+	standup:
+		Start: 276
+	cheer:
+		Start: 293
+
+^WithSwimsuit:
+	swim-stand:
+		Filename: conquer|seal.shp
+		Start: 340
+		Facings: 8
+		Length: 6
+		Tick: 160
+	swim-idle1:
+		Filename: conquer|seal.shp
+		Start: 484
+		Length: 15
+		Tick: 160
+	swim-idle2:
+		Filename: conquer|seal.shp
+		Start: 499
+		Length: 15
+		Tick: 160
+	swim-run:
+		Filename: conquer|seal.shp
+		Start: 388
+		Facings: 8
+		Length: 6
+		Tick: 120
+	swim-die1:
+		Filename: conquer|seal.shp
+		Start: 512
+		Length: 22
+	swim-die2:
+		Filename: conquer|seal.shp
+		Start: 534
+		Length: 20
+	swim-shoot:
+		Filename: conquer|seal.shp
+		Start: 436
+		Length: 6
+		Facings: 8
+		Tick: 80
+	swim-cheer:
+		Filename: conquer|seal.shp
+		Start: 611
+		Length: 8
+		Tick: 120
+
+^CivProp:
+	Defaults:
+		Offset: 0,-15
+	idle:
+		ShadowStart: 3
+	icon:
+		Filename: cameo|xxicon.shp
+		TilesetFilenames: # To be sure that Defaults: won't override this with building art.
+			TEMPERATE: cameo|xxicon.shp
+			SNOW: cameo|xxicon.shp
+			URBAN: cameo|xxicon.shp
+			NEWURBAN: cameo|xxicon.shp
+			DESERT: cameo|xxicon.shp
+			LUNAR: cameo|xxicon.shp
+			DUNE: cameo|xxicon.shp
+			SIMPLETERRAIN: cameo|xxicon.shp
+		Offset: 0,0
+
+^CivBuilding:
+	Defaults:
+	idle:
+		ShadowStart: 4
+	damaged-idle:
+		Start: 1
+		ShadowStart: 5
+	rubble:
+		Start: 3
+		ShadowStart: 7
+		ZOffset: -3c0
+	icon:
+		Filename: cameo|xxicon.shp
+		TilesetFilenames: # To be sure that Defaults: won't override this with building art.
+			TEMPERATE: cameo|xxicon.shp
+			SNOW: cameo|xxicon.shp
+			URBAN: cameo|xxicon.shp
+			NEWURBAN: cameo|xxicon.shp
+			DESERT: cameo|xxicon.shp
+			LUNAR: cameo|xxicon.shp
+			DUNE: cameo|xxicon.shp
+			SIMPLETERRAIN: cameo|xxicon.shp
+		Offset: 0,0
+
+^CivBuildingNoRubble:
+	Inherits: ^CivBuilding
+	idle:
+		ShadowStart: 3
+	damaged-idle:
+		ShadowStart: 4
+	-rubble:
+
+^GarrisonableBuilding:
+	garrisoned:
+		Start: 2
+		ShadowStart: 6
+
+^Fence:
+	Defaults:
+		Offset: 0,-15
+	idle:
+		Length: 16
+		ShadowStart: 32
+	damaged-idle:
+		Start: 16
+		Length: 16
+		ShadowStart: 48
+	icon:
+		Filename: cameo|wallicon.shp
+		TilesetFilenames: # To be sure that Defaults: won't override this with building art.
+			TEMPERATE: cameo|wallicon.shp
+			SNOW: cameo|wallicon.shp
+			URBAN: cameo|wallicon.shp
+			NEWURBAN: cameo|wallicon.shp
+			DESERT: cameo|wallicon.shp
+			LUNAR: cameo|wallicon.shp
+			DUNE: cameo|wallicon.shp
+			SIMPLETERRAIN: cameo|wallicon.shp
+		Offset: 0,0
+
+^Flag:
+	Defaults:
+		Offset: 0,-15
+	idle:
+		Filename: ctusfgl.shp
+		TilesetFilenames:
+			SNOW: causfgl.shp
+			URBAN: cuusfgl.shp
+			NEWURBAN: cnusfgl.shp
+			DESERT: cdusfgl.shp
+			LUNAR: clusfgl.shp
+			DUNE: cdusfgl.shp
+		ShadowStart: 4
+	damaged-idle:
+		Filename: ctusfgl.shp
+		TilesetFilenames:
+			SNOW: causfgl.shp
+			URBAN: cuusfgl.shp
+			NEWURBAN: cnusfgl.shp
+			DESERT: cdusfgl.shp
+			LUNAR: clusfgl.shp
+			DUNE: cdusfgl.shp
+		Start: 1
+		ShadowStart: 5
+	flag:
+		Length: 81
+		Offset: 27, -90
+		Tick: 120
+	flag-shadow:
+		Filename: bits/structures/flags/cgfglshdw.shp
+		Length: 81
+		ShadowStart: 81
+		Offset: 39, -7
+		Tick: 120
+	idle-waves:
+		Filename: gauwat.shp
+		Length: 15
+		Tick: 200
+		ZOffset: -1c0
+	icon:
+		Filename: bits/cameos/flags/flagicon.png
+		Offset: 0,0
+
+^WithMachineGunMuzzle:
+	muzzle:
+		Combine:
+			0:
+				Filename: mgun-n.shp
+				Length: 6
+			1:
+				Filename: mgun-nw.shp
+				Length: 6
+			2:
+				Filename: mgun-w.shp
+				Length: 6
+			3:
+				Filename: mgun-sw.shp
+				Length: 6
+			4:
+				Filename: mgun-s.shp
+				Length: 6
+			5:
+				Filename: mgun-se.shp
+				Length: 6
+			6:
+				Filename: mgun-e.shp
+				Length: 6
+			7:
+				Filename: mgun-ne.shp
+				Length: 6
+		Facings: 8
+		Length: 6
+		Offset: 0, 0
+
+^WithGatlingMuzzle:
+	muzzle:
+		Offset: 0,0
+		Combine:
+			0:
+				Filename: mgun-n.shp
+				Length: 6
+			1:
+				Filename: mgun-nw.shp
+				Length: 6
+			2:
+				Filename: mgun-w.shp
+				Length: 6
+			3:
+				Filename: mgun-sw.shp
+				Length: 3
+			4:
+				Filename: mgun-s.shp
+				Length: 6
+			5:
+				Filename: mgun-se.shp
+				Length: 6
+			6:
+				Filename: mgun-e.shp
+				Length: 6
+			7:
+				Filename: mgun-ne.shp
+				Length: 6
+		Facings: 8
+		Length: 3
+	muzzle-1:
+		Filename: conquer|gunfire.shp
+		Length: *
+		Offset: 0,0
+	muzzle-2:
+		Filename: conquer|vtmuzzle.shp
+		Length: *
+		Offset: 0,0
+
+^WithCannonMuzzle:
+	muzzle:
+		Filename: conquer|gunfire.shp
+		Length: *
+	muzzle-2:
+		Filename: conquer|vtmuzzle.shp
+		Length: *
+
+^WithFlakMuzzle:
+	muzzle:
+		Filename: conquer|gunfire.shp
+		Length: *
+		Offset: 0,0
+
+^WithMirageMuzzle:
+	muzzle:
+		Filename: conquer|vtmuzzle.shp
+		Length: *
+		Offset: 0,0
+
+^WithApocMuzzle:
+	muzzle:
+		Filename: conquer|apmuzzle.shp
+		Length: *
+	muzzle-2:
+		Filename: conquer|vtmuzzle.shp
+		Length: *

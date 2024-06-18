@@ -1,0 +1,441 @@
+^Miner:
+	Inherits: ^Vehicle
+	Inherits@RADIATON: ^DamagedByRadiation10Percent
+	Inherits@SELECTION_MODE: ^LowPrioritySelectionMode
+	Inherits@SQUID: ^SquidGrabbable
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle, Ship.Shared, Ship
+		BuildPaletteOrder: 10
+		Prerequisites: refinery, ~!global-megawealth, ~techlevel.1
+		Description: meta-miner.description
+		BuildDuration: 625
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 1400
+	DeliversCash:
+		Payload: 1400
+		Voice: Move
+	Tooltip:
+		Name: meta-miner.name
+	Tooltip@NoRow:
+		Name: meta-miner.name
+	Selectable:
+		Priority: 7
+		Bounds: 1544, 2509, 0, -289
+	Harvester:
+		Type: Unload
+		Resources: Ore, Gems
+		BaleLoadDelay: 12
+		BaleUnloadDelay: 1
+		FullyLoadedSpeed: 100
+		HarvestVoice: Harvest
+		EmptyCondition: no-ore
+	StoresResources:
+		Capacity: 40
+		Resources: Ore, Gems
+	DockClientManager:
+		Voice: Move
+	Explodes:
+		RequiresCondition: no-ore
+	Explodes@Ore:
+		DeathTypes: NonTemporal
+		Weapon: MinerExplode
+		RequiresCondition: !no-ore
+	Health:
+		HP: 100000
+	Armor:
+		Type: Medium
+	ChangesHealth:
+		PercentageStep: 1
+		Step: 0
+		Delay: 100
+		DamageCooldown: 100
+		StartIfBelow: 100
+	Mobile:
+		Speed: 60
+		TurnSpeed: 32
+		Locomotor: heavyamphibious
+		RequiresCondition: !chronodisable && !emp && !magnefreeze && !squid && !beinginfected
+	Crushable:
+		RequiresCondition: !invulnerability && (!in_water || on_dock) && !cheater-ai && !vengeful-ai
+	Crushable@Cheater:
+		RequiresCondition: !invulnerability && (!in_water || on_dock) && cheater-ai
+	Crushable@Vengeful:
+		RequiresCondition: !invulnerability && (!in_water || on_dock) && vengeful-ai
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	LeavesTrails:
+		Image: wake
+		Palette: effect50alpha
+		TerrainTypes: Water, Beach
+		Type: CenterPosition
+		StationaryInterval: 18
+		MovingInterval: 6
+		RequiresCondition: !on_dock
+	WithHarvestOverlay:
+		LocalOffset: 121,0,0
+		Palette: effect
+	RenderSprites:
+	RenderVoxels:
+	WithVoxelUnloadBody:
+		RequiresCondition: !in_water || on_dock
+	WithVoxelBody@Water:
+		Sequence: water
+		RequiresCondition: in_water && !on_dock
+	ExternalCondition@on_dock:
+		Condition: on_dock
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+		ValidRelationships: None
+	HitShape:
+	Targetable:
+		RequiresCondition: !in_water
+	Targetable@WATER:
+		TargetTypes: Ground, Water, Ship
+		RequiresCondition: in_water
+	GrantConditionOnTerrain@Water:
+		TerrainTypes: Water, Beach
+		Condition: in_water
+	RepairableNear:
+		Voice: Move
+		CloseEnough: 3c0
+		RepairActors: gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gayard, nayard, yayard, gaairc, gaairb, baairf, baairb, naheli, yadisk
+	RangedGpsDot:
+		Sequence: Harvester
+	WithStoresResourcesPipsDecoration:
+		Margin: 4, 3
+		Palette: ra
+		Position: BottomLeft
+		RequiresSelection: true
+		PipCount: 7
+		ResourceSequences:
+			Ore: pip-yellow
+			Gems: pip-blue
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, None, None, None, Harvester
+
+^ConstructionVehicle:
+	Inherits: ^Vehicle
+	Inherits@AI: ^AIMicroManagable
+	Inherits@CHAOS: ^BerserkableVoxel
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation10Percent
+	Inherits@SELECTION_MODE: ^LowPrioritySelectionMode
+	Inherits@SQUID: ^SquidGrabbable
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle, Ship.Shared, Ship
+		BuildPaletteOrder: 50
+		Description: meta-constructionvehicle.description
+		Prerequisites: ~techlevel.2, ~!global-suddendeath, ~!ai.mcv
+		BuildDuration: 1125
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 4000
+	DeliversCash:
+		Payload: 4000
+		Voice: Move
+	Tooltip:
+		Name: meta-constructionvehicle.name
+	Tooltip@NoRow:
+		Name: meta-constructionvehicle.name
+	Selectable:
+		Priority: 4
+		Bounds: 1544, 2509, 0, -289
+	Health:
+		HP: 160000
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 60
+		TurnSpeed: 20
+		Locomotor: heavyamphibious
+		RequiresCondition: !chronodisable && !emp && !magnefreeze && !squid && !beinginfected
+	-Crushable:
+	-Crushable@Cheater:
+	-Crushable@Vengeful:
+	Capturable:
+		RequiresCondition: !suddendeath
+	Capturable@PERMAMC:
+		RequiresCondition: !controlled && !permamc && !suddendeath
+	WithIdleOverlay@mindcontrol:
+		RequiresCondition: (controlled || permamc) && !suddendeath
+	Targetable@MC:
+		RequiresCondition: !controlled && !permamc && !suddendeath
+	MustBeDestroyed:
+		RequiredForShortGame: true
+		-RequiresCondition:
+	Guard:
+		Voice: Move
+	Passenger:
+		Weight: 6
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	BaseBuilding:
+	Transforms:
+		Voice: Move
+		IntoActor: cnst
+		Offset: -1,-1
+		Facing: 384
+		TransformSounds: uplace.wav
+		NoTransformNotification: BuildingCannotPlaceAudio
+		NoTransformTextNotification: notification-cannot-deploy-here
+		PauseOnCondition: chronodisable || emp || terrordroned || squid || controlled
+	TransferTimedExternalConditionOnTransform@INVULNERABILITY:
+		Condition: invulnerability
+	TransferTimedExternalConditionOnTransform@INVISIBILITY:
+		Condition: invisibility
+	LeavesTrails:
+		Image: wake
+		Palette: effect50alpha
+		TerrainTypes: Water, Beach
+		Type: CenterPosition
+		StationaryInterval: 18
+		MovingInterval: 6
+		RequiresCondition: !on_dock
+	RenderSprites:
+	RenderVoxels:
+	WithVoxelBody:
+		RequiresCondition: !in_water || on_dock
+	WithVoxelBody@Water:
+		Sequence: water
+		RequiresCondition: in_water && !on_dock
+	ExternalCondition@on_dock:
+		Condition: on_dock
+	HitShape:
+	Targetable:
+		RequiresCondition: !in_water
+	Targetable@WATER:
+		TargetTypes: Ground, Water, Ship
+		RequiresCondition: in_water
+	GrantConditionOnTerrain@Water:
+		TerrainTypes: Water, Beach
+		Condition: in_water
+	RepairableNear:
+		Voice: Move
+		CloseEnough: 3c0
+		RepairActors: gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gayard, nayard, yayard, gaairc, gaairb, baairf, baairb, naheli, yadisk
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+		ValidRelationships: None
+	# GrantConditionOnMovement@MoveStart:
+	#	Condition: moving
+	#	ValidMovementTypes: Horizontal, Turn
+	# SoundAnnouncement:
+	#	SoundFiles: vmcvstaa.wav
+	#	Volume: 0.4
+	#	RequiresCondition: moving
+	ProvidesPrerequisite@AIbuildinglimit:
+		RequiresCondition: ai-control
+		Prerequisite: ai.mcv
+	ActorStatValues:
+		Stats: Armor, Sight, Speed
+
+^ExpansionVehicle:
+	Inherits: ^Vehicle
+	Inherits@AI: ^AIMicroManagable
+	Inherits@AUTOTARGETAI: ^AutoTargetGroundAssaultMove
+	Inherits@CHAOS: ^BerserkableVoxel
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Inherits@SELECTION_MODE: ^LowPrioritySelectionMode
+	Inherits@SQUID: ^SquidGrabbable
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle, Ship.Shared, Ship
+		BuildPaletteOrder: 60
+		Description: meta-expansionvehicle.description
+		Prerequisites: ~techlevel.1, ~!ai.ev
+		BuildDuration: 500
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 1200
+	DeliversCash:
+		Payload: 1200
+		Voice: Move
+	Tooltip:
+		Name: meta-expansionvehicle.name
+	Tooltip@NoRow:
+		Name: meta-expansionvehicle.name
+	Selectable:
+		Priority: 4
+		Bounds: 1544, 2509, 0, -289
+	Health:
+		HP: 80000
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 90
+		TurnSpeed: 16
+		Locomotor: heavyamphibious
+		TurnsWhileMoving: true
+		TerrainOrientationAdjustmentMargin: -1
+		RequiresCondition: !chronodisable && !emp && !magnefreeze && !squid && !beinginfected
+	Crushable:
+		RequiresCondition: !invulnerability && (!in_water || on_dock) && !cheater-ai && !vengeful-ai
+	Crushable@Cheater:
+		RequiresCondition: !invulnerability && (!in_water || on_dock) && cheater-ai
+	Crushable@Vengeful:
+		RequiresCondition: !invulnerability && (!in_water || on_dock) && vengeful-ai
+	ExternalCondition@on_dock:
+		Condition: on_dock
+	Guard:
+		Voice: Move
+	Passenger:
+		Weight: 3
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	MustBeDestroyed:
+		RequiredForShortGame: true
+	Transforms:
+		Voice: Move
+		IntoActor: expn
+		Facing: 384
+		TransformSounds: uplace.wav
+		NoTransformNotification: BuildingCannotPlaceAudio
+		NoTransformTextNotification: notification-cannot-deploy-here
+		PauseOnCondition: chronodisable || emp || terrordroned || squid || controlled
+	TransferTimedExternalConditionOnTransform@INVULNERABILITY:
+		Condition: invulnerability
+	TransferTimedExternalConditionOnTransform@INVISIBILITY:
+		Condition: invisibility
+	LeavesTrails:
+		Image: wake
+		Palette: effect50alpha
+		TerrainTypes: Water, Beach
+		Type: CenterPosition
+		StationaryInterval: 18
+		MovingInterval: 6
+	RenderSprites:
+	RenderVoxels:
+	WithVoxelBody:
+	HitShape:
+	Targetable:
+		RequiresCondition: !in_water
+	Targetable@WATER:
+		TargetTypes: Ground, Water, Ship
+		RequiresCondition: in_water
+	GrantConditionOnTerrain@Water:
+		TerrainTypes: Water, Beach
+		Condition: in_water
+	RepairableNear:
+		Voice: Move
+		CloseEnough: 3c0
+		RepairActors: gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gayard, nayard, yayard, gaairc, gaairb, baairf, baairb, naheli, yadisk
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+		ValidRelationships: None
+	# GrantConditionOnMovement@MoveStart:
+	#	Condition: moving
+	#	ValidMovementTypes: Horizontal, Turn
+	# SoundAnnouncement:
+	#	SoundFiles: vmcvstaa.wav
+	#	Volume: 0.4
+	#	RequiresCondition: moving
+	IssueOrderToBot@AI:
+		OrderName: DeployTransform
+		OrderChance: 100
+		OrderInterval: 5
+		OrderTrigger: Attack
+	Hovers:
+		Ticks: 10
+		BobDistance: -64
+		InitialHeight: 384
+		# PauseOnCondition: chronodisable
+		RequiresCondition: !emp && !magnefreeze && !squid
+	Armament@AIDummyAiming: ## Hack: Make AI ExpansionVehicle deploy
+		RequiresCondition: ai-control
+		Weapon: GroundDummyAim
+	AttackFrontal:
+		Voice: Move
+		FacingTolerance: 128
+		PauseOnCondition: chronodisable || emp
+	AttackMove:
+		Voice: Move
+	ProvidesPrerequisite@AIbuildinglimit:
+		RequiresCondition: ai-control
+		Prerequisite: ai.ev
+	ActorStatValues:
+		Stats: Armor, Sight, Speed
+
+^MainBattleTank:
+	Inherits: ^Vehicle
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@BUNKER: ^TankBunkerable
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@NOGUNNER: ^GunnerKillable
+	Inherits@RADIATON: ^DamagedByRadiation10Percent
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle
+		Prerequisites: ~techlevel.1
+		BuildPaletteOrder: 20
+		Description: meta-mainbattletank.description
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		TurnSpeed: 32
+		Locomotor: heavytracked
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	Turreted:
+		TurnSpeed: 28
+	WithMuzzleOverlay:
+	AttackTurreted:
+		Voice: Attack
+		PauseOnCondition: chronodisable || emp || nogunner || parachute
+	AutoTarget:
+	RenderSprites:
+	RenderVoxels:
+	WithVoxelBody:
+	WithVoxelTurret:
+	WithVoxelBarrel:
+	ProducibleWithLevel@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+		Types: chevron-elite
+	HitShape:
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+		ValidRelationships: None
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange

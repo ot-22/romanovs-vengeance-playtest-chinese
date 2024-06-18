@@ -1,0 +1,97 @@
+IvanBombAttacher:
+	ValidTargets: IvanBomb
+	ReloadDelay: 50
+	TargetActorCenter: true
+	Range: 1c512
+	Projectile: InstantHit
+	Report: icraatta.wav
+	Warhead@1Att: AttachDelayedWeapon
+		Weapon: IvanBomber
+		Type: IvanBomb
+		TriggerTime: 125
+		Range: 0c128
+	Warhead@2Dam: TargetDamage
+
+IvanBombAttacherE:
+	Inherits: IvanBombAttacher
+	Warhead@1Att: AttachDelayedWeapon
+		Weapon: IvanBomberE
+
+SEALC4Attacher:
+	Inherits: IvanBombAttacher
+	ValidTargets: SEALC4
+	InvalidTargets: Barrel, Mine
+	Report: iseaseta.wav
+	Warhead@1Att: AttachDelayedWeapon
+		Weapon: SEALC4
+		Type: SEALC4
+		TriggerTime: 50
+
+SEALC4AttacherE:
+	Inherits: SEALC4Attacher
+	Warhead@1Att: AttachDelayedWeapon
+		Weapon: SEALC4E
+
+CommandoC4Attacher:
+	Inherits: IvanBombAttacher
+	ValidTargets: CommandoC4
+	InvalidTargets: Barrel, Mine
+	Report: iseaseta.wav
+	Warhead@1Att: AttachDelayedWeapon
+		Weapon: SEALC4
+		Type: CommandoC4
+		TriggerTime: 50
+
+CommandoC4AttacherE:
+	Inherits: CommandoC4Attacher
+	Warhead@1Att: AttachDelayedWeapon
+		Weapon: SEALC4E
+
+TanyaC4Attacher:
+	Inherits: IvanBombAttacher
+	ValidTargets: TanyaC4
+	Report: iseaseta.wav
+	Warhead@1Att: AttachDelayedWeapon
+		Weapon: TanyaC4
+		Type: TanyaC4
+		TriggerTime: 50
+
+TeslaBombAttacher:
+	Inherits: IvanBombAttacher
+	ValidTargets: TeslaBomb
+	InvalidTargets: Barrel, Mine
+	Report: iseaseta.wav
+	Warhead@1Att: AttachDelayedWeapon
+		Weapon: TeslaBomb
+		Type: TeslaBomb
+		TriggerTime: 75
+
+TeslaBombAttacherE:
+	Inherits: TeslaBombAttacher
+	Warhead@1Att: AttachDelayedWeapon
+		Weapon: TeslaBombE
+
+ToxinBombAttacher:
+	Inherits: IvanBombAttacher
+	ValidTargets: ToxinBomb
+	InvalidTargets: Barrel, Mine
+	Warhead@1Att: AttachDelayedWeapon
+		Weapon: ToxinTrooperBomb
+		Type: ToxinBomb
+		TriggerTime: 75
+
+ToxinBombAttacherE:
+	Inherits: ToxinBombAttacher
+	Warhead@1Att: AttachDelayedWeapon
+		Weapon: ToxinTrooperBombE
+
+DefuseKit:
+	ReloadDelay: 50
+	TargetActorCenter: true
+	Range: 1c512
+	Report: gdefuse.wav
+	Projectile: InstantHit
+	ValidTargets: IvanBombCleaner, SEALC4Cleaner, CommandoC4Cleaner, TanyaC4Cleaner, TeslaBombCleaner, ToxinBombCleaner
+	Warhead@1Det: DetachDelayedWeapon
+		Types: IvanBomb, SEALC4, CommandoC4, TanyaC4, TeslaBomb
+	Warhead@2Dam: TargetDamage

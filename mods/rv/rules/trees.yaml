@@ -1,0 +1,148 @@
+TIBTRE01:
+	Inherits: ^OreDrill
+
+TIBTRE02:
+	Inherits: ^OreDrill
+
+TIBTRE03:
+	Inherits: ^OreDrill
+
+TIBTRE04:
+	Inherits: ^OreDrill
+	Tooltip:
+		Name: actor-tibtre04.name
+	AppearsOnMapPreview:
+		Terrain: Gems
+	RadarColorFromTerrain:
+		Terrain: Gems
+	SeedsResource:
+		ResourceType: Gems
+		Interval: 100
+	WithIdleAnimation:
+		Interval: 500
+
+TIBTRE05:
+	Inherits: ^OreDrill
+	WithSpriteBody@2:
+		Name: body2
+		Sequence: idle-flipped
+	Tooltip:
+		Name: actor-tibtre05.name
+	SeedsResource:
+		Interval: 25
+	WithIdleAnimation:
+		Interval: 125
+	WithIdleAnimation@2:
+		Sequences: active-flipped
+		Interval: 125
+		Body: body2
+
+TREE01:
+	Inherits: ^Tree
+
+TREE02:
+	Inherits: ^Tree
+
+TREE03:
+	Inherits: ^Tree
+
+TREE04:
+	Inherits: ^Tree
+
+TREE05:
+	Inherits: ^Tree
+
+TREE06:
+	Inherits: ^Tree
+
+TREE07:
+	Inherits: ^Tree
+
+TREE08:
+	Inherits: ^Tree
+
+TREE09:
+	Inherits: ^Tree
+
+TREE10:
+	Inherits: ^Tree
+
+TREE11:
+	Inherits: ^Tree
+
+TREE12:
+	Inherits: ^Tree
+
+TREE13:
+	Inherits: ^Tree
+
+TREE14:
+	Inherits: ^Tree
+
+TREE15:
+	Inherits: ^Tree
+
+TREE16:
+	Inherits: ^Tree
+
+TREE17:
+	Inherits: ^Tree
+
+TREE18:
+	Inherits: ^Tree
+
+TREE19:
+	Inherits: ^Tree
+
+TREE20:
+	Inherits: ^Tree
+
+TREE21:
+	Inherits: ^Tree
+
+TREE22:
+	Inherits: ^Tree
+
+TREE23:
+	Inherits: ^Tree
+
+TREE24:
+	Inherits: ^Tree
+
+TREE25:
+	Inherits: ^Tree
+
+TREE26:
+	Inherits: ^Tree
+
+TREE27:
+	Inherits: ^Tree
+
+TREE28:
+	Inherits: ^Tree
+
+TREE29:
+	Inherits: ^Tree
+	MapEditorData:
+		ExcludeTilesets: SNOW
+
+TREE30:
+	Inherits: TREE29
+
+TREE31:
+	Inherits: TREE29
+
+TREE32:
+	Inherits: TREE29
+
+TREE33:
+	Inherits: TREE29
+
+TREE34:
+	Inherits: TREE29
+
+TREE35:
+	Inherits: TREE29
+
+TREE36:
+	Inherits: TREE29

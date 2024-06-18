@@ -1,0 +1,524 @@
+Romanov's Vengeance is a 3rd-party OpenRA Mod
+based on OpenRA Red Alert 2 mod.
+
+This mod uses modifications from Attacque Supérior
+engine by Gyula Zimmermann (Graion Dilach).
+
+You can see the details of credits for OpenRA and AS
+on the other tabs above.
+
+Credits for the maps can be seen in the map
+selection menu.
+
+Romanov's Vengeance is developed by:
+ * Mustafa Alperen Seki (MustaphaTR)
+   > Coding
+   > Misc artwork
+
+ * ZxGanon
+   > Balancing
+   > Streaming
+
+Other contributors:
+ * Gyula Zimmermann (Graion Dilach)
+   > Attacque Supérior engine coding and maintenance
+   > Lightning Storm logic
+   > Psychic Sensor logic
+   > Smoke and fire animations on damaged buildings
+    and units
+   > Smoke animations on Refineries and Ore Purifier
+   > Particle effects for Terror Droned or Damaged
+    vehicles and disabled Robot Tanks
+   > Cameo veterancy chevron
+   > VXL2SHP map
+   > Misc AI adjustments
+   > Misc animation adjustments
+   > Misc sound adjustments
+   > Mobile Radar Jammer/Robot Control Vehicle voxel
+   > Help to find public artwork
+
+ * darkscrypt
+   > Garrison logic
+   > Smart Deploy logic
+
+ * Matthias Mailänder (Mailaender)
+   > Improvements to Mirage Tank disguise logic
+
+ * Marn
+   > Chrono Grizzly cameo
+   > Flame Tank cameo
+   > Spy Drop cameo
+   > Gem Mine artwork
+   > Building selection box adjustments
+
+ * Nah
+   > Advanced Irradiators Infantry Death Animation
+   > Armored Transport cameo
+   > Brute Drop cameo
+   > Chronobomb cameo
+   > Chaos Gas Drop cameo
+   > Chaos Trooper cameo
+   > Disc Pad cameo
+   > Fallout Bomb cameo
+   > Gatling Submarine cameo
+   > Giant Tarantula cameo
+   > Grenadier cameo
+   > Havoc Attack Helicopter cameo
+   > Hologram Army cameo
+   > Intoxicator cameo
+   > Lazarus Spectre cameo
+   > Mosquito Disc cameo
+   > Mutant Crab cameo
+   > Orbital Drop cameo
+   > Pirahna Submarine cameo
+   > Point Defense Drones cameo
+   > Tesla Fence cameo
+   > Yuri Statue cameo
+   > Psi-Corps Construction Yard cameo
+
+ * Nolt
+   > Hologram Animations
+   > Lazarus Spectre artwork
+   > Mutant Tarantula artwork
+   > Flag Animations
+
+ * Nooze
+   > Allied Silo artwork and cameo
+   > Soviet Silo artwork and cameo
+   > Soviet Helipad artwork and cameo
+   > Psi-Corps Silo artwork and cameo
+
+ * Kwendy
+   > Hind Carryall voice lines
+
+ * Matthew Vanston
+   > Flamethrower voice lines
+   > Grenadier voice lines
+   > Lazarus Tank voice lines
+   > Mortar Tricycle voice lines
+
+ * N/A
+   > Domination mode code
+
+ * Janitor
+   > Mapping
+
+ * StolenTech
+   > Mapping
+
+ * FiveAces
+   > Streaming and YouTube videos
+
+The following art and sound works are public assets
+taken from places like PPMSite or YR Argentina.
+
+A more detailed list of these that shows which
+files each credit refers to can be found in
+.mods/rv/bits/AUTHORS.txt file.
+
+ * 206UE
+   > Pony voxels
+
+ * 4StarGeneral
+   > Additional Civ. Gates
+   > Psi-Corps War Factory Rotataions
+   > cawash06 shadow fix
+
+ * ArgCmdr
+   > Brute Droppods
+   > Grizlly Bear
+   > Remappable General
+   > Empty Truck
+   > Gray Barrels
+
+ * Atomic_Noodles
+   > Infantry Fixes
+   > Engineer Recolors and Boat
+   > G.I. with G.I. Fortifications
+   > Rocket Soldier
+   > Tanya Snow Artwork
+   > Stingray cameo
+   > Missile Truck
+   > Psi-Corps Structure Fixes
+
+ * Augusto
+   > Minelayer
+
+ * Azri_Apoc
+   > Devastator
+   > Sentry Drone
+
+ * B.A.Znd:
+   > Cement Mixer
+
+ * Blade
+   > IFV Turrets
+   > Terrain Expansion
+
+ * BobinagAbout
+   > Allied Gates
+
+ * Bu7loos:
+   > Black Kite
+
+ * CannisRabidus
+   > IFV Turrets
+
+ * ConMan:
+   > Qızıl Ulduz Defense Platform
+
+ * Cranium
+   > Mortar Tricycle
+
+ * Chriz
+   > Hydrofoil
+
+ * cxtian39
+   > Assault Destroyer
+
+ * Dark Elf 2001
+   > Tesla Commando
+   > Guardian G.I. with Portable Weaponary
+
+ * datmax2014
+   > Allied Airpad
+   > Allied Airpad Cameo
+
+ * Daz
+   > Scout Drone
+   > Posion Carrier Turret
+   > B-52
+   > Scout Drone Cameo
+
+ * DJ FreeStyler
+   > Devastator Weapon Animation
+
+ * DJBREIT
+   > Terrain Expansion
+
+ * DonutArnold
+   > Psychic Reveal Animation
+
+ * Droke
+   > Stealth Generator
+
+ * Eoral Milk
+   > Propaganda Tower Cameo
+   > Propaganda Tower
+   > Chrono Miner
+   > Grizlly Tank
+   > Rhino Tank
+   > Tank Destroyer
+   > V3 Launcher
+   > Lazarus Tank
+
+ * Fryone
+   > Lazarus Miner
+
+ * Gamemate
+   > Baku Pact Barracks artwork and cameo
+
+ * Gangster
+   > Tesla Fence
+   > Tesla Fence Post
+
+ * G-E
+   > Snowy Civilian Buildings
+   > Picnic Table
+   > Grad MLRS artwork and cameo
+
+ * genobreaker
+   > EMP Bomb artwork
+   > Fallout Bomb artwork
+   > Parabomb artwork
+
+ * HG_SCIPCION
+   > Strider Tank cameo
+
+ * Lao Tze
+   > Mechanic
+
+ * lefthand
+   > Chitzkoi Cameo
+   > Tesla Commando Cameo
+
+ * LGibbs:
+   > Piranha Submarine
+
+ * Lord Kal
+   > Hijacker
+
+ * MadHQ
+   > Chrono Tank Cameo
+   > Gun Turret Cameo
+   > Mirage Turret Cameo
+   > Psi-Corps Ore Refinery Cameo
+   > Psi-Corps Service Depot Cameo
+   > Tech Missile Silo Missile
+   > Motorised Engineer
+   > Tech Missile Silo
+   > Gap Generator Animation
+   > Sentry Gun
+   > Gun Turret
+   > Mirage Turret
+   > Psi-Corps Ore Refinery
+   > Psi-Corps Service Depot
+   > Guardian GI IFV Turret
+   > Chrono Tank
+   > Lethocerus Platform
+   > Mosquito Disc
+
+ * MasterHaosis
+   > Insufficient Silos notification
+   > Gatling Trooper Cameo
+   > Gatling Trooper
+
+ * Merophage
+   > Military Academy
+
+ * MiGEater
+   > Airborne Cameo
+   > Tank Drop Cameo
+   > Cargo Planes
+   > F22 Raptor
+
+ * Moder.U
+   > Annihilator Artillery
+
+ * Mustafa Alperen Seki (MustaphaTR)
+   > You Have Promoted notification
+   > Enemy Airstrike Initiated notification
+   > Blue/Black/Pink Fire
+   > Purple Chaos Gas
+   > Red Bullet Hit Animations
+   > Orange Demolition Truck Explosion
+   > Toxin Explosions
+   > Toxin Bomb
+   > Advanced Coolants Cameo
+   > Advanced Gun Systems Cameo
+   > Advanced Irradiators Cameo
+   > Advanced Magnetics Cameo
+   > Alligator Cameo
+   > Annihilator Artillery Cameo
+   > Autoloaders Cameo
+   > Black Kite Cameo
+   > Boost-Gliding Systems Cameo
+   > Bullet-Proof Coats Cameo
+   > Camel Cameo
+   > Cash Bounty Cameo
+   > Chairman Yakubov Cameo
+   > Chaos Tank Compensators Cameo
+   > Combat Ambulance Cameo
+   > Cow Cameo
+   > Cruiser Cameo
+   > Cryo Missiles Cameo
+   > Cryo Shells Cameo
+   > Cryo Warheads Cameo
+   > Death Bombs Cameo
+   > Devastator Cameo
+   > Disc Armor Cameo
+   > Einstein Cameo
+   > Emergency Repair Cameos
+   > E.M. Pulse Cameo
+   > EMP Munitions Cameo
+   > Endurance Training Cameo
+   > Excavator Cameo
+   > Farm Cameo
+   > Flamethrower Cameo
+   > Focused Mind Cameo
+   > Fuel Air Bomb Cameos
+   > General Cameo
+   > General Vladimir Cameo
+   > G.I. Fortifications Cameo
+   > Grinder Treads Cameo
+   > Grizzly Bear Cameo
+   > Improved Flaks Cameo
+   > Increased Payload Cameo
+   > Invisibility Cameo
+   > Ion Cannon Cameo
+   > Iron Trooper Cameo
+   > Lazarus Prime Cameo
+   > Lazarus Tank Cameo
+   > Magnetic Beam Cameos
+   > Mechanic Cameo
+   > Monkey Cameo
+   > Mortar Tricycle Cameo
+   > Laser Capacitors Cameo
+   > Lethocerus Platform Cameo
+   > Parabomb Cameos
+   > Polar Bear Cameo
+   > Police Car Cameo
+   > President Dugan Cameo
+   > Premier Romanov Cameo
+   > Propaganda Cameos
+   > Psi-Corps Attack Dog Cameo
+   > Radar Jammer Cameos
+   > Radioactive Warheads Cameo
+   > Rocket Barrage Cameo
+   > Sensor Buoy Cameo
+   > Sentry Drone Cameo
+   > Slave Cameo
+   > Smoke Grenades Cameo
+   > Spy Satellite Cameo
+   > Satellite Scan Cameo
+   > Targeted Explosives Cameo
+   > Tech Communications Center Cameo
+   > Tech Missile Silo Cameo
+   > Tesla Drop Cameo
+   > Toxin Bombing Cameos
+   > Iron Trooper
+   > Desolator with Advanced Irradiators
+   > Colored Civilian Fences
+   > Building Water Overlays
+   > Advanced Coolant
+   > Allied Guard Shack
+   > Naval Mine
+   > Snowy CALA14
+   > Disc Pad Build Animation
+   > Yuri Statue Build Animation
+   > Nuclear Reactor with Advanced Irradiators
+   > Psi-Corps Attack Dog
+   > Larger Cannon
+   > Leaflet
+   > Purple Toxin Gas
+   > Radiation Missile
+   > 1 Missile Dreadnought
+   > Black and Brown Automobile
+   > Grinder Tank
+   > Lasher Tank with Autoloaders
+   > Howitzer with EMP Munitions
+   > Apocalypse Tank with Nuclear Engines
+   > Rhino Tank with Nuclear Engines
+   > Demolition Truck with High Explosive Bombs
+   > Upgraded Harrier
+   > B2 Spirit with Increased Payload
+   > V3 Launcher with Radioactive Warheads
+   > Dreadnought with Radioactive Warheads
+   > Upgraded Kirov Airship
+   > Composite Armored Vehicles
+   > Vehicles with Advanced Gun Systems
+   > Miner Water Variants
+   > Allied MCV Water Variant
+   > Soviet MCV Water Variant
+
+ * Mooman65
+   > Allied Gate Cameos
+   > Soviet Gate Cameos
+   > Soviet Gates
+   > Tech Communications Center
+   > Terrain Expansion
+
+ * MPL
+   > Tu-16 Badger
+
+ * Nooze
+   > Barbed Wire Fence
+   > Baku Pact Airfield artwork and cameo
+   > Mortar Turret
+
+ * Nyknck (https://kvsr.itch.io/)
+   > Hijacker Smoke Bomb
+
+ * OmegaBolt
+   > Dune Tileset
+   > Lunar Terrain Expansion
+   > 3x3 Tech Hospital
+
+ * OverWatch
+   > Toxin Bomber
+   > Strider Tank
+
+ * Paul Chote (PChote)
+   > Howitzer
+   > Psi-Corps Hover MCV
+
+ * Prime
+   > Tech Reinforments Pad
+
+ * PussyPus
+   > Lazarus Miner Cameo
+
+ * raminator
+   > Flamethrower
+
+ * RLY_BiG_Tank
+   > RA1 Heavy Tank
+
+ * Rommel
+   > Chaos Trooper
+
+ * Salted Old
+   > Stingray
+
+ * SaneDisruption
+   > Combat Ambulance
+
+ * Shepherd Moons
+   > Armored Transport
+   > Flame Tank
+
+ * Speeder
+   > Apocalypse Cameo
+   > Radar Dome Cameo
+   > Stealth Generator Cameo
+   > Psi-Corps Radar Dome
+
+ * Stingerrr
+   > Apocalypse Tank Turret
+   > Havoc Attack Helicopter
+
+ * SxWxSGame (spiritwitchspiritgame@gmail.com)
+   > Prism Impact Animation
+
+ * Sydro
+   > B2 Spirit Cameo
+
+ * TAK02
+   > Demolition Truck
+
+ * The I Man
+   > Special Operations Center
+   > Special Operations Center Cameo
+
+ * tomsons26
+   > Soviet Engineer Cameo
+
+ * Trans_C
+   > Grenadier Artwork
+   > Grenade Artwork
+
+ * Tratos
+   > Radiation Missile Cameo
+
+ * TurnAGamer
+   > Tech Reinforcement Pad
+
+ * TX1138
+   > Apocalypse Tank Base
+   > Gatling Submarine
+
+ * unknown_men
+   > Dog Swim Animations
+
+ * Viktor Hahn
+   > Lazarus Shield Activation Animation
+
+ * Vinifera7
+   > Psi-Corps Gate
+   > Psi-Corps Gate Cameos
+
+ * WeeRaby2k
+   > A-10 Warthog
+
+ * Windsk
+   > Tech Armory
+
+ * ZombyDragon
+   > Intoxicator
+
+The mod owes thanks for OpenRA for it's modularity
+which allows this mod to exist in the first place.
+
+Also thanks for you, the user for playing our mod.
+
+EA has not endorsed and does not support this product.

@@ -1,0 +1,1770 @@
+^default.commanders_power:
+	Interactable:
+	AlwaysVisible:
+	Buildable:
+		Queue: Power.Allies, Power.Soviets, Power.Yuri, Power.Baku
+		BuildDuration: 1
+		BuildDurationModifier: 100
+		BuildLimit: 1
+	RenderSprites:
+	ProvidesPrerequisite@powername:
+	Valued:
+		Cost: 0
+	UpdatesPlayerStatistics:
+		AddToUpgradesTab: true
+	WithProductionIconOverlay:
+		Prerequisites: default.commanders_power
+		Types: stripe-taken
+
+commanders_power.ifv_training:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-ifv-training.name
+	-Buildable:
+	#	Queue: Power.Allies
+	#	BuildPaletteOrder: 10
+	#	Prerequisites: ~disabled # prerequisite.has_points
+	#	Description: actor-commanders-power-ifv-training.description
+	ProvidesPrerequisite@vetifv:
+		Prerequisite: vetifv
+	ProvidesPrerequisite@vetifvorbaacdm:
+		Prerequisite: vetifvorbaacdm
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.ifv_training
+	WithProductionIconOverlay@training:
+		Types: chevron-veteran
+
+commanders_power.harrier_training:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-harrier-training.name
+	Buildable:
+		Queue: Power.Allies
+		BuildPaletteOrder: 10
+		Prerequisites: prerequisite.has_points
+		Description: actor-commanders-power-harrier-training.description
+	ProvidesPrerequisite@vetair:
+		Prerequisite: vetair
+	ProvidesPrerequisite@vetairorbaacdm:
+		Prerequisite: vetairorbaacdm
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.harrier_training
+	WithProductionIconOverlay@training:
+		Types: chevron-elite
+
+commanders_power.inf_training:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-inf-training.name
+	Buildable:
+		Queue: Power.Soviets
+		BuildPaletteOrder: 10
+		Prerequisites: prerequisite.has_points
+		Description: actor-commanders-power-inf-training.description
+	ProvidesPrerequisite@vete2flakt:
+		Prerequisite: vete2flakt
+	ProvidesPrerequisite@vete2flaktorbaacdm:
+		Prerequisite: vete2flaktorbaacdm
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.inf_training
+	WithProductionIconOverlay@training:
+		Types: chevron-veteran
+
+commanders_power.gatling_training:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-gatling-training.name
+	Buildable:
+		Queue: Power.Yuri
+		BuildPaletteOrder: 10
+		Prerequisites: prerequisite.has_points
+		Description: actor-commanders-power-gatling-training.description
+	ProvidesPrerequisite@ytnk:
+		Prerequisite: vetytnk
+	ProvidesPrerequisite@vetytnkorbaacdm:
+		Prerequisite: vetytnkorbaacdm
+	ProvidesPrerequisite@gtrp:
+		Prerequisite: vetgtrp
+	ProvidesPrerequisite@vetgtrporbaacdm:
+		Prerequisite: vetgtrporbaacdm
+	ProvidesPrerequisite@gatsub:
+		Prerequisite: vetgatsub
+	ProvidesPrerequisite@vetgatsuborbaacdm:
+		Prerequisite: vetgatsuborbaacdm
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.gatling_training
+	WithProductionIconOverlay@training:
+		Types: chevron-veteran
+
+commanders_power.arty_training:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-arty-training.name
+	Buildable:
+		Queue: Power.Baku
+		BuildPaletteOrder: 10
+		Prerequisites: prerequisite.has_points
+		Description: actor-commanders-power-arty-training.description
+	ProvidesPrerequisite@vetmtrp:
+		Prerequisite: vetmtrp
+	ProvidesPrerequisite@vetmtrporbaacdm:
+		Prerequisite: vetmtrporbaacdm
+	ProvidesPrerequisite@vetgrad:
+		Prerequisite: vetgrad
+	ProvidesPrerequisite@vetgradorbaacdm:
+		Prerequisite: vetgradorbaacdm
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.arty_training
+	WithProductionIconOverlay@training:
+		Types: chevron-veteran
+
+commanders_power.airpad:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-airpad.name
+	-Buildable:
+	#	Queue: Power.Allies
+	#	BuildPaletteOrder: 20
+	#	Prerequisites: ~disabled # prerequisite.has_points
+	#	Description: actor-commanders-power-airpad.description
+	ProvidesPrerequisite@airpad:
+		Prerequisite: prerequisite.airpad
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.airpad
+	RenderSprites:
+		Image: gaapad
+
+commanders_power.gun_turret:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-gun-turret.name
+	Buildable:
+		Queue: Power.Allies
+		BuildPaletteOrder: 20
+		Prerequisites: prerequisite.has_points
+		Description: actor-commanders-power-gun-turret.description
+	ProvidesPrerequisite@gun_turret:
+		Prerequisite: prerequisite.gun_turret
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.gun_turret
+	RenderSprites:
+		Image: gagun
+
+commanders_power.tesla_fence:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-tesla-fence.name
+	Buildable:
+		Queue: Power.Soviets, Power.Baku
+		BuildPaletteOrder: 20
+		Prerequisites: prerequisite.has_points
+		Description: actor-commanders-power-tesla-fence.description
+	ProvidesPrerequisite@tesla_fence:
+		Prerequisite: prerequisite.tesla_fence
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.tesla_fence
+	RenderSprites:
+		Image: napost
+
+commanders_power.grinder:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-grinder.name
+	Buildable:
+		Queue: Power.Yuri
+		BuildPaletteOrder: 20
+		Prerequisites: prerequisite.has_points
+		Description: actor-commanders-power-grinder.description
+	ProvidesPrerequisite@grinder:
+		Prerequisite: prerequisite.grinder
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.grinder
+	RenderSprites:
+		Image: yagrnd
+
+commanders_power.medic:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-medic.name
+	-Buildable:
+	#	Queue: Power.Allies
+	#	BuildPaletteOrder: 30
+	#	Prerequisites: ~disabled # prerequisite.has_points
+	#	Description: actor-commanders-power-medic.description
+	ProvidesPrerequisite@medic:
+		Prerequisite: prerequisite.medic
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.medic
+	RenderSprites:
+		Image: medi
+
+commanders_power.ambulance:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-ambulance.name
+	Buildable:
+		Queue: Power.Allies
+		BuildPaletteOrder: 30
+		Prerequisites: prerequisite.has_points
+		Description: actor-commanders-power-ambulance.description
+	ProvidesPrerequisite@ambulance:
+		Prerequisite: prerequisite.ambulance
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.ambulance
+	RenderSprites:
+		Image: aambu
+
+commanders_power.hijacker:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-hijacker.name
+	-Buildable:
+	#	Queue: Power.Soviets
+	#	BuildPaletteOrder: 30
+	#	Prerequisites: ~disabled # prerequisite.has_points
+	#	Description: actor-commanders-power-hijacker.description
+	ProvidesPrerequisite@hijacker:
+		Prerequisite: prerequisite.hijacker
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.hijacker
+	RenderSprites:
+		Image: hjck
+
+commanders_power.havoc:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-havoc.name
+	Buildable:
+		Queue: Power.Soviets
+		BuildPaletteOrder: 30
+		Prerequisites: prerequisite.has_points
+		Description: actor-commanders-power-havoc.description
+	ProvidesPrerequisite@havoc:
+		Prerequisite: prerequisite.havoc
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.havoc
+	RenderSprites:
+		Image: havoc
+
+commanders_power.minelayer:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-minelayer.name
+	-Buildable:
+	#	Queue: Power.Yuri
+	#	BuildPaletteOrder: 30
+	#	Prerequisites: prerequisite.has_points
+	#	Description: actor-commanders-power-minelayer.description
+	ProvidesPrerequisite@minelayer:
+		Prerequisite: prerequisite.minelayer
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.minelayer
+	RenderSprites:
+		Image: mlyr
+
+commanders_power.annihilator_artillery:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-annihilator-artillery.name
+	Buildable:
+		Queue: Power.Yuri
+		BuildPaletteOrder: 30
+		Prerequisites: prerequisite.has_points
+		Description: actor-commanders-power-annihilator-artillery.description
+	ProvidesPrerequisite@annihilator_artillery:
+		Prerequisite: prerequisite.annihilator_artillery
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.annihilator_artillery
+	RenderSprites:
+		Image: lart
+
+commanders_power.mechanic:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-mechanic.name
+	Buildable:
+		Queue: Power.Baku
+		BuildPaletteOrder: 30
+		Prerequisites: prerequisite.has_points
+		Description: actor-commanders-power-mechanic.description
+	ProvidesPrerequisite@mechanic:
+		Prerequisite: prerequisite.mechanic
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.mechanic
+	RenderSprites:
+		Image: mech
+
+commanders_power.intel_drop:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-intel-drop.name
+	Buildable:
+		Queue: Power.Allies
+		BuildPaletteOrder: 40
+		Prerequisites: prerequisite.has_points, prerequisite.3_stars
+		Description: actor-commanders-power-intel-drop.description
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.intel_drop
+	RenderSprites:
+		Image: commanders_power.intel_drop
+
+commanders_power.drone_drop:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-drone-drop.name
+	Buildable:
+		Queue: Power.Soviets
+		BuildPaletteOrder: 40
+		Prerequisites: prerequisite.has_points, prerequisite.3_stars
+		Description: actor-commanders-power-drone-drop.description
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.drone_drop
+	RenderSprites:
+		Image: dron
+
+commanders_power.cash_bounty:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-cash-bounty.name
+	Buildable:
+		Queue: Power.Yuri
+		BuildPaletteOrder: 40
+		Prerequisites: prerequisite.has_points, prerequisite.3_stars
+		Description: actor-commanders-power-cash-bounty.description
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.cash_bounty
+
+commanders_power.intel_drop.baku:
+	Inherits: commanders_power.intel_drop
+	Buildable:
+		Queue: Power.Baku
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.intel_drop.baku
+
+commanders_power.scout_drone:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-scout-drone.name
+	Buildable:
+		Queue: Power.Allies
+		BuildPaletteOrder: 50
+		Prerequisites: prerequisite.has_points
+		Description: actor-commanders-power-scout-drone.description
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.scout_drone
+	RenderSprites:
+		Image: sdrn
+
+commanders_power.spy_plane:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-spy-plane.name
+	Buildable:
+		Queue: Power.Soviets, Power.Baku
+		BuildPaletteOrder: 50
+		Prerequisites: prerequisite.has_points
+		Description: actor-commanders-power-spy-plane.description
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.spy_plane
+	RenderSprites:
+		Image: spyp
+
+commanders_power.psychic_reveal:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-psychic-reveal.name
+	Buildable:
+		Queue: Power.Yuri
+		BuildPaletteOrder: 50
+		Prerequisites: prerequisite.has_points
+		Description: actor-commanders-power-psychic-reveal.description
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.psychic_reveal
+
+#commanders_power.sonar_pulse:
+#	Inherits: ^default.commanders_power
+#	Tooltip:
+#		Name: Sonar Pulse
+#	Buildable:
+#		Queue: Power.Allies
+#		BuildPaletteOrder: 60
+#		Prerequisites: ~disabled, prerequisite.has_points, prerequisite.3_stars
+#		Description: Enables Sonar Pulse power.
+#	WithProductionIconOverlay:
+#		Prerequisites: commanders_power.sonar_pulse
+#
+#commanders_power.naval_mines:
+#	Inherits: ^default.commanders_power
+#	Tooltip:
+#		Name: Naval Mines
+#	Buildable:
+#		Queue: Power.Soviets, Power.Baku
+#		BuildPaletteOrder: 60
+#		Prerequisites: ~disabled, prerequisite.has_points, prerequisite.3_stars
+#		Description: Enables Naval Mines power.
+#	WithProductionIconOverlay:
+#		Prerequisites: commanders_power.naval_mines
+#
+#commanders_power.sensor_buoy:
+#	Inherits: ^default.commanders_power
+#	Tooltip:
+#		Name: Sensor Buoy
+#	Buildable:
+#		Queue: Power.Yuri
+#		BuildPaletteOrder: 60
+#		Prerequisites: ~disabled, prerequisite.has_points, prerequisite.3_stars
+#		Description: Enables Sensor Buoy power.
+#	WithProductionIconOverlay:
+#		Prerequisites: commanders_power.sensor_buoy
+
+commanders_power.leaflet_drop:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-leaflet-drop.name
+	Buildable:
+		Queue: Power.Allies
+		BuildPaletteOrder: 60
+		Prerequisites: prerequisite.has_points, prerequisite.3_stars
+		Description: actor-commanders-power-leaflet-drop.description
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.leaflet_drop
+
+commanders_power.cluster_mines:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-cluster-mines.name
+	Buildable:
+		Queue: Power.Soviets, Power.Baku
+		BuildPaletteOrder: 60
+		Prerequisites: prerequisite.has_points, prerequisite.3_stars
+		Description: actor-commanders-power-cluster-mines.description
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.cluster_mines
+
+commanders_power.brute_drop:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-brute-drop.name
+	Buildable:
+		Queue: Power.Yuri
+		BuildPaletteOrder: 60
+		Prerequisites: prerequisite.has_points, prerequisite.3_stars
+		Description: actor-commanders-power-brute-drop.description
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.brute_drop
+
+commanders_power.emergency_repair.1:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-emergency-repair-1.name
+	Buildable:
+		BuildPaletteOrder: 70
+		Prerequisites: prerequisite.has_points, prerequisite.3_stars
+		Description: actor-commanders-power-emergency-repair-1.description
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.emergency_repair.1
+
+commanders_power.emergency_repair.2:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-emergency-repair-2.name
+	Buildable:
+		BuildPaletteOrder: 80
+		Prerequisites: prerequisite.has_points, prerequisite.3_stars, commanders_power.emergency_repair.1
+		Description: actor-commanders-power-emergency-repair-2.description
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.emergency_repair.2
+
+commanders_power.emergency_repair.3:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-emergency-repair-3.name
+	Buildable:
+		BuildPaletteOrder: 90
+		Prerequisites: prerequisite.has_points, prerequisite.3_stars, commanders_power.emergency_repair.2
+		Description: actor-commanders-power-emergency-repair-3.description
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.emergency_repair.3
+
+commanders_power.a10_strike.1:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-a10-strike-1.name
+	Buildable:
+		Queue: Power.Allies
+		BuildPaletteOrder: 100
+		Prerequisites: prerequisite.has_points, prerequisite.3_stars
+		Description: actor-commanders-power-a10-strike-1.description
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.a10_strike.1
+
+commanders_power.a10_strike.2:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-a10-strike-2.name
+	Buildable:
+		Queue: Power.Allies
+		BuildPaletteOrder: 110
+		Prerequisites: prerequisite.has_points, prerequisite.3_stars, commanders_power.a10_strike.1
+		Description: actor-commanders-power-a10-strike-2.description
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.a10_strike.2
+
+commanders_power.a10_strike.3:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-a10-strike-3.name
+	Buildable:
+		Queue: Power.Allies
+		BuildPaletteOrder: 120
+		Prerequisites: prerequisite.has_points, prerequisite.3_stars, commanders_power.a10_strike.2
+		Description: actor-commanders-power-a10-strike-3.description
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.a10_strike.3
+
+commanders_power.parabombs.1:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-parabombs-1.name
+	Buildable:
+		Queue: Power.Soviets
+		BuildPaletteOrder: 100
+		Prerequisites: prerequisite.has_points, prerequisite.3_stars
+		Description: actor-commanders-power-parabombs-1.description
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.parabombs.1
+
+commanders_power.parabombs.2:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-parabombs-2.name
+	Buildable:
+		Queue: Power.Soviets
+		BuildPaletteOrder: 110
+		Prerequisites: prerequisite.has_points, prerequisite.3_stars, commanders_power.parabombs.1
+		Description: actor-commanders-power-parabombs-2.description
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.parabombs.2
+
+commanders_power.parabombs.3:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-parabombs-3.name
+	Buildable:
+		Queue: Power.Soviets
+		BuildPaletteOrder: 120
+		Prerequisites: prerequisite.has_points, prerequisite.3_stars, commanders_power.parabombs.2
+		Description: actor-commanders-power-parabombs-3.description
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.parabombs.3
+
+commanders_power.toxin_bombing.1:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-toxin-bombing-1.name
+	Buildable:
+		Queue: Power.Yuri
+		BuildPaletteOrder: 100
+		Prerequisites: prerequisite.has_points, prerequisite.3_stars
+		Description: actor-commanders-power-toxin-bombing-1.description
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.toxin_bombing.1
+
+commanders_power.toxin_bombing.2:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-toxin-bombing-2.name
+	Buildable:
+		Queue: Power.Yuri
+		BuildPaletteOrder: 110
+		Prerequisites: prerequisite.has_points, prerequisite.3_stars, commanders_power.toxin_bombing.1
+		Description: actor-commanders-power-toxin-bombing-2.description
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.toxin_bombing.2
+
+commanders_power.toxin_bombing.3:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-toxin-bombing-3.name
+	Buildable:
+		Queue: Power.Yuri
+		BuildPaletteOrder: 120
+		Prerequisites: prerequisite.has_points, prerequisite.3_stars, commanders_power.toxin_bombing.2
+		Description: actor-commanders-power-toxin-bombing-3.description
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.toxin_bombing.3
+
+commanders_power.fuel_air_bomb.1:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-fuel-air-bomb-1.name
+	Buildable:
+		Queue: Power.Baku
+		BuildPaletteOrder: 100
+		Prerequisites: prerequisite.has_points, prerequisite.3_stars
+		Description: actor-commanders-power-fuel-air-bomb-1.description
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.fuel_air_bomb.1
+
+commanders_power.fuel_air_bomb.2:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-fuel-air-bomb-2.name
+	Buildable:
+		Queue: Power.Baku
+		BuildPaletteOrder: 110
+		Prerequisites: prerequisite.has_points, prerequisite.3_stars, commanders_power.fuel_air_bomb.1
+		Description: actor-commanders-power-fuel-air-bomb-2.description
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.fuel_air_bomb.2
+
+commanders_power.fuel_air_bomb.3:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-fuel-air-bomb-3.name
+	Buildable:
+		Queue: Power.Baku
+		BuildPaletteOrder: 120
+		Prerequisites: prerequisite.has_points, prerequisite.3_stars, commanders_power.fuel_air_bomb.2
+		Description: actor-commanders-power-fuel-air-bomb-3.description
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.fuel_air_bomb.3
+
+commanders_power.chrono_boost.1:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-chrono-boost-1.name
+	Buildable:
+		Queue: Power.Allies
+		BuildPaletteOrder: 130
+		Prerequisites: prerequisite.has_points, prerequisite.3_stars
+		Description: actor-commanders-power-chrono-boost-1.description
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.chrono_boost.1
+
+commanders_power.chrono_boost.2:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-chrono-boost-2.name
+	Buildable:
+		Queue: Power.Allies
+		BuildPaletteOrder: 140
+		Prerequisites: prerequisite.has_points, prerequisite.3_stars, commanders_power.chrono_boost.1
+		Description: actor-commanders-power-chrono-boost-2.description
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.chrono_boost.2
+
+commanders_power.chrono_boost.3:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-chrono-boost-3.name
+	Buildable:
+		Queue: Power.Allies
+		BuildPaletteOrder: 150
+		Prerequisites: prerequisite.has_points, prerequisite.3_stars, commanders_power.chrono_boost.2
+		Description: actor-commanders-power-chrono-boost-3.description
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.chrono_boost.3
+
+commanders_power.propaganda.1:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-propaganda-1.name
+	Buildable:
+		Queue: Power.Soviets, Power.Baku
+		BuildPaletteOrder: 130
+		Prerequisites: prerequisite.has_points, prerequisite.3_stars
+		Description: actor-commanders-power-propaganda-1.description
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.propaganda.1
+
+commanders_power.propaganda.2:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-propaganda-2.name
+	Buildable:
+		Queue: Power.Soviets, Power.Baku
+		BuildPaletteOrder: 140
+		Prerequisites: prerequisite.has_points, prerequisite.3_stars, commanders_power.propaganda.1
+		Description: actor-commanders-power-propaganda-2.description
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.propaganda.2
+
+commanders_power.propaganda.3:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-propaganda-3.name
+	Buildable:
+		Queue: Power.Soviets, Power.Baku
+		BuildPaletteOrder: 150
+		Prerequisites: prerequisite.has_points, prerequisite.3_stars, commanders_power.propaganda.2
+		Description: actor-commanders-power-propaganda-3.description
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.propaganda.3
+
+commanders_power.magnetic_beam.1:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-magnetic-beam-1.name
+	Buildable:
+		Queue: Power.Yuri
+		BuildPaletteOrder: 130
+		Prerequisites: prerequisite.has_points, prerequisite.3_stars
+		Description: actor-commanders-power-magnetic-beam-1.description
+		IconPalette: mgnbicon
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.magnetic_beam.1
+
+commanders_power.magnetic_beam.2:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-magnetic-beam-2.name
+	Buildable:
+		Queue: Power.Yuri
+		BuildPaletteOrder: 140
+		Prerequisites: prerequisite.has_points, prerequisite.3_stars, commanders_power.magnetic_beam.1
+		Description: actor-commanders-power-magnetic-beam-2.description
+		IconPalette: mgnbicon
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.magnetic_beam.2
+
+commanders_power.magnetic_beam.3:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-magnetic-beam-3.name
+	Buildable:
+		Queue: Power.Yuri
+		BuildPaletteOrder: 150
+		Prerequisites: prerequisite.has_points, prerequisite.3_stars, commanders_power.magnetic_beam.2
+		Description: actor-commanders-power-magnetic-beam-3.description
+		IconPalette: mgnbicon
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.magnetic_beam.3
+
+commanders_power.cruiser_strike:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-cruiser-strike.name
+	Buildable:
+		Queue: Power.Allies
+		BuildPaletteOrder: 160
+		Prerequisites: prerequisite.has_points, prerequisite.5_stars
+		Description: actor-commanders-power-cruiser-strike.description
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.cruiser_strike
+
+commanders_power.v3_storm:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-v3-storm.name
+	Buildable:
+		Queue: Power.Soviets, Power.Baku
+		BuildPaletteOrder: 160
+		Prerequisites: prerequisite.has_points, prerequisite.5_stars
+		Description: actor-commanders-power-v3-storm.description
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.v3_storm
+
+commanders_power.orbital_drop:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-orbital-drop.name
+	Buildable:
+		Queue: Power.Yuri
+		BuildPaletteOrder: 160
+		Prerequisites: prerequisite.has_points, prerequisite.5_stars
+		Description: actor-commanders-power-orbital-drop.description
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.orbital_drop
+
+commanders_power.em_pulse_strike:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-em-pulse-strike.name
+	Buildable:
+		Queue: Power.Allies
+		BuildPaletteOrder: 170
+		Prerequisites: prerequisite.has_points, prerequisite.5_stars
+		Description: actor-commanders-power-em-pulse-strike.description
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.em_pulse_strike
+
+commanders_power.fallout_bomb:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-fallout-bomb.name
+	Buildable:
+		Queue: Power.Soviets
+		BuildPaletteOrder: 170
+		Prerequisites: prerequisite.has_points, prerequisite.5_stars
+		Description: actor-commanders-power-fallout-bomb.description
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.fallout_bomb
+
+commanders_power.chaos_gas_drop:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-chaos-gas-drop.name
+	Buildable:
+		Queue: Power.Yuri
+		BuildPaletteOrder: 170
+		Prerequisites: prerequisite.has_points, prerequisite.5_stars
+		Description: actor-commanders-power-chaos-gas-drop.description
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.chaos_gas_drop
+
+commanders_power.cryo_bomb:
+	Inherits: ^default.commanders_power
+	Tooltip:
+		Name: actor-commanders-power-cryo-bomb.name
+	Buildable:
+		Queue: Power.Baku
+		BuildPaletteOrder: 170
+		Prerequisites: prerequisite.has_points, prerequisite.5_stars
+		Description: actor-commanders-power-cryo-bomb.description
+	WithProductionIconOverlay:
+		Prerequisites: commanders_power.cryo_bomb
+
+hack.has_points:
+	AlwaysVisible:
+	Interactable:
+	ProvidesPrerequisite@has_points:
+		Prerequisite: prerequisite.has_points
+
+hack.rank_3:
+	AlwaysVisible:
+	Interactable:
+	ProvidesPrerequisite@rank_3:
+		Prerequisite: prerequisite.3_stars
+
+hack.rank_5:
+	AlwaysVisible:
+	Interactable:
+	ProvidesPrerequisite@rank_5:
+		Prerequisite: prerequisite.5_stars
+
+prerequisite.has_points:
+	AlwaysVisible:
+	Interactable:
+	Tooltip:
+		Name: actor-prerequisite-has-points-name
+
+prerequisite.3_stars:
+	AlwaysVisible:
+	Interactable:
+	Tooltip:
+		Name: actor-prerequisite-3-stars-name
+
+prerequisite.5_stars:
+	AlwaysVisible:
+	Interactable:
+	Tooltip:
+		Name: actor-prerequisite-5-stars-name
+
+^default.commanders_power_prerequisite:
+	AlwaysVisible:
+	Interactable:
+	Tooltip:
+		Name: meta-default-commanders-power-prerequisite-name
+
+prerequisite.medic:
+	Inherits: ^default.commanders_power_prerequisite
+
+prerequisite.ambulance:
+	Inherits: ^default.commanders_power_prerequisite
+
+prerequisite.airpad:
+	Inherits: ^default.commanders_power_prerequisite
+
+prerequisite.gun_turret:
+	Inherits: ^default.commanders_power_prerequisite
+
+prerequisite.tesla_fence:
+	Inherits: ^default.commanders_power_prerequisite
+
+prerequisite.mechanic:
+	Inherits: ^default.commanders_power_prerequisite
+
+prerequisite.hijacker:
+	Inherits: ^default.commanders_power_prerequisite
+
+prerequisite.minelayer:
+	Inherits: ^default.commanders_power_prerequisite
+
+prerequisite.grinder:
+	Inherits: ^default.commanders_power_prerequisite
+
+prerequisite.annihilator_artillery:
+	Inherits: ^default.commanders_power_prerequisite
+
+prerequisite.havoc:
+	Inherits: ^default.commanders_power_prerequisite
+
+^CommandersPowers:
+	DetonateWeaponPower@SCOUT_DRONE:
+		OrderName: AlliedScoutDrone
+		RequiresCondition: !lost
+		Prerequisites:
+			1: commanders_power.scout_drone
+		ChargeInterval: 4500
+		Icons:
+			1: sdrn
+		Cursor: spyplane
+		StartFullyCharged: true
+		Names:
+			1: 侦察无人机
+		Descriptions:
+			1: 持续侦察选定区域
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+		Weapons:
+			1: ScoutDroneSpawner
+		ActivationSequence:
+		TargetCircleRanges:
+			1: 8c0
+	AirstrikePower@spyplane:
+		OrderName: SovietSpyPlane
+		RequiresCondition: !lost
+		Prerequisites:
+			1: commanders_power.spy_plane
+		Icons:
+			1: spyplane
+		Cursor: spyplane
+		ChargeInterval: 3000
+		StartFullyCharged: true
+		Names:
+			1: 侦察机巡航
+		Descriptions:
+			1: 一次性侦察选定区域
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+		EndChargeSpeechNotification: SpyPlaneReady
+		EndChargeTextNotification: notification-spy-plane-ready
+		UnitTypes:
+			1: spyp
+		SquadSizes:
+			1: 1
+		QuantizedFacings: 8
+		DisplayBeacon: True
+		BeaconPosters:
+			1: spypicon
+		ArrowSequence: arrow
+		ClockSequence: clock
+		UseDirectionalTarget: True
+		DirectionArrowAnimation: swdirection
+		DirectionArrowPalette: mouse
+	DetonateWeaponPower@PSYCHIC_REVEAL:
+		OrderName: PsiPsychicReveal
+		RequiresCondition: !lost
+		Prerequisites:
+			1: commanders_power.psychic_reveal
+		Icons:
+			1: psireveal
+		Cursor: reveal
+		ChargeInterval: 3000
+		StartFullyCharged: true
+		Names:
+			1: 灵能窥视
+		Descriptions:
+			1: 一次性侦察选定区域
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+		Weapons:
+			1: PsychicReveal
+		ActivationSequence:
+		TargetCircleRanges:
+			1: 8c0
+	ParatroopersPower@inteldrop:
+		OrderName: AlliedIntelDrop
+		RequiresCondition: !lost
+		Prerequisites:
+			1: commanders_power.intel_drop
+		Icons:
+			1: intel
+		ChargeInterval: 6000
+		StartFullyCharged: true
+		Names:
+			1: 秘密潜入
+		Descriptions:
+			1: 可以在选定区域空投1名间谍
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+		EndChargeSpeechNotification: ParatroopersReady
+		EndChargeTextNotification: notification-paratroopers-ready
+		DropItems:
+			1: spy
+		SquadSizes:
+			1: 1
+		SquadOffset: -2048, 2048, 0
+		QuantizedFacings: 8
+		UnitTypes:
+			1: f22drop
+		CameraActor: camera
+		DisplayBeacon: True
+		BeaconPosters:
+			1: sdrpicon
+		ArrowSequence: arrow
+		ClockSequence: clock
+		UseDirectionalTarget: True
+		DirectionArrowAnimation: swdirection
+		DirectionArrowPalette: mouse
+	ParatroopersPower@dronedrop:
+		OrderName: SovietDroneDrop
+		RequiresCondition: !lost
+		Prerequisites:
+			1: commanders_power.drone_drop
+		Icons:
+			1: drondrop
+		ChargeInterval: 6000
+		StartFullyCharged: true
+		Names:
+			1: 恐怖之潮
+		Descriptions:
+			1: 可以在选定区域空投3个恐怖机器人
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+		EndChargeSpeechNotification: ParatroopersReady
+		EndChargeTextNotification: notification-paratroopers-ready
+		DropItems:
+			1: dron, dron, dron
+		SquadSizes:
+			1: 1
+		SquadOffset: -2048, 2048, 0
+		QuantizedFacings: 8
+		UnitTypes:
+			1: bplndrop
+		CameraActor: camera
+		DisplayBeacon: True
+		BeaconPosters:
+			1: dronicon
+		ArrowSequence: arrow
+		ClockSequence: clock
+		UseDirectionalTarget: True
+		DirectionArrowAnimation: swdirection
+		DirectionArrowPalette: mouse
+	GrantExternalConditionPower@cash_bounty:
+		OrderName: YuriCashBounty
+		RequiresCondition: !lost
+		Prerequisites:
+			1: commanders_power.cash_bounty
+		Icons:
+			1: bounty
+		ChargeInterval: 4500
+		StartFullyCharged: true
+		Names:
+			1: 赏金猎人
+		Descriptions:
+			1: 击杀选定范围的单位以获取赏金
+		Durations:
+			1: 500
+		Conditions:
+			1: bounty
+		Dimensions:
+			1: 5,5
+		Footprints:
+			1: __x__ _xxx_ xxxxx _xxx_ __x__
+		Sequence:
+		OnFireSound: ubonus.wav
+		ValidRelationships: Ally, Neutral, Enemy
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+	ParatroopersPower@inteldropbaku:
+		OrderName: BakuIntelDrop
+		RequiresCondition: !lost
+		Prerequisites:
+			1: commanders_power.intel_drop.baku
+		Icons:
+			1: intel
+		ChargeInterval: 6000
+		StartFullyCharged: true
+		Names:
+			1: 秘密潜入
+		Descriptions:
+			1: 可以在选定区域空投1名间谍
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+		EndChargeSpeechNotification: ParatroopersReady
+		EndChargeTextNotification: notification-paratroopers-ready
+		DropItems:
+			1: sspy
+		SquadSizes:
+			1: 1
+		SquadOffset: -2048, 2048, 0
+		QuantizedFacings: 8
+		UnitTypes:
+			1: bplndrop
+		CameraActor: camera
+		DisplayBeacon: True
+		BeaconPosters:
+			1: sdrpicon
+		ArrowSequence: arrow
+		ClockSequence: clock
+		UseDirectionalTarget: True
+		DirectionArrowAnimation: swdirection
+		DirectionArrowPalette: mouse
+	AirstrikePower@leafletdrop:
+		OrderName: AlliedLeafletDrop
+		RequiresCondition: !lost
+		Prerequisites:
+			1: commanders_power.leaflet_drop
+		Icons:
+			1: leaflet
+		ChargeInterval: 3750
+		StartFullyCharged: true
+		Names:
+			1: 宣传品空投
+		Descriptions:
+			1: 投放减少敌方单位移动与攻击速度的宣传品
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+		IncomingSpeechNotification: WarningEnemyAirstrikeInitiated
+		IncomingTextNotification: notification-enemy-airstrike-initiated
+		UnitTypes:
+			1: pdplane.leaflet
+		SquadSizes:
+			1: 1
+		QuantizedFacings: 8
+		CameraActor: CAMERA
+		CameraRemoveDelay: 100
+		DisplayBeacon: True
+		BeaconPosters:
+			1: leaficon
+		ArrowSequence: arrow
+		ClockSequence: clock
+		UseDirectionalTarget: True
+		DirectionArrowAnimation: swdirection
+		DirectionArrowPalette: mouse
+	AirstrikePowerRV@clustermines:
+		ActivationDelay: 125
+		OrderName: SovietClusterMines
+		RequiresCondition: !lost
+		Prerequisites:
+			1: commanders_power.cluster_mines
+		Icons:
+			1: cluster
+		ChargeInterval: 4500
+		StartFullyCharged: true
+		Names:
+			1: 集束地雷空投
+		Descriptions:
+			1: 投放13枚地雷
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+		IncomingSpeechNotification: WarningEnemyAirstrikeInitiated
+		IncomingTextNotification: notification-enemy-airstrike-initiated
+		UnitTypes:
+			1: pdplane.cluster_mines
+		SquadSizes:
+			1: 1
+		QuantizedFacings: 8
+		CameraActor: camera.5c0
+		DisplayBeacon: True
+		BeaconPosters:
+			1: mineicon
+		ArrowSequence: arrow
+		ClockSequence: clock
+		UseDirectionalTarget: True
+		DirectionArrowAnimation: swdirection
+		DirectionArrowPalette: mouse
+	DetonateWeaponPower@brutedrop:
+		OrderName: PsiCorpsBruteDrop
+		RequiresCondition: !lost
+		Prerequisites:
+			1: commanders_power.brute_drop
+		Icons:
+			1: brutedrop
+		Names:
+			1: 天降巨兽
+		Descriptions:
+			1: 投放5个狂兽人
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+		Weapons:
+			1: DroppodSpawner
+		ChargeInterval: 4500
+		StartFullyCharged: true
+		ActivationSequence:
+		TargetCircleRanges:
+			1: 6c0
+		CameraRange: 7c0
+		CameraSpawnAdvance: 25
+		CameraRemoveDelay: 350
+	DetonateWeaponPower@emergencyrepair:
+		OrderName: EmergencyRepair
+		RequiresCondition: !lost
+		Prerequisites:
+			1: commanders_power.emergency_repair.1
+			2: commanders_power.emergency_repair.2
+			3: commanders_power.emergency_repair.3
+		Icons:
+			1: repair1
+			2: repair2
+			3: repair3
+		Cursor: repair
+		ChargeInterval: 3750
+		StartFullyCharged: true
+		Names:
+			1: 紧急维修 - 级别1
+			2: 紧急维修 - 级别2
+			3: 紧急维修 - 级别3
+		Descriptions:
+			1: 在半径为5的距离内回复载具和建筑30%生命值
+			2: 在半径为6的距离内回复载具和建筑60%生命值
+			3: 在半径为7的距离内回复载具和建筑全部生命值
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+		Weapons:
+			1: EmergencyRepair1
+			2: EmergencyRepair2
+			3: EmergencyRepair3
+		ActivationSequence:
+		TargetCircleRanges:
+			1: 5c0
+			2: 6c0
+			3: 7c0
+	AirstrikePowerRV@a10strike:
+		ActivationDelay: 125
+		OrderName: AlliedA10Strike
+		RequiresCondition: !lost
+		Prerequisites:
+			1: commanders_power.a10_strike.1
+			2: commanders_power.a10_strike.2
+			3: commanders_power.a10_strike.3
+		Icons:
+			1: a101
+			2: a102
+			3: a103
+		ChargeInterval: 6000
+		StartFullyCharged: true
+		Names:
+			1: A-10空袭 - 级别1
+			2: A-10空袭 - 级别2
+			3: A-10空袭 - 级别3
+		Descriptions:
+			1: 1架攻击机袭击区域内的敌方目标
+			2: 2架攻击机袭击区域内的敌方目标
+			3: 3架攻击机袭击区域内的敌方目标
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+		IncomingSpeechNotification: WarningEnemyAirstrikeInitiated
+		IncomingTextNotification: notification-enemy-airstrike-initiated
+		UnitTypes:
+			1: a10
+			2: a10
+			3: a10
+		SquadSizes:
+			1: 1
+			2: 2
+			3: 3
+		SquadOffset: -2048, 2048, 0
+		QuantizedFacings: 8
+		CameraActor: CAMERA
+		CameraRemoveDelay: 100
+		DisplayBeacon: True
+		BeaconPosters:
+			1: a101icon
+			2: a102icon
+			3: a103icon
+		ArrowSequence: arrow
+		ClockSequence: clock
+		UseDirectionalTarget: True
+		DirectionArrowAnimation: swdirection
+		DirectionArrowPalette: mouse
+	AirstrikePowerRV@parabombs:
+		ActivationDelay: 125
+		OrderName: SovietParabombs
+		RequiresCondition: !lost
+		Prerequisites:
+			1: commanders_power.parabombs.1
+			2: commanders_power.parabombs.2
+			3: commanders_power.parabombs.3
+		Icons:
+			1: parabomb1
+			2: parabomb2
+			3: parabomb3
+		ChargeInterval: 6000
+		StartFullyCharged: true
+		Names:
+			1: 地毯式轰炸 - 级别1
+			2: 地毯式轰炸 - 级别2
+			3: 地毯式轰炸 - 级别3
+		Descriptions:
+			1: 1架轰炸机袭击区域内的敌方目标
+			2: 2架轰炸机袭击区域内的敌方目标
+			3: 3架轰炸机袭击区域内的敌方目标
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+		IncomingSpeechNotification: WarningEnemyAirstrikeInitiated
+		IncomingTextNotification: notification-enemy-airstrike-initiated
+		UnitTypes:
+			1: pdplane.parabomb
+			2: pdplane.parabomb
+			3: pdplane.parabomb
+		SquadSizes:
+			1: 1
+			2: 2
+			3: 3
+		SquadOffset: -2048, 2048, 0
+		QuantizedFacings: 8
+		CameraActor: CAMERA
+		CameraRemoveDelay: 100
+		DisplayBeacon: True
+		BeaconPosters:
+			1: parb1icon
+			2: parb2icon
+			3: parb3icon
+		ArrowSequence: arrow
+		ClockSequence: clock
+		UseDirectionalTarget: True
+		DirectionArrowAnimation: swdirection
+		DirectionArrowPalette: mouse
+	AirstrikePowerRV@toxin_bombing:
+		ActivationDelay: 125
+		OrderName: PsiCorpsToxinBombing
+		RequiresCondition: !lost
+		Prerequisites:
+			1: commanders_power.toxin_bombing.1
+			2: commanders_power.toxin_bombing.2
+			3: commanders_power.toxin_bombing.3
+		Icons:
+			1: txdrop1
+			2: txdrop2
+			3: txdrop3
+		ChargeInterval: 6000
+		StartFullyCharged: true
+		Names:
+			1: 化武空袭 - 级别1
+			2: 化武空袭 - 级别2
+			3: 化武空袭 - 级别3
+		Descriptions:
+			1: 1架化武轰炸机袭击区域内的敌方目标
+			2: 2架化武轰炸机袭击区域内的敌方目标
+			3: 3架化武轰炸机袭击区域内的敌方目标
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+		IncomingSpeechNotification: WarningEnemyAirstrikeInitiated
+		IncomingTextNotification: notification-enemy-airstrike-initiated
+		UnitTypes:
+			1: txbmb
+			2: txbmb
+			3: txbmb
+		SquadSizes:
+			1: 1
+			2: 2
+			3: 3
+		SquadOffset: -2048, 2048, 0
+		QuantizedFacings: 8
+		CameraActor: CAMERA
+		CameraRemoveDelay: 100
+		DisplayBeacon: True
+		BeaconPosters:
+			1: txdrop1icon
+			2: txdrop2icon
+			3: txdrop3icon
+		ArrowSequence: arrow
+		ClockSequence: clock
+		UseDirectionalTarget: True
+		DirectionArrowAnimation: swdirection
+		DirectionArrowPalette: mouse
+	AirstrikePowerRV@fuelairbomb:
+		ActivationDelay: 125
+		OrderName: BakuFuelAirBomb
+		RequiresCondition: !lost
+		Prerequisites:
+			1: commanders_power.fuel_air_bomb.1
+			2: commanders_power.fuel_air_bomb.2
+			3: commanders_power.fuel_air_bomb.3
+		Icons:
+			1: fuelairbomb1
+			2: fuelairbomb2
+			3: fuelairbomb3
+		ChargeInterval: 6000
+		StartFullyCharged: true
+		Names:
+			1: 炼狱天火 - 级别1
+			2: 炼狱天火 - 级别2
+			3: 炼狱天火 - 级别3
+		Descriptions:
+			1: 1架化武轰炸机袭击区域内的敌方目标
+			2: 2架化武轰炸机袭击区域内的敌方目标
+			3: 3架化武轰炸机袭击区域内的敌方目标
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+		IncomingSpeechNotification: WarningEnemyAirstrikeInitiated
+		IncomingTextNotification: notification-enemy-airstrike-initiated
+		UnitTypes:
+			1: badgr.airstrike
+			2: badgr.airstrike
+			3: badgr.airstrike
+		SquadSizes:
+			1: 1
+			2: 2
+			3: 3
+		SquadOffset: -2048, 2048, 0
+		QuantizedFacings: 8
+		CameraActor: CAMERA
+		CameraRemoveDelay: 100
+		DisplayBeacon: True
+		BeaconPosters:
+			1: fab1icon
+			2: fab2icon
+			3: fab3icon
+		ArrowSequence: arrow
+		ClockSequence: clock
+		UseDirectionalTarget: True
+		DirectionArrowAnimation: swdirection
+		DirectionArrowPalette: mouse
+	GrantExternalConditionPower@chrono_boost:
+		OrderName: AlliedChronoBoost
+		RequiresCondition: !lost
+		Prerequisites:
+			1: commanders_power.chrono_boost.1
+			2: commanders_power.chrono_boost.2
+			3: commanders_power.chrono_boost.3
+		Icons:
+			1: boost1
+			2: boost2
+			3: boost3
+		ChargeInterval: 4500
+		StartFullyCharged: true
+		Names:
+			1: 超时空加速 - 级别1
+			2: 超时空加速 - 级别2
+			3: 超时空加速 - 级别3
+		Descriptions:
+			1: 为友方单位提供30%移动和25%攻击速度增益20秒
+			2: 为友方单位提供60%移动和25%攻击速度增益20秒
+			3: 为友方单位提供100%移动和25%攻击速度增益20秒
+		Durations:
+			1: 500
+			2: 500
+			3: 500
+		Conditions:
+			1: boost1
+			2: boost2
+			3: boost3
+		Dimensions:
+			1: 4,4
+			2: 4,4
+			3: 4,4
+		Footprints:
+			1: xxxx xxxx xxxx xxxx xxxx
+			2: xxxx xxxx xxxx xxxx xxxx
+			3: xxxx xxxx xxxx xxxx xxxx
+		Sequence:
+		OnFireSound: gcraspee.wav
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+	GrantExternalConditionPower@propaganda:
+		OrderName: SovietPropaganda
+		RequiresCondition: !lost
+		Prerequisites:
+			1: commanders_power.propaganda.1
+			2: commanders_power.propaganda.2
+			3: commanders_power.propaganda.3
+		Icons:
+			1: propaganda1
+			2: propaganda2
+			3: propaganda3
+		ChargeInterval: 4500
+		StartFullyCharged: true
+		Names:
+			1: 战地宣传 - 级别1
+			2: 战地宣传 - 级别2
+			3: 战地宣传 - 级别3
+		Descriptions:
+			1: 降低友方单位的30%移动速度从而换取25%的攻击力和攻击速度30秒
+			2: 降低友方单位的30%移动速度从而换取50%的攻击力和攻击速度30秒
+			3: 降低友方单位的30%移动速度从而换取75%的攻击力和攻击速度30秒
+		Durations:
+			1: 500
+			2: 500
+			3: 500
+		Conditions:
+			1: propaganda1
+			2: propaganda2
+			3: propaganda3
+		Dimensions:
+			1: 4,4
+			2: 4,4
+			3: 4,4
+		Footprints:
+			1: xxxx xxxx xxxx xxxx xxxx
+			2: xxxx xxxx xxxx xxxx xxxx
+			3: xxxx xxxx xxxx xxxx xxxx
+		Sequence:
+		OnFireSound: sfrenzya.wav
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+	SpawnActorPower@MANGETIC_BEAM:
+		OrderName: PsiCorpsMagneticBeam
+		RequiresCondition: !lost
+		Actors:
+			1: magnetic_beam.1
+			2: magnetic_beam.2
+			3: magnetic_beam.3
+		Prerequisites:
+			1: commanders_power.magnetic_beam.1
+			2: commanders_power.magnetic_beam.2
+			3: commanders_power.magnetic_beam.3
+		LifeTime: -1
+		ChargeInterval: 4500
+		Icons:
+			1: magnet1
+			2: magnet2
+			3: magnet3
+		IconPalette: mgnbicon
+		StartFullyCharged: true
+		Names:
+			1: 磁力卫星 - 级别1
+			2: 磁力卫星 - 级别2
+			3: 磁力卫星 - 级别3
+		Descriptions:
+			1: 降低半径为1范围内敌方载具移动速度15秒
+			2: 降低半径为2范围内敌方载具移动速度25秒
+			3: 降低半径为3范围内敌方载具移动速度35秒
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+	DetonateWeaponPower@cruiserstrike:
+		OrderName: AlliedCruiserStrike
+		RequiresCondition: !lost
+		Prerequisites:
+			1: commanders_power.cruiser_strike
+		Icons:
+			1: cruiser
+		ChargeInterval: 9000
+		CameraRange: 8c0
+		CameraRemoveDelay: 400
+		SpawnCameraAtGround: true
+		StartFullyCharged: true
+		Names:
+			1: 舰炮支援
+		Descriptions:
+			1: 善于对抗建筑和集群单位的定点轰炸
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+		Weapons:
+			1: CruiserStrikeInit
+		AirburstAltitude: 25c0
+		ActivationSequence:
+		LaunchSpeechNotification: CruiserStrikeActivated
+		IncomingSpeechNotification: CruiserStrikeActivated
+		TargetCircleRanges:
+			1: 6c0
+	DetonateWeaponPower@v3storm:
+		OrderName: SovietV3Storm
+		RequiresCondition: !lost
+		Prerequisites:
+			1: commanders_power.v3_storm
+		Icons:
+			1: v3storm
+		ChargeInterval: 9000
+		CameraRange: 8c0
+		CameraRemoveDelay: 400
+		SpawnCameraAtGround: true
+		StartFullyCharged: true
+		Names:
+			1: 火箭天袭
+		Descriptions:
+			1: 善于对抗建筑和集群单位的定点轰炸
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+		Weapons:
+			1: V3StormInit
+		AirburstAltitude: 25c0
+		ActivationSequence:
+		LaunchSpeechNotification: V3StormActivated
+		IncomingSpeechNotification: V3StormActivated
+		TargetCircleRanges:
+			1: 6c0
+	DetonateWeaponPower@orbital_drop:
+		OrderName: PsiCorpsOrbitalDrop
+		RequiresCondition: !lost
+		Prerequisites:
+			1: commanders_power.orbital_drop
+		Icons:
+			1: orbital
+		ChargeInterval: 9000
+		CameraRange: 8c0
+		CameraRemoveDelay: 400
+		SpawnCameraAtGround: true
+		StartFullyCharged: true
+		Names:
+			1: 空间站除役
+		Descriptions:
+			1: 善于对抗建筑和集群单位的定点轰炸
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+		Weapons:
+			1: OrbitalDropInit
+		AirburstAltitude: 25c0
+		ActivationSequence:
+		LaunchSpeechNotification: OrbitalDropActivated
+		IncomingSpeechNotification: OrbitalDropActivated
+		TargetCircleRanges:
+			1: 6c0
+	AirstrikePowerRV@empulse:
+		ActivationDelay: 125
+		OrderName: AlliedEMP
+		RequiresCondition: !lost
+		Prerequisites:
+			1: commanders_power.em_pulse_strike
+		Icons:
+			1: empulse
+		ChargeInterval: 7500
+		StartFullyCharged: true
+		Names:
+			1: 电磁脉冲轰炸
+		Descriptions:
+			1: 发动一次瘫痪范围内的载具与部分建筑的空袭
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+		IncomingSpeechNotification: WarningEnemyAirstrikeInitiated
+		IncomingTextNotification: notification-enemy-airstrike-initiated
+		UnitTypes:
+			1: pdplane.emp
+		SquadSizes:
+			1: 1
+		QuantizedFacings: 8
+		CameraActor: CAMERA
+		CameraRemoveDelay: 100
+		DisplayBeacon: True
+		BeaconPosters:
+			1: empuicon
+		ArrowSequence: arrow
+		ClockSequence: clock
+		UseDirectionalTarget: True
+		DirectionArrowAnimation: swdirection
+		DirectionArrowPalette: mouse
+	AirstrikePowerRV@falloutbomb:
+		ActivationDelay: 125
+		OrderName: SovietFalloutBomb
+		RequiresCondition: !lost
+		Prerequisites:
+			1: commanders_power.fallout_bomb
+		Icons:
+			1: fallout
+		ChargeInterval: 7500
+		StartFullyCharged: true
+		Names:
+			1: 辐射脏弹空袭
+		Descriptions:
+			1: 发动一次形成大范围核辐射的空袭
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+		IncomingSpeechNotification: WarningEnemyAirstrikeInitiated
+		IncomingTextNotification: notification-enemy-airstrike-initiated
+		UnitTypes:
+			1: pdplane.fallout_bomb
+		SquadSizes:
+			1: 1
+		QuantizedFacings: 8
+		CameraActor: camera.5c0
+		DisplayBeacon: True
+		BeaconPosters:
+			1: fallouticon
+		ArrowSequence: arrow
+		ClockSequence: clock
+		UseDirectionalTarget: True
+		DirectionArrowAnimation: swdirection
+		DirectionArrowPalette: mouse
+	AirstrikePowerRV@chaosgas:
+		ActivationDelay: 125
+		OrderName: PsiCorpsChaosDrop
+		RequiresCondition: !lost
+		Prerequisites:
+			1: commanders_power.chaos_gas_drop
+		Icons:
+			1: chaosdrop
+		ChargeInterval: 7500
+		StartFullyCharged: true
+		Names:
+			1: 神经毒气空袭
+		Descriptions:
+			1: 发动一次散布大量神经毒气的空袭
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+		IncomingSpeechNotification: WarningEnemyAirstrikeInitiated
+		IncomingTextNotification: notification-enemy-airstrike-initiated
+		UnitTypes:
+			1: pdplane.chaos
+		SquadSizes:
+			1: 1
+		QuantizedFacings: 8
+		CameraActor: CAMERA
+		CameraRemoveDelay: 100
+		DisplayBeacon: True
+		BeaconPosters:
+			1: chdpicon
+		ArrowSequence: arrow
+		ClockSequence: clock
+		UseDirectionalTarget: True
+		DirectionArrowAnimation: swdirection
+		DirectionArrowPalette: mouse
+	AirstrikePowerRV@cryobomb:
+		ActivationDelay: 125
+		OrderName: BakuCryoBomb
+		RequiresCondition: !lost
+		Prerequisites:
+			1: commanders_power.cryo_bomb
+		Icons:
+			1: xxicon
+		ChargeInterval: 7500
+		StartFullyCharged: true
+		Names:
+			1: 凛冬冰爆
+		Descriptions:
+			1: 发动一次散布冰冻炸弹的空袭
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+		IncomingSpeechNotification: WarningEnemyAirstrikeInitiated
+		IncomingTextNotification: notification-enemy-airstrike-initiated
+		UnitTypes:
+			1: pdplane.cryo_bomb
+		SquadSizes:
+			1: 1
+		QuantizedFacings: 8
+		CameraActor: camera.5c0
+		DisplayBeacon: True
+		BeaconPosters:
+			1: xxicon
+		ArrowSequence: arrow
+		ClockSequence: clock
+		UseDirectionalTarget: True
+		DirectionArrowAnimation: swdirection
+		DirectionArrowPalette: mouse
+	AirstrikePowerRV@GeneticMutator:
+		ActivationDelay: 125
+		OrderName: TransylvaniaGeneticMutator
+		RequiresCondition: !lost
+		Prerequisites:
+			1: upgrade.dna_boosters
+		Icons:
+			1: mutator
+		ChargeInterval: 4500
+		StartFullyCharged: true
+		Names:
+			1: 巨兽病毒
+		Descriptions:
+			1: 投放能将敌人转换为狂兽人的病毒炸弹
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+		IncomingSpeechNotification: WarningEnemyAirstrikeInitiated
+		IncomingTextNotification: notification-enemy-airstrike-initiated
+		UnitTypes:
+			1: pdplane.mutator
+		SquadSizes:
+			1: 1
+		QuantizedFacings: 8
+		CameraActor: CAMERA
+		CameraRemoveDelay: 100
+		DisplayBeacon: True
+		BeaconPosters:
+			1: muteicon
+		ArrowSequence: arrow
+		ClockSequence: clock
+		UseDirectionalTarget: True
+		DirectionArrowAnimation: swdirection
+		DirectionArrowPalette: mouse
+	GrantConditionOnOwnerLost:
+		Condition: lost

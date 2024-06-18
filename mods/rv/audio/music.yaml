@@ -1,0 +1,70 @@
+grinder: Grinder
+	Extension: wav
+power: Power
+	Extension: wav
+fortific: Fortification
+	Extension: wav
+indeep: In Deep
+	Extension: wav
+tension: Tension
+	Extension: wav
+eaglehun: Eagle Hunter
+	Extension: wav
+industro: Industro Funk
+	Extension: wav
+jank: Jank
+	Extension: wav
+200meter: 200 Meters
+	Extension: wav
+blowitup: Blow It Up
+	Extension: wav
+destroy: Destroy
+	Extension: wav
+burn: Burn
+	Extension: wav
+motorize: Motorized
+	Extension: wav
+hm2: Hell March 2
+	Extension: wav
+credits: Credits
+	Filename: ra2-opt
+	Extension: wav
+	Hidden: true
+score: Score
+	Filename: ra2-sco
+	Extension: wav
+	Hidden: true
+
+# Yuri's Revenge Music
+brainfre: Brain Freeze
+	Extension: wav
+	VolumeModifier: 1.2
+bully: Bully Kit
+	Extension: wav
+	VolumeModifier: 1.2
+deceiver: Deceiver
+	Extension: wav
+	VolumeModifier: 1.2
+defend: Defend the Base
+	Extension: wav
+	VolumeModifier: 1.2
+drok: Drok
+	Extension: wav
+	VolumeModifier: 1.2
+phatatta: Phat Attack
+	Extension: wav
+	VolumeModifier: 1.2
+tactics: Tactics
+	Extension: wav
+	VolumeModifier: 1.2
+trancelv: Trance L. Vania
+	Extension: wav
+	VolumeModifier: 1.2
+optionx: Credits YR
+	Extension: wav
+	VolumeModifier: 1.2
+	Hidden: true
+scorex: Score YR
+	Extension: wav
+	VolumeModifier: 1.2
+	Hidden: true

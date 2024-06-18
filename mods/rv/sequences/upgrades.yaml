@@ -1,0 +1,183 @@
+upgrade.gi_fortifications:
+	icon:
+		Filename: bits/cameos/gfrticon.shp
+
+upgrade.endurance_training:
+	icon:
+		Filename: bits/cameos/etraicon.shp
+
+upgrade.a2a_missiles:
+	icon:
+		Filename: bits/cameos/a2amicon.shp
+
+upgrade.advanced_coolants:
+	icon:
+		Filename: bits/cameos/gpwruico.shp
+
+upgrade.advanced_training:
+	icon:
+		Filename: bits/cameos/advticon.shp
+
+upgrade.predator_missiles:
+	icon:
+		Filename: bits/cameos/prdticon.shp
+
+upgrade.boost_gliding_systems:
+	icon:
+		Filename: bits/cameos/bgldicon.shp
+
+upgrade.portable_weaponry:
+	icon:
+		Filename: bits/cameos/prtwicon.shp
+
+upgrade.advanced_gun_systems:
+	icon:
+		Filename: bits/cameos/advgicon.shp
+
+upgrade.grand_cannon_protocols:
+	icon:
+		Filename: cameo|gcanicon.shp
+
+upgrade.emp_munitions:
+	icon:
+		Filename: bits/cameos/empaicon.png
+
+upgrade.composite_armor:
+	icon:
+		Filename: bits/cameos/carmicon.shp
+
+upgrade.increased_payload:
+	icon:
+		Filename: bits/cameos/incpicon.shp
+
+upgrade.improved_flaks:
+	icon:
+		Filename: bits/cameos/impficon.shp
+
+upgrade.bullet_proof_coats:
+	icon:
+		Filename: bits/cameos/blpcicon.shp
+
+upgrade.molotov_cocktails:
+	icon:
+		Filename: bits/cameos/mltvicon.shp
+
+upgrade.smoke_grenades:
+	icon:
+		Filename: bits/cameos/smkgicon.shp
+
+upgrade.ap_bullets:
+	icon:
+		Filename: bits/cameos/apblicon.shp
+
+upgrade.black_napalm:
+	icon:
+		Filename: bits/cameos/bnplicon.shp
+
+upgrade.propaganda_effort:
+	icon:
+		Filename: bits/cameos/pefficon.shp
+
+upgrade.radioactive_bombs:
+	icon:
+		Filename: bits/cameos/rdbmicon.shp
+
+upgrade.cryo_warheads:
+	icon:
+		Filename: bits/cameos/cmslicon.png
+
+upgrade.overcharge:
+	icon:
+		Filename: bits/cameos/ovchicon.shp
+
+upgrade.advanced_irradiators:
+	icon:
+		Filename: bits/cameos/adviicon.png
+
+upgrade.aerial_propaganda:
+	icon:
+		Filename: bits/cameos/aerpicon.png
+
+upgrade.targeted_explosives:
+	icon:
+		Filename: bits/cameos/texpicon.shp
+
+upgrade.high_explosive_bombs:
+	icon:
+		Filename: bits/cameos/hexpicon.shp
+
+upgrade.high_caliber_rounds:
+	icon:
+		Filename: bits/cameos/hicbicon.shp
+
+upgrade.nuclear_engines:
+	icon:
+		Filename: bits/cameos/nkenicon.shp
+
+upgrade.uranium_shells:
+	icon:
+		Filename: bits/cameos/ushlicon.shp
+
+upgrade.cryo_shells:
+	icon:
+		Filename: bits/cameos/cshlicon.shp
+
+upgrade.mounted_mg:
+	icon:
+		Filename: bits/cameos/mtmgicon.shp
+
+upgrade.focused_mind:
+	icon:
+		Filename: bits/cameos/fmndicon.png
+
+upgrade.grinder_treads:
+	icon:
+		Filename: bits/cameos/grnticon.png
+
+upgrade.toxin_sprayer:
+	icon:
+		Filename: bits/cameos/txspicon.png
+
+upgrade.camouflage:
+	icon:
+		Filename: bits/cameos/camoicon.shp
+
+upgrade.autoloaders:
+	icon:
+		Filename: bits/cameos/autlicon.png
+
+upgrade.advanced_magnetics:
+	icon:
+		Filename: bits/cameos/advmicon.png
+
+upgrade.chaos_tank_compensators:
+	icon:
+		Filename: bits/cameos/chtcicon.png
+
+upgrade.laser_capacitors:
+	icon:
+		Filename: bits/cameos/lsrcicon.png
+
+upgrade.mastery_of_mind:
+	icon:
+		Filename: bits/cameos/maomicon.png
+
+upgrade.dna_boosters:
+	icon:
+		Filename: bits/cameos/dnabicon.shp
+
+upgrade.disc_armor:
+	icon:
+		Filename: bits/cameos/dscaicon.png
+
+upgrade.lazarus_prime:
+	icon:
+		Filename: bits/cameos/lprmicon.shp
+
+upgrade.rocket_barrage:
+	icon:
+		Filename: bits/cameos/rbaricon.png
+
+upgrade.chainguns:
+	icon:
+		Filename: bits/cameos/chngicon.shp

@@ -1,0 +1,94 @@
+MapScrollUp: UP
+	Description:向上滚动
+	Types: Viewport
+	Contexts: Player, Spectator, Editor
+
+MapScrollDown: DOWN
+	Description:向下滚动
+	Types: Viewport
+	Contexts: Player, Spectator, Editor
+
+MapScrollLeft: LEFT
+	Description:向左滚动
+	Types: Viewport
+	Contexts: Player, Spectator, Editor
+
+MapScrollRight: RIGHT
+	Description:向右滚动
+	Types: Viewport
+	Contexts: Player, Spectator, Editor
+
+MapJumpToTopEdge: UP Alt
+	Description:跳转到顶部边缘
+	Types: Viewport
+	Contexts: Player, Spectator, Editor
+
+MapJumpToBottomEdge: DOWN Alt
+	Description:跳转到底部边缘
+	Types: Viewport
+	Contexts: Player, Spectator, Editor
+
+MapJumpToLeftEdge: LEFT Alt
+	Description:跳转到左侧边缘
+	Types: Viewport
+	Contexts: Player, Spectator, Editor
+
+MapJumpToRightEdge: RIGHT Alt
+	Description:跳转到右侧边缘
+	Types: Viewport
+	Contexts: Player, Spectator, Editor
+
+MapBookmarkSave01: Q Ctrl
+	Description:记录书签 1
+	Types: Viewport
+	Contexts: Player, Spectator, Editor
+
+MapBookmarkRestore01: Q Alt
+	Description:跳转到书签 1
+	Types: Viewport
+	Contexts: Player, Spectator, Editor
+
+MapBookmarkSave02: W Ctrl
+	Description:记录书签 2
+	Types: Viewport
+	Contexts: Player, Spectator, Editor
+
+MapBookmarkRestore02: W Alt
+	Description:跳转到书签 2
+	Types: Viewport
+	Contexts: Player, Spectator, Editor
+
+MapBookmarkSave03: E Ctrl
+	Description:记录书签 3
+	Types: Viewport
+	Contexts: Player, Spectator, Editor
+
+MapBookmarkRestore03: E Alt
+	Description:跳转到书签 3
+	Types: Viewport
+	Contexts: Player, Spectator, Editor
+
+MapBookmarkSave04: R Ctrl
+	Description:记录书签 4
+	Types: Viewport
+	Contexts: Player, Spectator, Editor
+
+MapBookmarkRestore04: R Alt
+	Description:跳转到书签 4
+	Types: Viewport
+	Contexts: Player, Spectator, Editor
+
+ZoomIn: RIGHTBRACKET
+	Description:放大
+	Types: Viewport
+	Contexts: Player, Spectator, Editor
+
+ZoomOut: LEFTBRACKET
+	Description:缩小
+	Types: Viewport
+	Contexts: Player, Spectator, Editor
+
+ResetZoom: PERIOD
+	Description:重置缩放
+	Types: Viewport
+	Contexts: Player, Spectator, Editor

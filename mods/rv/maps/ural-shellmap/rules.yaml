@@ -1,0 +1,86 @@
+Player:
+	-ConquestVictoryConditions:
+	PlayerResources:
+		ResourceValues:
+			Ore: 0
+			Gems: 0
+
+^BaseWorld:
+	TintPostProcessEffect:
+		Ambient: 0.46
+		Red: 0.62
+		Green: 0.62
+
+World:
+	-CrateSpawner:
+	-SpawnStartingUnits:
+	-MapStartingLocations:
+	MusicPlaylist:
+		StartingMusic: grinder
+		DisableWorldSounds: true
+	LuaScript:
+		Scripts: shellmap.lua
+	-StartGameNotification:
+
+crate:
+	Crate:
+		Duration: 0
+
+^NeutralAircraft:
+	Aircraft:
+		TakeOffOnCreation: false
+
+narefn:
+	-FreeActor:
+
+caoild:
+	-CashTrickler:
+	-CashTricklerMultiplier:
+	-GrantConditionOnPrerequisite@orepurifier:
+
+camsc13:
+	DamageMultiplier:
+		Modifier: 0
+
+schp:
+	-WithVoxelHelicopterBody:
+	-WithFacingSpriteBody:
+	-Aircraft:
+	-HeliGrantConditionOnDeploy:
+	Mobile:
+		Locomotor: tracked
+		Voice: Move
+	GrantCondition@1:
+		Condition: airborne
+		RequiresCondition: !deployed
+	GrantCondition@2:
+		Condition: cruising
+		RequiresCondition: !deployed
+	GrantCondition@3:
+		Condition: undeployed
+		RequiresCondition: !deployed
+	ExternalCondition@DEPLOY:
+		Condition: deployed
+
+e2:
+	-TurnOnIdle:
+
+shk:
+	-TurnOnIdle:
+
+flakt:
+	-TurnOnIdle:
+
+ivan:
+	-TurnOnIdle:
+	ExternalCondition@VET:
+		Condition: rank-veteran
+
+itrp:
+	-TurnOnIdle:
+
+vladimir:
+	Inherits@EXPERIENCE: ^GainsExperience
+	-TurnOnIdle:
+	ExternalCondition@VET:
+		Condition: rank-veteran

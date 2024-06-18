@@ -1,0 +1,80 @@
+EditorUndo: Z Ctrl
+	Description: 撤销
+	Types: Editor
+	Contexts: Editor
+	Platform:
+		OSX: Z Meta
+
+EditorRedo: Y Ctrl
+	Description: 重做
+	Types: Editor
+	Contexts: Editor
+	Platform:
+		OSX: Z Meta, Shift
+		Linux: Z Ctrl, Shift
+
+EditorCopy: C Ctrl
+	Description: 复制
+	Types: Editor
+	Contexts: Editor
+	Platform:
+		OSX: C Meta
+
+EditorQuickSave: S Ctrl
+	Description: 保存地图
+	Types: Editor
+	Contexts: Editor
+	Platform:
+		OSX: S Meta
+
+EditorPaste: V Ctrl
+	Description: 粘贴
+	Types: Editor
+	Contexts: Editor
+	Platform:
+		OSX: V Meta
+
+EditorSelectTab: E
+	Description: 选项标签项
+	Types: Editor
+	Contexts: Editor
+
+EditorTilesTab: R
+	Description: 图快标签项
+	Types: Editor
+	Contexts: Editor
+
+EditorOverlaysTab: T
+	Description: 图层标签项
+	Types: Editor
+	Contexts: Editor
+
+EditorActorsTab: Y
+	Description: 工具标签项
+	Types: Editor
+	Contexts: Editor
+
+EditorToolsTab: U
+	Description: 工具标签项
+	Types: Editor
+	Contexts: Editor
+
+EditorHistoryTab: I
+	Description: 历史标签项
+	Types: Editor
+	Contexts: Editor
+
+EditorSettingsTab: O
+	Description: 设置标签项
+	Types: Editor
+	Contexts: Editor
+
+EditorToggleGridOverlay: F1
+	Description: 显示网格图层
+	Types: Editor
+	Contexts: Editor
+
+EditorToggleBuildableOverlay: F2
+	Description: 显示可放置的土地
+	Types: Editor
+	Contexts: Editor

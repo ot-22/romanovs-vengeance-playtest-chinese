@@ -1,0 +1,1430 @@
+^ConstructionYard:
+	Inherits: ^BaseBuilding
+	Inherits@EMPULSE: ^DisabledByEMP
+	Inherits@MC: ^MindControllableBuilding
+	Inherits@SPY: ^DisabledByInfiltration
+	Inherits@SHAPE: ^4x4Shape
+	Inherits@AICash: ^AICashCheat
+	Inherits@AI: ^AIMicroManagable
+	Buildable:
+		Queue: Building.Debug
+		Description: meta-constructionyard.description
+		BuildDuration: 1125
+		BuildDurationModifier: 100
+	Building:
+		Footprint: xxxx xxxx xxxx xxxx
+		Dimensions: 4,4
+	ProvidesPrerequisite@buildingname:
+	Tooltip:
+		Name: meta-constructionyard.name
+	Tooltip@NoRow:
+		Name: meta-constructionyard.name
+	Health:
+		HP: 160000
+	Armor:
+		Type: Concrete
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 6c0
+	Valued:
+		Cost: 4000
+	Production@Shared:
+		Produces: Building.Shared, Support.Shared
+		PauseOnCondition: chronodisable || disabled
+		RequiresCondition: !multiqueue
+	Production:
+		Produces: Building, Support
+		PauseOnCondition: chronodisable || disabled
+		RequiresCondition: multiqueue
+	ProductionQueue@Building:
+		Type: Building
+		Group: Building
+		DisplayOrder: 1
+		LowPowerModifier: 200
+		ReadyAudio: ConstructionComplete
+		ReadyTextNotification: notification-construction-complete
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: notification-unable-to-comply-building-in-progress
+		QueuedAudio: Building
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+	ProductionQueue@Support:
+		Type: Support
+		Group: Support
+		DisplayOrder: 5
+		LowPowerModifier: 200
+		ReadyAudio: ConstructionComplete
+		ReadyTextNotification: notification-construction-complete
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: notification-unable-to-comply-building-in-progress
+		QueuedAudio: Building
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+	ProductionBar@Building.Shared:
+		ProductionType: Building.Shared
+	ProductionBar@Building:
+		ProductionType: Building
+	ProductionBar@Support.Shared:
+		ProductionType: Support.Shared
+		Color: 8A8A8A
+	ProductionBar@Support:
+		ProductionType: Support
+		Color: 8A8A8A
+	GrantConditionOnPrerequisite@multiqueue:
+		Condition: multiqueue
+		Prerequisites: global-multiqueue
+	FreeActor@Dummy:
+		Actor: QueueUpdaterDummy
+		RequiresCondition: updatequeue
+	GrantConditionAfterDelay:
+		Delay: 1
+		Condition: updatequeue
+		ShowSelectionBar: false
+	BaseBuilding:
+	Transforms:
+		IntoActor: mcv
+		Offset: 1,1
+		Facing: 384
+		Voice: Move
+		DeployCursor: undeploy
+		PauseOnCondition: chronodisable || controlled || disabled
+		RequiresCondition: factundeploy && !build-incomplete
+	TransformsIntoMobile:
+		RequiresCondition: factundeploy && !build-incomplete && !chronodisable && !controlled
+		Locomotor: heavytracked
+		Voice: Move
+		RequiresForceMove: true
+	TransformsIntoRepairable:
+		RequiresCondition: factundeploy && !build-incomplete && !chronodisable && !controlled
+		RepairActors: gadept, nadept, nadepb, yadept, yadepb, caoutp, caoutb
+		Voice: Move
+		RequiresForceMove: true
+	TransformsIntoPassenger:
+		RequiresCondition: factundeploy && !build-incomplete && !chronodisable && !controlled
+		CargoType: Vehicle
+		Voice: Move
+		RequiresForceMove: true
+	GrantConditionOnPrerequisite@GLOBALFACTUNDEPLOY:
+		Condition: factundeploy
+		Prerequisites: global-factundeploy
+	Capturable:
+		RequiresCondition: !suddendeath
+	Targetable@MC:
+		RequiresCondition: !controlled && !suddendeath
+	MustBeDestroyed:
+		-RequiresCondition:
+	SpawnActorsOnSell@allies:
+		ActorTypes: e1, e1, e1, engineer
+	SpawnActorsOnSell@soviets:
+		ActorTypes: e2, e2, e2, e2, engineer
+	SpawnActorsOnSell@psicorps:
+		ActorTypes: init, init, init, engineer
+	BaseProvider:
+		Range: 18c0
+		PauseOnCondition: build-incomplete || chronodisable
+	TransferTimedExternalConditionOnTransform@INVULNERABILITY:
+		Condition: invulnerability
+	TransferTimedExternalConditionOnTransform@INVISIBILITY:
+		Condition: invisibility
+	ExternalCondition@INVISIBILITY:
+		Condition: invisibility
+	GrantCondition@IDISABLE:
+		RequiresCondition: emp || infiltrated
+	Targetable:
+		TargetTypes: Ground, C4, DetonateAttack, Structure, NonGarrisonableStructure, SpyInfiltrate
+	Targetable@Water:
+		TargetTypes: Ground, Water, WaterStructure, C4, SpyInfiltrate
+	WithIdleOverlay@waves:
+		Sequence: idle-waves
+		RequiresCondition: in_water
+	Voiced:
+		VoiceSet: ConstructionYardVoice
+		Volume: 0.8
+	ProvidesPrerequisite@AIantiRush:
+		RequiresCondition: !ai-control
+		Prerequisite: AIantiRush ## Hack: AI Building control. AI build refinary only when it has a combat producing line.
+
+^ExpansionNode:
+	Inherits: ^BaseBuilding
+	Inherits@AI: ^AIMicroManagable
+	Inherits@MC: ^MindControllableBuilding
+	Inherits@SHAPE: ^2x2Shape
+	IsometricSelectable:
+		DecorationHeight: 60
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 80000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 8c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 8c0
+	Valued:
+		Cost: 1200
+	Tooltip:
+		Name: meta-expansionnode.name
+	Tooltip@NoRow:
+		Name: meta-expansionnode.name
+	BaseBuilding:
+	# Transforms:
+	#	IntoActor: expn
+	#	Facing: 96
+	#	Voice: Move
+	#	DeployCursor: undeploy
+	#	PauseOnCondition: chronodisable || controlled
+	#	RequiresCondition: factundeploy && !build-incomplete
+	# TransformsIntoMobile:
+	#	RequiresCondition: factundeploy && !build-incomplete && !chronodisable && !controlled
+	#	Locomotor: heavytracked
+	#	Voice: Move
+	#	RequiresForceMove: true
+	# TransformsIntoRepairable:
+	#	RequiresCondition: factundeploy && !build-incomplete && !chronodisable && !controlled
+	#	RepairActors: gadept, nadept, nadepb, yadept, yadepb, caoutp, caoutb
+	#	Voice: Move
+	#	RequiresForceMove: true
+	# TransformsIntoPassenger:
+	#	RequiresCondition: factundeploy && !build-incomplete && !chronodisable && !controlled
+	#	CargoType: Vehicle
+	#	Voice: Move
+	#	RequiresForceMove: true
+	# GrantConditionOnPrerequisite@GLOBALFACTUNDEPLOY:
+	#	Condition: factundeploy
+	#	Prerequisites: global-factundeploy
+	BaseProvider:
+		Range: 14c0
+		PauseOnCondition: build-incomplete || chronodisable
+	# TransferTimedExternalConditionOnTransform@INVULNERABILITY:
+	#	Condition: invulnerability
+	# TransferTimedExternalConditionOnTransform@INVISIBILITY:
+	#	Condition: invisibility
+	# ExternalCondition@INVISIBILITY:
+	#	Condition: invisibility
+	ProvidesPrerequisite@AITowerRush:
+		RequiresCondition: ai-control
+		Prerequisite: AITowerRush
+	WithIdleOverlay@waves:
+		Sequence: idle-waves
+		RequiresCondition: in_water
+	Voiced:
+		VoiceSet: ExpansionNodeVoice
+		Volume: 0.8
+
+^PowerPlant:
+	Inherits: ^BaseBuilding
+	Inherits@EMPULSE: ^DisabledByEMP
+	Inherits@DRAIN: ^DiskDrainable
+	Inherits@MC: ^MindControllableBuilding
+	Inherits@POWEROUTAGE: ^DisabledByPowerOutage
+	Buildable:
+		Queue: Building.Shared, Building
+		Prerequisites: ~techlevel.1
+		BuildPaletteOrder: 10
+		Description: meta-powerplant.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: meta-powerplant.name
+	Tooltip@NoRow:
+		Name: meta-powerplant.name
+	ProvidesPrerequisite@default:
+	ProvidesPrerequisite:
+		Prerequisite: power
+	Health:
+		HP: 50000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 6c0
+	Power:
+		Amount: 150
+		RequiresCondition: !chronodisable && !forceshieldnopower && !disabled
+	GrantCondition@IDISABLE:
+		RequiresCondition: emp || power-outage || diskdrain
+	GrantConditionOnPrerequisite@forceshield:
+		Condition: forceshieldnopower
+		Prerequisites: forceshield
+	ScalePowerWithHealth:
+	SoundOnDamageTransition:
+		DestroyedSounds: bpowdiea.wav, bpowdieb.wav
+	PowerTooltip:
+	Explodes@Reactor:
+		DeathTypes: NonTemporal
+		Weapon: ReactorExplode
+		Type: CenterPosition
+	Targetable:
+		TargetTypes: Ground, C4, DetonateAttack, Structure, NonGarrisonableStructure, SpyInfiltrate
+	Targetable@Water:
+		TargetTypes: Ground, Water, WaterStructure, C4, SpyInfiltrate
+	WithIdleOverlay@waves:
+		Sequence: idle-waves
+		RequiresCondition: in_water
+	ActorStatValues:
+		Stats: Armor, Sight, Power
+
+^Barracks:
+	Inherits: ^BaseBuilding
+	Inherits@EMPULSE: ^DisabledByEMP
+	Inherits@MC: ^MindControllableBuilding
+	Inherits@PRIMARY: ^PrimaryBuilding
+	Inherits@SPY: ^DisabledByInfiltration
+	Buildable:
+		Queue: Building.Shared, Building
+		BuildPaletteOrder: 20
+		Prerequisites: power, ~techlevel.1
+		Description: meta-barracks.description
+		BuildDuration: 175
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: meta-barracks.name
+	Tooltip@NoRow:
+		Name: meta-barracks.name
+	ProvidesPrerequisite:
+		Prerequisite: barracks
+	ProvidesPrerequisite@production:
+		Prerequisite: production
+	ProximityExternalCondition@heal:
+		Condition: heal
+		Range: 5c0
+	WithRangeCircle:
+		Range: 5c0
+		Type: heal
+		Color: FF0000CC
+		BorderWidth: 0
+		Width: 2
+	Building:
+		-SecondaryTerrainTypes:
+	ExitsDebugOverlay:
+	Health:
+		HP: 50000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 6c0
+	RallyPoint:
+		Palette: mouse
+		IsPlayerPalette: false
+	CommandBarBlacklist:
+		DisableStop: false
+	GrantExternalConditionToProduced:
+		Condition: produced
+	Production@Shared:
+		Produces: Infantry.Shared, Soldier
+		PauseOnCondition: chronodisable || disabled
+		RequiresCondition: !multiqueue
+	Production:
+		Produces: Infantry
+		PauseOnCondition: chronodisable || disabled
+		RequiresCondition: multiqueue
+	ProductionQueue:
+		Type: Infantry
+		Group: Infantry
+		DisplayOrder: 13
+		LowPowerModifier: 200
+		ReadyAudio: UnitReady
+		ReadyTextNotification: notification-unit-ready
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: notification-unable-to-comply-building-in-progress
+		QueuedAudio: Training
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+	ProductionBar@Shared:
+		ProductionType: Infantry.Shared
+	ProductionBar:
+		ProductionType: Infantry
+	Power:
+		Amount: -35
+	GrantCondition@IDISABLE:
+		RequiresCondition: emp || infiltrated
+	#InfiltrateForSupportPower:
+	#	Types: SpyInfiltrate
+	#	Proxy: barracks.infiltrated
+	#	InfiltratedNotification: TechnologyStolen
+	#	InfiltrationNotification: BuildingInfiltratedTechnologyStolen
+	Targetable:
+		TargetTypes: Ground, C4, DetonateAttack, Structure, NonGarrisonableStructure, SpyInfiltrate
+	Targetable@Water:
+		TargetTypes: Ground, Water, WaterStructure, C4, SpyInfiltrate
+	GrantConditionOnPrerequisite@megawealth:
+		Condition: megawealth
+		Prerequisites: global-megawealth
+	ProvidesPrerequisite@mwgenref:
+		Prerequisite: refinery
+		RequiresCondition: megawealth
+	ProvidesPrerequisite@mwfacref:
+		Prerequisite: garefn
+		RequiresCondition: megawealth
+	Voiced:
+		VoiceSet: BarracksVoice
+		Volume: 0.8
+	ProvidesPrerequisite@AIantiRush:
+		Prerequisite: AIantiRush ## Hack: AI Building control. AI build refinary only when it has a combat producing line.
+	ActorStatValues:
+		Stats: Armor, Sight, Power
+
+^Refinery:
+	Inherits: ^BaseBuilding
+	Inherits@DISK: ^DiskStealable
+	Inherits@MC: ^MindControllableBuilding
+	Inherits@SHAPE: ^NormalRefineryShape
+	Inherits@AICash: ^AICashCheat
+	Buildable:
+		Queue: Building.Shared, Building
+		BuildPaletteOrder: 30
+		Prerequisites: power, ~!global-megawealth, ~techlevel.1
+		Description: meta-refinery.description
+		BuildDuration: 1000
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: meta-refinery.name
+	Tooltip@NoRow:
+		Name: meta-refinery.name
+	ProvidesPrerequisite:
+		Prerequisite: refinery
+	ProvidesPrerequisite@default:
+	Building:
+		Footprint: xxx+ xxx+ xxx+
+		Dimensions: 4,3
+	Health:
+		HP: 75000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 6c0
+	Refinery:
+		ShowTicks: True
+		TickRate: 10
+		UseStorage: true
+	DockHost:
+		Type: Unload
+		DockAngle: 640
+		DockOffset: 1086,1086,0
+	CustomSellValue:
+		Value: 600
+	InfiltrateForCash:
+		Types: SpyInfiltrate
+		Percentage: 50
+		InfiltratedNotification: CashStolen
+		InfiltrationNotification: BuildingInfiltratedCashStolen
+		Minimum: 500
+	FreeActor:
+		Actor: cmin
+		SpawnOffset: 3,1
+		Facing: 640
+	SpawnNeighboringActors:
+		ActorTypes: refdock
+		Locations: 3,1
+	WithDockedOverlay:
+		PauseOnCondition: chronodisable
+		RequiresCondition: !build-incomplete
+	WithIdleOverlay@bib:
+		Sequence: idle-bib
+		PauseOnCondition: chronodisable
+		RequiresCondition: !build-incomplete
+	WithIdleOverlay@drill:
+		Sequence: idle-drill
+		PauseOnCondition: chronodisable
+		RequiresCondition: !build-incomplete
+	WithIdleOverlay@waves:
+		Sequence: idle-waves
+		RequiresCondition: in_water
+	Power:
+		Amount: -40
+	Targetable:
+		TargetTypes: Ground, C4, DetonateAttack, Structure, NonGarrisonableStructure, SpyInfiltrate
+	Targetable@Water:
+		TargetTypes: Ground, Water, WaterStructure, C4, SpyInfiltrate
+	SpawnActorsOnSell@allies:
+		ActorTypes: e1
+	SpawnActorsOnSell@soviets:
+		ActorTypes: e2
+	SpawnActorsOnSell@psicorps:
+		ActorTypes: init
+	StoresPlayerResources:
+		Capacity: 2000
+	Explodes:
+		RequiresCondition: !spawn-ore
+	Explodes@Ore:
+		Type: Footprint
+		DeathTypes: NonTemporal
+		Weapon: RefineryExplode
+		RequiresCondition: spawn-ore
+	GrantConditionOnPlayerResources:
+		Condition: spawn-ore
+	GrantConditionOnResourceDelivery:
+		Condition: resource-delivered
+		Duration: 3
+	SmokeParticleEmitter@refinerysmoke1:
+		RequiresCondition: resource-delivered
+		Image: smallsmoke
+		Sequences: idle
+		Palette: effect50alpha
+		SpawnFrequency: 1,2
+		Speed: 0, 36
+		Gravity: 27, 54
+		Duration: 39
+	SmokeParticleEmitter@refinerysmoke2:
+		RequiresCondition: resource-delivered
+		Image: smallsmoke
+		Sequences: idle
+		Palette: effect50alpha
+		SpawnFrequency: 1,2
+		Speed: 0, 36
+		Gravity: 27, 54
+		Duration: 39
+	WithResourceStoragePipsDecoration:
+		FullSequence: pip-building-yellow
+		EmptySequence: pip-building-empty
+		Palette: ra
+		Margin: 8, 2
+		PipStride: 4, 2
+		Position: BottomLeft
+		RequiresSelection: true
+		PipCount: 25
+	Voiced:
+		VoiceSet: RefineryVoice
+		Volume: 0.8
+	ActorStatValues:
+		Stats: Armor, Sight, Power
+
+^RefineryB:
+	Inherits: ^Refinery
+	Inherits@SHAPE: ^FlippedRefineryXShape
+	-Buildable:
+	Building:
+		Footprint: xxx xxx xxx +++
+		Dimensions: 3,4
+	DockHost:
+		DockAngle: 384
+		DockOffset: -1086,1086,0
+	FreeActor:
+		SpawnOffset: 1,3
+		Facing: 384
+	SpawnNeighboringActors:
+		Locations: 1,3
+
+^RefineryC:
+	Inherits: ^Refinery
+	Inherits@SHAPE: ^FlippedRefineryShape
+	-Buildable:
+	Building:
+		Footprint: +xxx +xxx +xxx
+	DockHost:
+		DockAngle: 128
+		DockOffset: -724,724,0
+	FreeActor:
+		SpawnOffset: 0,1
+		Facing: 128
+	SpawnNeighboringActors:
+		Locations: 0,1
+	-WithDockedOverlay:
+	-WithIdleOverlay@drill:
+	-WithIdleOverlay@waves:
+
+^RefineryD:
+	Inherits: ^Refinery
+	Inherits@SHAPE: ^FlippedRefineryYShape
+	-Buildable:
+	Building:
+		Footprint: +++ xxx xxx xxx
+		Dimensions: 3,4
+	DockHost:
+		DockAngle: 896
+		DockOffset: 1086,-1086,0
+	FreeActor:
+		SpawnOffset: 1,0
+		Facing: 896
+	SpawnNeighboringActors:
+		Locations: 1,0
+	-WithDockedOverlay:
+	-WithIdleOverlay@drill:
+	-WithIdleOverlay@waves:
+
+refdock:
+	Interactable:
+	AlwaysVisible:
+	Reservable:
+	ProximityExternalCondition:
+		Condition: on_dock
+		Range: 0c768
+	Building:
+		Footprint: _
+		AllowInvalidPlacement: true
+	RejectsOrders:
+
+^Silo:
+	Inherits: ^BaseBuilding
+	Inherits@DISK: ^DiskStealable
+	Inherits@SHAPE: ^2x2Shape
+	IsometricSelectable:
+		DecorationHeight: 30
+	Buildable:
+		Queue: Support
+		BuildPaletteOrder: 30
+		Prerequisites: refinery, ~!global-megawealth, ~techlevel.1
+		Description: meta-silo.description
+		BuildDuration: 125
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 300
+	Tooltip:
+		Name: meta-silo.name
+	Tooltip@NoRow:
+		Name: meta-silo.name
+	Building:
+		Footprint: xx xx
+		Dimensions: 2, 2
+	Health:
+		HP: 30000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 4c0
+	-WithSpriteBody:
+	WithResourceLevelSpriteBody:
+		Stages: 4
+	StoresPlayerResources:
+		Capacity: 2000
+	WithIdleOverlay@waves:
+		Sequence: idle-waves
+		RequiresCondition: in_water
+	Power:
+		Amount: -10
+		RequiresCondition: !chronodisable
+	Explodes:
+		RequiresCondition: !spawn-ore
+	Explodes@Ore:
+		Type: Footprint
+		DeathTypes: NonTemporal
+		Weapon: RefineryExplode
+		RequiresCondition: spawn-ore
+	GrantConditionOnPlayerResources:
+		Condition: spawn-ore
+	WithResourceStoragePipsDecoration:
+		FullSequence: pip-building-yellow
+		EmptySequence: pip-building-empty
+		Palette: ra
+		Margin: 8, 2
+		PipStride: 4, 2
+		Position: BottomLeft
+		RequiresSelection: true
+		PipCount: 12
+	Voiced:
+		VoiceSet: SiloVoice
+		Volume: 0.8
+	ActorStatValues:
+		Stats: Armor, Sight, Power
+
+^WarFactory:
+	Inherits: ^BaseBuilding
+	Inherits@EMPULSE: ^DisabledByEMP
+	Inherits@MC: ^MindControllableBuilding
+	Inherits@PRIMARY: ^PrimaryBuilding
+	Inherits@SPY: ^DisabledByInfiltration
+	Inherits@SHAPE: ^NormalFactoryShape
+	Buildable:
+		Queue: Building.Shared, Building
+		BuildPaletteOrder: 50
+		Prerequisites: refinery, ~techlevel.1
+		Description: meta-warfactory.description
+		BuildDuration: 750
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: meta-warfactory.name
+	Tooltip@NoRow:
+		Name: meta-warfactory.name
+	ProvidesPrerequisite@warfactory:
+		Prerequisite: warfactory
+	ProvidesPrerequisite@production:
+		Prerequisite: production
+	Building:
+		Footprint: xxxx+ xxxx+ xxxx+
+		Dimensions: 5,3
+		-SecondaryTerrainTypes:
+	Health:
+		HP: 120000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 6c0
+	RallyPoint:
+		Path: 6,1
+		Palette: mouse
+		IsPlayerPalette: false
+	CommandBarBlacklist:
+		DisableStop: false
+	Exit@1:
+		ExitCell: 4,1
+	GrantExternalConditionToProduced:
+		Condition: produced
+	Production@Shared:
+		Produces: Vehicle.Shared
+		PauseOnCondition: chronodisable || disabled
+		RequiresCondition: !multiqueue
+	Production:
+		Produces: Vehicle
+		PauseOnCondition: chronodisable || disabled
+		RequiresCondition: multiqueue
+	ProductionQueue:
+		Type: Vehicle
+		Group: Vehicle
+		DisplayOrder: 17
+		LowPowerModifier: 200
+		ReadyAudio: UnitReady
+		ReadyTextNotification: notification-unit-ready
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: notification-unable-to-comply-building-in-progress
+		QueuedAudio: Training
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+	ProductionBar@Shared:
+		ProductionType: Vehicle.Shared
+	ProductionBar:
+		ProductionType: Vehicle
+	WithExitOverlay@front:
+		Sequence: build-front
+		RequiresCondition: !build-incomplete && !chronodisable
+	WithExitOverlay@top:
+		Sequence: build-top
+		RequiresCondition: !build-incomplete && !chronodisable
+	WithIdleOverlay@bib:
+		Sequence: bib
+		PauseOnCondition: chronodisable
+		RequiresCondition: !build-incomplete
+	AutoTarget:
+	AutoTargetPriority@DEFAULT:
+		ValidTargets: Repair, AirRepair, SeaAnimalRepair
+		ValidRelationships: Ally
+	AttackOmni:
+		PauseOnCondition: chronodisable || disabled
+	Armament:
+		Weapon: RepairDroneSpawn
+		Cursor: repair
+		OutsideRangeCursor: repair
+		TargetRelationships: Ally
+		ForceTargetRelationships: Ally
+		PauseOnCondition: build-incomplete
+	DroneSpawnerMaster:
+		Actors: repdron, repdron, repdron
+		SpawnOffset: -1024,1024,0, 0,0,0, 1024,1024,0
+		GatherCell: 1,2, 1,1, 2,1
+	WithRangeCircle:
+		Range: 6c0
+		Type: repair
+		Color: FF0000CC
+		BorderWidth: 0
+		Width: 2
+	Power:
+		Amount: -50
+		RequiresCondition: !chronodisable
+	GrantCondition@IDISABLE:
+		RequiresCondition: emp || infiltrated
+	#InfiltrateForSupportPower:
+	#	Types: SpyInfiltrate
+	#	Proxy: warfactory.infiltrated
+	#	InfiltratedNotification: TechnologyStolen
+	#	InfiltrationNotification: BuildingInfiltratedTechnologyStolen
+	Targetable:
+		TargetTypes: Ground, C4, DetonateAttack, Structure, NonGarrisonableStructure, SpyInfiltrate
+	Targetable@Water:
+		TargetTypes: Ground, Water, WaterStructure, C4, SpyInfiltrate
+	Voiced:
+		VoiceSet: WarFactoryVoice
+		Volume: 0.8
+	ProvidesPrerequisite@AIantiRush:
+		Prerequisite: AIantiRush ## Hack: AI Building control. AI build refinary only when it has a combat producing line.
+	ActorStatValues:
+		Stats: Armor, Sight, Power
+
+^Shipyard:
+	Inherits: ^BaseBuilding
+	Inherits@EMPULSE: ^DisabledByEMP
+	Inherits@MC: ^MindControllableBuilding
+	Inherits@PRIMARY: ^PrimaryBuilding
+	Inherits@SPY: ^DisabledByInfiltration
+	Inherits@SHAPE: ^4x4Shape
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: meta-shipyard.name
+	Tooltip@NoRow:
+		Name: meta-shipyard.name
+	Buildable:
+		Queue: Building.Shared, Building
+		BuildPaletteOrder: 60
+		Prerequisites: refinery, ~techlevel.1
+		Description: meta-shipyard.description
+		BuildDuration: 625
+		BuildDurationModifier: 100
+	Targetable:
+		TargetTypes: Ground, Water, WaterStructure, C4, SpyInfiltrate
+	ProvidesPrerequisite@default:
+	ProvidesPrerequisite@production:
+		Prerequisite: production
+	Building:
+		Footprint: xxxx xxxx xxxx xxxx
+		Dimensions: 4,4
+		TerrainTypes: Water
+		-SecondaryTerrainTypes:
+		# RequiresBaseProvider: false
+	Health:
+		HP: 150000
+	Armor:
+		Type: Concrete
+	RevealsShroud:
+		Range: 10c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 10c0
+	# X -2 column
+	Exit@n2_n2:
+		ExitCell: -2,-2
+	Exit@n2_n1:
+		ExitCell: -2,-1
+	Exit@n2_0:
+		ExitCell: -2,0
+	Exit@n2_1:
+		ExitCell: -2,1
+	Exit@n2_2:
+		ExitCell: -2,2
+	Exit@n2_3:
+		ExitCell: -2,3
+	Exit@n2_4:
+		ExitCell: -2,4
+	Exit@n2_5:
+		ExitCell: -2,5
+	# X -1 column
+	Exit@n1_n2:
+		ExitCell: -1,-2
+	Exit@n1_5:
+		ExitCell: -1,5
+	# X 0 column
+	Exit@0_n2:
+		ExitCell: 0,-2
+	Exit@0_5:
+		ExitCell: 0,5
+	# X 1 column
+	Exit@1_n2:
+		ExitCell: 1,-2
+	Exit@1_5:
+		ExitCell: 1,5
+	# X 2 column
+	Exit@2_n2:
+		ExitCell: 2,-2
+	Exit@2_5:
+		ExitCell: 2,5
+	# X 3 column
+	Exit@3_n2:
+		ExitCell: 3,-2
+	Exit@3_5:
+		ExitCell: 3,5
+	# X 4 column
+	Exit@4_n2:
+		ExitCell: 4,-2
+	Exit@4_5:
+		SpawnOffset: 0,-113,0
+		Facing: 640
+		ExitCell: 4,5
+	# X 5 column
+	Exit@5_n2:
+		ExitCell: 5,-2
+	Exit@5_n1:
+		ExitCell: 5,-1
+	Exit@5_0:
+		ExitCell: 5,0
+	Exit@5_1:
+		ExitCell: 5,1
+	Exit@5_2:
+		ExitCell: 5,2
+	Exit@5_3:
+		ExitCell: 5,3
+	Exit@5_4:
+		SpawnOffset: 0,-113,0
+		Facing: 384
+		ExitCell: 5,4
+	Exit@5_5:
+		ExitCell: 5,5
+	GrantExternalConditionToProduced:
+		Condition: produced
+	Production@Shared:
+		Produces: Ship.Shared
+		PauseOnCondition: chronodisable || disabled
+		RequiresCondition: !multiqueue
+	Production:
+		Produces: Ship
+		PauseOnCondition: chronodisable || disabled
+		RequiresCondition: multiqueue
+	ProductionQueue:
+		Type: Ship
+		Group: Ship
+		DisplayOrder: 21
+		LowPowerModifier: 200
+		ReadyAudio: UnitReady
+		ReadyTextNotification: notification-unit-ready
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: notification-unable-to-comply-building-in-progress
+		QueuedAudio: Training
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+	ProductionBar@Shared:
+		ProductionType: Ship.Shared
+	ProductionBar:
+		ProductionType: Ship
+	RallyPoint:
+		Path: 5,1
+		Palette: mouse
+		IsPlayerPalette: false
+	CommandBarBlacklist:
+		DisableStop: false
+	# RepairsUnits:
+	#	PauseOnCondition: chronodisable || disabled
+	#	HpPerStep: 2000
+	#	Interval: 20
+	#	RepairDamageTypes: KillsDrone
+	#	StartRepairingNotification: Repairing
+	#	StartRepairingTextNotification: notification-repairing
+	#	FinishRepairingNotification: UnitRepaired
+	#	FinishRepairingTextNotification: notification-unit-repaired
+	AutoTarget:
+	AutoTargetPriority@DEFAULT:
+		ValidTargets: Repair, AirRepair, SeaAnimalRepair
+		ValidRelationships: Ally
+	AttackOmni:
+		PauseOnCondition: chronodisable || disabled
+	Armament:
+		Weapon: RepairDroneSpawn
+		Cursor: repair
+		OutsideRangeCursor: repair
+		TargetRelationships: Ally
+		ForceTargetRelationships: Ally
+		PauseOnCondition: build-incomplete
+	DroneSpawnerMaster:
+		Actors: repdron, repdron, repdron
+		SpawnOffset: -1024,1024,0, 0,0,0, 1024,1024,0
+		GatherCell: 1,2, 1,1, 2,1
+	WithRangeCircle:
+		Range: 6c0
+		Type: repair
+		Color: FF0000CC
+		BorderWidth: 0
+		Width: 2
+	Power:
+		Amount: -50
+		RequiresCondition: !chronodisable
+	WithIdleOverlay@waves:
+		Sequence: idle-waves
+		PauseOnCondition: chronodisable
+		RequiresCondition: !build-incomplete
+	WithIdleOverlay:
+		Sequence: idle-crane
+		PauseOnCondition: chronodisable
+		RequiresCondition: !build-incomplete
+	-SpawnActorsOnSell@allies:
+	-SpawnActorsOnSell@soviets:
+	-SpawnActorsOnSell@psicorps:
+	RequiresBuildableArea:
+		Adjacent: 13
+	AmbientSound:
+		SoundFiles: awav03a.wav, awav03b.wav, awav03c.wav, awav03d.wav, awav03e.wav
+		Interval: 150, 250
+		Volume: 0.45
+	Voiced:
+		VoiceSet: ShipyardVoice
+		Volume: 0.8
+	ActorStatValues:
+		Stats: Armor, Sight, Power
+
+^ServiceDepot:
+	Inherits: ^BaseBuilding
+	Inherits@EMPULSE: ^DisabledByEMP
+	Inherits@MC: ^MindControllableBuilding
+	Inherits@SHAPE: ^4x3Shape
+	Buildable:
+		Queue: Building.Shared, Building
+		BuildPaletteOrder: 80
+		Prerequisites: warfactory, ~techlevel.1
+		Description: meta-servicedepot.description
+		BuildDuration: 375
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: meta-servicedepot.name
+	Tooltip@NoRow:
+		Name: meta-servicedepot.name
+	ProvidesPrerequisite@default:
+	ProvidesPrerequisite:
+		Prerequisite: repairpad
+	Building:
+		Footprint: x+++ x+++ x+++
+		Dimensions: 4,3
+	RallyPoint:
+		Path: 4,1
+		Palette: mouse
+		IsPlayerPalette: false
+	CommandBarBlacklist:
+		DisableStop: false
+	SpawnNeighboringActors:
+		ActorTypes: refdock
+		Locations: 1,0, 1,1, 1,2, 2,0, 2,1, 2,2, 3,0, 3,1, 3,2
+	Health:
+		HP: 75000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 6c0
+	Reservable:
+	RepairsUnits:
+		PauseOnCondition: chronodisable || disabled
+		HpPerStep: 2000
+		Interval: 20
+		RepairDamageTypes: KillsDrone
+		StartRepairingNotification: Repairing
+		StartRepairingTextNotification: notification-repairing
+		FinishRepairingNotification: UnitRepaired
+		FinishRepairingTextNotification: notification-unit-repaired
+	ProximityExternalCondition:
+		Condition: unit.sellable
+		Range: 1c0
+	Sellable:
+		RequiresCondition: !unit.docked && !build-incomplete
+	ExternalCondition@Docked:
+		Condition: unit.docked
+	WithIdleOverlay@bib:
+		Sequence: bib
+		PauseOnCondition: chronodisable
+		RequiresCondition: !build-incomplete
+	WithIdleOverlay@waves:
+		Sequence: idle-waves
+		RequiresCondition: in_water
+	WithResupplyAnimation:
+		Sequence: repair
+		RequiresCondition: !build-incomplete && !chronodisable
+	Power:
+		Amount: -35
+		RequiresCondition: !chronodisable
+	Voiced:
+		VoiceSet: ServiceDepotVoice
+		Volume: 0.8
+	ActorStatValues:
+		Stats: Armor, Sight, Power
+
+^Radar:
+	Inherits: ^BaseBuilding
+	Inherits@EMPULSE: ^DisabledByEMP
+	Inherits@LOWPOWER: ^DisableOnLowPowerOrPowerDown
+	Inherits@MC: ^MindControllableBuilding
+	Buildable:
+		Queue: Building.Shared, Building
+		BuildPaletteOrder: 40
+		Description: meta-radar.description
+		BuildDuration: 1125
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 1500
+	ProvidesPrerequisite@default:
+	ProvidesPrerequisite@radar:
+		Prerequisite: radar
+	Health:
+		HP: 100000
+	Armor:
+		Type: Wood
+	ExternalCondition@disableradar:
+		Condition: disableradar
+	ProvidesRadar:
+		RequiresCondition: !disabled && !chronodisable && !disableradar
+	RevealsShroud:
+		Range: 14c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 10c0
+	SupportPowerChargeBar:
+	Targetable:
+		TargetTypes: Ground, C4, DetonateAttack, Structure, NonGarrisonableStructure, SpyInfiltrate
+	Targetable@Water:
+		TargetTypes: Ground, Water, WaterStructure, C4, SpyInfiltrate
+	InfiltrateForSupportPowerReset:
+		Types: SpyInfiltrate
+	InfiltrateForExploration:
+		Types: SpyInfiltrate
+		InfiltratedNotification: RadarSabotaged
+		InfiltrationNotification: BuildingInfiltratedRadarSabotaged
+	Power:
+		Amount: -75
+		RequiresCondition: !chronodisable
+	GrantCondition@IDISABLE:
+		RequiresCondition: lowpower || powerdown || emp
+	WithIdleOverlay@waves:
+		Sequence: idle-waves
+		RequiresCondition: in_water
+	Voiced:
+		VoiceSet: RadarVoice
+		Volume: 0.8
+	ActorStatValues:
+		Stats: Armor, Sight, Power
+
+^Helipad:
+	Inherits: ^BaseBuilding
+	Inherits@EMPULSE: ^DisabledByEMP
+	Inherits@MC: ^MindControllableBuilding
+	Inherits@PRIMARY: ^PrimaryBuilding
+	Inherits@SPY: ^DisabledByInfiltration
+	Inherits@SHAPE: ^3x3Shape
+	Buildable:
+		Queue: Building.Shared, Building
+		BuildPaletteOrder: 70
+		Prerequisites: radar, ~techlevel.2
+		Description: meta-helipad.description
+		BuildDuration: 375
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 500
+	ProvidesPrerequisite@default:
+	ProvidesPrerequisite@production:
+		Prerequisite: production
+	Building:
+		Dimensions: 3,3
+		Footprint: xxx xxx xxx
+	Health:
+		HP: 75000
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 6c0
+	Armor:
+		Type: Wood
+	Reservable:
+	RallyPoint:
+		Path: 3,1
+		Palette: mouse
+		IsPlayerPalette: false
+	CommandBarBlacklist:
+		DisableStop: false
+	Exit@1:
+		Facing: 640
+		ExitCell: 1,1
+		SpawnOffset: 0,0,0
+	GrantExternalConditionToProduced:
+		Condition: produced
+	Production@Shared:
+		Produces: Aircraft.Shared
+		PauseOnCondition: chronodisable || disabled
+		RequiresCondition: !multiqueue
+	Production:
+		Produces: Aircraft
+		PauseOnCondition: chronodisable || disabled
+		RequiresCondition: multiqueue
+	ProductionQueue:
+		Type: Aircraft
+		Group: Aircraft
+		DisplayOrder: 26
+		LowPowerModifier: 200
+		ReadyAudio: UnitReady
+		ReadyTextNotification: notification-unit-ready
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: notification-unable-to-comply-building-in-progress
+		QueuedAudio: Training
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+	ProductionBar@Shared:
+		ProductionType: Aircraft.Shared
+	ProductionBar:
+		ProductionType: Aircraft
+	AutoTarget:
+	AutoTargetPriority@DEFAULT:
+		ValidTargets: Repair, AirRepair, SeaAnimalRepair
+		ValidRelationships: Ally
+	AttackOmni:
+		PauseOnCondition: chronodisable || disabled
+	Armament:
+		Weapon: RepairDroneSpawn
+		Cursor: repair
+		OutsideRangeCursor: repair
+		TargetRelationships: Ally
+		ForceTargetRelationships: Ally
+		PauseOnCondition: build-incomplete
+	DroneSpawnerMaster:
+		Actors: repdron
+		SpawnOffset: 0,0,0
+		GatherCell: 1,1
+	WithRangeCircle:
+		Range: 6c0
+		Type: repair
+		Color: FF0000CC
+		BorderWidth: 0
+		Width: 2
+	Power:
+		Amount: -50
+		RequiresCondition: !chronodisable
+	GrantCondition@IDISABLE:
+		RequiresCondition: emp || infiltrated
+	Targetable:
+		TargetTypes: Ground, C4, DetonateAttack, Structure, NonGarrisonableStructure, SpyInfiltrate
+	Targetable@Water:
+		TargetTypes: Ground, Water, WaterStructure, C4, SpyInfiltrate
+	WithIdleOverlay@waves:
+		Sequence: idle-waves
+		RequiresCondition: in_water
+	Voiced:
+		VoiceSet: AirfieldVoice
+		Volume: 0.8
+	ProvidesPrerequisite@AIantiRush:
+		Prerequisite: AIantiRush ## Hack: AI Building control. AI build refinary only when it has a combat producing line.
+	ActorStatValues:
+		Stats: Armor, Sight, Power
+
+^BattleLab:
+	Inherits: ^BaseBuilding
+	Inherits@AI: ^AIMicroManagable
+	Inherits@MC: ^MindControllableBuilding
+	Buildable:
+		Queue: Building.Shared, Building
+		BuildPaletteOrder: 90
+		Prerequisites: production, radar, ~techlevel.3
+		Description: meta-battlelab.description
+		BuildDuration: 1500
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 3000
+	Tooltip:
+		Name: meta-battlelab.name
+	Tooltip@NoRow:
+		Name: meta-battlelab.name
+	Health:
+		HP: 75000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 6c0
+	Power:
+		Amount: -150
+		RequiresCondition: !chronodisable
+	InfiltrateForSupportPower:
+		Types: SpyInfiltrate, HijackerInfiltrate
+		Proxy: allies.tech.infiltrated
+		InfiltratedNotification: TechnologyStolen
+		InfiltrationNotification: BuildingInfiltratedTechnologyStolen
+	Targetable:
+		TargetTypes: Ground, C4, DetonateAttack, Structure, NonGarrisonableStructure, SpyInfiltrate, HijackerInfiltrate
+	Targetable@Water:
+		TargetTypes: Ground, Water, WaterStructure, C4, SpyInfiltrate, HijackerInfiltrate
+	ExternalCondition@diskinfiltrate:
+		Condition: diskinfiltrate
+	NotificationAnnouncement:
+		Notification: TechnologyStolen
+		ValidRelationships: None
+		RequiresCondition: diskinfiltrate
+	WithIdleOverlay@waves:
+		Sequence: idle-waves
+		RequiresCondition: in_water
+	ActorStatValues:
+		Stats: Armor, Sight, Power
+
+^PrimarySuperWeapon:
+	Inherits: ^BaseBuilding
+	Inherits@EMPULSE: ^DisabledByEMP
+	Inherits@LOWPOWER: ^DisableOnLowPowerOrPowerDown
+	Inherits@MC: ^MindControllableBuilding
+	Inherits@SHAPE: ^3x3Shape
+	Buildable:
+		Queue: Support
+		BuildPaletteOrder: 990
+		BuildDuration: 1125
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 4000
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3, 3
+	Health:
+		HP: 120000
+	Armor:
+		Type: Concrete
+	RevealsShroud:
+		Range: 6c0
+	RevealsShroud@ToEnemy:
+		Range: 2c0
+		ValidRelationships: Neutral, Enemy
+		RequiresCondition: !cloaked
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 6c0
+	Cloak@stealth-generator:
+		CloakedCondition: cloaked
+	Power:
+		Amount: -200
+		RequiresCondition: !chronodisable
+	GrantCondition@IDISABLE:
+		RequiresCondition: lowpower || powerdown || emp
+	SupportPowerChargeBar:
+	WithSupportPowerChargedOverlay:
+	InfiltrateForSupportPowerReset:
+		Types: SpyInfiltrate
+		InfiltratedNotification: BuildingInfiltrated
+		InfiltrationNotification: BuildingInfiltrated
+	Targetable:
+		TargetTypes: Ground, C4, DetonateAttack, Structure, NonGarrisonableStructure, SpyInfiltrate
+	Targetable@Water:
+		TargetTypes: Ground, Water, WaterStructure, C4, SpyInfiltrate
+	ProvidesPrerequisite@default:
+	ProvidesPrerequisite@swlimit:
+		RequiresPrerequisites: global-swlimit
+	NotificationAnnouncement:
+		ValidRelationships: Neutral, Enemy
+		PlayToOwner: False
+		PingRadar: True
+	WithIdleOverlay@waves:
+		Sequence: idle-waves
+		RequiresCondition: in_water
+	ActorStatValues:
+		Stats: Armor, Sight, Power
+
+^SecondarySuperWeapon:
+	Inherits: ^BaseBuilding
+	Inherits@EMPULSE: ^DisabledByEMP
+	Inherits@LOWPOWER: ^DisableOnLowPowerOrPowerDown
+	Inherits@MC: ^MindControllableBuilding
+	Inherits@SHAPE: ^3x3Shape
+	Buildable:
+		Queue: Support
+		BuildPaletteOrder: 980
+		BuildDuration: 750
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 2500
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3, 3
+	Health:
+		HP: 100000
+	Armor:
+		Type: Concrete
+	RevealsShroud:
+		Range: 6c0
+	RevealsShroud@ToEnemy:
+		Range: 2c0
+		ValidRelationships: Neutral, Enemy
+		RequiresCondition: !cloaked
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 6c0
+	Cloak@stealth-generator:
+		CloakedCondition: cloaked
+	Power:
+		Amount: -200
+		RequiresCondition: !chronodisable
+	GrantCondition@IDISABLE:
+		RequiresCondition: lowpower || powerdown || emp
+	SupportPowerChargeBar:
+	WithSupportPowerChargedOverlay:
+		RequiresCondition: !build-incomplete
+	InfiltrateForSupportPowerReset:
+		Types: SpyInfiltrate
+		InfiltratedNotification: BuildingInfiltrated
+		InfiltrationNotification: BuildingInfiltrated
+	Targetable:
+		TargetTypes: Ground, C4, DetonateAttack, Structure, NonGarrisonableStructure, SpyInfiltrate
+	Targetable@Water:
+		TargetTypes: Ground, Water, WaterStructure, C4, SpyInfiltrate
+	ProvidesPrerequisite@default:
+	ProvidesPrerequisite@swlimit:
+		RequiresPrerequisites: global-swlimit
+	NotificationAnnouncement:
+		ValidRelationships: Neutral, Enemy
+		PlayToOwner: False
+		PingRadar: True
+	WithIdleOverlay@waves:
+		Sequence: idle-waves
+		RequiresCondition: in_water
+	ActorStatValues:
+		Stats: Armor, Sight, Power
+
+power:
+	AlwaysVisible:
+	Interactable:
+	Tooltip:
+		Name: actor-power-name
+
+refinery:
+	AlwaysVisible:
+	Interactable:
+	Tooltip:
+		Name: actor-refinery-name
+
+barracks:
+	AlwaysVisible:
+	Interactable:
+	Tooltip:
+		Name: actor-barracks-name
+
+radar:
+	AlwaysVisible:
+	Interactable:
+	Tooltip:
+		Name: actor-radar-name
+
+warfactory:
+	AlwaysVisible:
+	Interactable:
+	Tooltip:
+		Name: actor-warfactory-name
+
+production:
+	AlwaysVisible:
+	Interactable:
+	Tooltip:
+		Name: actor-production-name
+
+repairpad:
+	AlwaysVisible:
+	Interactable:
+	Tooltip:
+		Name: actor-repairpad-name

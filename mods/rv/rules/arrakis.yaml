@@ -1,0 +1,28 @@
+concrete:
+	AlwaysVisible:
+	Interactable:
+	D2kBuilding:
+		TerrainTypes: Clear, Rough
+		ConcreteTemplate: 2500
+		BuildSounds: uplace.wav
+		AllowInvalidPlacement: true
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	FootprintPlaceBuildingPreview:
+		Palette: placefootprint
+	RequiresBuildableArea:
+		AreaTypes: building
+		Adjacent: 4
+	Tooltip:
+		Name: actor-concrete.name
+		GenericName: meta-building.name
+	Valued:
+		Cost: 50
+	RenderSprites:
+	KillsSelf:
+		RemoveInstead: true
+	Buildable:
+		Queue: Support.Allies, Support.France, Support.Soviets, Support.Baku, Support.Yuri, Support.Antarctica
+		BuildPaletteOrder: 990
+		Description: actor-concrete.description
+		Prerequisites: ~on_dune

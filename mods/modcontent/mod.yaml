@@ -1,0 +1,82 @@
+Metadata:
+	Title: 文件管理器
+	Version: 3015bcd
+	Hidden: true
+
+Packages:
+	^EngineDir
+	^EngineDir|mods/modcontent: modcontent
+	^EngineDir|mods/common: common
+
+Rules:
+	modcontent|rules.yaml
+
+Cursors:
+	modcontent|cursors.yaml
+
+Chrome:
+	modcontent|chrome.yaml
+
+Assemblies:
+	^BinDir|OpenRA.Mods.Common.dll
+
+ChromeLayout:
+	modcontent|content.yaml
+
+Notifications:
+	modcontent|notifications.yaml
+
+LoadScreen: ModContentLoadScreen
+	Image: ^EngineDir|mods/modcontent/chrome.png
+	Image2x: ^EngineDir|mods/modcontent/chrome-2x.png
+	Image3x: ^EngineDir|mods/modcontent/chrome-3x.png
+
+ChromeMetrics:
+	common|metrics.yaml
+	modcontent|metrics.yaml
+
+Translations:
+	common|languages/en.ftl
+
+
+Fonts:
+	Tiny:
+		Font: common|SoukouMincho.ttf
+		Size: 12
+		Ascender: 8
+	TinyBold:
+		Font: common|SoukouMincho.ttf
+		Size: 12
+		Ascender: 8
+	Small:
+		Font: common|SoukouMincho.ttf
+		Size: 14
+		Ascender: 9
+	Regular:
+		Font: common|SoukouMincho.ttf
+		Size: 16
+		Ascender: 11
+	Bold:
+		Font: common|SoukouMincho.ttf
+		Size: 16
+		Ascender: 11
+	MediumBold:
+		Font: common|SoukouMincho.ttf
+		Size: 20
+		Ascender: 14
+	BigBold:
+		Font: common|SoukouMincho.ttf
+		Size: 26
+		Ascender: 18
+	Title:
+		Font: common|SoukouMincho.ttf
+		Size: 32
+		Ascender: 26
+
+SoundFormats:
+
+SpriteFormats: PngSheet
+
+TerrainFormat: DefaultTerrain
+
+SpriteSequenceFormat: DefaultSpriteSequence

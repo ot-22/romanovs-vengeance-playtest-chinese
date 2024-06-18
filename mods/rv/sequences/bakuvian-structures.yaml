@@ -1,0 +1,220 @@
+babarr:
+	Defaults:
+		Offset: -15, -38
+	idle:
+		Filename: bgbarr.shp
+		TilesetFilenames:
+			SNOW: babarr.shp
+			SIMPLETERRAIN: btbarr.shp
+		ShadowStart: 2
+	damaged-idle:
+		Filename: bgbarr.shp
+		TilesetFilenames:
+			SNOW: babarr.shp
+			SIMPLETERRAIN: btbarr.shp
+		Start: 1
+		ShadowStart: 3
+	idle-light:
+		Filename: bgbarr_a.shp
+		TilesetFilenames:
+			SIMPLETERRAIN: btbarr_a.shp
+		Length: 6
+		ShadowStart: 12
+		Tick: 150
+	damaged-idle-light:
+		Filename: bgbarr_a.shp
+		TilesetFilenames:
+			SIMPLETERRAIN: btbarr_a.shp
+		Start: 6
+		Length: 6
+		ShadowStart: 18
+		Tick: 150
+	make:
+		Filename: bgbarrmk.shp
+		TilesetFilenames:
+			SIMPLETERRAIN: btbarrmk.shp
+		Length: 31
+		ShadowStart: 31
+	icon:
+		Filename: bits/cameos/bbaricon.shp
+		Offset: 0,0
+
+basops:
+	Defaults:
+		Offset: 0, -35
+	idle:
+		Filename: bgsops.shp
+		TilesetFilenames:
+			SNOW: basops.shp
+			SIMPLETERRAIN: btsops.shp
+		ShadowStart: 3
+		Tick: 180
+	damaged-idle:
+		Filename: bgsops.shp
+		TilesetFilenames:
+			SNOW: basops.shp
+			SIMPLETERRAIN: btsops.shp
+		Start: 1
+		ShadowStart: 4
+		Tick: 180
+	idle-dish:
+		Filename: bgsops_a.shp
+		TilesetFilenames:
+			SNOW: basops_a.shp
+			SIMPLETERRAIN: btsops_a.shp
+		Length: 16
+		Tick: 180
+	damaged-idle-dish:
+		Filename: bgsops_a.shp
+		TilesetFilenames:
+			SNOW: basops_a.shp
+			SIMPLETERRAIN: btsops_a.shp
+		Start: 16
+		Length: 16
+		Tick: 180
+	idle-waves:
+		Filename: bits/structures/water/bgsops_w.shp
+		Tick: 200
+		ZOffset: -1c0
+	damaged-idle-waves:
+		Filename: bits/structures/water/bgsops_w.shp
+		Start: 1
+		Tick: 200
+		ZOffset: -1c0
+	make:
+		Filename: bgsopsmk.shp
+		TilesetFilenames:
+			SNOW: basopsmk.shp
+			SIMPLETERRAIN: btsopsmk.shp
+		Length: 16
+		ShadowStart: 16
+		Tick: 90
+	icon:
+		Filename: bits/cameos/sopsicon.png
+		Offset: 0,0
+
+baairf:
+	Defaults:
+		Offset: 30, -60
+	idle:
+		Filename: bgairf.shp
+		TilesetFilenames:
+			SIMPLETERRAIN: btairf.shp
+		ShadowStart: 3
+	damaged-idle:
+		Filename: bgairf.shp
+		TilesetFilenames:
+			SIMPLETERRAIN: btairf.shp
+		Start: 1
+		ShadowStart: 4
+	idle-lights:
+		Filename: bgairf_a.shp
+		TilesetFilenames:
+			SIMPLETERRAIN: btairf_a.shp
+		Length: 6
+		Tick: 150
+	idle-fans:
+		Filename: bgairf_b.shp
+		TilesetFilenames:
+			SIMPLETERRAIN: btairf_b.shp
+		Length: 8
+		Tick: 150
+	idle-bib:
+		Filename: bgairfbb.shp
+		TilesetFilenames:
+			SIMPLETERRAIN: btairfbb.shp
+		ShadowStart: 3
+		ZOffset: -2c0
+	idle-bib-damaged:
+		Filename: bgairfbb.shp
+		TilesetFilenames:
+			SIMPLETERRAIN: btairfbb.shp
+		Start: 1
+		ShadowStart: 4
+		ZOffset: -2c0
+	idle-waves:
+		Filename: bits/structures/water/bgairf_w.shp
+		Tick: 200
+		ZOffset: -1c0
+	make:
+		Filename: bgairfmk.shp
+		TilesetFilenames:
+			SIMPLETERRAIN: btairfmk.shp
+		Length: 21
+	icon:
+		Filename: bits/cameos/bairicon.png
+		Offset: 0,0
+
+baacdm:
+	Defaults:
+		Offset: 0, -45
+	idle:
+		Filename: bgacdm.shp
+		ShadowStart: 3
+	damaged-idle:
+		Filename: bgacdm.shp
+		Start: 1
+		ShadowStart: 4
+	idle-flag:
+		Filename: bgacdm_a.shp
+		Length: 18
+	idle-waves:
+		Filename: bits/structures/water/bgacdm_w.shp
+		Tick: 200
+		ZOffset: -1c0
+	make:
+		Filename: bgacdmmk.shp
+		Length: 40
+		ShadowStart: 40
+		Tick: 60
+	icon:
+		Filename: bits/cameos/acdmicon.shp
+		Offset: 0,0
+
+bamort:
+	Inherits@MUZZLE: ^WithCannonMuzzle
+	Defaults:
+		Filename: bamort.shp
+		Offset: 0, -15
+	idle:
+		Filename: dot.shp
+		ZOffset: -9999
+	turret:
+		Filename: bgmort.shp
+		Facings: 32
+		ShadowStart: 64
+	damaged-turret:
+		Filename: bgmort.shp
+		Facings: 32
+		Start: 32
+		ShadowStart: 96
+	make:
+		Filename: bgmortmk.shp
+		Length: 14
+		ShadowStart: 14
+	idle-waves:
+		Filename: gauwat.shp
+		Length: 15
+		Tick: 200
+		ZOffset: -1c0
+	icon:
+		Filename: cameo|xxicon.shp
+		Offset: 0, 0
+
+babarb:
+	Inherits: babarr
+	Defaults:
+		FlipX: true
+		Offset: 15, -38
+	icon:
+		Filename: bits/cameos/bbaricon.shp
+		FlipX: false
+
+baairb:
+	Inherits: baairf
+	Defaults:
+		FlipX: true
+		Offset: -30, -60
+	icon:
+		Filename: bits/cameos/bairicon.png
+		FlipX: false

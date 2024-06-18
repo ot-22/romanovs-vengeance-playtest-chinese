@@ -1,0 +1,598 @@
+sapc:
+	Inherits: ^AmphibiousTransport
+	Buildable:
+		Queue: Ship.Shared, Ship.Soviets, Ship.Baku
+		Prerequisites: ~ship.sovietsorbaku, ~techlevel.1
+	Voiced:
+		VoiceSet: SovietAmphibiousTransportVoice
+
+sub:
+	Inherits: ^Ship
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	# Inherits@C4: ^AcceptsSEALC4
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation10Percent
+	Inherits@SQUID: ^SquidGrabbable
+	Inherits@SUBMERGE: ^WithSubmergeColorOverlay
+	Buildable:
+		Queue: Ship.Shared, Ship.Soviets, Ship.Baku
+		Prerequisites: ~ship.sovietsorbaku, naradr, ~techlevel.2
+		BuildPaletteOrder: 80
+		Description: actor-sub.description
+		BuildDuration: 750
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 1600
+	Tooltip:
+		Name: actor-sub.name
+		GenericName: meta-submarine.generic-name
+	Tooltip@NoRow:
+		Name: actor-sub.name
+		GenericName: meta-submarine.generic-name
+	Health:
+		HP: 80000
+	Armor:
+		Type: Heavy
+	Mobile:
+		TurnSpeed: 24
+		Speed: 75
+	# -LeavesTrails:
+	RevealsShroud:
+		Range: 7c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 7c0
+	RevealOnDeath:
+		Radius: 7c0
+	Targetable:
+		TargetTypes: Ground, Water, Ship, Underwater
+	# Cloak:
+	#	DetectionTypes: Underwater
+	#	InitialDelay: 50
+	#	CloakDelay: 75
+	#	CloakStyle: Palette
+	#	CloakedPalette: cloak
+	#	IsPlayerPalette: true
+	#	CloakSound: vnavupa.wav
+	#	UncloakSound: vnavupa.wav
+	#	UncloakOn: Damage
+	Armament:
+		Weapon: SubTorpedo
+		Damage: 75
+		LocalOffset: 768,0,0
+		FireDelay: 2
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: SubTorpedoE
+		Damage: 150
+		LocalOffset: 768,0,0
+		FireDelay: 2
+		RequiresCondition: rank-elite
+	AttackFollowFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+		MustFaceTarget: true
+		PauseOnCondition: chronodisable || emp
+	DetectCloaked:
+		# DetectionTypes: Underwater
+		Range: 6c0
+	RenderDetectionCircle:
+	-MustBeDestroyed:
+	WithVoxelBody:
+		ShowShadow: false
+	RenderSprites:
+	Voiced:
+		VoiceSet: TyphoonVoice
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+		ValidRelationships: None
+	HitShape:
+	# GrantConditionOnMovement@MoveStart:
+	#	Condition: moving
+	#	ValidMovementTypes: Horizontal, Turn
+	# SoundAnnouncement:
+	#	SoundFiles: vsqumova.wav, vsqumovb.wav
+	#	Volume: 0.45
+	#	RequiresCondition: moving
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+
+hyd:
+	Inherits: ^Ship
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	# Inherits@C4: ^AcceptsSEALC4
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@IMPFLAKS: ^AffectedByImprovedFlaks
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Inherits@SQUID: ^SquidGrabbable
+	Buildable:
+		Queue: Ship.Shared, Ship.Soviets
+		BuildPaletteOrder: 30
+		Prerequisites: ~ship.soviets, ~techlevel.1
+		Description: actor-hyd.description
+		BuildDuration: 375
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: actor-hyd.name
+	Tooltip@NoRow:
+		Name: actor-hyd.name
+	Selectable:
+		Bounds: 1206, 1448, 0, -289
+	Health:
+		HP: 20000
+	Armor:
+		Type: Light
+	Mobile:
+		TurnSpeed: 32
+		Speed: 120
+	RevealsShroud:
+		Range: 10c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 10c0
+	RevealOnDeath:
+		Radius: 10c0
+	AttackFollowFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+		MustFaceTarget: true
+		PauseOnCondition: chronodisable || emp
+	Armament@primary:
+		Weapon: FlakTrackGun
+		Damage: 25
+		LocalOffset: 256,0,1408
+		MuzzleSequence: muzzle
+		RequiresCondition: !impflaks && !rank-elite
+	Armament@primary-insta:
+		Weapon: FlakTrackGunInsta
+		Damage: 25
+		LocalOffset: 256,0,1408
+		MuzzleSequence: muzzle
+		RequiresCondition: impflaks && !rank-elite
+	Armament@secondary:
+		Weapon: FlakWeapon
+		LocalOffset: 256,0,1408
+		MuzzleSequence: muzzle
+		RequiresCondition: !rank-elite
+	Armament@primary-elite:
+		Weapon: FlakTrackGunE
+		Damage: 50
+		LocalOffset: 256,0,1408
+		MuzzleSequence: muzzle
+		RequiresCondition: !impflaks && rank-elite
+	Armament@primary-insta-elite:
+		Weapon: FlakTrackGunInstaE
+		Damage: 50
+		LocalOffset: 256,0,1408
+		MuzzleSequence: muzzle
+		RequiresCondition: impflaks && rank-elite
+	Armament@secondary-elite:
+		Weapon: FlakWeaponE
+		LocalOffset: 256,0,1408
+		MuzzleSequence: muzzle
+		RequiresCondition: rank-elite
+	WithMuzzleOverlay:
+	WithVoxelBody:
+	RenderSprites:
+	Voiced:
+		VoiceSet: SeaScorpionVoice
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+		ValidRelationships: None
+	HitShape:
+	# GrantConditionOnMovement@MoveStart:
+	#	Condition: moving
+	#	ValidMovementTypes: Horizontal, Turn
+	# SoundAnnouncement:
+	#	SoundFiles: vseastaa.wav, vseastab.wav, vseastac.wav, vseastad.wav
+	#	Volume: 0.4
+	#	RequiresCondition: moving
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
+
+sqd:
+	Inherits: ^SeaAnimal
+	WithColoredOverlay@SUBMERGE:
+		RequiresCondition: !surfaced && !deployed
+	Buildable:
+		Queue: Ship.Shared, Ship.Soviets, Ship.Baku
+		Prerequisites: ~ship.sovietsorbaku, naradr, ~techlevel.3
+		Description: actor-sqd.description
+		BuildDuration: 375
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: actor-sqd.name
+		GenericName: actor-sqd.generic-name
+	Tooltip@NoRow:
+		Name: actor-sqd.name
+		GenericName: actor-sqd.generic-name
+	Health:
+		HP: 40000
+	ChangesHealth:
+		PercentageStep: 1
+		Step: 0
+		Delay: 100
+		DamageCooldown: 100
+		StartIfBelow: 100
+	Selectable:
+		Bounds: 1930, 1448
+	Voiced:
+		VoiceSet: GiantSquidVoice
+	InfectorOld:
+		Types: SquidInfection
+		Damage: 1500
+		DamageInterval: 20
+		DamageTypes: NonTemporal
+		DamageSounds: gexpwama.wav, gexpwamb.wav
+		KillState: Critical
+		Voice: Attack
+		StartSequence: grabing
+		Sequence: grab
+		Palette: player
+		IsPlayerPalette: true
+		RequiresCondition: !rank-elite
+	InfectorOld@Elite:
+		Types: SquidInfection
+		Damage: 1500
+		DamageInterval: 20
+		DamageTypes: NonTemporal
+		DamageSounds: gexpwama.wav, gexpwamb.wav
+		KillState: Critical, Heavy
+		Voice: Attack
+		StartSequence: grabing
+		Sequence: grab
+		Palette: player
+		IsPlayerPalette: true
+		RequiresCondition: rank-elite
+	Armament:
+		Weapon: SquidPunch
+	AttackFollowFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+		MustFaceTarget: true
+		PauseOnCondition: chronodisable
+	# Cloak:
+	#	PauseOnCondition: deployed
+	WithInfantryBody:
+		MinIdleDelay: 1
+		MaxIdleDelay: 2
+		IdleSequences: idle
+		StandSequences: stand
+		DefaultAttackSequence: punch
+	PeriodicExplosion:
+		Weapon: SquidSplash
+		RequiresCondition: deployed && !chronodisable
+	GrantTimedConditionOnDeploy:
+		DeployedTicks: 50
+		CooldownTicks: 0
+		DeployedCondition: deployed
+		ShowSelectionBar: false
+		Voice:
+		PauseOnCondition: chronodisable
+	ActorStatValues:
+		Damage: 15
+		ReloadDelay: 20
+
+dred:
+	Inherits: ^Ship
+	Inherits@ADVIRRAD: ^AffectedByAdvancedIrradiators
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	# Inherits@C4: ^AcceptsSEALC4
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@HIEXPLOSIVE: ^AffectedByHighExplosiveBombs
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADBOMBS: ^AffectedByRadioactiveBombs
+	Inherits@RADIATON: ^DamagedByRadiation10Percent
+	Inherits@SQUID: ^SquidGrabbable
+	Buildable:
+		Queue: Ship.Shared, Ship.Soviets, Ship.Baku
+		BuildPaletteOrder: 90
+		Prerequisites: ~ship.sovietsorbaku, natech, ~techlevel.4
+		Description: actor-dred.description
+		BuildDuration: 1000
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 2500
+	Tooltip:
+		Name: actor-dred.name
+	Tooltip@NoRow:
+		Name: actor-dred.name
+	Health:
+		HP: 80000
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 60
+		TurnSpeed: 12
+	RevealsShroud:
+		Range: 7c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 7c0
+	RevealOnDeath:
+		Radius: 7c0
+	Armament:
+		Weapon: DredLauncher
+	FirepowerMultiplier@RANK-1:
+		RequiresCondition: rank-veteran >= 1 && !rank-elite
+	FirepowerMultiplier@RANK-ELITE:
+		RequiresCondition: rank-elite
+		Modifier: 225
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 512
+		TargetFrozenActors: True
+		PauseOnCondition: chronodisable || emp
+	MissileSpawnerMaster:
+		Actors: dmisl, dmisl
+		SpawnAllAtOnce: true
+		RespawnTicks: 120
+		LoadedCondition: loaded
+		SpawnOffset: 172,-120,368, -172,-120,368
+	WithSpawnerMasterPipsDecoration:
+		Margin: 4, 3
+		Palette: ra
+		Position: BottomLeft
+		RequiresSelection: true
+	GrantExternalConditionToSpawnedMissile:
+		Condition: rank-elite
+		RequiresCondition: rank-elite
+	RenderSprites:
+	RenderVoxels:
+	WithVoxelBody@FULL:
+		RequiresCondition: loaded >= 2 && !radbombs
+	WithVoxelBody@FULL-RADBOMBS:
+		Sequence: idle-rad
+		RequiresCondition: loaded >= 2 && radbombs && !advirrad
+	WithVoxelBody@FULL-RADBOMBS-ORANGE:
+		Sequence: idle-rad-orange
+		RequiresCondition: loaded >= 2 && radbombs && advirrad
+	WithVoxelBody@HALF:
+		Sequence: half
+		RequiresCondition: loaded == 1 && !radbombs
+	WithVoxelBody@HALF-RADBOMBS:
+		Sequence: half-rad
+		RequiresCondition: loaded == 1 && radbombs && !advirrad
+	WithVoxelBody@HALF-RADBOMBS-ORANGE:
+		Sequence: half-rad-orange
+		RequiresCondition: loaded == 1 && radbombs && advirrad
+	WithVoxelBody@EMPTY:
+		Sequence: empty
+		RequiresCondition: !loaded
+	HitShape:
+	Voiced:
+		VoiceSet: SovietNavalVoice
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+		ValidRelationships: None
+	# GrantConditionOnMovement@MoveStart:
+	#	Condition: moving
+	#	ValidMovementTypes: Horizontal, Turn
+	# SoundAnnouncement:
+	#	SoundFiles: vdrestaa.wav, vdrestab.wav, vdrestac.wav
+	#	Volume: 0.5
+	#	RequiresCondition: moving
+	GrantConditionOnFaction@Baku:
+		Condition: baku
+		Factions: transcaucus, turkmen, tuva, russianfed, serbia
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+		Damage: 400
+		Upgrades: upgrade.radioactive_bombs, upgrade.advanced_irradiators, upgrade.high_explosive_bombs
+	ActorStatOverride@Baku:
+		Upgrades:
+		RequiresCondition: baku
+
+dmisl:
+	Inherits: ^ShootableMissile
+	Inherits@ADVIRRAD: ^AffectedByAdvancedIrradiators
+	Inherits@RADBOMBS: ^AffectedByRadioactiveBombs
+	Valued:
+		Cost: 50
+	Tooltip:
+		Name: actor-dmisl.name
+	Tooltip@NoRow:
+		Name: actor-dmisl.name
+	Health:
+		HP: 5000
+	Armor:
+		Type: Rocket
+	BallisticMissile:
+		LaunchAngle: 192
+		Speed: 250
+		LaunchAcceleration: 16
+		HitAcceleration: 30
+		LaunchSounds: vdreatta.wav, vdreattb.wav
+		SoundVolume: 0.6
+		AirborneCondition: airborne
+	LeavesTrails:
+		Image: smokey2
+		MovingInterval: 2
+		SpawnAtLastPosition: false
+		Type: CenterPosition
+	MissileSpawnerSlave:
+	ExplodesForMaster:
+		Weapon: DredWeapon
+		EmptyWeapon: DredWeapon
+		RequiresCondition: !airborne && !radbombs && !rank-elite
+	ExplodesForMaster@Elite:
+		Weapon: DredWeaponE
+		EmptyWeapon: DredWeaponE
+		RequiresCondition: !airborne && !radbombs && rank-elite
+	ExplodesForMaster@Rad:
+		Weapon: DredWeaponRad
+		EmptyWeapon: DredWeaponRad
+		RequiresCondition: !airborne && radbombs && !advirrad && !rank-elite
+	ExplodesForMaster@EliteRad:
+		Weapon: DredWeaponRadE
+		EmptyWeapon: DredWeaponRadE
+		RequiresCondition: !airborne && radbombs && !advirrad && rank-elite
+	ExplodesForMaster@RadOrange:
+		Weapon: DredWeaponRadOrange
+		EmptyWeapon: DredWeaponRadOrange
+		RequiresCondition: !airborne && radbombs && advirrad && !rank-elite
+	ExplodesForMaster@EliteRadOrange:
+		Weapon: DredWeaponRadOrangeE
+		EmptyWeapon: DredWeaponRadOrangeE
+		RequiresCondition: !airborne && radbombs && advirrad && rank-elite
+	ExplodesForMaster@Airborne:
+		Weapon: UnitExplode
+		EmptyWeapon: UnitExplode
+		RequiresCondition: airborne
+	WithVoxelBody:
+		RequiresCondition: !radbombs
+	WithVoxelBody@RADBOMBS:
+		Sequence: idle-rad
+		RequiresCondition: radbombs && !advirrad
+	WithVoxelBody@RADBOMBS-ORANGE:
+		Sequence: idle-rad-orange
+		RequiresCondition: radbombs && advirrad
+	ExternalCondition@RANK-ELITE:
+		Condition: rank-elite
+
+# Custom Soviet Vessels
+sray:
+	Inherits: ^Ship
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	# Inherits@C4: ^AcceptsSEALC4
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Inherits@OVERCHARGE: ^AffectedByOvercharge
+	Inherits@SQUID: ^SquidGrabbable
+	Buildable:
+		Queue: Ship.Shared, Ship.Soviets, Ship.Baku
+		BuildPaletteOrder: 20
+		Prerequisites: ~ship.sovietsorbaku, ~techlevel.1
+		Description: actor-sray.description
+		BuildDuration: 500
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 900
+	DeliversCash:
+		Payload: 900
+		Voice: Move
+	Tooltip:
+		Name: actor-sray.name
+	Tooltip@NoRow:
+		Name: actor-sray.name
+	Selectable:
+		Bounds: 1206, 1448, 0, -289
+	Health:
+		HP: 30000
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 90
+		TurnSpeed: 32
+		Locomotor: heavyamphibious
+		RequiresCondition: !chronodisable && !emp && !magnefreeze && !squid && !beinginfected
+	SpeedMultiplier:
+		Modifier: 84
+		RequiresCondition: !in_water
+	RevealsShroud:
+		Range: 8c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 8c0
+	RevealOnDeath:
+		Radius: 8c0
+	Turreted:
+		TurnSpeed: 20
+	AttackTurreted:
+		Voice: Attack
+		PauseOnCondition: chronodisable || emp || squid
+	Armament@primary:
+		Weapon: BoatBolt
+		LocalOffset: 280,196,640, 280,-196,640
+		RequiresCondition: !overcharge && !rank-elite
+	Armament@elite:
+		Weapon: BoatBoltE
+		LocalOffset: 280,196,640, 280,-196,640
+		RequiresCondition: !overcharge && rank-elite
+	Armament@primary-overcharge:
+		Weapon: BoatBoltCharged
+		LocalOffset: 280,196,640, 280,-196,640
+		RequiresCondition: overcharge && !rank-elite
+	Armament@elite-overcharge:
+		Weapon: BoatBoltChargedE
+		LocalOffset: 280,196,640, 280,-196,640
+		RequiresCondition: overcharge && rank-elite
+	WithVoxelBody:
+		RequiresCondition: in_water
+	WithVoxelTurret:
+		RequiresCondition: in_water
+	WithVoxelWalkerBody@land:
+		Sequence: idle-land
+		RequiresCondition: !in_water
+	WithVoxelTurret@land:
+		Sequence: turret-land
+		RequiresCondition: !in_water
+	RenderSprites:
+	RenderVoxels:
+		Scale: 1.17
+	Targetable:
+		RequiresCondition: in_water
+	Targetable@GROUND:
+		TargetTypes: Ground, Vehicle, DetonateAttack, DroneInfection
+		RequiresCondition: !in_water
+	GrantConditionOnTerrain@Water:
+		TerrainTypes: Water, Beach
+		Condition: in_water
+	Repairable:
+		Voice: Move
+		RepairActors: gadept, nadept, nadepb, yadept, yadepb, caoutp, caoutb
+	RepairableNear:
+		RepairActors: gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gayard, nayard, yayard, gaairc, gaairb, baairf, baairb, naheli, yadisk
+	Voiced:
+		VoiceSet: StingerVoice
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+		ValidRelationships: None
+	HitShape:
+	GrantConditionOnMovement@MoveStart:
+		Condition: moving
+		ValidMovementTypes: Horizontal, Turn
+	GrantConditionOnMovement@walk:
+		Condition: walking
+	# SoundAnnouncement:
+	#	SoundFiles: vstistaa.wav, vstistab.wav, vstistac.wav, vstistad.wav
+	#	Volume: 0.4
+	#	RequiresCondition: moving && in_water
+	# AmbientSound@land:
+	#	SoundFiles: vstista.wav, vstistb.wav, vstistc.wav, vstistd.wav, vstiste.wav, vstistf.wav, vstistg.wav, vstisth.wav
+	#	Volume: 0.4
+	#	Interval: 20
+	#	RequiresCondition: walking && !in_water
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+		Damage: 140

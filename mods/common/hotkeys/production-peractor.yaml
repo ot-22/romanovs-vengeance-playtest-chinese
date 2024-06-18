@@ -1,0 +1,9 @@
+NextProductionTab: PAGEDOWN
+	Description: 下一页
+	Types: Production
+	Contexts: Player
+
+PreviousProductionTab: PAGEUP
+	Description: 上一页
+	Types: Production
+	Contexts: Player

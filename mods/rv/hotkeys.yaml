@@ -1,0 +1,84 @@
+ProductionTypeBuilding: E
+	Description:  建筑选项卡
+	Types: Production
+	Contexts: Player
+
+ProductionTypeDefense: R
+	Description:  防御选项卡
+	Types: Production
+	Contexts: Player
+
+ProductionTypeInfantry: T
+	Description:  步兵选项卡
+	Types: Production
+	Contexts: Player
+
+ProductionTypeVehicle: Y
+	Description:  车辆选项卡
+	Types: Production
+	Contexts: Player
+
+ProductionTypeAircraft: U
+	Description:  飞行器选项卡
+	Types: Production
+	Contexts: Player
+
+ProductionTypeNaval: I
+	Description:  海军选项卡
+	Types: Production
+	Contexts: Player
+
+ProductionTypePower: O
+	Description:  指挥官能力选项卡
+	Types: Production
+	Contexts: Player
+
+ProductionTypeUpgrade: P
+	Description:  升级选项卡
+	Types: Production
+	Contexts: Player
+
+ToggleVariant: V
+	Description:  旋转建筑
+	Types: Production
+	Contexts: Player
+
+PowerDown: X
+	Description:  关闭电源模式
+	Types: OrderGenerator
+	Contexts: Player
+
+DecreaseDepthPreviewContrast: LEFTBRACKET SHIFT
+	Description:  减少对比度
+	Types: DepthDebug
+	Contexts: Player
+
+IncreaseDepthPreviewContrast: RIGHTBRACKET SHIFT
+	Description:  增加对比度
+	Types: DepthDebug
+	Contexts: Player
+
+DecreaseDepthPreviewOffset: SEMICOLON SHIFT
+	Description:  减少偏移量
+	Types: DepthDebug
+	Contexts: Player
+
+IncreaseDepthPreviewOffset: QUOTE SHIFT
+	Description:  增加偏移量
+	Types: DepthDebug
+	Contexts: Player
+
+ToggleDepthPreview: BACKSLASH SHIFT
+	Description:  切换预览
+	Types: DepthDebug
+	Contexts: Player
+
+StatisticsMinimal: BACKQUOTE
+	Description:  最小化统计信息
+	Types: Observer
+	Contexts: Spectator
+
+StatisticsUpgrades: F8
+	Description:  指令点和升级统计信息
+	Types: Observer
+	Contexts: Spectator

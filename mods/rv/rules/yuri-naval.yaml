@@ -1,0 +1,732 @@
+yhvr:
+	Inherits: ^AmphibiousTransport
+	Inherits@GRINDER: ^AffectedByGrinderTreads
+	Buildable:
+		Queue: Ship.Shared, Ship.Yuri
+		Prerequisites: ~ship.yuri, ~techlevel.1
+		Description: actor-yhvr.description
+	Voiced:
+		VoiceSet: YuriAmphibiousTransportVoice
+
+bsub:
+	Inherits: ^Ship
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	# Inherits@C4: ^AcceptsSEALC4
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation10Percent
+	Inherits@SQUID: ^SquidGrabbable
+	Inherits@SUBMERGE: ^WithSubmergeColorOverlay
+	Buildable:
+		Queue: Ship.Shared, Ship.Yuri
+		Prerequisites: ~ship.yuri, yatech, ~techlevel.3
+		BuildPaletteOrder: 80
+		Description: actor-bsub.description
+		BuildDuration: 1000
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 2500
+	Tooltip:
+		Name: actor-bsub.name
+		GenericName: meta-submarine.generic-name
+	Tooltip@NoRow:
+		Name: actor-bsub.name
+		GenericName: meta-submarine.generic-name
+	Health:
+		HP: 120000
+	Armor:
+		Type: Heavy
+	Mobile:
+		TurnSpeed: 24
+		Speed: 60
+	# -LeavesTrails:
+	RevealsShroud:
+		Range: 8c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 8c0
+	RevealOnDeath:
+		Radius: 8c0
+	Targetable:
+		TargetTypes: Ground, Water, Ship, Underwater
+	# Cloak:
+	#	DetectionTypes: Underwater
+	#	InitialDelay: 50
+	#	CloakDelay: 75
+	#	CloakStyle: Palette
+	#	CloakedPalette: cloak
+	#	IsPlayerPalette: true
+	#	CloakSound: vnavupa.wav
+	#	UncloakSound: vnavupa.wav
+	#	UncloakOn: Damage
+	#	PauseOnCondition: uncloak
+	GrantConditionOnAttack:
+		Condition: uncloak
+		RevokeDelay: 75
+		ArmamentNames: missile
+	Armament:
+		Weapon: BoomerTorpedo
+		Damage: 90
+		LocalOffset: 768,0,0
+		FireDelay: 2
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: BoomerTorpedoE
+		Damage: 180
+		LocalOffset: 768,0,0
+		FireDelay: 2
+		RequiresCondition: rank-elite
+	Armament@missile:
+		Name: missile
+		Weapon: CruiseLauncher
+	AttackFollowFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+		MustFaceTarget: true
+		TargetFrozenActors: True
+		Armaments: primary, missile
+		PauseOnCondition: chronodisable || emp
+	DetectCloaked:
+		# DetectionTypes: Underwater
+		Range: 4c0
+	RenderDetectionCircle:
+	MissileSpawnerMaster:
+		Actors: cmisl, cmisl
+		SpawnAllAtOnce: true
+		RespawnTicks: 120
+		ArmamentNames: missile
+		SpawnOffset: 280,280,0, -280,280,0
+	WithSpawnerMasterPipsDecoration:
+		Margin: 4, 3
+		Palette: ra
+		Position: BottomLeft
+		RequiresSelection: true
+	GrantExternalConditionToSpawnedMissile:
+		Condition: rank-elite
+		RequiresCondition: rank-elite
+	-MustBeDestroyed:
+	WithVoxelBody:
+		ShowShadow: false
+	RenderSprites:
+	Voiced:
+		VoiceSet: BoomerVoice
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+		ValidRelationships: None
+	HitShape:
+	# GrantConditionOnMovement@MoveStart:
+	#	Condition: moving
+	#	ValidMovementTypes: Horizontal, Turn
+	# SoundAnnouncement:
+	#	SoundFiles: vboostaa.wav, vboostab.wav
+	#	Volume: 0.6
+	#	RequiresCondition: moving
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+
+cmisl:
+	Inherits: ^ShootableMissile
+	Valued:
+		Cost: 50
+	Tooltip:
+		Name: actor-cmisl.name
+	Tooltip@NoRow:
+		Name: actor-cmisl.name
+	Health:
+		HP: 5000
+	Armor:
+		Type: Rocket
+	BallisticMissile:
+		CreateAngle: 255
+		LaunchAngle: 255
+		PrepareTick: 25
+		TurnSpeed: 25
+		Speed: 300
+		LaunchAcceleration: 16
+		HitAcceleration: 30
+		LaunchSounds: vbooat1a.wav
+		SoundVolume: 0.6
+		AirborneCondition: airborne
+	LeavesTrails:
+		Image: smokey2
+		MovingInterval: 2
+		SpawnAtLastPosition: false
+		Type: CenterPosition
+	MissileSpawnerSlave:
+	ExplodesForMaster:
+		Weapon: CruiseWeapon
+		EmptyWeapon: CruiseWeapon
+		RequiresCondition: !airborne && !rank-elite
+	ExplodesForMaster@Elite:
+		Weapon: CruiseWeaponE
+		EmptyWeapon: CruiseWeaponE
+		RequiresCondition: !airborne && rank-elite
+	ExplodesForMaster@Airborne:
+		Weapon: UnitExplode
+		EmptyWeapon: UnitExplode
+		RequiresCondition: airborne
+	ExternalCondition@RANK-ELITE:
+		Condition: rank-elite
+	RenderVoxels:
+		Image: bsubmisl
+
+# Custom Yuri Vessels
+piranha:
+	Inherits: ^Ship
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	# Inherits@C4: ^AcceptsSEALC4
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation10Percent
+	Inherits@SQUID: ^SquidGrabbable
+	Inherits@SUBMERGE: ^WithSubmergeColorOverlay
+	Buildable:
+		Queue: Ship.Civilian # Ship.Shared, Ship.Yuri
+		Prerequisites: ~ship.yuri, ~techlevel.1
+		BuildPaletteOrder: 20
+		Description: actor-piranha.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: actor-piranha.name
+		GenericName: meta-submarine.generic-name
+	Tooltip@NoRow:
+		Name: actor-piranha.name
+		GenericName: meta-submarine.generic-name
+	Health:
+		HP: 30000
+	Armor:
+		Type: Light
+	Mobile:
+		TurnSpeed: 40
+		Speed: 120
+	# -LeavesTrails:
+	RevealsShroud:
+		Range: 9c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 9c0
+	RevealOnDeath:
+		Radius: 9c0
+	Targetable:
+		TargetTypes: Ground, Water, Ship, Underwater
+	# Cloak:
+	#	DetectionTypes: Underwater
+	#	InitialDelay: 50
+	#	CloakDelay: 75
+	#	CloakStyle: Palette
+	#	CloakedPalette: cloak
+	#	IsPlayerPalette: true
+	#	CloakSound: vnavupa.wav
+	#	UncloakSound: vnavupa.wav
+	#	UncloakOn: Attack, Damage
+	Armament:
+		Weapon: PiraTorpedo
+		Damage: 35
+		LocalOffset: 768,0,0
+		FireDelay: 2
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: PiraTorpedoE
+		Damage: 70
+		LocalOffset: 768,0,0
+		FireDelay: 2
+		RequiresCondition: rank-elite
+	AttackFollowFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+		MustFaceTarget: true
+		PauseOnCondition: chronodisable || emp
+	WithMuzzleOverlay:
+	DetectCloaked:
+		# DetectionTypes: Underwater
+		Range: 6c0
+	RenderDetectionCircle:
+	-MustBeDestroyed:
+	WithVoxelBody:
+		ShowShadow: false
+	RenderSprites:
+	Voiced:
+		VoiceSet: TyphoonVoice
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+		ValidRelationships: None
+	HitShape:
+	# GrantConditionOnMovement@MoveStart:
+	#	Condition: moving
+	#	ValidMovementTypes: Horizontal, Turn
+	# SoundAnnouncement:
+	#	SoundFiles: vsqumova.wav, vsqumovb.wav
+	#	Volume: 0.45
+	#	RequiresCondition: moving
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+
+gatsub:
+	Inherits: ^Ship
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	# Inherits@C4: ^AcceptsSEALC4
+	Inherits@CHAINGUNS: ^AffectedByChainguns
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation10Percent
+	Inherits@SQUID: ^SquidGrabbable
+	Inherits@SUBMERGE: ^WithSubmergeColorOverlay
+	Buildable:
+		Queue: Ship.Shared, Ship.Yuri
+		Prerequisites: ~ship.yuri, ~techlevel.1
+		BuildPaletteOrder: 30
+		Description: actor-gatsub.description
+		BuildDuration: 500
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: actor-gatsub.name
+		GenericName: meta-submarine.generic-name
+	Tooltip@NoRow:
+		Name: actor-gatsub.name
+		GenericName: meta-submarine.generic-name
+	Health:
+		HP: 20000
+	Armor:
+		Type: Light
+	Mobile:
+		TurnSpeed: 24
+		Speed: 75
+	# -LeavesTrails:
+	RevealsShroud:
+		Range: 10c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 10c0
+	RevealOnDeath:
+		Radius: 10c0
+	Targetable:
+		TargetTypes: Ground, Water, Ship, Underwater
+	# Cloak:
+	#	DetectionTypes: Underwater
+	#	InitialDelay: 50
+	#	CloakDelay: 75
+	#	CloakStyle: Palette
+	#	CloakedPalette: cloak
+	#	IsPlayerPalette: true
+	#	CloakSound: vnavupa.wav
+	#	UncloakSound: vnavupa.wav
+	#	UncloakOn: Attack, Damage
+	Turreted:
+		Offset: -256,0,0
+		TurnSpeed: 40
+	Armament@ag-0:
+		Weapon: AGGatling
+		LocalOffset: 544,100,1024, 544,-100,1024
+		MuzzleSequence: muzzle
+		ReloadingCondition: reload-ground
+		PauseOnCondition: reload-air
+		RequiresCondition: !gatling
+	Armament@ag-1:
+		Weapon: AGGatling2
+		LocalOffset: 544,100,1024, 544,-100,1024
+		MuzzleSequence: muzzle-1
+		ReloadingCondition: reload-ground
+		PauseOnCondition: reload-air
+		RequiresCondition: gatling == 1
+	Armament@ag-2:
+		Weapon: AGGatling3
+		LocalOffset: 544,100,1024, 544,-100,1024
+		MuzzleSequence: muzzle-2
+		ReloadingCondition: reload-ground
+		PauseOnCondition: reload-air
+		RequiresCondition: gatling >= 2
+	Armament@ag-line-0:
+		Name: secondary
+		Weapon: AGGatlingLine
+		LocalOffset: 544,100,1024, 544,-100,1024
+		ReloadingCondition: reload-line-ground
+		PauseOnCondition: reload-line-air
+		RequiresCondition: !gatling && chainguns
+	Armament@ag-line-1:
+		Name: secondary
+		Weapon: AGGatlingLine2
+		LocalOffset: 544,100,1024, 544,-100,1024
+		ReloadingCondition: reload-line-ground
+		PauseOnCondition: reload-line-air
+		RequiresCondition: gatling == 1 && chainguns
+	Armament@ag-line-2:
+		Name: secondary
+		Weapon: AGGatlingLine3
+		LocalOffset: 544,100,1024, 544,-100,1024
+		ReloadingCondition: reload-line-ground
+		PauseOnCondition: reload-line-air
+		RequiresCondition: gatling >= 2 && chainguns
+	Armament@aa-0:
+		Weapon: AAGatlingSub
+		LocalOffset: 544,100,1024, 544,-100,1024
+		MuzzleSequence: muzzle
+		ReloadingCondition: reload-air
+		PauseOnCondition: reload-ground
+		RequiresCondition: !gatling
+	Armament@aa-1:
+		Weapon: AAGatlingSub2
+		LocalOffset: 544,100,1024, 544,-100,1024
+		MuzzleSequence: muzzle-1
+		ReloadingCondition: reload-air
+		PauseOnCondition: reload-ground
+		RequiresCondition: gatling == 1
+	Armament@aa-2:
+		Weapon: AAGatlingSub3
+		LocalOffset: 544,100,1024, 544,-100,1024
+		MuzzleSequence: muzzle-2
+		ReloadingCondition: reload-air
+		PauseOnCondition: reload-ground
+		RequiresCondition: gatling >= 2
+	Armament@aa-line-0:
+		Name: secondary
+		Weapon: AAGatlingSubLine
+		LocalOffset: 544,100,1024, 544,-100,1024
+		ReloadingCondition: reload-line-air
+		PauseOnCondition: reload-line-ground
+		RequiresCondition: !gatling && chainguns
+	Armament@aa-line-1:
+		Name: secondary
+		Weapon: AAGatlingSubLine2
+		LocalOffset: 544,100,1024, 544,-100,1024
+		ReloadingCondition: reload-line-air
+		PauseOnCondition: reload-line-ground
+		RequiresCondition: gatling == 1 && chainguns
+	Armament@aa-line-2:
+		Name: secondary
+		Weapon: AAGatlingSubLine3
+		LocalOffset: 544,100,1024, 544,-100,1024
+		ReloadingCondition: reload-line-air
+		PauseOnCondition: reload-line-ground
+		RequiresCondition: gatling >= 2 && chainguns
+	GrantConditionOnAttack:
+		Condition: gatling
+		RequiredShotsPerInstance: 12, 24
+		MaximumInstances: 2
+		RevokeDelay: 25
+		RevokeAll: true
+		IsCyclic: false
+		RevokeOnNewTarget: false
+		RequiresCondition: !rank-elite
+	GrantConditionOnAttack@elite:
+		Condition: gatling
+		RequiredShotsPerInstance: 6, 12
+		MaximumInstances: 2
+		RevokeDelay: 25
+		RevokeAll: true
+		IsCyclic: false
+		RevokeOnNewTarget: false
+		RequiresCondition: rank-elite
+	AttackTurreted:
+		Voice: Attack
+	DetectCloaked:
+		# DetectionTypes: Underwater
+		Range: 4c0
+	RenderDetectionCircle:
+	-MustBeDestroyed:
+	WithMuzzleOverlay:
+	WithVoxelBody:
+		ShowShadow: false
+	WithVoxelTurret:
+		ShowShadow: false
+	RenderSprites:
+	Voiced:
+		VoiceSet: GatlingTankVoice
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+		ValidRelationships: None
+	ProducibleWithLevel@1:
+		Prerequisites: vetgatsuborbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: vetgatsuborbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: vetgatsub, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: vetgatsub, baacdm
+		Types: chevron-elite
+	HitShape:
+	# GrantConditionOnMovement@MoveStart:
+	#	Condition: moving
+	#	ValidMovementTypes: Horizontal, Turn
+	# SoundAnnouncement:
+	#	SoundFiles: vboostaa.wav, vboostab.wav
+	#	Volume: 0.6
+	#	RequiresCondition: moving
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
+		Damage: 20
+
+floater:
+	Inherits: ^SeaAnimal
+	Inherits@DNABOOST: ^AffectedByDNABoosters
+	WithColoredOverlay@SUBMERGE:
+		RequiresCondition: !surfaced && in_water
+	Buildable:
+		Queue: Ship.Shared, Ship.Yuri
+		Prerequisites: ~ship.yuri, yadome, ~techlevel.3
+		Description: actor-floater.description
+		BuildDuration: 375
+	Valued:
+		Cost: 1000
+	DeliversCash:
+		Payload: 1000
+		Voice: Move
+	Tooltip:
+		Name: actor-floater.name
+		GenericName: actor-floater.generic-name
+	Tooltip@NoRow:
+		Name: actor-floater.name
+		GenericName: actor-floater.generic-name
+	Armor:
+		Type: Heavy
+	Health:
+		HP: 50000
+	ChangesHealth:
+		PercentageStep: 1
+		Step: 0
+		Delay: 100
+		DamageCooldown: 100
+		StartIfBelow: 100
+	Mobile:
+		Speed: 105
+		Locomotor: amphibious
+	SpeedMultiplier:
+		Modifier: 71
+		RequiresCondition: !in_water
+	Selectable:
+		Bounds: 772, 1544, 0, -241
+	Voiced:
+		VoiceSet: GiantSquidVoice
+	Armament:
+		Weapon: CrabPunch
+	AttackFollowFrontal:
+		Voice: Attack
+		FacingTolerance: 512
+		PauseOnCondition: chronodisable
+	# Cloak:
+	#	RequiresCondition: in_water
+	Targetable:
+		RequiresCondition: in_water
+	Targetable@GROUND:
+		TargetTypes: Ground, SeaAnimal
+		RequiresCondition: !in_water
+	GrantConditionOnTerrain@Water:
+		TerrainTypes: Water, Beach
+		Condition: in_water
+	Repairable:
+		Voice: Move
+		RepairActors: gadept, nadept, nadepb, yadept, yadepb, caoutp, caoutb
+	RepairableNear:
+		RepairActors: gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gayard, nayard, yayard, gaairc, gaairb, baairf, baairb, naheli, yadisk
+	QuantizeFacingsFromSequence:
+		Sequence: idle
+	WithSpriteBody:
+		RequiresCondition: in_water
+	WithSpriteBody@land:
+		Name: bodyLand
+		Sequence: idle-land
+		RequiresCondition: !in_water
+	WithAttackAnimation:
+		Sequence: attack
+	WithAttackAnimation@land:
+		Sequence: attack-land
+		Body: bodyLand
+	RenderSprites:
+		PlayerPalette: infantry
+	ActorStatValues:
+		Damage: 60
+
+strt:
+	Inherits: ^Vehicle
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@BUNKER: ^TankBunkerable
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@GRINDER: ^AffectedByGrinderTreads
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@NOGUNNER: ^GunnerKillable
+	Inherits@RADIATON: ^DamagedByRadiation10Percent
+	Inherits@SQUID: ^SquidGrabbable
+	Buildable:
+		Queue: Ship.Shared, Ship.Yuri
+		Prerequisites: ~ship.yuri, ~techlevel.3
+		BuildPaletteOrder: 20
+		Description: actor-strt.description
+		BuildDuration: 375
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 700
+	DeliversCash:
+		Payload: 700
+		Voice: Move
+	Tooltip:
+		Name: actor-strt.name
+	Tooltip@NoRow:
+		Name: actor-strt.name
+	Health:
+		HP: 30000
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 105
+		TurnSpeed: 32
+		Locomotor: heavyamphibious
+		RequiresCondition: !chronodisable && !emp && !magnefreeze && !squid && !beinginfected
+	Crushable:
+		RequiresCondition: !invulnerability && (!in_water || on_dock) && !cheater-ai && !vengeful-ai
+	Crushable@Cheater:
+		RequiresCondition: !invulnerability && (!in_water || on_dock) && cheater-ai
+	Crushable@Vengeful:
+		RequiresCondition: !invulnerability && (!in_water || on_dock) && vengeful-ai
+	RevealsShroud:
+		Range: 8c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 8c0
+	RevealOnDeath:
+		Radius: 8c0
+	Selectable:
+		Bounds: 1544, 2509, 0, -289
+	Turreted:
+		TurnSpeed: 32
+	Armament@primary:
+		Weapon: StriderGun
+		LocalOffset: 1280,0,800
+		MuzzleSequence: muzzle
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: StriderGunE
+		LocalOffset: 1280,0,800
+		MuzzleSequence: muzzle-2
+		RequiresCondition: rank-elite
+	AttackTurreted:
+		Voice: Attack
+		PauseOnCondition: chronodisable || emp
+	WithMuzzleOverlay:
+	Explodes:
+		Weapon: UnitExplode
+		EmptyWeapon: UnitExplode
+	WithVoxelBody:
+		RequiresCondition: in_water && !on_dock
+	WithVoxelBody@land:
+		Sequence: idle-land
+		RequiresCondition: !in_water || on_dock
+	WithVoxelTurret:
+		RequiresCondition: in_water && !on_dock
+	WithVoxelTurret@land:
+		Sequence: turret-land
+		RequiresCondition: !in_water || on_dock
+	ExternalCondition@on_dock:
+		Condition: on_dock
+	RenderSprites:
+	RenderVoxels:
+		Scale: 10
+	Targetable:
+		RequiresCondition: !in_water
+	Targetable@WATER:
+		TargetTypes: Ground, Water, Ship, DetonateAttack
+		RequiresCondition: in_water
+	GrantConditionOnTerrain@Water:
+		TerrainTypes: Water, Beach
+		Condition: in_water
+	LeavesTrails:
+		Image: wake
+		Palette: effect50alpha
+		TerrainTypes: Water, Beach
+		Type: CenterPosition
+		StationaryInterval: 18
+		MovingInterval: 6
+	RepairableNear:
+		Voice: Move
+		CloseEnough: 3c0
+		RepairActors: gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gayard, nayard, yayard, gaairc, gaairb, baairf, baairb, naheli, yadisk
+	Voiced:
+		VoiceSet: LasherTankVoice
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+		ValidRelationships: None
+	HitShape:
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+		Damage: 50
+
+buoy:
+	Inherits: ^Ship
+	# Inherits@C4: ^AcceptsSEALC4
+	Inherits@PARACHUTE: ^ParachutableVehicle
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Valued:
+		Cost: 250
+	-Selectable:
+	Interactable:
+		Bounds: 1544, 3089
+	RejectsOrders:
+	Tooltip:
+		Name: actor-buoy.name
+	Tooltip@NoRow:
+		Name: actor-buoy.name
+	Health:
+		HP: 15000
+	Armor:
+		Type: Light
+	Mobile:
+		RequiresCondition: !chronodisable && !magnefreeze
+	# Hovers:
+	#	InitialHeight: 64 # Enable this after figuring a way to make the wave anim not hover.
+	Passenger:
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	-LeavesTrails:
+	DetectCloaked:
+		# DetectionTypes: Underwater
+		Range: 6c0
+	RenderDetectionCircle:
+	RenderVoxels:
+		Scale: 14
+	WithVoxelBody:
+	WithSpriteBody:
+		RequiresCondition: !parachute
+	RenderSprites:
+		Palette: effect50alpha
+	-Voiced:
+	-MustBeDestroyed:
+	-WithColoredOverlay@IDISABLE:
+	-GrantCondition@IDISABLE:
+	-WithIdleOverlay@EMP:
+	-Targetable@EMP:
+	-TimedConditionBar@EMP:
+	-ExternalCondition@emp:
+	HitShape:

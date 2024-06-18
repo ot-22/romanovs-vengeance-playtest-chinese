@@ -1,0 +1,297 @@
+civ1:
+	Defaults:
+		Filename: civ1.shp
+	Inherits: ^CivInfantry
+
+civ2:
+	Defaults:
+		Filename: civ2.shp
+	Inherits: ^CivInfantry
+
+civ3:
+	Defaults:
+		Filename: civ3.shp
+	Inherits: ^CivInfantry
+	die1:
+		Length: 13
+	die2:
+		Length: 13
+	prone-stand:
+		Frames: 180, 186, 192, 198, 204, 210, 216, 222
+	prone-run:
+		Start: 180
+	shoot:
+		Start: 84
+	cheer:
+		Start: 228
+	panic-run:
+		Start: 132
+
+vladimir:
+	Defaults:
+		Filename: vladimir.shp
+	Inherits: ^CivInfantry
+	prone-stand:
+		Frames: 86, 92, 98, 104, 110, 116, 122, 128
+	prone-run:
+		Start: 86
+	prone-shoot:
+		Start: 212
+		Length: 6
+		Facings: 8
+	shoot:
+		Start: 164
+	idle2:
+		Start: 71
+		Length: 15
+	die1:
+		Start: 134
+	die2:
+		Start: 149
+	liedown:
+		Start: 260
+		Length: 2
+		Facings: 8
+	standup:
+		Start: 276
+		Length: 2
+		Facings: 8
+	-cheer:
+	-panic-stand:
+	-panic-run:
+	icon:
+		Filename: bits/cameos/vladicon.png
+
+pentgen:
+	Defaults:
+		Filename: pentgen.shp
+	Inherits: ^CivInfantry
+	prone-stand:
+		Frames: 134, 140, 146, 152, 158, 164, 170, 176
+	prone-run:
+		Start: 134
+	prone-shoot:
+		Start: 214
+		Length: 6
+		Facings: 8
+	standup:
+		Start: 182
+		Length: 2
+		Facings: 8
+	liedown:
+		Start: 198
+		Length: 2
+		Facings: 8
+	-cheer:
+	-panic-stand:
+	-panic-run:
+	icon:
+		Filename: bits/cameos/pgenicon.png
+
+pres:
+	Defaults:
+		Filename: pres.shp
+	Inherits: ^CivInfantry
+	prone-stand:
+		Frames: 134, 140, 146, 152, 158, 164, 170, 176
+	prone-run:
+		Start: 134
+	-shoot:
+	-cheer:
+	panic-run:
+		Start: 86
+	icon:
+		Filename: bits/cameos/presicon.png
+
+ssrv:
+	Defaults:
+		Filename: ssrv.shp
+	Inherits: ^CivInfantry
+	prone-stand:
+		Frames: 134, 140, 146, 152, 158, 164, 170, 176
+	prone-run:
+		Start: 134
+	prone-shoot:
+		Start: 182
+		Length: 6
+		Facings: 8
+	-cheer:
+	-panic-stand:
+	-panic-run:
+	icon:
+		Filename: cameo|xxicon.shp
+
+civa:
+	Defaults:
+		Filename: civa.shp
+	Inherits: ^CivInfantry
+
+civb:
+	Defaults:
+		Filename: civb.shp
+	Inherits: ^CivInfantry
+
+civc:
+	Defaults:
+		Filename: civc.shp
+	Inherits: ^CivInfantry
+
+civbbp:
+	Defaults:
+		Filename: civbbp.shp
+	Inherits: ^CivInfantry
+
+civbfm:
+	Defaults:
+		Filename: civbfm.shp
+	Inherits: ^CivInfantry
+	-shoot:
+	prone-stand:
+		Frames: 134, 140, 146, 152, 158, 164, 170, 176
+	prone-run:
+		Start: 134
+	panic-run:
+		Start: 86
+	cheer:
+		Start: 182
+
+civbf:
+	Defaults:
+		Filename: civbf.shp
+	Inherits: ^CivInfantry
+	-shoot:
+	prone-stand:
+		Frames: 134, 140, 146, 152, 158, 164, 170, 176
+	prone-run:
+		Start: 134
+	panic-run:
+		Start: 86
+	cheer:
+		Start: 182
+
+civbtm:
+	Defaults:
+		Filename: civbtm.shp
+	Inherits: ^CivInfantry
+	-shoot:
+	prone-stand:
+		Frames: 134, 140, 146, 152, 158, 164, 170, 176
+	prone-run:
+		Start: 134
+	panic-run:
+		Start: 86
+	cheer:
+		Start: 182
+
+civsfm:
+	Defaults:
+		Filename: civsfm.shp
+	Inherits: ^CivInfantry
+	cheer:
+		Start: 231
+
+civsf:
+	Defaults:
+		Filename: civsf.shp
+	Inherits: ^CivInfantry
+
+civstm:
+	Defaults:
+		Filename: civstm.shp
+	Inherits: ^CivInfantry
+	die1:
+		Length: 13
+	die2:
+		Length: 13
+	prone-stand:
+		Frames: 180, 186, 192, 198, 204, 210, 216, 222
+	prone-run:
+		Start: 180
+	shoot:
+		Start: 84
+	cheer:
+		Start: 228
+	panic-run:
+		Start: 132
+
+# Yuri's Revenge Civilians
+rmnv:
+	Defaults:
+		Filename: rmnv.shp
+	Inherits: ^Infantry
+	liedown:
+		Start: 164
+	standup:
+		Start: 180
+	cheer:
+		Start: 196
+	icon:
+		Filename: bits/cameos/rmnvicon.png
+
+eins:
+	Defaults:
+		Filename: eins.shp
+	Inherits: ^BasicInfantry
+	run:
+		Start: 133
+	die1:
+		Start: 118
+		Length: 15
+	die2:
+		Start: 118
+		Length: 15
+	panic-stand:
+		Facings: 8
+	panic-run:
+		Start: 8
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: bits/cameos/einsicon.png
+
+mumy:
+	Defaults:
+		Filename: mumy.shp
+	Inherits: ^BasicInfantry
+	die1:
+		Start: 86
+	die2:
+		Start: 101
+	shoot:
+		Start: 116
+		Length: 6
+		Facings: 8
+		Tick: 80
+	icon:
+		Filename: cameo|xxicon.shp
+
+# Custom Civilians
+pentgen2:
+	Inherits: pentgen
+	Defaults:
+		Filename: bits/infantry/pentgen2.shp
+
+myak:
+	Inherits: ssrv
+	Defaults:
+		Filename: bits/infantry/myak.shp
+	icon:
+		Filename: bits/cameos/myakicon.png
+
+rainbow_dash:
+	shadow:
+		Filename: infshdw.shp
+		Start: 1
+		Length: 1
+		Facings: 1
+	icon:
+		Filename: cameo|xxicon.shp
+
+derpy_hooves:
+	shadow:
+		Filename: infshdw.shp
+		Start: 1
+		Length: 1
+		Facings: 1
+	icon:
+		Filename: cameo|xxicon.shp

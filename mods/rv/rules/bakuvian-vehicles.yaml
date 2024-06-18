@@ -1,0 +1,413 @@
+hytk:
+	Inherits: ^MainBattleTank
+	Inherits@MACHINEGUN: ^AffectedByMountedMG
+	Inherits@NUKEENGINES: ^AffectedByNuclearEngines
+	Valued:
+		Cost: 1100
+	DeliversCash:
+		Payload: 1100
+		Voice: Move
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.Baku
+		Description: actor-hytk.description
+		Prerequisites: ~vehicle.baku, ~techlevel.1
+		BuildDuration: 625
+		BuildDurationModifier: 100
+		Icon: icon-hydra
+	Tooltip:
+		Name: actor-hytk.name
+	Tooltip@NoRow:
+		Name: actor-hytk.name
+	Health:
+		HP: 50000
+	Mobile:
+		Speed: 75
+	Armament@primary:
+		Weapon: 105mmx
+		Damage: 75
+		Recoil: 87
+		RecoilRecovery: 12
+		MuzzleSequence: muzzle
+		LocalOffset: 1024,-128,640
+		RequiresCondition: !rank-elite
+	Armament@primary2:
+		Name: primary2
+		Weapon: 105mmx
+		Damage: 75
+		FireDelay: 5
+		Recoil: 87
+		RecoilRecovery: 12
+		MuzzleSequence: muzzle
+		LocalOffset: 1024,128,640
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Name: elite
+		Weapon: 105mmxE
+		Damage: 150
+		Recoil: 87
+		RecoilRecovery: 12
+		MuzzleSequence: muzzle-2
+		LocalOffset: 1024,-128,640
+		RequiresCondition: rank-elite
+	Armament@elite2:
+		Name: elite2
+		Weapon: 105mmxE
+		Damage: 150
+		FireDelay: 5
+		Recoil: 87
+		RecoilRecovery: 12
+		MuzzleSequence: muzzle-2
+		LocalOffset: 1024,128,640
+		RequiresCondition: rank-elite
+	Armament@mg:
+		Name: secondary
+		Weapon: hydragun
+		Damage: 30
+		MuzzleSequence: muzzle-mg
+		LocalOffset: 355,100,1024
+		RequiresCondition: !rank-elite && machinegun
+	Armament@elite-mg:
+		Name: secondary
+		Weapon: hydragunE
+		Damage: 36
+		MuzzleSequence: muzzle-mg
+		LocalOffset: 355,100,1024
+		RequiresCondition: rank-elite && machinegun
+	AttackTurreted:
+		Voice: Attack
+		Armaments: primary, primary2, elite, elite2, secondary
+		PauseOnCondition: chronodisable || emp || nogunner || parachute
+	WithMuzzleOverlay:
+	WithVoxelBody:
+	WithVoxelTurret:
+		RequiresCondition: !machinegun
+	WithVoxelTurret@MG:
+		Sequence: turret-mg
+		RequiresCondition: machinegun
+	WithVoxelBarrel:
+		RequiresCondition: !rank-elite
+	WithVoxelBarrel@2:
+		Sequence: barrel2
+		Armament: primary2
+		RequiresCondition: !rank-elite
+	WithVoxelBarrel@elite:
+		Armament: elite
+		RequiresCondition: rank-elite
+	WithVoxelBarrel@elite2:
+		Sequence: barrel2
+		Armament: elite2
+		RequiresCondition: rank-elite
+	Selectable:
+		Bounds: 1544, 2509, 0, -289
+	RenderSprites:
+		Image: 3tnk
+	RenderVoxels:
+		Image: 3tnk
+		NormalsPalette: ts-normals
+		Scale: 13
+	Voiced:
+		VoiceSet: SovietVehicleVoice
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+		Upgrades: upgrade.nuclear_engines, upgrade.mounted_mg
+
+send:
+	Inherits: ^Vehicle
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@APBULLETS: ^AffectedByAPBullets
+	Inherits@EXPERIENCE: ^GainsExperience
+	Valued:
+		Cost: 600
+	DeliversCash:
+		Payload: 600
+		Voice: Move
+	Tooltip:
+		Name: actor-send.name
+	Tooltip@NoRow:
+		Name: actor-send.name
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.Baku
+		BuildPaletteOrder: 40
+		Prerequisites: ~vehicle.baku, ~techlevel.2
+		Description: actor-send.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		Speed: 105
+		TurnSpeed: 60
+		RequiresCondition: !chronodisable && !emp && !magnefreeze && !beingterrordroned
+	Health:
+		HP: 35000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 8c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 8c0
+	RevealOnDeath:
+		Radius: 8c0
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	Targetable:
+		TargetTypes: Ground, Vehicle, DetonateAttack, DroneInfection, ImmuneToRadiation
+	Armament:
+		Weapon: sendgun
+		Damage: 40
+		LocalOffset: 384,0,512
+		MuzzleSequence: muzzle
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: sendgunE
+		Damage: 48
+		LocalOffset: 384,0,512
+		MuzzleSequence: muzzle
+		RequiresCondition: rank-elite
+	Armament@primary-line:
+		Weapon: sendgunLine
+		LocalOffset: 384,0,512
+		MuzzleSequence: muzzle
+		RequiresCondition: apbullets && !rank-elite
+	Armament@elite-line:
+		Weapon: sendgunLineE
+		LocalOffset: 384,0,512
+		MuzzleSequence: muzzle
+		RequiresCondition: apbullets && rank-elite
+	AttackFollowFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+		MustFaceTarget: true
+		PauseOnCondition: chronodisable || emp
+	AutoTarget:
+		InitialStance: ReturnFire
+	WithMuzzleOverlay:
+	-CaptureManager:
+	-Capturable:
+	Cloak:
+		RequiresCondition: !chronodisable && !emp
+		InitialDelay: 25
+		CloakDelay: 110
+		CloakStyle: Palette
+		CloakedPalette: cloak
+		IsPlayerPalette: true
+		CloakSound: cloak5.aud
+		UncloakSound: cloak5.aud
+		UncloakOn: Attack, Damage, Move
+	RenderSprites:
+	Selectable:
+		Bounds: 1254, 2316, 0, -193
+	RenderVoxels:
+	WithVoxelBody:
+	Voiced:
+		VoiceSet: RobotTankVoice
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+		ValidRelationships: None
+	HitShape:
+	# GrantConditionOnMovement@MoveStart:
+	#	Condition: moving
+	#	ValidMovementTypes: Horizontal, Turn
+	# SoundAnnouncement:
+	#	SoundFiles: vchastaa.wav, vchastab.wav, vchastac.wav
+	#	Volume: 0.5
+	#	RequiresCondition: moving
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+
+smrj:
+	Inherits: mrj
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.Baku
+		BuildPaletteOrder: 80
+		Prerequisites: ~vehicle.baku, basops, ~techlevel.3
+		Description: actor-smrj.description
+		BuildDuration: 375
+		BuildDurationModifier: 100
+	Voiced:
+		VoiceSet: SovietVehicleVoice
+
+grad:
+	Inherits: ^Vehicle
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@CRYO: ^AffectedByCryoWarheads
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@NOGUNNER: ^GunnerKillable
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Valued:
+		Cost: 900
+	DeliversCash:
+		Payload: 900
+		Voice: Move
+	Tooltip:
+		Name: actor-grad.name
+	Tooltip@NoRow:
+		Name: actor-grad.name
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.Baku
+		BuildPaletteOrder: 100
+		Prerequisites: ~vehicle.baku, natech, ~techlevel.3
+		Description: actor-grad.description
+		BuildDuration: 500
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		Speed: 90
+		TurnSpeed: 32
+	Health:
+		HP: 15000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	Armament:
+		Weapon: GradTusk
+		Damage: 250
+		LocalOffset: 384,160,1280, 384,-160,1280
+		RequiresCondition: !rank-elite && !cryowarheads
+	Armament@Cryo:
+		Weapon: GradTuskCryo
+		Damage: 250
+		LocalOffset: 384,160,1280, 384,-160,1280
+		RequiresCondition: !rank-elite && cryowarheads
+	Armament@Elite:
+		Weapon: GradTuskE
+		Damage: 500
+		LocalOffset: 384,160,1280, 384,-160,1280
+		RequiresCondition: rank-elite && !cryowarheads
+	Armament@EliteCryo:
+		Weapon: GradTuskCryoE
+		Damage: 500
+		LocalOffset: 384,160,1280, 384,-160,1280
+		RequiresCondition: rank-elite && cryowarheads
+	Turreted:
+		TurnSpeed: 28
+		Offset: -448,0,0
+	AttackTurreted:
+		Voice: Attack
+		TargetFrozenActors: True
+		PauseOnCondition: chronodisable || emp || nogunner || parachute
+	RenderSprites:
+	Selectable:
+		Bounds: 1544, 2509, 0, -289
+	WithVoxelBody:
+	WithVoxelTurret:
+	Voiced:
+		VoiceSet: V3LauncherVoice
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+		ValidRelationships: None
+	ProducibleWithLevel@1:
+		Prerequisites: vetgradorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: vetgradorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: vetgrad, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: vetgrad, baacdm
+		Types: chevron-elite
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+		Upgrades: upgrade.cryo_warheads
+
+qyzyl:
+	Inherits: ^Vehicle
+	Inherits@CHAOS: ^BerserkableVoxel
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Valued:
+		Cost: 2200
+	DeliversCash:
+		Payload: 2200
+		Voice: Move
+	Tooltip:
+		Name: actor-qyzyl.name
+	Tooltip@NoRow:
+		Name: actor-qyzyl.name
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.Baku
+		BuildPaletteOrder: 990
+		Prerequisites: ~vehicle.baku, natech, ~caslab, ~techlevel.4
+		Description: actor-qyzyl.description
+		BuildDuration: 1125
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		Speed: 90
+		TurnSpeed: 32
+		Locomotor: omnicrusher
+	-Crushable:
+	ChangesHealth:
+		PercentageStep: 1
+		Step: 0
+		Delay: 100
+		DamageCooldown: 100
+		StartIfBelow: 100
+	Health:
+		HP: 60000
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	RenderSprites:
+	Selectable:
+		Bounds: 1544, 2509, 0, -289
+	RenderVoxels:
+		Scale: 10
+	WithVoxelBody:
+	PeriodicExplosion:
+		Weapon: RedStarCurtain
+		RequiresCondition: !chronodisable
+	WithRangeCircle:
+		Range: 4c0
+	Voiced:
+		VoiceSet: SovietVehicleVoice
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+		ValidRelationships: None
+	ProducibleWithLevel@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+		Types: chevron-elite
+	HitShape:
+	# GrantConditionOnMovement@MoveStart:
+	#	Condition: moving
+	#	ValidMovementTypes: Horizontal
+	# SoundAnnouncement:
+	#	SoundFiles: vapostaa.wav, vapostab.wav, vapostac.wav
+	#	Volume: 0.5
+	#	RequiresCondition: moving
+	ActorStatValues:
+		Stats: Armor, Sight, Speed

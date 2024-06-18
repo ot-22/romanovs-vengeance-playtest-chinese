@@ -1,0 +1,602 @@
+amcv:
+	idle: local|mcv
+	water: bits/vehicles/water/mcvw
+
+aegis:
+	idle: local|aegis
+
+asw:
+	idle: local|asw
+
+#axle	# TODO: unused debris
+#	idle:
+
+beag:
+	idle: local|beag
+
+bus:
+	idle: local|bus
+
+car:
+	idle: local|car
+
+carrier:
+	idle: local|carrier
+
+cdest:
+	idle: local|cdest
+	empty: local|cdestwo
+
+cona:
+	idle: local|cona
+
+cop:
+	idle: local|cop
+
+cmin:
+	idle: bits/vehicles/replace/cmin
+	water: bits/vehicles/water/cminw
+	unload: bits/vehicles/replace/cmon
+
+cargoplane:
+	idle: local|cplane
+
+cruise:
+	idle: local|cruise
+
+dest:
+	idle: local|dest
+	empty: local|destwo
+
+dmisl:
+	idle: local|dmisl
+	idle-rad: bits/vehicles/upgrades/dmislu
+	idle-rad-orange: bits/vehicles/upgrades/dmisluo
+
+dred:
+	idle: local|dred
+	idle-rad: bits/vehicles/upgrades/dredu
+	idle-rad-orange: bits/vehicles/upgrades/dreduo
+	half: bits/vehicles/dred2
+	half-rad: bits/vehicles/upgrades/dredu2
+	half-rad-orange: bits/vehicles/upgrades/dreduo2
+	empty: local|dredwo
+
+euroc:
+	idle: local|euroc
+
+falc:
+	idle: local|falc
+	idle-a2a: bits/vehicles/upgrades/falcu
+	idle-predator: bits/vehicles/upgrades/falcu2
+	idle-a2a-predator: bits/vehicles/upgrades/falcu3
+
+naflak:
+	turret: local|flaktur
+
+flata: #Unused
+	idle: local|flata
+
+fv:
+	idle: local|fv
+	turret-missile: local|fvtur
+	turret-mg: bits/vehicles/ifvturrets/fvtur_sentry
+	turret-repair: local|fvtur2
+	turret-hitech: local|fvtur3
+	turret-tesla: bits/vehicles/ifvturrets/fvtur_tesla
+	turret-demo: bits/vehicles/ifvturrets/fvtur_nuke
+	turret-deso: bits/vehicles/ifvturrets/fvtur_radbeam
+	turret-sniper: bits/vehicles/ifvturrets/fvtur_sniper
+	turret-virus: bits/vehicles/ifvturrets/fvtur_virus
+	turret-pyro: bits/vehicles/ifvturrets/fvtur_rail
+	turret-flak: bits/vehicles/ifvturrets/fvtur_flak
+	turret-yuri: bits/vehicles/ifvturrets/fvtur_chaos
+	turret-rocket: bits/vehicles/ifvturrets/fvtur_rocket
+	turret-crkt: bits/vehicles/ifvturrets/fvtur_chaosrkt
+	turret-hero: bits/vehicles/ifvturrets/fvtur_sealgun
+	turret-medic: bits/vehicles/ifvturrets/fvtur_ambu
+	turret-gatling: bits/vehicles/ifvturrets/fvtur_gatling
+	turret-toxin: bits/vehicles/ifvturrets/fvtur_toxin
+
+gtgcan:
+	turret: local|gtgcantur
+	barrel: local|gtgcanbarl
+
+mtnk:
+	idle: bits/vehicles/replace/gtnk
+	idle-armor: bits/vehicles/upgrades/gtnku
+	turret: bits/vehicles/replace/gtnktur
+	turret-armor: bits/vehicles/upgrades/gtnkutur
+	barrel: bits/vehicles/replace/gtnkbarl
+	barrel-advanced: bits/vehicles/upgrades/gtnkubarl
+
+harv:
+	idle: local|harv
+	turret: local|harvtur
+	water: bits/vehicles/water/harvw
+	unload: local|horv
+
+hornet:
+	idle: local|hornet
+
+htk:
+	idle: local|htk
+	turret: local|htktur
+	barrel: local|htkbarl
+
+htnk:
+	idle: bits/vehicles/replace/htnk
+	idle-nuke: bits/vehicles/upgrades/htnku
+	idle-nuke-orange: bits/vehicles/upgrades/htnkuo
+	turret: bits/vehicles/replace/htnktur
+	barrel: bits/vehicles/replace/htnkbarl
+	barrel-uranium: bits/vehicles/upgrades/htnkubarl
+	barrel-uranium-orange: bits/vehicles/upgrades/htnkuobarl
+	barrel-cryo: bits/vehicles/upgrades/htnkucbarl
+
+#howi: #Unused
+#	idle: hwtz
+
+hyd:
+	idle: local|hyd
+
+nalasr:
+	turret: local|laser
+
+lcrf:
+	idle: local|lcrf
+
+limo:
+	idle: local|limo
+
+oltnk:
+	idle: local|ltnk
+	turret: local|ltnktur
+	barrel: local|ltnkbarl
+
+apoc:
+	idle: bits/vehicles/replace/mtnk
+	idle-nuke: bits/vehicles/upgrades/mtnku
+	idle-nuke-orange: bits/vehicles/upgrades/mtnkuo
+	turret: bits/vehicles/replace/mtnktur
+	barrel: bits/vehicles/replace/mtnkbarl
+	barrel-uranium: bits/vehicles/upgrades/mtnkubarl
+	barrel-uranium-orange: bits/vehicles/upgrades/mtnkuobarl
+	barrel-cryo: bits/vehicles/upgrades/mtnkucbarl
+	barrel2: bits/vehicles/replace/mtnkbarl2
+	barrel2-uranium: bits/vehicles/upgrades/mtnkubarl2
+	barrel2-uranium-orange: bits/vehicles/upgrades/mtnkuobarl2
+	barrel2-cryo: bits/vehicles/upgrades/mtnkucbarl2
+
+caoutp:
+	turret: local|outp
+
+pdplane:
+	idle: bits/vehicles/pdplane
+
+pick:
+	idle: local|pick
+
+#piece: # TODO: unused debris
+#	idle: local|piece
+
+propa:
+	idle: local|propa
+
+ptruck:
+	idle: local|ptruck
+
+mgtk:
+	idle: local|rtnk
+	idle-armor: bits/vehicles/upgrades/rtnku
+
+nasam:
+	turret: local|sam
+
+shad:
+	idle: local|shad
+
+smcv:
+	idle: local|smcv
+	water: bits/vehicles/water/smcvw
+
+sref:
+	idle: local|sref
+	turret: local|sreftur
+	turret-stage1: local|sreftur1
+	turret-stage2: local|sreftur2
+	turret-stage3: local|sreftur3
+
+stang:
+	idle: local|stang
+
+sub:
+	idle: local|sub
+
+subt: #Sub Torpedo needs voxel projectiles
+	idle: local|subt
+
+suvb:
+	idle: local|suvb
+
+suvw:
+	idle: local|suvw
+
+taxi:
+	idle: local|taxi
+
+#tire: # TODO: unused debris
+#	idle: local|tire
+
+tnkd:
+	idle: bits/vehicles/replace/tnkd
+	idle-advanced: bits/vehicles/upgrades/tnkdu
+	idle-armor: bits/vehicles/upgrades/tnkdu2
+	idle-armor-advanced: bits/vehicles/upgrades/tnkdu3
+
+tractor: #Unused
+	idle: local|tractor
+
+sapc:
+	idle: local|trs
+
+dtruck:
+	idle: bits/vehicles/replace/dtruck
+	idle-hiexplosive: bits/vehicles/upgrades/dtrucku
+
+trucka:
+	idle: local|trucka
+
+truckb:
+	idle: local|truckb
+
+ttnk:
+	idle: local|ttnk
+	turret: local|ttnktur
+
+tug:
+	idle: local|tug
+
+v3:
+	idle: bits/vehicles/replace/v3
+	idle-rad: bits/vehicles/upgrades/v3u
+	idle-rad-orange: bits/vehicles/upgrades/v3uo
+	empty: bits/vehicles/replace/v3wo
+
+v3rocket:
+	idle: bits/vehicles/replace/v3rocket
+	idle-rad: bits/vehicles/upgrades/v3urocket
+	idle-rad-orange: bits/vehicles/upgrades/v3uorocket
+
+vlad:
+	idle: local|vlad
+	half: bits/vehicles/vlad2
+	empty: local|vladwo
+
+wini:
+	idle: local|wini
+
+zep:
+	idle: local|zep
+	idle-propaganda: bits/vehicles/upgrades/zepu
+	idle-rad: bits/vehicles/upgrades/zepu2
+	idle-rad-orange: bits/vehicles/upgrades/zepu2o
+	idle-propaganda-rad: bits/vehicles/upgrades/zepu3
+	idle-propaganda-rad-orange: bits/vehicles/upgrades/zepu3o
+
+#zbomb: #Kirov bomb needs voxel projectiles
+#	idle: local|zbomb
+
+# Old TD/RA1 Unit Voxels
+1tnk:
+	idle: local|1tnk
+	turret: local|1tnktur
+	barrel: local|1tnkbarl
+
+2tnk:
+	idle: local|2tnk
+	turret: local|2tnktur
+	barrel: local|2tnkbarl
+
+3tnk:
+	idle: bits/vehicles/gen1/3tnk
+	turret: bits/vehicles/gen1/3tnktur
+	turret-mg: bits/vehicles/gen1/3tnktur2
+	barrel: bits/vehicles/gen1/3tnkbarl
+	barrel2: bits/vehicles/gen1/3tnkbarl2
+
+4tnk:
+	idle: local|4tnk
+	turret: local|4tnktur
+	barrel: local|4tnkbarl
+
+arty:
+	idle: local|arty
+	turret: local|artybarl
+
+ftnktd:
+	idle: local|ftnk
+
+hmve:
+	idle: bits/vehicles/jeep
+	turret: local|jeeptur
+
+m113:
+	idle: local|m113
+	turret: local|m113tur
+
+mlrs:
+	idle: local|mlrs
+	turret: local|mlrstur
+
+mnly:
+	idle: local|mnly
+
+mrj:
+	idle: bits/vehicles/replace/mrj
+	turret: bits/vehicles/replace/mrjtur
+
+#YR Voxels
+ambu:
+	idle: localmd|ambu
+
+bcab:
+	idle: localmd|bcab
+
+cblc:
+	idle: localmd|cblc
+
+ddbx:
+	idle: localmd|ddbx
+
+doly:
+	idle: localmd|doly
+
+ftrk:
+	idle: localmd|ftrk
+
+jeep:
+	idle: localmd|jeep
+
+ycab:
+	idle: localmd|ycab
+
+civp:
+	idle: localmd|civp
+
+spyp:
+	idle: localmd|spyp
+
+bfrt:
+	idle: localmd|bfrt
+	idle-armor: bits/vehicles/upgrades/bfrtu
+
+robo:
+	idle: localmd|robo
+	turret: localmd|robotur
+
+schp:
+	idle: localmd|schp
+	deployed: localmd|schd
+	turret: localmd|schdtur
+
+bpln:
+	idle: localmd|bpln
+
+pcv:
+	idle: localmd|pcv
+	water: bits/vehicles/water/pcvw
+
+yhvr:
+	idle: localmd|yhvr
+
+ltnk:
+	idle: localmd|ltnk
+	turret: localmd|ltnktur
+	turret-autoloaders: bits/vehicles/upgrades/ltnkutur
+
+mind:
+	idle: localmd|mind
+
+tele:
+	idle: localmd|tele
+	turret: localmd|teletur
+
+ytnk:
+	idle: localmd|ytnk
+	turret: localmd|ytnktur
+
+caos:
+	idle: localmd|caos
+
+bsub:
+	idle: localmd|bsub
+
+bsubmisl:
+	idle: localmd|bsubmisl
+
+disk:
+	idle: bits/vehicles/replace/disk
+	turret: bits/vehicles/replace/disktur
+	turret-armored: bits/vehicles/upgrades/diskutur
+
+smin:
+	idle: localmd|smin
+	turret: localmd|smintur
+
+cahead:
+	turret: localmd|cahead
+	turret-damaged: localmd|caheaddm
+
+yaggun:
+	turret: bits/structures/yaggun
+
+# Custom Voxels
+hind:
+	idle: bits/vehicles/hind
+
+deva:
+	idle: bits/vehicles/deva
+	turret: bits/vehicles/devatur
+
+ctnk:
+	idle: bits/vehicles/ctnk
+
+alplane:
+	idle: bits/vehicles/alplane
+
+civplane:
+	idle: bits/vehicles/civplane
+
+pcplane:
+	idle: bits/vehicles/pcplane
+
+fortress:
+	idle: bits/vehicles/replace/fortress
+	idle-payload: bits/vehicles/upgrades/fortressu
+
+sdrn:
+	idle: bits/vehicles/sdrn
+
+a10:
+	idle: bits/vehicles/a10
+
+f22:
+	idle: bits/vehicles/f22
+
+expn:
+	idle: bits/vehicles/expn
+
+ftnk:
+	idle: bits/vehicles/ftnk
+	turret: bits/vehicles/ftnktur
+
+yhtnk:
+	idle: bits/vehicles/yhtnk
+	turret: bits/vehicles/yhtnktur
+
+kamaz:
+	idle: bits/vehicles/kamaz
+	turret: bits/vehicles/kamaztur
+
+grtk:
+	idle: bits/vehicles/grtk
+
+tric:
+	idle: bits/vehicles/tric
+
+txdx:
+	idle: bits/vehicles/txdx
+	turret: bits/vehicles/txdxtur
+	turret-armored: bits/vehicles/upgrades/txdxutur
+
+gatsub:
+	idle: bits/vehicles/gatsub
+	turret: bits/vehicles/gatsubtur
+
+txbmb:
+	idle: bits/vehicles/txbmb
+
+gmin:
+	idle: bits/vehicles/gmin
+	water: bits/vehicles/water/gminw
+	unload: bits/vehicles/gmon
+
+mlyr:
+	idle: bits/vehicles/mlyr
+
+kite:
+	idle: bits/vehicles/kite
+	idle-propaganda: bits/vehicles/upgrades/kiteu
+
+hwtz:
+	idle: bits/vehicles/hwtz
+	idle-empammo: bits/vehicles/upgrades/hwtzu
+
+aambu:
+	idle: bits/vehicles/aambu
+	idle-armor: bits/vehicles/upgrades/aambuu
+
+buoy:
+	idle: bits/vehicles/buoy
+
+magnedisk:
+	idle: bits/vehicles/magnedisk
+	idle-armored: bits/vehicles/upgrades/magnedisku
+	turret: bits/vehicles/magnedisktur
+
+piranha:
+	idle: bits/vehicles/piranha
+	turret: bits/vehicles/piranhatur
+
+truckc:
+	idle: bits/vehicles/truckc
+
+car2:
+	idle: bits/vehicles/car2
+
+car3:
+	idle: bits/vehicles/car3
+
+havoc:
+	idle: bits/vehicles/havoc
+
+b52:
+	idle: bits/vehicles/b52
+
+mixer:
+	idle: bits/vehicles/mixer
+
+qyzyl:
+	idle: bits/vehicles/qyzyl
+
+smrj:
+	idle: bits/vehicles/replace/smrj
+	turret: bits/vehicles/replace/mrjtur
+
+sray:
+	idle: bits/vehicles/sray
+	idle-land: bits/vehicles/srayl
+	turret: bits/vehicles/sraytur
+	turret-land: bits/vehicles/srayltur
+
+adest:
+	idle: bits/vehicles/adest
+	idle-land: bits/vehicles/adestl
+
+strt:
+	idle: bits/vehicles/strtw
+	idle-land: bits/vehicles/strt
+	turret: bits/vehicles/strtwtur
+	turret-land: bits/vehicles/strttur
+
+flata:
+	idle: bits/vehicles/flata
+
+flatb:
+	idle: bits/vehicles/flatb
+
+lart:
+	idle: bits/vehicles/lart
+	idle-capacitors: bits/vehicles/lartu
+	idle-elite: bits/vehicles/larte
+	idle-elite-capacitors: bits/vehicles/lartue
+
+grad:
+	idle: bits/vehicles/grad
+	turret: bits/vehicles/gradtur
+
+hydf:
+	idle: bits/vehicles/hydf
+
+send:
+	idle: bits/vehicles/send
+
+badgr:
+	idle: bits/vehicles/badgr
+
+rainbow_dash:
+	idle: bits/infantry/ponies/rainbow_dash
+
+derpy_hooves:
+	idle: bits/infantry/ponies/derpy_hooves
