@@ -1,0 +1,78 @@
+Taunts:
+	DefaultVariant:
+	Variants::
+		america: .WAV
+		korea: .WAV
+		france: .WAV
+		germany: .WAV
+		england: .WAV
+		japan: .WAV
+		belarus: .WAV
+		poland: .WAV
+		ukraine: .WAV
+		aussie: .WAV
+		china: .WAV
+		turkey: .WAV
+		canada: .WAV
+		russia: .WAV
+		libya: .WAV
+		iraq: .WAV
+		cuba: .WAV
+		chile: .WAV
+		mexico: .WAV
+		mongolia: .WAV
+		vietnam: .WAV
+		psicorps: .wav
+		psinepal: .wav
+		psitrans: .wav
+		psisouth: .wav
+		psimoon: .wav
+		transcaucus: .WAV
+		serbia: .WAV
+		turkmen: .WAV
+		tuva: .WAV
+		russianfed: .WAV
+	Prefixes:
+		america: TAUAM
+		korea: TAUKO
+		france: TAUFR
+		germany: TAUGE
+		england: TAUBR
+		japan: TAUKO # TAUJA
+		belarus: TAUGE # TAUBE
+		poland: TAUGE # TAUPO
+		ukraine: TAUGE # TAUUK
+		aussie: TAUBR # TAUAU
+		china: TAUKO # TAUCH
+		turkey: TAUGE # TAUTR
+		canada: TAUBR # TAUCA
+		russia: TAURU
+		libya: TAULI
+		iraq: TAUIR
+		cuba: TAUCU
+		vietnam: TAURU # TAUVI
+		chile: TAUCU # TAUCL
+		mexico: TAUCU # TAUMX
+		mongolia: TAURU # TAUMO
+		psicorps: tauyu
+		psinepal: tauyu
+		psitrans: tauyu
+		psisouth: tauyu
+		psimoon: tauyu
+		transcaucus: TAURU # TAUTC
+		serbia: TAURU # TAUSM
+		turkmen: TAURU # TAUTU
+		tuva: TAURU # TAUTT
+		russianfed: TAURU # TAURF
+	Notifications:
+		1: 01
+		2: 02
+		3: 03
+		4: 04
+		5: 05
+		6: 06
+		7: 07
+		8: 08
+		9: ucheer.wav
+	DisablePrefixes: 9
+	DisableVariants: 9

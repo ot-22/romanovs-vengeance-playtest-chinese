@@ -1,0 +1,29 @@
+SupportPower01:
+	Description: 支援能力 01
+	Types: SupportPower
+	Contexts: Player
+
+SupportPower02:
+	Description: 支援能力 02
+	Types: SupportPower
+	Contexts: Player
+
+SupportPower03:
+	Description: 支援能力 03
+	Types: SupportPower
+	Contexts: Player
+
+SupportPower04:
+	Description: 支援能力 04
+	Types: SupportPower
+	Contexts: Player
+
+SupportPower05:
+	Description: 支援能力 05
+	Types: SupportPower
+	Contexts: Player
+
+SupportPower06:
+	Description: 支援能力 06
+	Types: SupportPower
+	Contexts: Player

@@ -1,0 +1,1948 @@
+gacnst:
+	Defaults:
+		Offset: 3, -60
+	idle:
+		Filename: ggcnst.shp
+		TilesetFilenames:
+			SNOW: gacnst.shp
+			SIMPLETERRAIN: gtcnst.shp
+		ShadowStart: 3
+	idle-waves:
+		Filename: bits/structures/water/ggcnst_w.shp
+		Tick: 200
+		ZOffset: -1c0
+	make:
+		Filename: gtcnstmk.shp
+		TilesetFilenames:
+			SNOW: gacnstmk.shp
+			URBAN: gucnstmk.shp
+			NEWURBAN: gncnstmk.shp
+			DESERT: gdcnstmk.shp
+			LUNAR: glcnstmk.shp
+			DUNE: gdcnstmk.shp
+		Length: 29
+		ShadowStart: 29
+	damaged-idle:
+		Filename: ggcnst.shp
+		TilesetFilenames:
+			SNOW: gacnst.shp
+			SIMPLETERRAIN: gtcnst.shp
+		Start: 1
+		ShadowStart: 4
+	idle-fans:
+		Filename: ggcnst_a.shp
+		TilesetFilenames:
+			SNOW: gacnst_a.shp
+			SIMPLETERRAIN: gtcnst_a.shp
+		Length: 6
+		Tick: 150
+	damaged-idle-fans:
+		Filename: ggcnst_a.shp
+		TilesetFilenames:
+			SNOW: gacnst_a.shp
+			SIMPLETERRAIN: gtcnst_a.shp
+		Start: 5
+		Length: 6
+		Tick: 150
+	crane-overlay:
+		Filename: ggcnst_b.shp
+		TilesetFilenames:
+			SNOW: gacnst_b.shp
+			SIMPLETERRAIN: gtcnst_b.shp
+		Length: 20
+		Tick: 150
+	damaged-crane-overlay:
+		Filename: ggcnst_b.shp
+		TilesetFilenames:
+			SNOW: gacnst_b.shp
+			SIMPLETERRAIN: gtcnst_b.shp
+		Start: 20
+		Length: 20
+		Tick: 150
+	flag-usa:
+		Filename: bits/structures/allcyardflags.png
+		Start: 11
+	flag-uk:
+		Filename: bits/structures/allcyardflags.png
+		Start: 14
+	flag-france:
+		Filename: bits/structures/allcyardflags.png
+		Start: 13
+	flag-germany:
+		Filename: bits/structures/allcyardflags.png
+		Start: 15
+	flag-korea:
+		Filename: bits/structures/allcyardflags.png
+		Start: 12
+	flag-belarus:
+		Filename: bits/structures/allcyardflags.png
+		Start: 10
+	flag-ukraine:
+		Filename: bits/structures/allcyardflags.png
+		Start: 8
+	flag-aussie:
+		Filename: bits/structures/allcyardflags.png
+		Start: 7
+	flag-poland:
+		Filename: bits/structures/allcyardflags.png
+		Start: 6
+	flag-canada:
+		Filename: bits/structures/allcyardflags.png
+		Start: 5
+	flag-japan:
+		Filename: bits/structures/allcyardflags.png
+		Start: 4
+	flag-china:
+		Filename: bits/structures/allcyardflags.png
+		Start: 3
+	flag-turkey:
+		Filename: bits/structures/allcyardflags.png
+		Start: 2
+	#dead: ggcnstdm # SHP broken & unused
+	#	Length: 30
+	#	ShadowStart: 30
+	#	Tick: 100
+	icon:
+		Filename: bits/cameos/acnsicon.shp
+		Offset: 0,0
+
+gapowr:
+	Defaults:
+		Offset: 0, -31
+	idle:
+		Filename: ggpowr.shp
+		TilesetFilenames:
+			SNOW: gapowr.shp
+			SIMPLETERRAIN: gtpowr.shp
+		ShadowStart: 3
+	damaged-idle:
+		Filename: ggpowr.shp
+		TilesetFilenames:
+			SNOW: gapowr.shp
+			SIMPLETERRAIN: gtpowr.shp
+		Start: 1
+		ShadowStart: 4
+	idle-glow:
+		Filename: ggpowr_a.shp
+		TilesetFilenames:
+			SNOW: gapowr_a.shp
+			SIMPLETERRAIN: gtpowr_a.shp
+		Length: 8
+		ShadowStart: 16
+		Tick: 150
+	damaged-idle-glow:
+		Filename: ggpowr_a.shp
+		TilesetFilenames:
+			SNOW: gapowr_a.shp
+			SIMPLETERRAIN: gtpowr_a.shp
+		Start: 8
+		Length: 8
+		ShadowStart: 24
+		Tick: 150
+	idle-glow-coolant:
+		Filename: ggpowr_b.shp
+		TilesetFilenames:
+			SNOW: gapowr_b.shp
+			SIMPLETERRAIN: gtpowr_b.shp
+		Length: 8
+		ShadowStart: 16
+		Tick: 150
+	damaged-idle-coolant:
+		Filename: ggpowr_b.shp
+		TilesetFilenames:
+			SNOW: gapowr_b.shp
+			SIMPLETERRAIN: gtpowr_b.shp
+		Start: 8
+		Length: 8
+		ShadowStart: 24
+		Tick: 150
+	idle-waves:
+		Filename: bits/structures/water/ggpowr_w.shp
+		Tick: 200
+		ZOffset: -1c0
+	damaged-idle-waves:
+		Filename: bits/structures/water/ggpowr_w.shp
+		Start: 1
+		Tick: 200
+		ZOffset: -1c0
+	make:
+		Filename: gtpowrmk.shp
+		TilesetFilenames:
+			SNOW: gapowrmk.shp
+			URBAN: gupowrmk.shp
+			NEWURBAN: gnpowrmk.shp
+			DESERT: gdpowrmk.shp
+			LUNAR: glpowrmk.shp
+			DUNE: gdpowrmk.shp
+		Length: 25
+		ShadowStart: 25
+	icon:
+		Filename: cameo|powricon.shp
+		Offset: 0,0
+
+gapowrup:
+	icon:
+		Filename: bits/cameos/gpwrpico.shp
+
+gapile:
+	Defaults:
+		Offset: -15, -38
+	idle:
+		Filename: ggpile.shp
+		TilesetFilenames:
+			SNOW: gapile.shp
+			SIMPLETERRAIN: gtpile.shp
+		ShadowStart: 3
+	damaged-idle:
+		Filename: ggpile.shp
+		TilesetFilenames:
+			SNOW: gapile.shp
+			SIMPLETERRAIN: gtpile.shp
+		Start: 1
+		ShadowStart: 4
+	idle-flag:
+		Filename: ggpile_a.shp
+		TilesetFilenames:
+			SNOW: gapile_a.shp
+			SIMPLETERRAIN: gtpile_a.shp
+		Length: 16
+		ShadowStart: 32
+	damaged-idle-flag:
+		Filename: ggpile_a.shp
+		TilesetFilenames:
+			SNOW: gapile_a.shp
+			SIMPLETERRAIN: gtpile_a.shp
+		Start: 16
+		Length: 16
+		ShadowStart: 48
+	#dead: ggpiledm # SHP broken & unused
+	#	Length: 25
+	#	ShadowStart: 25
+	#	Tick: 100
+	make:
+		Filename: gtpilemk.shp
+		TilesetFilenames:
+			SNOW: gapilemk.shp
+			URBAN: gupilemk.shp
+			NEWURBAN: gnpilemk.shp
+			DESERT: gdpilemk.shp
+			LUNAR: glpilemk.shp
+			DUNE: gdpilemk.shp
+		Length: 25
+		ShadowStart: 25
+	icon:
+		Filename: cameo|brrkicon.shp
+		Offset: 0,0
+
+garefn:
+	Defaults:
+		Offset: -12, -52
+	idle:
+		Filename: ggrefn.shp
+		TilesetFilenames:
+			SNOW: garefn.shp
+			SIMPLETERRAIN: gtrefn.shp
+		ShadowStart: 3
+	damaged-idle:
+		Filename: ggrefn.shp
+		TilesetFilenames:
+			SNOW: garefn.shp
+			SIMPLETERRAIN: gtrefn.shp
+		Start: 1
+		ShadowStart: 4
+	idle-waves:
+		Filename: bits/structures/water/ggrefn_w.shp
+		Tick: 200
+		ZOffset: -1c0
+	damaged-idle-waves:
+		Filename: bits/structures/water/ggrefn_w.shp
+		Start: 1
+		Tick: 200
+		ZOffset: -1c0
+	make:
+		Filename: gtrefnmk.shp
+		TilesetFilenames:
+			SNOW: garefnmk.shp
+			URBAN: gurefnmk.shp
+			NEWURBAN: gnrefnmk.shp
+			DESERT: gdrefnmk.shp
+			LUNAR: glrefnmk.shp
+			DUNE: gdrefnmk.shp
+		Length: 25
+		ShadowStart: 25
+	idle-drill:
+		Filename: ggrefnl1.shp
+		TilesetFilenames:
+			SNOW: garefnl1.shp
+			SIMPLETERRAIN: gtrefnl1.shp
+		Length: 6
+		Tick: 1500
+	idle-bib:
+		Filename: ggrefnbb.shp
+		TilesetFilenames:
+			SNOW: garefnbb.shp
+			SIMPLETERRAIN: gtrefnbb.shp
+		ShadowStart: 2
+		ZOffset: -512
+	damaged-idle-bib:
+		Filename: ggrefnbb.shp
+		TilesetFilenames:
+			SNOW: garefnbb.shp
+			SIMPLETERRAIN: gtrefnbb.shp
+		Start: 1
+		ShadowStart: 3
+		ZOffset: -512
+	docking-overlay:
+		Filename: ggrefnor.shp
+		TilesetFilenames:
+			SNOW: garefnor.shp
+			SIMPLETERRAIN: gtrefnor.shp
+		Length: 20
+		ShadowStart: 20
+	icon:
+		Filename: cameo|reficon.shp
+		Offset: 0,0
+
+gaairc:
+	Defaults:
+		Offset: -14, -38
+	idle:
+		Filename: ggairc.shp
+		TilesetFilenames:
+			SNOW: gaairc.shp
+			SIMPLETERRAIN: gtairc.shp
+		Length: 1
+	damaged-idle:
+		Filename: ggairc.shp
+		TilesetFilenames:
+			SNOW: gaairc.shp
+			SIMPLETERRAIN: gtairc.shp
+		Start: 1
+		Length: 2
+	idle-bottom:
+		Filename: ggaircbb.shp
+		TilesetFilenames:
+			SNOW: gaaircbb.shp
+			SIMPLETERRAIN: gtaircbb.shp
+		Length: 1
+		ZOffset: -512
+	damaged-idle-bottom:
+		Filename: ggaircbb.shp
+		TilesetFilenames:
+			SNOW: gaaircbb.shp
+			SIMPLETERRAIN: gtaircbb.shp
+		Start: 1
+		Length: 1
+		ZOffset: -512
+	idle-pad-lights:
+		Filename: ggairc_a.shp
+		TilesetFilenames:
+			SNOW: gaairc_a.shp
+			SIMPLETERRAIN: gtairc_a.shp
+		Length: 4
+		Tick: 120
+		ZOffset: -512
+	damaged-idle-pad-lights:
+		Filename: ggairc_a.shp
+		TilesetFilenames:
+			SNOW: gaairc_a.shp
+			SIMPLETERRAIN: gtairc_a.shp
+		Start: 5
+		Length: 4
+		Tick: 120
+		ZOffset: -512
+	idle-mid:
+		Filename: ggairc_b1.shp
+		TilesetFilenames:
+			SNOW: gaairc_b1.shp
+			SIMPLETERRAIN: gtairc_b1.shp
+		Length: 6
+		Tick: 120
+	damage-idle-mid:
+		Filename: ggairc_b1.shp
+		TilesetFilenames:
+			SNOW: gaairc_b1.shp
+			SIMPLETERRAIN: gtairc_b1.shp
+		Start: 7
+		Length: 6
+		Tick: 120
+	idle-bottom-lights:
+		Filename: ggairc_b2.shp
+		TilesetFilenames:
+			SNOW: gaairc_b2.shp
+			SIMPLETERRAIN: gtairc_b2.shp
+		Length: 6
+		Tick: 120
+		ZOffset: -512
+	damage-bottom-lights:
+		Filename: ggairc_b2.shp
+		TilesetFilenames:
+			SNOW: gaairc_b2.shp
+			SIMPLETERRAIN: gtairc_b2.shp
+		Start: 7
+		Length: 6
+		Tick: 120
+		ZOffset: -512
+	idle-dish:
+		Filename: ggairc_c.shp
+		TilesetFilenames:
+			SNOW: gaairc_c.shp
+			SIMPLETERRAIN: gtairc_c.shp
+		Length: 16
+		ShadowStart: 16
+		Tick: 320
+	idle-waves:
+		Filename: bits/structures/water/ggairc_w.shp
+		Tick: 200
+		ZOffset: -1c0
+	damaged-idle-waves:
+		Filename: bits/structures/water/ggairc_w.shp
+		Start: 1
+		Tick: 200
+		ZOffset: -1c0
+	make:
+		Filename: gtaircmk.shp
+		TilesetFilenames:
+			SNOW: gaaircmk.shp
+			URBAN: guaircmk.shp
+			NEWURBAN: gnaircmk.shp
+			DESERT: gdaircmk.shp
+			LUNAR: glaircmk.shp
+			DUNE: gdaircmk.shp
+		Length: 25
+		ShadowStart: 25
+	active:
+		Filename: dot.shp
+		ZOffset: -9999
+	icon:
+		Filename: cameo|heliicon.shp
+		Offset: 0,0
+
+gaweap:
+	Defaults:
+		Filename: ggweap.shp
+		TilesetFilenames:
+			SNOW: gaweap.shp
+			SIMPLETERRAIN: gtweap.shp
+		Offset: -30, -60
+	idle:
+		ShadowStart: 3
+		ZOffset: -1024
+	damaged-idle:
+		Start: 1
+		ShadowStart: 4
+		ZOffset: -1024
+	build-front:
+		Filename: ggweap_1.shp
+		TilesetFilenames:
+			SNOW: gaweap_1.shp
+			SIMPLETERRAIN: gtweap_1.shp
+		ShadowStart: 2
+	damaged-build-front:
+		Filename: ggweap_1.shp
+		TilesetFilenames:
+			SNOW: gaweap_1.shp
+			SIMPLETERRAIN: gtweap_1.shp
+		Start: 1
+		ShadowStart: 3
+	build-top:
+		Filename: ggweap_2.shp
+		TilesetFilenames:
+			SNOW: gaweap_2.shp
+			SIMPLETERRAIN: gtweap_2.shp
+		ShadowStart: 2
+		ZOffset: 1024
+	damaged-build-top:
+		Filename: ggweap_2.shp
+		TilesetFilenames:
+			SNOW: gaweap_2.shp
+			SIMPLETERRAIN: gtweap_2.shp
+		Start: 1
+		ShadowStart: 3
+		ZOffset: 1024
+	# TODO: ggweap_3 and ggweap_4 are used for producing flying actors
+	build-air-open:
+		Filename: ggweap_3.shp
+		TilesetFilenames:
+			SNOW: gaweap_3.shp
+			SIMPLETERRAIN: gtweap_3.shp
+		ShadowStart: 2
+	damaged-air-open:
+		Filename: ggweap_3.shp
+		TilesetFilenames:
+			SNOW: gaweap_3.shp
+			SIMPLETERRAIN: gtweap_3.shp
+		Start: 1
+		ShadowStart: 3
+	build-air-inside:
+		Filename: ggweap_4.shp
+		TilesetFilenames:
+			SNOW: gaweap_4.shp
+			SIMPLETERRAIN: gtweap_4.shp
+		ShadowStart: 2
+	damaged-air-inside:
+		Filename: ggweap_4.shp
+		TilesetFilenames:
+			SNOW: gaweap_4.shp
+			SIMPLETERRAIN: gtweap_4.shp
+		Start: 1
+		ShadowStart: 3
+	bib:
+		Filename: ggweapbb.shp
+		TilesetFilenames:
+			SNOW: gaweapbb.shp
+			SIMPLETERRAIN: gtweapbb.shp
+		ShadowStart: 2
+		ZOffset: -1024
+	damaged-bib:
+		Filename: ggweapbb.shp
+		TilesetFilenames:
+			SNOW: gaweapbb.shp
+			SIMPLETERRAIN: gtweapbb.shp
+		Start: 1
+		ShadowStart: 3
+		ZOffset: -1024
+	idle-flag:
+		Filename: ggweap_a.shp
+		TilesetFilenames:
+			SNOW: gaweap_a.shp
+			SIMPLETERRAIN: gtweap_a.shp
+		Length: 14
+		ShadowStart: 31
+	damaged-idle-flag:
+		Filename: ggweap_a.shp
+		TilesetFilenames:
+			SNOW: gaweap_a.shp
+			SIMPLETERRAIN: gtweap_a.shp
+		Start: 15
+		Length: 14
+		ShadowStart: 45
+	overlay-fan:
+		Filename: ggweap_b.shp
+		TilesetFilenames:
+			SNOW: gaweap_b.shp
+			SIMPLETERRAIN: gtweap_b.shp
+		Length: 5
+		ShadowStart: 6
+	make:
+		Filename: gtweapmk.shp
+		TilesetFilenames:
+			SNOW: gaweapmk.shp
+			URBAN: guweapmk.shp
+			NEWURBAN: gnweapmk.shp
+			DESERT: gdweapmk.shp
+			LUNAR: glweapmk.shp
+			DUNE: gdweapmk.shp
+		Length: 25
+		ShadowStart: 25
+	icon:
+		Filename: cameo|gwepicon.shp
+		TilesetFilenames:
+		Offset: 0,0
+
+gayard:
+	Defaults:
+		Offset: 0, -45
+	idle:
+		Filename: ggyard.shp
+		TilesetFilenames:
+			SNOW: gayard.shp
+			SIMPLETERRAIN: gtyard.shp
+		ShadowStart: 4
+	damaged-idle:
+		Filename: ggyard.shp
+		TilesetFilenames:
+			SNOW: gayard.shp
+			SIMPLETERRAIN: gtyard.shp
+		Start: 2
+		ShadowStart: 5
+	idle-crane:
+		Filename: ggyard_a.shp
+		TilesetFilenames:
+			SNOW: gayard_a.shp
+			SIMPLETERRAIN: gtyard_a.shp
+		Length: 15
+		ShadowStart: 30
+		Tick: 200
+	damaged-idle-crane:
+		Filename: ggyard_a.shp
+		TilesetFilenames:
+			SNOW: gayard_a.shp
+			SIMPLETERRAIN: gtyard_a.shp
+		Start: 15
+		Length: 15
+		ShadowStart: 45
+		Tick: 200
+	idle-waves:
+		Filename: ggyard_c.shp
+		TilesetFilenames:
+			SNOW: gayard_c.shp
+			SIMPLETERRAIN: gtyard_c.shp
+		Length: 15
+		ShadowStart: 30
+		Tick: 200
+	damaged-idle-waves:
+		Filename: ggyard_c.shp
+		TilesetFilenames:
+			SNOW: gayard_c.shp
+			SIMPLETERRAIN: gtyard_c.shp
+		Start: 30
+		Length: 15
+		ShadowStart: 30
+		Tick: 200
+	make:
+		Filename: gtyardmk.shp
+		TilesetFilenames:
+			SNOW: gayardmk.shp
+			URBAN: guyardmk.shp
+			NEWURBAN: gnyardmk.shp
+			DESERT: gdyardmk.shp
+			LUNAR: glyardmk.shp
+			DUNE: gdyardmk.shp
+		Length: 25
+		ShadowStart: 25
+	repair:
+		Filename: ggyard_s.shp
+		TilesetFilenames:
+			SNOW: gayard_s.shp
+			SIMPLETERRAIN: gtyard_s.shp
+		Length: 18
+		ShadowStart: 36
+	damaged-repair:
+		Filename: ggyard_s.shp
+		TilesetFilenames:
+			SNOW: gayard_s.shp
+			SIMPLETERRAIN: gtyard_s.shp
+		Start: 18
+		Length: 18
+		ShadowStart: 54
+	icon:
+		Filename: cameo|ayaricon.shp
+		Offset: 0,0
+
+gadept:
+	Defaults:
+		Offset: 7, -40
+	idle:
+		Filename: dot.shp
+		Offset: 0,0
+		ZOffset: -9999
+	idle-base:
+		Filename: ggdept_d.shp
+		TilesetFilenames:
+			SNOW: gadept_d.shp
+			SIMPLETERRAIN: gtdept_d.shp
+		ShadowStart: 2
+	damaged-idle-base:
+		Filename: ggdept_d.shp
+		TilesetFilenames:
+			SNOW: gadept_d.shp
+			SIMPLETERRAIN: gtdept_d.shp
+		Start: 1
+		ShadowStart: 3
+	idle-side:
+		Filename: ggdept.shp
+		TilesetFilenames:
+			SNOW: gadept.shp
+			SIMPLETERRAIN: gtdept.shp
+		ShadowStart: 3
+	damaged-idle-side:
+		Filename: ggdept.shp
+		TilesetFilenames:
+			SNOW: gadept.shp
+			SIMPLETERRAIN: gtdept.shp
+		Start: 1
+		Length: 2
+		ShadowStart: 4
+	bib:
+		Filename: ggdeptbb.shp
+		TilesetFilenames:
+			SNOW: gadeptbb.shp
+			SIMPLETERRAIN: gtdeptbb.shp
+		ShadowStart: 3
+		ZOffset: -1c0
+	idle-waves:
+		Filename: bits/structures/water/ggdept_w.shp
+		Tick: 200
+		ZOffset: -1c0
+	damaged-idle-waves:
+		Filename: bits/structures/water/ggdept_w.shp
+		Start: 1
+		Tick: 200
+		ZOffset: -1c0
+	make:
+		Filename: gtdeptmk.shp
+		TilesetFilenames:
+			SNOW: gadeptmk.shp
+			URBAN: gudeptmk.shp
+			NEWURBAN: gndeptmk.shp
+			DESERT: gddeptmk.shp
+			LUNAR: gldeptmk.shp
+			DUNE: gddeptmk.shp
+		Length: 25
+		ShadowStart: 25
+	repair-start:
+		Filename: ggdept_a.shp
+		TilesetFilenames:
+			SNOW: gadept_a.shp
+			SIMPLETERRAIN: gtdept_a.shp
+		Length: 10
+		ShadowStart: 20
+		Tick: 120
+	damaged-repair-start:
+		Filename: ggdept_a.shp
+		TilesetFilenames:
+			SNOW: gadept_a.shp
+			SIMPLETERRAIN: gtdept_a.shp
+		Start: 10
+		Length: 10
+		ShadowStart: 30
+		Tick: 120
+	repair:
+		Filename: ggdept_b.shp
+		TilesetFilenames:
+			SNOW: gadept_b.shp
+			SIMPLETERRAIN: gtdept_b.shp
+		Length: 20
+		ShadowStart: 40
+		Tick: 120
+	damaged-repair:
+		Filename: ggdept_b.shp
+		TilesetFilenames:
+			SNOW: gadept_b.shp
+			SIMPLETERRAIN: gtdept_b.shp
+		Start: 20
+		Length: 20
+		ShadowStart: 60
+		Tick: 120
+	repair-end:
+		Filename: ggdept_c.shp
+		TilesetFilenames:
+			SNOW: gadept_c.shp
+			SIMPLETERRAIN: gtdept_c.shp
+		Length: 10
+		ShadowStart: 20
+		Tick: 120
+	damaged-repair-end:
+		Filename: ggdept_c.shp
+		TilesetFilenames:
+			SNOW: gadept_c.shp
+			SIMPLETERRAIN: gtdept_c.shp
+		Start: 10
+		Length: 10
+		ShadowStart: 30
+		Tick: 120
+	icon:
+		Filename: cameo|fixicon.shp
+		Offset: 0,0
+
+gatech:
+	Defaults:
+		Offset: -15, -40
+	idle:
+		Filename: ggtech.shp
+		TilesetFilenames:
+			SNOW: gatech.shp
+			SIMPLETERRAIN: gttech.shp
+		ShadowStart: 3
+	damaged-idle:
+		Filename: ggtech.shp
+		TilesetFilenames:
+			SNOW: gatech.shp
+			SIMPLETERRAIN: gttech.shp
+		Start: 1
+		ShadowStart: 4
+	idle-lights:
+		Filename: ggtech_a.shp
+		TilesetFilenames:
+			SNOW: gatech_a.shp
+			SIMPLETERRAIN: gttech_a.shp
+		Length: 12
+		ShadowStart: 24
+	damaged-idle-ights:
+		Filename: ggtech_a.shp
+		TilesetFilenames:
+			SNOW: gatech_a.shp
+			SIMPLETERRAIN: gttech_a.shp
+		Start: 12
+		Length: 12
+		ShadowStart: 36
+	idle-waves:
+		Filename: bits/structures/water/ggtech_w.shp
+		Tick: 200
+		ZOffset: -1c0
+	make:
+		Filename: gttechmk.shp
+		TilesetFilenames:
+			SNOW: gatechmk.shp
+			URBAN: gutechmk.shp
+			NEWURBAN: gntechmk.shp
+			DESERT: gdtechmk.shp
+			LUNAR: gltechmk.shp
+			DUNE: gdtechmk.shp
+		Length: 25
+		ShadowStart: 25
+	icon:
+		Filename: cameo|techicon.shp
+		Offset: 0,0
+
+gaorep:
+	Defaults:
+		Offset: 0, -45
+	idle:
+		Filename: ggorep.shp
+		TilesetFilenames:
+			SNOW: gaorep.shp
+			SIMPLETERRAIN: gtorep.shp
+		ShadowStart: 3
+	damaged-idle:
+		Filename: ggorep.shp
+		TilesetFilenames:
+			SNOW: gaorep.shp
+			SIMPLETERRAIN: gtorep.shp
+		Start: 1
+		ShadowStart: 4
+	idle-glow:
+		Filename: ggorep_a.shp
+		TilesetFilenames:
+			SNOW: gaorep_a.shp
+			SIMPLETERRAIN: gtorep_a.shp
+		Length: 8
+		ShadowStart: 16
+		Tick: 180
+	damaged-idle-glow:
+		Filename: ggorep_a.shp
+		TilesetFilenames:
+			SNOW: gaorep_a.shp
+			SIMPLETERRAIN: gtorep_a.shp
+		Start: 8
+		Length: 8
+		ShadowStart: 24
+		Tick: 180
+	idle-waves:
+		Filename: bits/structures/water/ggorep_w.shp
+		Tick: 200
+		ZOffset: -1c0
+	damaged-idle-waves:
+		Filename: bits/structures/water/ggorep_w.shp
+		Start: 1
+		Tick: 200
+		ZOffset: -1c0
+	make:
+		Filename: gtorepmk.shp
+		TilesetFilenames:
+			SNOW: gaorepmk.shp
+			URBAN: guorepmk.shp
+			NEWURBAN: gnorepmk.shp
+			DESERT: gdorepmk.shp
+			LUNAR: glorepmk.shp
+			DUNE: gdorepmk.shp
+		Length: 25
+		ShadowStart: 25
+	icon:
+		Filename: cameo|gorep.shp
+		Offset: 0,0
+
+gawall:
+	Defaults:
+		Offset: 0, -15
+	idle:
+		Filename: gtwall.shp
+		TilesetFilenames:
+			SNOW: gawall.shp
+			URBAN: guwall.shp
+			NEWURBAN: gnwall.shp
+			DESERT: gdwall.shp
+			LUNAR: glwall.shp
+			DUNE: gdwall.shp
+		Length: 16
+		ShadowStart: 48
+	damaged-idle:
+		Filename: gtwall.shp
+		TilesetFilenames:
+			SNOW: gawall.shp
+			URBAN: guwall.shp
+			NEWURBAN: gnwall.shp
+			DESERT: gdwall.shp
+			LUNAR: glwall.shp
+			DUNE: gdwall.shp
+		Start: 16
+		Length: 16
+		ShadowStart: 64
+	critical-idle:
+		Filename: gtwall.shp
+		TilesetFilenames:
+			SNOW: gawall.shp
+			URBAN: guwall.shp
+			NEWURBAN: gnwall.shp
+			DESERT: gdwall.shp
+			LUNAR: glwall.shp
+			DUNE: gdwall.shp
+		Start: 32
+		Length: 16
+		ShadowStart: 80
+	icon:
+		Filename: cameo|wallicon.shp
+		Offset: 0,0
+
+gapill:
+	Inherits@MUZZLE: ^WithMachineGunMuzzle
+	Defaults:
+		Filename: ggpill.shp
+		TilesetFilenames:
+			SNOW: gapill.shp
+			SIMPLETERRAIN: gtpill.shp
+		Offset: 0, -15
+	idle:
+		Filename: ggpill.shp
+		TilesetFilenames:
+			SNOW: gapill.shp
+			SIMPLETERRAIN: gtpill.shp
+		ShadowStart: 3
+	damaged-idle:
+		Filename: ggpill.shp
+		TilesetFilenames:
+			SNOW: gapill.shp
+			SIMPLETERRAIN: gtpill.shp
+		Start: 1
+		ShadowStart: 4
+	make:
+		Filename: gtpillmk.shp
+		TilesetFilenames:
+			SNOW: gapillmk.shp
+			URBAN: gupillmk.shp
+			NEWURBAN: gnpillmk.shp
+			DESERT: gdpillmk.shp
+			LUNAR: glpillmk.shp
+			DUNE: gdpillmk.shp
+		Length: 8
+		ShadowStart: 8
+	idle-waves:
+		Filename: gauwat.shp
+		TilesetFilenames:
+		Length: 15
+		Tick: 200
+		ZOffset: -1c0
+	icon:
+		Filename: cameo|pillicon.shp
+		TilesetFilenames:
+		Offset: 0,0
+	muzzle:
+		Filename: gapill.shp
+		TilesetFilenames:
+
+nasam:
+	Defaults:
+		Offset: 0, -15
+		ZOffset: -512
+	idle:
+		Filename: ngsam.shp
+		TilesetFilenames:
+			SNOW: nasam.shp
+			SIMPLETERRAIN: ntsam.shp
+		ShadowStart: 3
+	damaged-idle:
+		Filename: ngsam.shp
+		TilesetFilenames:
+			SNOW: nasam.shp
+			SIMPLETERRAIN: ntsam.shp
+		Start: 1
+		ShadowStart: 4
+	make:
+		Filename: ntsammk.shp
+		TilesetFilenames:
+			SNOW: nasammk.shp
+			URBAN: nusammk.shp
+			NEWURBAN: nnsammk.shp
+			DESERT: ndsammk.shp
+			LUNAR: nlsammk.shp
+			DUNE: ndsammk.shp
+		Length: 8
+		ShadowStart: 8
+		ZOffset: 0
+	idle-waves:
+		Filename: gauwat.shp
+		Length: 15
+		Tick: 200
+		ZOffset: -1c0
+	icon:
+		Filename: cameo|samicon.shp
+		Offset: 0,0
+
+gtgcan:
+	Defaults:
+		Offset: 0, -30
+		ZOffset: -512
+	idle:
+		Filename: gggcan.shp
+		TilesetFilenames:
+			SNOW: gagcan.shp
+			SIMPLETERRAIN: gtgcan.shp
+		ShadowStart: 3
+	damaged-idle:
+		Filename: gggcan.shp
+		TilesetFilenames:
+			SNOW: gagcan.shp
+			SIMPLETERRAIN: gtgcan.shp
+		Start: 1
+		ShadowStart: 4
+	idle-waves:
+		Filename: bits/structures/water/gggcan_w.shp
+		Tick: 200
+		ZOffset: -1c0
+	damaged-idle-waves:
+		Filename: bits/structures/water/gggcan_w.shp
+		Start: 1
+		Tick: 200
+		ZOffset: -1c0
+	make:
+		Filename: gtgcanmk.shp
+		TilesetFilenames:
+			SNOW: gagcanmk.shp
+			URBAN: gugcanmk.shp
+			NEWURBAN: gngcanmk.shp
+			DESERT: gdgcanmk.shp
+			LUNAR: glgcanmk.shp
+			DUNE: gdgcanmk.shp
+		Length: 12
+		ShadowStart: 12
+		ZOffset: 0
+	muzzle:
+		Filename: gcmuzzle.shp
+		Length: *
+		Offset: 0,0
+	icon:
+		Filename: cameo|gcanicon.shp
+		Offset: 0,0
+
+gaspysat:
+	Defaults:
+		Offset: 0, -31
+	idle:
+		Filename: ggspst.shp
+		TilesetFilenames:
+			SNOW: gaspst.shp
+			SIMPLETERRAIN: gtspst.shp
+		ShadowStart: 3
+		Tick: 180
+	damaged-idle:
+		Filename: ggspst.shp
+		TilesetFilenames:
+			SNOW: gaspst.shp
+			SIMPLETERRAIN: gtspst.shp
+		Start: 1
+		ShadowStart: 4
+		Tick: 180
+	idle-dish:
+		Filename: ggspst_a.shp
+		TilesetFilenames:
+			SNOW: gaspst_a.shp
+			SIMPLETERRAIN: gtspst_a.shp
+		Length: 16
+		Tick: 180
+	damaged-idle-dish:
+		Filename: ggspst_a.shp
+		TilesetFilenames:
+			SNOW: gaspst_a.shp
+			SIMPLETERRAIN: gtspst_a.shp
+		Start: 16
+		Length: 16
+		Tick: 180
+	idle-waves:
+		Filename: bits/structures/water/ggspst_w.shp
+		Tick: 200
+		ZOffset: -1c0
+	damaged-idle-waves:
+		Filename: bits/structures/water/ggspst_w.shp
+		Start: 1
+		Tick: 200
+		ZOffset: -1c0
+	make:
+		Filename: gtspstmk.shp
+		TilesetFilenames:
+			SNOW: gaspstmk.shp
+			URBAN: guspstmk.shp
+			NEWURBAN: gnspstmk.shp
+			DESERT: gdspstmk.shp
+			LUNAR: glspstmk.shp
+			DUNE: gdspstmk.shp
+		Length: 25
+		ShadowStart: 25
+		Tick: 90
+	icon:
+		Filename: bits/cameos/asaticon.shp
+		Offset: 0,0
+
+gagap:
+	Defaults:
+		Offset: 0, -15
+	idle:
+		Filename: gggap.shp
+		TilesetFilenames:
+			SNOW: gagap.shp
+			SIMPLETERRAIN: gtgap.shp
+		Length: 1
+		ShadowStart: 3
+	damaged-idle:
+		Filename: gggap.shp
+		TilesetFilenames:
+			SNOW: gagap.shp
+			SIMPLETERRAIN: gtgap.shp
+		Start: 2
+		Length: 1
+		ShadowStart: 4
+	idle-head:
+		Filename: gggap_a.shp
+		TilesetFilenames:
+			SNOW: gagap_a.shp
+			SIMPLETERRAIN: gtgap_a.shp
+		Length: 12
+		ShadowStart: 12
+	make:
+		Filename: gggapmk.shp
+		TilesetFilenames:
+			SNOW: gagapmk.shp
+			SIMPLETERRAIN: gtgapmk.shp
+		Length: 9
+		ShadowStart: 9
+		Tick: 90
+	idle-waves:
+		Filename: gauwat.shp
+		Length: 15
+		Tick: 200
+		ZOffset: -1c0
+	icon:
+		Filename: cameo|gapicon.shp
+		Offset: 0,0
+
+gaweat:
+	Defaults:
+		Offset: 0, -45
+	idle:
+		Filename: ggweth.shp
+		TilesetFilenames:
+			SNOW: gaweth.shp
+			SIMPLETERRAIN: gtweth.shp
+		ShadowStart: 3
+	damaged-idle:
+		Filename: ggweth.shp
+		TilesetFilenames:
+			SNOW: gaweth.shp
+			SIMPLETERRAIN: gtweth.shp
+		Start: 1
+		ShadowStart: 4
+	charged:
+		Filename: ggweth_f.shp
+		TilesetFilenames:
+			SNOW: gaweth_f.shp
+			SIMPLETERRAIN: gtweth_f.shp
+		Length: 12
+		ShadowStart: 24
+		Tick: 150
+	damaged-charged:
+		Filename: ggweth_f.shp
+		TilesetFilenames:
+			SNOW: gaweth_f.shp
+			SIMPLETERRAIN: gtweth_f.shp
+		Start: 12
+		Length: 12
+		ShadowStart: 36
+		Tick: 150
+	loop:
+		Filename: ggweth_g.shp
+		TilesetFilenames:
+			SNOW: gaweth_g.shp
+			SIMPLETERRAIN: gtweth_g.shp
+		Length: 12
+		ShadowStart: 24
+		Tick: 150
+	damaged-loop:
+		Filename: ggweth_g.shp
+		TilesetFilenames:
+			SNOW: gaweth_g.shp
+			SIMPLETERRAIN: gtweth_g.shp
+		Start: 12
+		Length: 12
+		ShadowStart: 36
+		Tick: 150
+	end:
+		Filename: ggweth_h.shp
+		TilesetFilenames:
+			SNOW: gaweth_h.shp
+			SIMPLETERRAIN: gtweth_h.shp
+		Length: 12
+		ShadowStart: 24
+		Tick: 150
+	damaged-end:
+		Filename: ggweth_h.shp
+		TilesetFilenames:
+			SNOW: gaweth_h.shp
+			SIMPLETERRAIN: gtweth_h.shp
+		Start: 12
+		Length: 12
+		ShadowStart: 36
+		Tick: 150
+	idle-waves:
+		Filename: bits/structures/water/ggweth_w.shp
+		Tick: 200
+		ZOffset: -1c0
+	damaged-idle-waves:
+		Filename: bits/structures/water/ggweth_w.shp
+		Start: 1
+		Tick: 200
+		ZOffset: -1c0
+	make:
+		Filename: gtwethmk.shp
+		TilesetFilenames:
+			SNOW: gawethmk.shp
+			URBAN: guwethmk.shp
+			NEWURBAN: gnwethmk.shp
+			DESERT: gdwethmk.shp
+			LUNAR: glwethmk.shp
+			DUNE: gdwethmk.shp
+		Length: 25
+		ShadowStart: 25
+	icon:
+		Filename: cameo|wethicon.shp
+		Offset: 0,0
+
+gacsph:
+	Defaults:
+		Offset: -15, -50
+	idle:
+		Filename: ggcsph.shp
+		TilesetFilenames:
+			SNOW: gacsph.shp
+			SIMPLETERRAIN: gtcsph.shp
+		ShadowStart: 3
+		ZOffset: -1c0
+	damaged-idle:
+		Filename: ggcsph.shp
+		TilesetFilenames:
+			SNOW: gacsph.shp
+			SIMPLETERRAIN: gtcsph.shp
+		Start: 1
+		ShadowStart: 4
+		ZOffset: -1c0
+	idle-dome:
+		Filename: ggcsph_e.shp
+		TilesetFilenames:
+			SNOW: gacsph_e.shp
+			SIMPLETERRAIN: gtcsph_e.shp
+		ShadowStart: 2
+		ZOffset: -1c0
+	damaged-idle-dome:
+		Filename: ggcsph_e.shp
+		TilesetFilenames:
+			SNOW: gacsph_e.shp
+			SIMPLETERRAIN: gtcsph_e.shp
+		Start: 1
+		ShadowStart: 3
+		ZOffset: -1c0
+	idle-fans:
+		Filename: ggcsph_a.shp
+		TilesetFilenames:
+			SNOW: gacsph_a.shp
+			SIMPLETERRAIN: gtcsph_a.shp
+		Length: 6
+		Tick: 120
+		ZOffset: -1c0
+	damaged-idle-fans:
+		Filename: ggcsph_a.shp
+		TilesetFilenames:
+			SNOW: gacsph_a.shp
+			SIMPLETERRAIN: gtcsph_a.shp
+		Start: 6
+		Length: 6
+		Tick: 120
+		ZOffset: -1c0
+	charged:
+		Filename: ggcsph_f.shp
+		TilesetFilenames:
+			SNOW: gacsph_f.shp
+			SIMPLETERRAIN: gtcsph_f.shp
+		Length: 12
+		ShadowStart: 24
+		Tick: 120
+	damaged-charged:
+		Filename: ggcsph_f.shp
+		TilesetFilenames:
+			SNOW: gacsph_f.shp
+			SIMPLETERRAIN: gtcsph_f.shp
+		Start: 12
+		Length: 12
+		ShadowStart: 36
+		Tick: 120
+	loop:
+		Filename: ggcsph_g.shp
+		TilesetFilenames:
+			SNOW: gacsph_g.shp
+			SIMPLETERRAIN: gtcsph_g.shp
+		Length: 6
+		ShadowStart: 12
+		Tick: 120
+	damaged-loop:
+		Filename: ggcsph_g.shp
+		TilesetFilenames:
+			SNOW: gacsph_g.shp
+			SIMPLETERRAIN: gtcsph_g.shp
+		Start: 6
+		Length: 6
+		ShadowStart: 18
+		Tick: 120
+	end:
+		Filename: ggcsph_h.shp
+		TilesetFilenames:
+			SNOW: gacsph_h.shp
+			SIMPLETERRAIN: gtcsph_h.shp
+		Length: 15
+		ShadowStart: 30
+		Tick: 120
+	damaged-end:
+		Filename: ggcsph_h.shp
+		TilesetFilenames:
+			SNOW: gacsph_h.shp
+			SIMPLETERRAIN: gtcsph_h.shp
+		Start: 15
+		Length: 15
+		ShadowStart: 45
+		Tick: 120
+	#dead: ggcsphdm # SHP broken & unused
+	#	Length: 25
+	#	ShadowStart: 25
+	#	Tick: 50
+	idle-waves:
+		Filename: bits/structures/water/ggcsph_w.shp
+		Tick: 200
+		ZOffset: -1c0
+	damaged-idle-waves:
+		Filename: bits/structures/water/ggcsph_w.shp
+		Start: 1
+		Tick: 200
+		ZOffset: -1c0
+	make:
+		Filename: gtcsphmk.shp
+		TilesetFilenames:
+			SNOW: gacsphmk.shp
+			URBAN: gucsphmk.shp
+			NEWURBAN: gncsphmk.shp
+			DESERT: gdcsphmk.shp
+			LUNAR: glcsphmk.shp
+			DUNE: gdcsphmk.shp
+		Length: 25
+		ShadowStart: 25
+	icon:
+		Filename: cameo|csphicon.shp
+		Offset: 0,0
+
+atesla:
+	Defaults:
+		Offset: 1,-15
+	idle-normal:
+		Filename: ggpris.shp
+		TilesetFilenames:
+			SNOW: gapris.shp
+			SIMPLETERRAIN: gtpris.shp
+		ShadowStart: 3
+	damaged-idle-normal:
+		Filename: ggpris.shp
+		TilesetFilenames:
+			SNOW: gapris.shp
+			SIMPLETERRAIN: gtpris.shp
+		Start: 1
+		ShadowStart: 4
+	idle:
+		Filename: ggpris_b.shp
+		TilesetFilenames:
+			SNOW: gapris_b.shp
+			SIMPLETERRAIN: gtpris_b.shp
+		Length: 9
+		Tick: 100
+		ShadowStart: 18
+	damaged-idle:
+		Filename: ggpris_b.shp
+		TilesetFilenames:
+			SNOW: gapris_b.shp
+			SIMPLETERRAIN: gtpris_b.shp
+		Start: 9
+		Length: 9
+		Tick: 180
+		ShadowStart: 27
+	active:
+		Filename: ggpris_a.shp
+		TilesetFilenames:
+			SNOW: gapris_a.shp
+			SIMPLETERRAIN: gtpris_a.shp
+		Length: 10
+		Tick: 100
+		ShadowStart: 20
+	damaged-active:
+		Filename: ggpris_a.shp
+		TilesetFilenames:
+			SNOW: gapris_a.shp
+			SIMPLETERRAIN: gtpris_a.shp
+		Start: 10
+		Length: 10
+		Tick: 100
+		ShadowStart: 30
+	#dead: ggprisdm # SHP broken & unused
+	#	Length: 21
+	#	ShadowStart: 21
+	#	Tick: 100
+	make:
+		Filename: gtprismk.shp
+		TilesetFilenames:
+			SNOW: gaprismk.shp
+			URBAN: guprismk.shp
+			NEWURBAN: gnprismk.shp
+			DESERT: gdprismk.shp
+			LUNAR: glprismk.shp
+			DUNE: gdprismk.shp
+		Length: 8
+		ShadowStart: 8
+		Tick: 160
+	idle-waves:
+		Filename: gauwat.shp
+		Length: 15
+		Tick: 200
+		ZOffset: -1c0
+	icon:
+		Filename: cameo|prisicon.shp
+		Offset: 0,0
+
+# Yuri's Revenge Structures
+garobo:
+	Defaults:
+		Offset: 0, -30
+	idle:
+		Filename: ggrobo.shp
+		TilesetFilenames:
+			SNOW: garobo.shp
+			SIMPLETERRAIN: gtrobo.shp
+		ShadowStart: 3
+		Tick: 180
+	damaged-idle:
+		Filename: ggrobo.shp
+		TilesetFilenames:
+			SNOW: garobo.shp
+			SIMPLETERRAIN: gtrobo.shp
+		Start: 1
+		ShadowStart: 4
+		Tick: 180
+	idle-dish:
+		Filename: ggrobo_a.shp
+		TilesetFilenames:
+			SNOW: garobo_a.shp
+			SIMPLETERRAIN: gtrobo_a.shp
+		Length: 20
+		Tick: 180
+	damaged-idle-dish:
+		Filename: ggrobo_a.shp
+		TilesetFilenames:
+			SNOW: garobo_a.shp
+			SIMPLETERRAIN: gtrobo_a.shp
+		Start: 20
+		Length: 20
+		Tick: 180
+	idle-waves:
+		Filename: bits/structures/water/ggrobo_w.shp
+		Tick: 200
+		ZOffset: -1c0
+	make:
+		Filename: ggrobomk.shp
+		TilesetFilenames:
+			SNOW: garobomk.shp
+			SIMPLETERRAIN: gtrobomk.shp
+		Length: 20
+		ShadowStart: 20
+		Tick: 90
+	icon:
+		Filename: cameomd|rbccicon.shp
+		Offset: 0,0
+
+# Custom Structures
+gaapad:
+	Defaults:
+		Filename: ggapad.shp
+		Offset: 0, -30
+	idle:
+		Length: 1
+	idle-pad:
+		Filename: ggapad_a.shp
+		Length: 4
+		Tick: 120
+		ZOffset: -256
+	damaged-idle-pad:
+		Filename: ggapad_a.shp
+		Start: 4
+		Length: 4
+		Tick: 120
+		ZOffset: -256
+	idle-dish:
+		Filename: ggapad_c.shp
+		Length: 12
+		Tick: 120
+	idle-bottom:
+		Filename: ggapadbb.shp
+		Length: 1
+		ZOffset: -512
+	damaged-idle-bottom:
+		Filename: ggapadbb.shp
+		Start: 1
+		Length: 1
+		ZOffset: -512
+	idle-waves:
+		Filename: bits/structures/water/ggapad_w.shp
+		Tick: 200
+		ZOffset: -1c0
+	damaged-idle-waves:
+		Filename: bits/structures/water/ggapad_w.shp
+		Start: 1
+		Tick: 200
+		ZOffset: -1c0
+	make:
+		Filename: ggapadmk.shp
+		Length: 18
+		ShadowStart: 18
+	icon:
+		Filename: bits/cameos/apadicon.shp
+		Offset: 0,0
+
+gagatea:
+	Defaults:
+		Filename: gggatea.shp
+		Offset: -30, -30, 30
+		# UseTilesetCode: true
+	idle:
+		Length: 12
+		ShadowStart: 26
+	open:
+		Start: 11
+		ShadowStart: 35
+		Offset: -30, -30, 1
+		ZOffset: -1024
+		ZRamp: 1
+	damaged-idle:
+		Start: 13
+		Length: 12
+		ShadowStart: 37
+	damaged-open:
+		Start: 22
+		ShadowStart: 46
+		Offset: -30, -30, 1
+		ZOffset: -1024
+		ZRamp: 1
+	icon:
+		Filename: bits/cameos/gateicon.shp
+		Offset: 0, 0
+
+gagateb:
+	Defaults:
+		Filename: gggateb.shp
+		Offset: 30, -30, 30
+		# UseTilesetCode: true
+	idle:
+		Length: 12
+		ShadowStart: 26
+	open:
+		Start: 11
+		ShadowStart: 35
+		Offset: 30, -30, 1
+		ZOffset: -1024
+		ZRamp: 1
+	damaged-idle:
+		Start: 13
+		Length: 12
+		ShadowStart: 37
+	damaged-open:
+		Start: 22
+		ShadowStart: 46
+		Offset: 30, -30, 1
+		ZOffset: -1024
+		ZRamp: 1
+	icon:
+		Filename: bits/cameos/gatbicon.shp
+		Offset: 0, 0
+
+gasilo:
+	Defaults:
+		Filename: ggsilo.shp
+		Offset: 0, -5
+	idle:
+		Length: 4
+		ShadowStart: 8
+	damaged-idle:
+		Start: 4
+		Length: 4
+		ShadowStart: 12
+	idle-waves:
+		Filename: bits/structures/water/ggsilo_w.shp
+		Tick: 200
+		ZOffset: -1c0
+	damaged-idle-waves:
+		Filename: bits/structures/water/ggsilo_w.shp
+		Start: 1
+		Tick: 200
+		ZOffset: -1c0
+	make:
+		Filename: ggsilomk.shp
+		Length: 17
+		ShadowStart: 17
+	icon:
+		Filename: bits/cameos/gsilicon.shp
+		Offset: 0, 0
+
+gamgun:
+	Inherits@MUZZLE: ^WithMirageMuzzle
+	Defaults:
+		Filename: ggmgun.shp
+		TilesetFilenames:
+			SNOW: gamgun.shp
+			SIMPLETERRAIN: gtmgun.shp
+		Offset: 0, -15
+		ZOffset: -512
+	idle:
+		Filename: ggmgun.shp
+		TilesetFilenames:
+			SNOW: gamgun.shp
+			SIMPLETERRAIN: gtmgun.shp
+		ShadowStart: 3
+	damaged-idle:
+		Filename: ggmgun.shp
+		TilesetFilenames:
+			SNOW: gamgun.shp
+			SIMPLETERRAIN: gtmgun.shp
+		Start: 1
+		ShadowStart: 4
+	turret:
+		Filename: ggmguntur.shp
+		TilesetFilenames:
+			SNOW: gamguntur.shp
+			SIMPLETERRAIN: gtmguntur.shp
+		Facings: 32
+		ZOffset: 0
+	make:
+		Filename: ggmgunmk.shp
+		TilesetFilenames:
+			SNOW: gamgunmk.shp
+			SIMPLETERRAIN: gtmgunmk.shp
+		Length: 13
+		ShadowStart: 13
+		ZOffset: 0
+	muzzle:
+		Filename: conquer|vtmuzzle.shp
+		TilesetFilenames:
+	idle-waves:
+		Filename: gauwat.shp
+		TilesetFilenames:
+		Length: 15
+		Tick: 200
+		ZOffset: -1c0
+	icon:
+		Filename: bits/cameos/mgunicon.shp
+		TilesetFilenames:
+		Offset: 0,0
+
+gagun:
+	Inherits@MUZZLE: ^WithCannonMuzzle
+	Defaults:
+		Filename: gggun.shp
+		TilesetFilenames:
+			SNOW: gagun.shp
+			SIMPLETERRAIN: gtgun.shp
+		Offset: 0, -15
+		ZOffset: -512
+	idle:
+		Filename: gggun.shp
+		TilesetFilenames:
+			SNOW: gagun.shp
+			SIMPLETERRAIN: gtgun.shp
+		ShadowStart: 3
+	damaged-idle:
+		Filename: gggun.shp
+		TilesetFilenames:
+			SNOW: gagun.shp
+			SIMPLETERRAIN: gtgun.shp
+		Start: 1
+		ShadowStart: 4
+	turret:
+		Filename: ggguntur.shp
+		TilesetFilenames:
+			SNOW: gaguntur.shp
+			SIMPLETERRAIN: gtguntur.shp
+		Facings: 32
+		ZOffset: 0
+	make:
+		Filename: gggunmk.shp
+		TilesetFilenames:
+			SNOW: gagunmk.shp
+			SIMPLETERRAIN: gtgunmk.shp
+		Length: 13
+		ShadowStart: 13
+		ZOffset: 0
+	muzzle:
+		Filename: conquer|gunfire.shp
+		TilesetFilenames:
+	idle-waves:
+		Filename: gauwat.shp
+		TilesetFilenames:
+		Length: 15
+		Tick: 200
+		ZOffset: -1c0
+	icon:
+		Filename: bits/cameos/gturicon.shp
+		TilesetFilenames:
+		Offset: 0,0
+
+gaexpn:
+	Defaults:
+		Offset: 0, -30
+	idle:
+		Filename: ggexpn_a.shp
+		TilesetFilenames:
+			SNOW: gaexpn_a.shp
+			SIMPLETERRAIN: gtexpn_a.shp
+		ShadowStart: 52
+	damaged-idle:
+		Filename: ggexpn_a.shp
+		TilesetFilenames:
+			SNOW: gaexpn_a.shp
+			SIMPLETERRAIN: gtexpn_a.shp
+		Start: 26
+		ShadowStart: 78
+	crane-overlay:
+		Filename: ggexpn_a.shp
+		TilesetFilenames:
+			SNOW: gaexpn_a.shp
+			SIMPLETERRAIN: gtexpn_a.shp
+		Length: 26
+		ShadowStart: 52
+		Tick: 150
+	damaged-crane-overlay:
+		Filename: ggexpn_a.shp
+		TilesetFilenames:
+			SNOW: gaexpn_a.shp
+			SIMPLETERRAIN: gtexpn_a.shp
+		Start: 26
+		Length: 26
+		ShadowStart: 78
+		Tick: 150
+	idle-waves:
+		Filename: bits/structures/water/ggexpn_w.shp
+		Tick: 200
+		ZOffset: -1c0
+	damaged-idle-waves:
+		Filename: bits/structures/water/ggexpn_w.shp
+		Start: 1
+		Tick: 200
+		ZOffset: -1c0
+	make:
+		Filename: ggexpnmk.shp
+		TilesetFilenames:
+			SNOW: gaexpnmk.shp
+			SIMPLETERRAIN: gtexpnmk.shp
+		Length: 13
+		ShadowStart: 13
+	icon:
+		Filename: bits/cameos/expnicon.shp
+		Offset: 0,0
+
+gapilb:
+	Inherits: gapile
+	Defaults:
+		FlipX: true
+		Offset: 15, -38
+	idle-flag:
+		Filename: ggpile_a.shp
+		TilesetFilenames:
+			SNOW: gapile_a.shp
+			SIMPLETERRAIN: gtpile_a.shp
+		FlipX: false
+		Offset: 17, -38
+	damaged-idle-flag:
+		Filename: ggpile_a.shp
+		TilesetFilenames:
+			SNOW: gapile_a.shp
+			SIMPLETERRAIN: gtpile_a.shp
+		FlipX: false
+		Offset: 17, -38
+	icon:
+		Filename: cameo|brrkicon.shp
+		FlipX: false
+
+garefb:
+	Inherits: garefn
+	Defaults:
+		FlipX: true
+		Offset: 12,-52
+	icon:
+		Filename: cameo|reficon.shp
+		FlipX: false
+
+garefc:
+	Defaults:
+		Filename: ggrefc.shp
+		Offset: 3, 32
+	idle:
+		Start: 33
+		ShadowStart: 70
+	damaged-idle:
+		Start: 35
+		ShadowStart: 72
+	make:
+		Length: 32
+		ShadowStart: 37
+	idle-bib:
+		Start: 34
+		ShadowStart: 71
+		Length: 1
+		ZOffset: -9999
+		ZRamp: 1
+	damaged-idle-bib:
+		Start: 36
+		ShadowStart: 73
+		ZOffset: -9999
+		ZRamp: 1
+	icon:
+		Filename: cameo|reficon.shp
+		Offset: 0, 0
+
+garefd:
+	Inherits: garefc
+	Defaults:
+		Filename: ggrefc.shp
+		FlipX: true
+	icon:
+		Filename: cameo|reficon.shp
+		FlipX: false
+
+gaweab:
+	Inherits: gaweap
+	Defaults:
+		Filename: ggweap.shp
+		TilesetFilenames:
+			SNOW: gaweap.shp
+			SIMPLETERRAIN: gtweap.shp
+		FlipX: true
+		Offset: 30,-60
+	icon:
+		Filename: cameo|gwepicon.shp
+		TilesetFilenames:
+		FlipX: false
+
+gaweac:
+	Inherits: gaweap
+	Defaults:
+		Offset: -18,-54
+	idle:
+		Filename: ctnewy21.shp
+		TilesetFilenames:
+			SNOW: canewy21.shp
+			URBAN: cunewy21.shp
+			NEWURBAN: cnnewy21.shp
+			DESERT: cdnewy21.shp
+			LUNAR: clnewy21.shp
+			DUNE: cdnewy21.shp
+		ShadowStart: 4
+	damaged-idle:
+		Filename: ctnewy21.shp
+		TilesetFilenames:
+			SNOW: canewy21.shp
+			URBAN: cunewy21.shp
+			NEWURBAN: cnnewy21.shp
+			DESERT: cdnewy21.shp
+			LUNAR: clnewy21.shp
+			DUNE: cdnewy21.shp
+		ShadowStart: 5
+	idle-flag:
+		Filename: ggpile_a.shp
+		TilesetFilenames:
+			SNOW: gapile_a.shp
+			SIMPLETERRAIN: gtpile_a.shp
+		Length: 16
+		ShadowStart: 32
+	damaged-idle-flag:
+		Filename: ggpile_a.shp
+		TilesetFilenames:
+			SNOW: gapile_a.shp
+			SIMPLETERRAIN: gtpile_a.shp
+		Start: 16
+		Length: 16
+		ShadowStart: 48
+
+gawead:
+	Inherits: gaweap
+	Defaults:
+		Offset: 18,-54
+	idle:
+		Filename: ctnewy20.shp
+		TilesetFilenames:
+			SNOW: canewy20.shp
+			URBAN: cunewy20.shp
+			NEWURBAN: cnnewy20.shp
+			DESERT: cdnewy20.shp
+			LUNAR: clnewy20.shp
+			DUNE: cdnewy20.shp
+		ShadowStart: 4
+	damaged-idle:
+		Filename: ctnewy20.shp
+		TilesetFilenames:
+			SNOW: canewy20.shp
+			URBAN: cunewy20.shp
+			NEWURBAN: cnnewy20.shp
+			DESERT: cdnewy20.shp
+			LUNAR: clnewy20.shp
+			DUNE: cdnewy20.shp
+		ShadowStart: 5
+	idle-flag:
+		Filename: ggpile_a.shp
+		TilesetFilenames:
+			SNOW: gapile_a.shp
+			SIMPLETERRAIN: gtpile_a.shp
+		Length: 16
+		ShadowStart: 32
+	damaged-idle-flag:
+		Filename: ggpile_a.shp
+		TilesetFilenames:
+			SNOW: gapile_a.shp
+			SIMPLETERRAIN: gtpile_a.shp
+		Start: 16
+		Length: 16
+		ShadowStart: 48
+	make:
+		Filename: gtweapmk.shp
+		TilesetFilenames:
+			SNOW: gaweapmk.shp
+			URBAN: guweapmk.shp
+			NEWURBAN: gnweapmk.shp
+			DESERT: gdweapmk.shp
+			LUNAR: glweapmk.shp
+			DUNE: gdweapmk.shp
+		FlipX: true
+
+gaairb:
+	Inherits: gaairc
+	Defaults:
+		FlipX: true
+		Offset: 14, -38
+	icon:
+		Filename: cameo|heliicon.shp
+		FlipX: false
+
+gatecb:
+	Inherits: gatech
+	Defaults:
+		FlipX: true
+		Offset: 15, -40
+	icon:
+		Filename: cameo|techicon.shp
+		FlipX: false
+
+gacspb:
+	Inherits: gacsph
+	Defaults:
+		FlipX: true
+		Offset: 15, -50
+	icon:
+		Filename: cameo|csphicon.shp
+		FlipX: false

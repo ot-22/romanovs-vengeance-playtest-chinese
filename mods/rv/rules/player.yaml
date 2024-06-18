@@ -1,0 +1,556 @@
+^BasePlayer:
+	AlwaysVisible:
+	Shroud:
+	PlayerResources:
+		ResourceValues:
+			Ore: 25
+			Gems: 50
+
+EditorPlayer:
+	Inherits: ^BasePlayer
+
+Player:
+	Inherits: ^BasePlayer
+	TechTree:
+	ClassicProductionQueue@CPAllies:
+		Type: Power.Allies
+		Group: Power
+		DisplayOrder: 0
+		Factions: america, france, england, germany, korea, japan, belarus, poland, ukraine, aussie, china, turkey, canada
+		AlwaysShowForFactions: america, france, england, germany, korea, japan, belarus, poland, ukraine, aussie, china, turkey, canada
+	ClassicProductionQueue@CPSoviets:
+		Type: Power.Soviets
+		Group: Power
+		DisplayOrder: 0
+		Factions: russia, iraq, vietnam, cuba, libya, chile, mexico, mongolia
+		AlwaysShowForFactions: russia, iraq, vietnam, cuba, libya, chile, mexico, mongolia
+	ClassicProductionQueue@CPPsiCorps:
+		Type: Power.Yuri
+		Group: Power
+		DisplayOrder: 0
+		Factions: psicorps, psinepal, psisouth, psitrans, psimoon
+		AlwaysShowForFactions: psicorps, psinepal, psisouth, psitrans, psimoon
+	ClassicProductionQueue@CPBakuPact:
+		Type: Power.Baku
+		Group: Power
+		DisplayOrder: 0
+		Factions: transcaucus, turkmen, tuva, russianfed, serbia
+		AlwaysShowForFactions: transcaucus, turkmen, tuva, russianfed, serbia
+	ClassicProductionQueue@Building:
+		Type: Building.Shared
+		Group: Building
+		DisplayOrder: 1
+		LowPowerModifier: 200
+		ReadyAudio: ConstructionComplete
+		ReadyTextNotification: notification-construction-complete
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: notification-unable-to-comply-building-in-progress
+		QueuedAudio: Building
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+		SpeedUp: true
+		BuildTimeSpeedReduction: 100, 91, 82, 73, 64, 55, 50
+	ClassicProductionQueue@Support:
+		Type: Support.Shared
+		Group: Support
+		DisplayOrder: 2
+		LowPowerModifier: 200
+		ReadyAudio: ConstructionComplete
+		ReadyTextNotification: notification-construction-complete
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: notification-unable-to-comply-building-in-progress
+		QueuedAudio: Building
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+		SpeedUp: true
+		BuildTimeSpeedReduction: 100, 91, 82, 73, 64, 55, 50
+	ClassicProductionQueue@Infantry:
+		Type: Infantry.Shared
+		Group: Infantry
+		DisplayOrder: 4
+		LowPowerModifier: 200
+		ReadyAudio: UnitReady
+		ReadyTextNotification: notification-unit-ready
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: notification-unable-to-comply-building-in-progress
+		QueuedAudio: Training
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+		SpeedUp: true
+		BuildTimeSpeedReduction: 100, 91, 82, 73, 64, 55, 50
+	ClassicProductionQueue@Vehicle:
+		Type: Vehicle.Shared
+		Group: Vehicle
+		DisplayOrder: 5
+		BuildDurationModifier: 100
+		LowPowerModifier: 200
+		ReadyAudio: UnitReady
+		ReadyTextNotification: notification-unit-ready
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: notification-unable-to-comply-building-in-progress
+		QueuedAudio: Training
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+		SpeedUp: true
+		BuildTimeSpeedReduction: 100, 80, 65, 50
+	ClassicProductionQueue@Aircraft:
+		Type: Aircraft.Shared
+		Group: Aircraft
+		DisplayOrder: 6
+		LowPowerModifier: 200
+		ReadyAudio: UnitReady
+		ReadyTextNotification: notification-unit-ready
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: notification-unable-to-comply-building-in-progress
+		QueuedAudio: Training
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+		SpeedUp: true
+		BuildTimeSpeedReduction: 100, 91, 82, 73, 64, 55, 50
+	ClassicProductionQueue@Ship:
+		Type: Ship.Shared
+		Group: Ship
+		DisplayOrder: 7
+		LowPowerModifier: 200
+		ReadyAudio: UnitReady
+		ReadyTextNotification: notification-unit-ready
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: notification-unable-to-comply-building-in-progress
+		QueuedAudio: Training
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+		SpeedUp: true
+		BuildTimeSpeedReduction: 100, 91, 82, 73, 64, 55, 50
+	ClassicProductionQueue@UpgShared:
+		Type: Upgrade.Shared
+		Group: Upgrade
+		DisplayOrder: 3
+		LowPowerModifier: 200
+		AlwaysShowForFactions: america, france, england, germany, korea, japan, belarus, poland, ukraine, aussie, china, turkey, canada, russia, iraq, vietnam, cuba, libya, chile, mexico, mongolia, psicorps, psinepal, psisouth, psitrans, psimoon, transcaucus, turkmen, tuva, russianfed, serbia
+		ReadyAudio: UpgradeComplete
+		ReadyTextNotification: notification-upgrade-complete
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: UpgradeInProgress
+		LimitedTextNotification: notification-upgrade-in-progress
+		QueuedAudio: Building
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+	ClassicProductionQueue@UpgAllies:
+		Type: Upgrade.Allies
+		Group: Upgrade
+		DisplayOrder: 9
+		LowPowerModifier: 200
+		AlwaysShowForFactions: america, france, england, germany, korea, japan, belarus, poland, ukraine, aussie, china, turkey, canada
+		ReadyAudio: UpgradeComplete
+		ReadyTextNotification: notification-upgrade-complete
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: UpgradeInProgress
+		LimitedTextNotification: notification-upgrade-in-progress
+		QueuedAudio: Building
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+	ClassicProductionQueue@UpgSoviets:
+		Type: Upgrade.Soviets
+		Group: Upgrade
+		DisplayOrder: 10
+		LowPowerModifier: 200
+		AlwaysShowForFactions: russia, iraq, vietnam, cuba, libya, chile, mexico, mongolia
+		ReadyAudio: UpgradeComplete
+		ReadyTextNotification: notification-upgrade-complete
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: UpgradeInProgress
+		LimitedTextNotification: notification-upgrade-in-progress
+		QueuedAudio: Building
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+	ClassicProductionQueue@UpgPsiCorps:
+		Type: Upgrade.Yuri
+		Group: Upgrade
+		DisplayOrder: 11
+		LowPowerModifier: 200
+		AlwaysShowForFactions: psicorps, psinepal, psisouth, psitrans, psimoon
+		ReadyAudio: UpgradeComplete
+		ReadyTextNotification: notification-upgrade-complete
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: UpgradeInProgress
+		LimitedTextNotification: notification-upgrade-in-progress
+		QueuedAudio: Building
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+	ClassicProductionQueue@UpgBakuPact:
+		Type: Upgrade.Baku
+		Group: Upgrade
+		DisplayOrder: 12
+		LowPowerModifier: 200
+		AlwaysShowForFactions: transcaucus, turkmen, tuva, russianfed, serbia
+		ReadyAudio: UpgradeComplete
+		ReadyTextNotification: notification-upgrade-complete
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: UpgradeInProgress
+		LimitedTextNotification: notification-upgrade-in-progress
+		QueuedAudio: Building
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+	ClassicProductionQueue@UpgUnused:
+		Type: Upgrade.Unused
+		Group: Upgrade
+		DisplayOrder: 3
+		LowPowerModifier: 200
+		ReadyAudio: UpgradeComplete
+		ReadyTextNotification: notification-upgrade-complete
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: UpgradeInProgress
+		LimitedTextNotification: notification-upgrade-in-progress
+		QueuedAudio: Building
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+	Production@CP:
+		Produces: Power.Allies, Power.Soviets, Power.Yuri, Power.Baku
+		RequiresCondition: cps_enabled
+	ExternalCondition@cps_enabled:
+		Condition: cps_enabled
+	Production@Upgrade.Shared:
+		Produces: Upgrade.Shared, Upgrade.Unused
+		RequiresCondition: upgrades_enabled && !multiqueue
+	Production@Upgrade:
+		Produces: Upgrade.Allies, Upgrade.Soviets, Upgrade.Yuri, Upgrade.Baku, Upgrade.Unused
+		RequiresCondition: upgrades_enabled && multiqueue
+	ProvidesPrerequisite@upgrade.allies:
+		Prerequisite: upgrade.allies
+		Factions: america, france, england, germany, korea, japan, belarus, poland, ukraine, aussie, china, turkey, canada
+	ProvidesPrerequisite@upgrade.america:
+		Prerequisite: upgrade.america
+		Factions: america
+	ProvidesPrerequisite@upgrade.england:
+		Prerequisite: upgrade.england
+		Factions: england
+	ProvidesPrerequisite@upgrade.france:
+		Prerequisite: upgrade.france
+		Factions: france
+	ProvidesPrerequisite@upgrade.germany:
+		Prerequisite: upgrade.germany
+		Factions: germany
+	ProvidesPrerequisite@upgrade.korea:
+		Prerequisite: upgrade.korea
+		Factions: korea
+	ProvidesPrerequisite@upgrade.soviets:
+		Prerequisite: upgrade.soviets
+		Factions: russia, iraq, vietnam, cuba, libya, chile, mexico, mongolia
+	ProvidesPrerequisite@upgrade.russia:
+		Prerequisite: upgrade.russia
+		Factions: russia
+	ProvidesPrerequisite@upgrade.iraq:
+		Prerequisite: upgrade.iraq
+		Factions: iraq
+	ProvidesPrerequisite@upgrade.vietnam:
+		Prerequisite: upgrade.vietnam
+		Factions: vietnam
+	ProvidesPrerequisite@upgrade.cuba:
+		Prerequisite: upgrade.cuba
+		Factions: cuba
+	ProvidesPrerequisite@upgrade.libya:
+		Prerequisite: upgrade.libya
+		Factions: libya
+	ProvidesPrerequisite@upgrade.sovietsorbaku:
+		Prerequisite: upgrade.sovietsorbaku
+		Factions: russia, iraq, vietnam, cuba, libya, chile, mexico, mongolia, transcaucus, turkmen, tuva, russianfed, serbia
+	ProvidesPrerequisite@upgrade.baku:
+		Prerequisite: upgrade.baku
+		Factions: transcaucus, turkmen, tuva, russianfed, serbia
+	ProvidesPrerequisite@upgrade.yuri:
+		Prerequisite: upgrade.yuri
+		Factions: psicorps, psinepal, psisouth, psitrans, psimoon
+	ProvidesPrerequisite@upgrade.psicorps:
+		Prerequisite: upgrade.psicorps
+		Factions: psicorps
+	ProvidesPrerequisite@upgrade.psinepal:
+		Prerequisite: upgrade.psinepal
+		Factions: psinepal
+	ProvidesPrerequisite@upgrade.psisouth:
+		Prerequisite: upgrade.psisouth
+		Factions: psisouth
+	ProvidesPrerequisite@upgrade.psitrans:
+		Prerequisite: upgrade.psitrans
+		Factions: psitrans
+	ProvidesPrerequisite@upgrade.psimoon:
+		Prerequisite: upgrade.psimoon
+		Factions: psimoon
+	GrantConditionOnPrerequisite@upgrades_enabled:
+		Condition: upgrades_enabled
+		Prerequisites: global-upgrades
+	GrantConditionOnPrerequisite@multiqueue:
+		Condition: multiqueue
+		Prerequisites: global-multiqueue
+	PlaceBuilding:
+		ToggleVariantKey: ToggleVariant
+		NewOptionsNotification: NewOptions
+		CannotPlaceNotification: BuildingCannotPlaceAudio
+		NewOptionsTextNotification: notification-new-construction-options
+		CannotPlaceTextNotification: notification-cannot-deploy-here
+	SupportPowerManager:
+	ScriptTriggers:
+	CellTriggerOverlay:
+	MissionObjectives:
+		WinNotification: Win
+		LoseNotification: Lose
+		LeaveNotification: Leave
+	ConquestVictoryConditions:
+	PowerManager:
+		SpeechNotification: LowPower
+		TextNotification: notification-low-power
+	AllyRepair:
+	Taunts:
+		CheckboxVisible: false
+	PlayerResources:
+		DefaultCash: 10000
+		SelectableCash: 2500, 5000, 7500, 10000, 20000, 50000, 100000
+		CashTickUpNotification: CashTickUp
+		CashTickDownNotification: CashTickDown
+		InsufficientFundsNotification: InsufficientFunds
+		InsufficientFundsTextNotification: notification-insufficient-funds
+	ResourceStorageWarning:
+		Notification: InsufficientSilos
+		TextNotification: notification-insufficient-silos
+	DeveloperMode:
+		CheckboxDisplayOrder: 14
+	GpsWatcher:
+	Shroud:
+		ExploredMapCheckboxEnabled: True
+		FogCheckboxDisplayOrder: 3
+	LobbyPrerequisiteCheckbox@GLOBALFACTUNDEPLOY:
+		ID: factundeploy
+		Label: checkbox-redeployable-mcvs.label
+		Description: checkbox-redeployable-mcvs.description
+		Enabled: True
+		DisplayOrder: 5
+		Prerequisites: global-factundeploy
+	LobbyPrerequisiteCheckbox@FREEMINIMAP:
+		ID: freeradar
+		Label: checkbox-free-minimap.label
+		Description: checkbox-free-minimap.description
+		Enabled: True
+		DisplayOrder: 8
+		Prerequisites: global-freeminimap
+	LobbyPrerequisiteCheckbox@GLOBALSWLIMIT:
+		ID: swlimit
+		Label: checkbox-limit-super-weapons.label
+		Description: checkbox-limit-super-weapons.description
+		Enabled: True
+		DisplayOrder: 9
+		Prerequisites: global-swlimit
+	LobbyPrerequisiteCheckbox@GLOBALTECHAREA:
+		ID: techbuildarea
+		Label: checkbox-tech-build-area.label
+		Description: checkbox-tech-build-area.description
+		Enabled: False
+		DisplayOrder: 10
+		Prerequisites: global-techbuildarea
+	LobbyPrerequisiteCheckbox@INSTANTCAPTURE:
+		ID: instantcapture
+		Label: checkbox-instant-capture.label
+		Description: checkbox-instant-capture.description
+		Enabled: False
+		DisplayOrder: 11
+		Prerequisites: global-instantcapture
+	LobbyPrerequisiteCheckbox@GLOBALMULTIQUEUE:
+		ID: multiqueue
+		Label: checkbox-multiqueue.label
+		Description: checkbox-multiqueue.description
+		Enabled: True
+		DisplayOrder: 12
+		Prerequisites: global-multiqueue
+	LobbyPrerequisiteCheckbox@GLOBALUPGRADES:
+		ID: upgrades
+		Label: checkbox-upgrades-option.label
+		Description: checkbox-upgrades-option.description
+		Enabled: True
+		DisplayOrder: 13
+		Prerequisites: global-upgrades
+	LobbyPrerequisiteCheckbox@DOMINATION:
+		ID: domination
+		Label: checkbox-domination-option.label
+		Description: checkbox-domination-option.description
+		Enabled: False
+		DisplayOrder: 15
+		Prerequisites: global-domination
+	LobbyPrerequisiteCheckbox@MEGAWEALTH:
+		ID: megawealth
+		Label: checkbox-megawealth-option.label
+		Description: checkbox-megawealth-option.description
+		Enabled: False
+		DisplayOrder: 16
+		Prerequisites: global-megawealth
+	LobbyPrerequisiteCheckbox@SHOWOWNERNAME:
+		ID: showownername
+		Label: checkbox-show-owner-name.label
+		Description: checkbox-show-owner-name.description
+		Enabled: True
+		Visible: False # Too lazy to remove the setup for this.
+		DisplayOrder: 17
+		Prerequisites: global-showownername
+	LobbyPrerequisiteCheckbox@SUDDENDEATH:
+		ID: suddendeath
+		Label: checkbox-sudden-death.label
+		Description: checkbox-sudden-death.description
+		Enabled: False
+		DisplayOrder: 17
+		Prerequisites: global-suddendeath
+	LobbyPrerequisiteCheckbox@KOTH:
+		ID: koth
+		Label: checkbox-king-of-the-hill.label
+		Description: checkbox-king-of-the-hill.description
+		Enabled: False
+		DisplayOrder: 18
+		Prerequisites: global-koth
+	LobbyPrerequisiteCheckbox@REGICIDE:
+		ID: regicide
+		Label: checkbox-regicide.label
+		Description: checkbox-regicide.description
+		Enabled: False
+		DisplayOrder: 19
+		Prerequisites: global-regicide
+	ProvidesRadar:
+		RequiresCondition: freeminimap
+	GrantConditionOnPrerequisite@FREEMINIMAP:
+		Condition: freeminimap
+		Prerequisites: global-freeminimap
+	FrozenActorLayer:
+	BaseAttackNotifier:
+		AllyNotification: OurAllyIsUnderAttack
+		TextNotification: notification-base-under-attack
+		AllyTextNotification: notification-ally-under-attack
+	BaseAttackNotifier@Warning:
+		NotifyInterval: 10000
+		Notification: BaseAttackWarning
+		AllyNotification: BaseAttackWarning
+	BaseAttackNotifier@RadarPing:
+		NotifyInterval: 10000
+		RevertUnitTypes: true
+		Notification:
+	HarvesterAttackNotifier:
+		Notification: OreMinerUnderAttack
+		TextNotification: notification-ore-miner-under-attack
+	PlayerStatistics:
+	PlaceBeacon:
+		BeaconSequence: idle
+		ArrowSequence:
+		CircleSequence:
+		IsPlayerPalette: true
+		Palette: player
+	ProvidesTechPrerequisite@1:
+		Name: options-tech-level.one
+		Prerequisites: techlevel.1
+		Id: infantryonly
+	ProvidesTechPrerequisite@2:
+		Name: options-tech-level.two
+		Prerequisites: techlevel.1, techlevel.2
+		Id: low
+	ProvidesTechPrerequisite@3:
+		Name: options-tech-level.three
+		Prerequisites: techlevel.1, techlevel.2, techlevel.3
+		Id: medium
+	ProvidesTechPrerequisite@4:
+		Name: options-tech-level.four
+		Prerequisites: techlevel.1, techlevel.2, techlevel.3, techlevel.4
+		Id: nosuperweapons
+	ProvidesTechPrerequisite@5:
+		Name: options-tech-level.five
+		Prerequisites: techlevel.1, techlevel.2, techlevel.3, techlevel.4, techlevel.5
+		Id: unrestricted
+	GrantConditionOnPrerequisiteManager:
+	ExternalCondition@IndustrialPlant:
+		Condition: naindp
+	ProvidesPrerequisite@naindp-1:
+		Prerequisite: prerequisite.one_naindp
+		RequiresCondition: naindp
+	ProvidesPrerequisite@naindp-2:
+		Prerequisite: prerequisite.two_naindp
+		RequiresCondition: naindp > 1
+	ProvidesPrerequisite@naindp-3:
+		Prerequisite: prerequisite.three_naindp
+		RequiresCondition: naindp > 2
+	ProvidesPrerequisite@naindp-4:
+		Prerequisite: prerequisite.four_naindp
+		RequiresCondition: naindp > 3
+	ProvidesPrerequisite@naindp-5:
+		Prerequisite: prerequisite.five_naindp
+		RequiresCondition: naindp > 4
+	ExternalCondition@PadAircraft:
+		Condition: padaircraft
+	ExternalCondition@AirDock:
+		Condition: airdock
+	ProvidesPrerequisite@enoughair:
+		Prerequisite: prerequisite.enoughair
+		RequiresCondition: padaircraft >= airdock
+	ProvidesPrerequisite@aiplayer:
+		Prerequisite: prerequisite.aiplayer
+		RequiresCondition: enable-generic-ai
+	GrantConditionOnTileSet:
+		TileSets: DUNE
+		Condition: dune
+	ProvidesPrerequisite@dune:
+		Prerequisite: on_dune
+		RequiresCondition: dune
+	ProductionIconOverlayManager@chevron-veteran:
+		Type: chevron-veteran
+		Image: cameo-chevron
+		Sequence: veteran
+		Palette: pips
+	ProductionIconOverlayManager@chevron-elite:
+		Type: chevron-elite
+		Image: cameo-chevron
+		Sequence: elite
+		Palette: pips
+	ProductionIconOverlayManager@chevron-heroic:
+		Type: chevron-heroic
+		Image: cameo-chevron
+		Sequence: heroic
+		Palette: pips
+	ProductionIconOverlayManager@stripe-upgraded:
+		Type: stripe-upgraded
+		Image: cameo-stripe
+		Sequence: upgraded
+	ProductionIconOverlayManager@stripe-taken:
+		Type: stripe-taken
+		Image: cameo-stripe
+		Sequence: taken
+	PlayerExperience:
+	GameSaveViewportManager:
+	EnemyWatcher:
+		NotificationInterval: 125
+	RangedGpsWatcher:
+	PlayerRadarTerrain:
+	CrateSpawner:
+		DeliveryAircraft: pdplane.crate
+		Minimum: 1
+		Maximum: 1
+		WaterChance: 0
+		SpawnInterval: 2000
+		InitialSpawnDelay: 0
+		RequiresCondition: crates_enabled && combatant_player && no_bases
+	ExternalCondition@Crates: # Not actually needed, putting it so lint won't complain.
+		Condition: crates_enabled
+	GrantConditionOnPrerequisite@NoBases:
+		Prerequisites: hack.no_bases
+		Condition: no_bases
+	GrantConditionOnCombatantOwner:
+		Condition: combatant_player
+	Inherits@1: ^CommandersPowers

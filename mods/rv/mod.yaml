@@ -1,0 +1,439 @@
+Metadata:
+	Title: Red Alert 2: Romanov's Vengeance
+	Version: playtest-20240218
+	Website: https://github.com/MustaphaTR/Romanovs-Vengeance
+	WebIcon32: https://raw.githubusercontent.com/MustaphaTR/Romanovs-Vengeance/master/packaging/artwork/icon_32x32.png
+	WindowTitle: OpenRA - Romanov's Vengeance
+
+ModCredits:
+	ModTabTitle: Romanov's Vengeance
+	ModCreditsFile: rv|AUTHORS.RV
+
+PackageFormats: Mix, AudioBag
+
+Packages:
+	~^SupportDir|Content/ra2
+	~^SupportDir|Content/ra2/taunts
+	^EngineDir
+	^EngineDir|mods/common: common
+	$rv: rv
+	~ra2md.mix # put YR files first so stuff like Psychic Sensor and Cloning Vats won't get overridden with Yuri artwork.
+	~ra2.mix
+	~langmd.mix
+	~language.mix
+	~multi.mix
+	~audiomd.mix
+	~cachemd.mix
+	~cache.mix: cache
+	~cameomd.mix: cameomd
+	~cameo.mix: cameo
+	~conquer.mix: conquer
+	~conqmd.mix: conqmd
+	~des.mix
+	~desert.mix
+	~genermd.mix
+	~generic.mix
+	~isodesmd.mix
+	~isodes.mix
+	~isogenmd.mix
+	~isogen.mix
+	~isolunmd.mix
+	~isolun.mix
+	~isosnomd.mix
+	~isosnow.mix
+	~isotemmd.mix
+	~isotemp.mix
+	~isoubnmd.mix
+	~isoubn.mix
+	~isourbmd.mix
+	~isourb.mix
+	~loadmd.mix
+	~load.mix
+	~localmd.mix: localmd
+	~local.mix: local
+	~lun.mix
+	~lunar.mix
+	~neutral.mix
+	~ntrlmd.mix
+	~sidec01.mix
+	~sidec02.mix
+	~sno.mix
+	~snowmd.mix
+	~snow.mix
+	~tem.mix
+	~temperat.mix
+	~theme.mix
+	~thememd.mix
+	~ubn.mix
+	~urbann.mix
+	~urb.mix
+	~urban.mix
+	~audio.bag
+	rv|bits
+	rv|bits/arrakis.mix
+	rv|bits/terrain-expansion.mix
+	rv|bits/lunar-terrain-expansion.mix
+	rv|bits/audio
+	rv|bits/audio/buildingselection
+	rv|bits/audio/eva
+	rv|bits/audio/unitvoicelines
+	rv|bits/structures
+	rv|bits/structures/fixes
+	rv|bits/structures/gates
+	rv|bits/structures/snow
+	rv|bits/structures/tech
+	rv|bits/structures/water
+	rv|uibits
+	rv|scripts
+
+MapFolders:
+	rv|maps: System
+	~^SupportDir|maps/rv/playtest-20240218: User
+
+Rules:
+	rv|rules/proxy-actors.yaml
+	rv|rules/misc.yaml
+	rv|rules/ai.yaml
+	rv|rules/player.yaml
+	rv|rules/world.yaml
+	rv|rules/palettes.yaml
+	rv|rules/defaults.yaml
+	rv|rules/allied-infantry.yaml
+	rv|rules/bakuvian-infantry.yaml
+	rv|rules/soviet-infantry.yaml
+	rv|rules/yuri-infantry.yaml
+	rv|rules/civilians.yaml
+	rv|rules/bridges.yaml
+	rv|rules/animals.yaml
+	rv|rules/default-structures.yaml
+	rv|rules/allied-structures.yaml
+	rv|rules/bakuvian-structures.yaml
+	rv|rules/soviet-structures.yaml
+	rv|rules/yuri-structures.yaml
+	rv|rules/civilian-structures.yaml
+	rv|rules/tech-structures.yaml
+	rv|rules/civilian-flags.yaml
+	rv|rules/civilian-props.yaml
+	rv|rules/default-vehicles.yaml
+	rv|rules/allied-vehicles.yaml
+	rv|rules/bakuvian-vehicles.yaml
+	rv|rules/soviet-vehicles.yaml
+	rv|rules/yuri-vehicles.yaml
+	rv|rules/civilian-vehicles.yaml
+	rv|rules/old-vehicles.yaml
+	rv|rules/default-naval.yaml
+	rv|rules/allied-naval.yaml
+	rv|rules/bakuvian-naval.yaml
+	rv|rules/soviet-naval.yaml
+	rv|rules/yuri-naval.yaml
+	rv|rules/civilian-naval.yaml
+	rv|rules/arrakis.yaml
+	rv|rules/aircraft.yaml
+	rv|rules/trees.yaml
+	rv|rules/cpowers.yaml
+	rv|rules/upgrades.yaml
+	rv|rules/debug-structures.yaml
+	rv|rules/ai-only-units.yaml
+
+Sequences:
+	rv|sequences/misc.yaml
+	rv|sequences/aircraft.yaml
+	rv|sequences/allied-infantry.yaml
+	rv|sequences/allied-structures.yaml
+	rv|sequences/animals.yaml
+	rv|sequences/bakuvian-infantry.yaml
+	rv|sequences/bakuvian-structures.yaml
+	rv|sequences/bridges.yaml
+	rv|sequences/civilians.yaml
+	rv|sequences/civilian-flags.yaml
+	rv|sequences/civilian-props.yaml
+	rv|sequences/civilian-structures.yaml
+	rv|sequences/defaults.yaml
+	rv|sequences/soviet-infantry.yaml
+	rv|sequences/soviet-structures.yaml
+	rv|sequences/tech-structures.yaml
+	rv|sequences/trees.yaml
+	rv|sequences/arrakis.yaml
+	rv|sequences/vehicles.yaml
+	rv|sequences/yuri-infantry.yaml
+	rv|sequences/yuri-structures.yaml
+	rv|sequences/cpowers.yaml
+	rv|sequences/upgrades.yaml
+
+ModelSequences:
+	rv|sequences/voxels.yaml
+
+Cursors:
+	rv|cursors.yaml
+
+Chrome:
+	rv|chrome.yaml
+
+Assemblies:
+	^BinDir|OpenRA.Mods.Common.dll
+	^BinDir|OpenRA.Mods.Cnc.dll
+	^BinDir|OpenRA.Mods.D2k.dll
+	^BinDir|OpenRA.Mods.RA2.dll
+	^BinDir|OpenRA.Mods.AS.dll
+
+ChromeLayout:
+	rv|chrome/assetbrowser.yaml
+	rv|chrome/credits.yaml
+	rv|chrome/ingame.yaml
+	rv|chrome/ingame-player.yaml
+	rv|chrome/ingame-observer.yaml
+	rv|chrome/ingame-infoobjectives.yaml
+	rv|chrome/ingame-infostats.yaml
+	rv|chrome/ingame-transients.yaml
+	rv|chrome/lobby-players.yaml
+	rv|chrome/mainmenu.yaml
+	rv|chrome/mainmenu-prerelease-notification.yaml
+	rv|chrome/settings-hotkeys.yaml
+	rv|chrome/tooltips.yaml
+	common|chrome/color-picker.yaml
+	common|chrome/mainmenu-prompts.yaml
+	common|chrome/musicplayer.yaml
+	common|chrome/ingame-chat.yaml
+	common|chrome/ingame-fmvplayer.yaml
+	common|chrome/ingame-menu.yaml
+	common|chrome/ingame-info.yaml
+	common|chrome/ingame-infoscripterror.yaml
+	common|chrome/ingame-infobriefing.yaml
+	common|chrome/ingame-debug.yaml
+	common|chrome/ingame-debug-hpf.yaml
+	common|chrome/ingame-debuginfo.yaml
+	common|chrome/ingame-perf.yaml
+	common|chrome/ingame-infochat.yaml
+	common|chrome/ingame-info-lobby-options.yaml
+	common|chrome/settings.yaml
+	common|chrome/settings-display.yaml
+	common|chrome/settings-audio.yaml
+	common|chrome/settings-input.yaml
+	common|chrome/settings-advanced.yaml
+	common|chrome/lobby.yaml
+	common|chrome/lobby-options.yaml
+	common|chrome/lobby-music.yaml
+	common|chrome/lobby-mappreview.yaml
+	common|chrome/lobby-servers.yaml
+	common|chrome/lobby-kickdialogs.yaml
+	common|chrome/multiplayer-browser.yaml
+	common|chrome/multiplayer-browserpanels.yaml
+	common|chrome/multiplayer-createserver.yaml
+	common|chrome/multiplayer-directconnect.yaml
+	common|chrome/map-chooser.yaml
+	common|chrome/connection.yaml
+	common|chrome/replaybrowser.yaml
+	common|chrome/gamesave-browser.yaml
+	common|chrome/gamesave-loading.yaml
+	common|chrome/missionbrowser.yaml
+	common|chrome/confirmation-dialogs.yaml
+	common|chrome/dropdowns.yaml
+	common|chrome/editor.yaml
+	common|chrome/playerprofile.yaml
+	common|chrome/text-notifications.yaml
+
+Translations:
+	common|languages/en.ftl
+	common|languages/chrome/en.ftl
+	common|languages/rules/en.ftl
+	rv|languages/en.ftl
+	rv|languages/chrome/en.ftl
+	rv|languages/rules/en.ftl
+	rv|languages/tr.ftl
+	rv|languages/chrome/tr.ftl
+	rv|languages/rules/tr.ftl
+
+Weapons:
+	rv|weapons/bullets.yaml
+	rv|weapons/debris.yaml
+	rv|weapons/defaults.yaml
+	rv|weapons/explosions.yaml
+	rv|weapons/flaks.yaml
+	rv|weapons/gatling.yaml
+	rv|weapons/gravitybombs.yaml
+	rv|weapons/ifvweapons.yaml
+	rv|weapons/ivanbombs.yaml
+	rv|weapons/melee.yaml
+	rv|weapons/mgs.yaml
+	rv|weapons/misc.yaml
+	rv|weapons/missiles.yaml
+	rv|weapons/zaps.yaml
+
+Voices:
+	rv|audio/voices.yaml
+
+Notifications:
+	rv|audio/notifications.yaml
+	rv|audio/taunts.yaml
+
+TileSets:
+	rv|tilesets/temperat.yaml
+	rv|tilesets/snow.yaml
+	rv|tilesets/urban.yaml
+	rv|tilesets/newurban.yaml
+	rv|tilesets/desert.yaml
+	rv|tilesets/lunar.yaml
+	rv|tilesets/arrakis.yaml
+	rv|tilesets/simpleterrain.yaml
+
+Missions:
+	rv|missions.yaml
+
+MapGrid:
+	Type: RectangularIsometric
+	TileSize: 60,30
+	DefaultSubCell: 2
+	MaximumTerrainHeight: 16
+	SubCellOffsets: 0,0,0, -256,128,0, 0,-128,0, 256,128,0
+
+Music:
+	rv|audio/music.yaml
+
+Hotkeys:
+	common|hotkeys/game.yaml
+	common|hotkeys/observer.yaml
+	common|hotkeys/production-common.yaml
+	common|hotkeys/production-peractor.yaml
+	common|hotkeys/supportpowers.yaml
+	common|hotkeys/viewport.yaml
+	common|hotkeys/chat.yaml
+	common|hotkeys/editor.yaml
+	common|hotkeys/control-groups.yaml
+	rv|hotkeys.yaml
+
+LoadScreen: LogoStripeLoadScreen
+	Image: rv|uibits/loadscreen.png
+	Text: 把木头镀成金块..., 制作降落伞包..., 欢迎你来到德克萨斯..., 改良氦氮混合气..., 接收尤里的想法..., 点燃助推器..., 呼唤天启降临..., 把树伪装成幻影坦克..., 顺走你的军饷..., 增强33%..., 试图平衡数值..., 让游戏大厅闹鬼..., 试图书写战役剧本..., 敲出不可能的代码..., 锯掉恐怖机器人的另外四条腿..., 赶制鲍里斯的皮划艇..., 抽掉核反应堆的冷却棒..., 为军工车间的活塞上油..., 手工捡走矿物里的杂质..., 拒绝第五架鹞鹰战机出厂..., 教掷弹兵说英语..., 确保火炮摩托不会翻车..., 阻止西伯利亚哈士奇拆毁建筑..., 试图缝上时间与空间的裂隙..., 通知神明使用闪电..., 给铁幕除锈..., 呼吁废除奴隶制..., 帮助狙击手的子弹穿墙..., 训练劫持者驾驶各类载具..., 删除游戏里的所有绵羊..., 动员更多动员兵..., 正在照亮巴黎..., 禁止捕捞枪乌贼..., 把石头伪装成火箭..., 往你的炮弹里掺沙子..., 削弱你最爱的单位..., 拆除战斗要塞的机枪..., 正在布置水雷..., 正在服从尤里的指令..., 参加杜根总统的会议..., 劝说罗曼诺夫总理复仇..., 帮助尤里控制霸王龙..., 为月球制造大气层..., 往航空母舰里藏许多蜂窝..., 确保飞碟乘员不会头晕..., 打磨光棱塔的镜面..., 找回雌鹿直升机的图纸..., 在好莱坞拍摄电影..., 为灰熊刷上白漆..., 训练步兵躲避坦克歼击车的炮弹..., 在战场上宣传共产主义..., 用英镑替换心战宣传单..., 印制单程票..., 在电磁脉冲影响期间睡回笼觉..., 把华盛顿纪念碑搬到西雅图..., 帮助间谍骗过监控探头..., 让伊文变得疯狂..., 正在触发bug..., 正在退出游戏..., 为你的单位提供电疗..., 旋转加特林枪管..., 为克隆人中心替换营养液..., 缝制奴隶矿工的工作鞋..., 回退所有升级..., 颁发嘉奖令..., 教狂兽人飞行..., 和绝地武士过招..., 修补基洛夫空艇的蒙皮..., 为动员兵分发燃烧瓶..., 治疗受伤的坦克炮手..., 批量生成尤里大师的替身..., 喂养尤里的狼蛛..., 把水母命名为螃蟹..., 在地球上散布香料..., 替首长挡子弹..., 阻止粉碎者下水..., 加大步兵的训练量..., 制造网络波动..., 服从尤里的指示...
+
+ServerTraits:
+	LobbyCommands
+	PlayerPinger
+	MasterServerPinger
+	LobbySettingsNotification
+
+ChromeMetrics:
+	common|metrics.yaml
+	rv|metrics.yaml
+
+Fonts:
+	Tiny:
+		Font: common|SoukouMincho.ttf
+		Size: 12
+		Ascender: 8
+	TinyBold:
+		Font: common|SoukouMincho.ttf
+		Size: 12
+		Ascender: 8
+	Small:
+		Font: common|SoukouMincho.ttf
+		Size: 14
+		Ascender: 9
+	Regular:
+		Font: common|SoukouMincho.ttf
+		Size: 14
+		Ascender: 11
+	Bold:
+		Font: common|SoukouMincho.ttf
+		Size: 15
+		Ascender: 11
+	MediumBold:
+		Font: common|SoukouMincho.ttf
+		Size: 20
+		Ascender: 14
+	BigBold:
+		Font: common|SoukouMincho.ttf
+		Size: 26
+		Ascender: 18
+	Title:
+		Font: common|SoukouMincho.ttf
+		Size: 32
+		Ascender: 26
+
+DefaultOrderGenerator: UnitOrderGenerator
+
+# Our maps may not work on RA2 mod, but RA2's maps would work here.
+SupportsMapsFrom: rv, ra2
+
+SoundFormats: Aud, Wav
+
+SpriteFormats: ShpTS, TmpTS, ShpTD, PngSheet
+
+VideoFormats: Vqa
+
+TerrainFormat: DefaultTerrain
+
+SpriteSequenceFormat: TilesetSpecificSpriteSequence
+
+AssetBrowser:
+	SpriteExtensions: .shp, .tmp, .tem, .des, .sno, .int, .png
+	ModelExtensions: .vxl
+	AudioExtensions: .aud, .wav
+	VideoExtensions: .vqa
+
+GameSpeeds:
+	DefaultSpeed: default
+	Speeds:
+		slowest:
+			Name: options-game-speed.slowest
+			Timestep: 80
+			OrderLatency: 6
+		slower:
+			Name: options-game-speed.slower
+			Timestep: 50
+			OrderLatency: 9
+		default:
+			Name: options-game-speed.normal
+			Timestep: 40
+			OrderLatency: 9
+		fast:
+			Name: options-game-speed.fast
+			Timestep: 35
+			OrderLatency: 12
+		faster:
+			Name: options-game-speed.faster
+			Timestep: 30
+			OrderLatency: 12
+		fastest:
+			Name: options-game-speed.fastest
+			Timestep: 20
+			OrderLatency: 18
+		ludicrous:
+			Name: options-game-speed.ludicrous
+			Timestep: 5
+			OrderLatency: 27
+
+ModContent:
+	InstallPromptMessage: 罗曼诺夫的复仇需要红色警戒2的必要素材
+	HeaderMessage: 红色警戒2与尤里的复仇并非免费软件\n因此OpenRA必须从正版红色警戒2与尤里的复仇中复制文件
+	Packages:
+		ContentPackage@ra2:
+			Title: 红色警戒2文件包
+			Identifier: ra2
+			TestFiles: ^SupportDir|Content/ra2/ra2.mix, ^SupportDir|Content/ra2/language.mix
+			Sources: ra2, origin, tfd
+			Required: true
+		ContentPackage@ra2-music:
+			Title: 红色警戒2音乐包
+			Identifier: ra2-music
+			TestFiles: ^SupportDir|Content/ra2/theme.mix
+			Sources: ra2, origin, tfd
+		ContentPackage@yr:
+			Title: 尤里的复仇文件包
+			Identifier: yr
+			TestFiles: ^SupportDir|Content/ra2/ra2md.mix, ^SupportDir|Content/ra2/langmd.mix
+			Sources: origin-yr, tfd-yr
+			Required: true
+		ContentPackage@yr-music:
+			Title: 尤里的复仇音乐包
+			Identifier: yr-music
+			TestFiles: ^SupportDir|Content/ra2/thememd.mix
+			Sources: origin-yr, tfd-yr
+	Sources:
+		rv|installer/ra2.yaml
+		rv|installer/origin.yaml
+		rv|installer/origin-yr.yaml
+		rv|installer/firstdecade.yaml
+		rv|installer/firstdecade-yr.yaml
+
+DiscordService:
+	ApplicationId: 734703512952242257

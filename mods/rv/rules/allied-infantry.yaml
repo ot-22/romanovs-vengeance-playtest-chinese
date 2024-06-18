@@ -1,0 +1,1972 @@
+engineer:
+	Inherits: ^Infantry
+	Inherits@CHAOS: ^Berserkable
+	Inherits@MC: ^MindControllable
+	Inherits@SWIMSUITPARACHUTE: ^WithSwimSuitAndParachute
+	Inherits@VOICES: ^WithFeedbackVoicelines
+	Buildable:
+		Queue: Infantry.Shared, Infantry.Allies, Infantry.USA, Infantry.UK, Infantry.Soviets, Infantry.Cuba, Infantry.Iraq, Infantry.Vietnam, Infantry.Yuri, Infantry.Moon, Infantry.Baku, Infantry.Turkmenistan, Infantry.Tuva
+		BuildAtProductionType: Soldier
+		Prerequisites: ~barracks, ~techlevel.1
+		BuildPaletteOrder: 30
+		Description: actor-engineer.description
+		BuildDuration: 375
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 500
+	DeliversCash:
+		Payload: 250
+		Voice: Move
+	Tooltip:
+		Name: actor-engineer.name
+	Tooltip@NoRow:
+		Name: actor-engineer.name
+	Selectable:
+		Bounds: 482, 1448, 0, -530
+	Health:
+		HP: 10000
+	Mobile:
+		Locomotor: swimsuit
+	Garrisoner:
+		Voice: Move
+		CustomPipType: yellow
+		GarrisonType: Garrisoner
+	Passenger:
+		CustomPipType: yellow
+	RevealsShroud:
+		Range: 5c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 5c0
+	RevealOnDeath:
+		Radius: 5c0
+	InstantlyRepairs:
+		Types: building
+		RepairSound: urepair.wav
+	InstantlyRepairs@CIV:
+		Types: civilian
+		RepairSound: urepair.wav
+		ValidRelationships: Ally, Neutral
+	RepairsBridges:
+		RepairNotification: BridgeRepaired
+	Captures@INSTANT:
+		CaptureTypes: building, tech, husk
+		RequiresCondition: instantcapture
+	Captures@TIMED:
+		CaptureDelay: 75
+		CaptureTypes: building, husk
+		RequiresCondition: !instantcapture && !chronodisable && !webdisable && !dogstun
+	Captures@TECH:
+		CaptureTypes: tech
+		CaptureDelay: 250
+		RequiresCondition: !instantcapture && !chronodisable && !webdisable && !dogstun
+	GrantConditionOnPrerequisite@INSTANTCAPTURE:
+		Condition: instantcapture
+		Prerequisites: global-instantcapture
+	Armament:
+		Weapon: DefuseKit
+		Cursor: remove-bomb
+		OutsideRangeCursor: remove-bomb
+		TargetRelationships: Ally
+		ForceTargetRelationships: None
+		PauseOnCondition: chronodisable || webdisable || dogstun
+	AttackFrontal:
+		Voice: Action
+		FacingTolerance: 2
+	Voiced:
+		VoiceSet: EngineerVoice
+	Guard:
+		Voice: Action
+	AttackMove:
+		Voice: Action
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	WithInfantryBody@Water:
+		-IdleSequences:
+	CaptureManager:
+	RenderSprites:
+		Image: engineer
+		FactionImages:
+			soviet: sengineer
+			cuba: sengineer
+			libya: sengineer
+			iraq: sengineer
+			russia: sengineer
+			vietnam: sengineer
+			chile: sengineer
+			mexico: sengineer
+			mongolia: sengineer
+			psicorps: yengineer
+			psinepal: yengineer
+			psisouth: yengineer
+			psitrans: yengineer
+			psimoon: yengineer
+			transcaucus: sengineer
+			turkmen: sengineer
+			tuva: sengineer
+			russianfed: sengineer
+			serbia: sengineer
+	ActorStatValues:
+		Stats: Armor, Sight, Speed
+
+dog:
+	Inherits: ^Infantry
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@SWIMSUITPARACHUTE: ^WithSwimSuitAndParachute
+	Inherits@VOICES: ^WithFeedbackVoicelines
+	Buildable:
+		Queue: Infantry.Shared, Infantry.Allies, Infantry.USA, Infantry.UK, Infantry.Soviets, Infantry.Cuba, Infantry.Iraq, Infantry.Vietnam, Infantry.Yuri, Infantry.Moon, Infantry.Baku, Infantry.Turkmenistan, Infantry.Tuva
+		BuildAtProductionType: Soldier
+		Prerequisites: ~barracks, ~techlevel.1
+		BuildPaletteOrder: 40
+		Description: actor-dog.description
+		BuildDuration: 50
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 200
+	DeliversCash:
+		Payload: 100
+		Voice: Move
+	Tooltip:
+		Name: actor-dog.name
+		GenericName: actor-dog.generic-name
+		RequiresCondition: !allies && !soviet && !psicorps && showownername
+	Tooltip@NoRow:
+		Name: actor-dog.name
+		GenericName: actor-dog.generic-name
+		RequiresCondition: !allies && !soviet && !psicorps && !showownername
+	Tooltip@Allies:
+		Name: actor-dog.allies-name
+		GenericName: actor-dog.generic-name
+		RequiresCondition: allies && showownername
+	Tooltip@Allies-NoRow:
+		Name: actor-dog.allies-name
+		GenericName: actor-dog.generic-name
+		ShowOwnerRow: false
+		RequiresCondition: allies && !showownername
+	Tooltip@Soviet:
+		Name: actor-dog.soviet-name
+		GenericName: actor-dog.generic-name
+		RequiresCondition: soviet && showownername
+	Tooltip@Soviet-NoRow:
+		Name: actor-dog.soviet-name
+		GenericName: actor-dog.generic-name
+		ShowOwnerRow: false
+		RequiresCondition: soviet && !showownername
+	Tooltip@PsiCorps:
+		Name: actor-dog.psicorps-name
+		GenericName: actor-dog.generic-name
+		RequiresCondition: psicorps && showownername
+	Tooltip@PsiCorps-NoRow:
+		Name: actor-dog.psicorps-name
+		GenericName: actor-dog.generic-name
+		ShowOwnerRow: false
+		RequiresCondition: psicorps && !showownername
+	GrantConditionOnFaction@Allies:
+		Condition: allies
+		Factions: america, germany, england, france, korea, japan, belarus, poland, ukraine, aussie, china, turkey, canada
+	GrantConditionOnFaction@Soviet:
+		Condition: soviet
+		Factions: cuba, libya, iraq, russia, vietnam, chile, mexico, mongolia, transcaucus, turkmen, tuva, russianfed, serbia
+	GrantConditionOnFaction@PsiCorps:
+		Condition: psicorps
+		Factions: psicorps, psinepal, psisouth, psitrans, psimoon
+	Selectable:
+		Bounds: 724, 1158, 0, -241
+	Health:
+		HP: 9000
+	Mobile:
+		Speed: 105
+		Locomotor: swimsuit
+		RequiresCondition: !deploying && !deployed && !chronodisable && !webdisable && !dogstun
+	Passenger:
+		CargoType: Infantry
+	RevealsShroud:
+		Range: 8c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 8c0
+	RevealOnDeath:
+		Radius: 8c0
+	Armament:
+		Weapon: DogJaw
+	AttackLeap:
+		Voice: Attack
+		Speed: 105
+		PauseOnCondition: chronodisable || webdisable || dogstun || deployed || deploying
+	AttackMove:
+		Voice: Move
+	AutoTarget:
+		ScanRadius: 5
+		InitialStance: AttackAnything
+	AutoTargetPriority@DEFAULT:
+		ValidTargets: Infantry
+	WithInfantryBody:
+		DefaultAttackSequence: jump
+		RequiresCondition: !parachute && !webdisable && !attacking && !deployed && !deploying && !swimming
+	WithInfantryBody@Water:
+		-IdleSequences:
+		MoveSequence: swim-run
+		StandSequences: swim-stand
+		DefaultAttackSequence: swim-jump
+		RequiresCondition: !parachute && !webdisable && !attacking && !deployed && !deploying && swimming
+	WithFacingSpriteBody:
+		Sequence: shoot
+		RequiresCondition: attacking
+	WithSpriteBody@DEPLOYED:
+		Sequence: deployed
+		Name: deployed
+		RequiresCondition: !parachute && !webdisable && !attacking && (deployed || deploying)
+	RenderSprites:
+		Image: adog
+		FactionImages:
+			soviet: dog
+			cuba: dog
+			libya: dog
+			iraq: dog
+			russia: dog
+			vietnam: dog
+			chile: dog
+			mexico: dog
+			mongolia: dog
+			psicorps: bdog
+			psinepal: bdog
+			psisouth: bdog
+			psitrans: bdog
+			psimoon: bdog
+			transcaucus: dog
+			serbia: dog
+			turkmen: dog
+			tuva: dog
+			russianfed: dog
+	IgnoresDisguise:
+	DetectCloaked:
+		Range: 5c0
+	PeriodicExplosion:
+		Weapon: DogBark
+		RequiresCondition: deployed && !chronodisable && !webdisable && !dogstun
+	GrantTimedConditionOnDeploy:
+		DeployedTicks: 1
+		CooldownTicks: 1500
+		DeployedCondition: deployed
+		DeployingCondition: deploying
+		BodyNames: deployed
+		DeployAnimation: deploy
+		UndeployAnimation: undeploy
+		Voice: Attack
+		StartsFullyCharged: true
+		ChargingColor: FF0000
+		DischargingColor: FF00FF
+		PauseOnCondition: chronodisable || ((webdisable || dogstun || attacking) && !deployed)
+	Voiced:
+		VoiceSet: DogVoice
+	ProducibleWithLevel@1:
+		Prerequisites: barracks.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: barracks.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: barracks.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: barracks.infiltrated, baacdm
+		Types: chevron-elite
+	-TakeCover:
+	-SpawnActorOnDeath@brute:
+	-SpawnActorOnDeath@flames:
+	-SpawnSmokeParticleOnDeath@virus:
+	-Explodes@Corpse:
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	WithDeathAnimation@normal:
+		DeathTypes:
+			ExplosionDeath: 1
+			BulletDeath: 2
+			FlameDeath: 1
+			RadiationDeath: 1
+			PsychicDeath: 1
+			ElectroDeath: 2
+			VirusDeath: 2
+			BruteDeath: 1
+			OrangeRadiationDeath: 1
+	-WithDeathAnimation@effect:
+	WithDeathAnimation@Water:
+		DeathTypes:
+			FlameDeath: 1
+	DeathSounds@normal:
+		DeathTypes: ExplosionDeath, BulletDeath, RadiationDeath, OrangeRadiationDeath, PsychicDeath, ElectroDeath, FlameDeath, VirusDeath, BruteDeath
+	-DeathSounds@zapped:
+	-DeathSounds@radiation:
+	-DeathSounds@psycrush:
+	-DeathSounds@virus:
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+		Damage: 1000
+
+e1:
+	Inherits: ^Infantry
+	Inherits@ADVTRAINING: ^AffectedByAdvancedTraining
+	Inherits@AI: ^AIMicroManagable
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@ENDURANCE: ^AffectedByEnduranceTraining
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@FORTIFICATIONS: ^AffectedByGIFortifications
+	Inherits@CHAOS: ^BerserkableArmed
+	Inherits@MC: ^MindControllable
+	Inherits@PARACHUTE: ^Parachutable
+	Inherits@PORTABLE: ^AffectedByPortableWeaponry
+	Inherits@VOICES: ^WithFeedbackVoicelines
+	Buildable:
+		Queue: Infantry.Shared, Infantry.Allies, Infantry.USA, Infantry.UK
+		BuildAtProductionType: Soldier
+		Prerequisites: ~infantry.allies, ~techlevel.1
+		BuildPaletteOrder: 10
+		Description: actor-e1.description
+		BuildDuration: 100
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 150
+	DeliversCash:
+		Payload: 75
+		Voice: Move
+	Tooltip:
+		Name: actor-e1.name
+	Tooltip@NoRow:
+		Name: actor-e1.name
+	Selectable:
+		Bounds: 482, 1448, 0, -530
+	Health:
+		HP: 12500
+	Mobile:
+		Speed: 60
+		RequireForceMoveCondition: !undeployed
+	Garrisoner:
+		Voice: Move
+		GarrisonType: Garrisoner
+	Passenger:
+		RequireForceMoveCondition: !undeployed
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	Crushable:
+		RequiresCondition: !cheater-ai && !vengeful-ai && (undeployed || !fortifications)
+	Crushable@Cheater:
+		RequiresCondition: cheater-ai && (undeployed || !fortifications)
+	Crushable@Vengeful:
+		RequiresCondition: vengeful-ai && (undeployed || !fortifications)
+	Crushable@deployed:
+		WarnProbability: 0
+		CrushClasses: vehicle
+		CrushSound: igensqua.wav
+		RequiresCondition: !undeployed && fortifications
+	Armament@primary:
+		Weapon: M60
+		Damage: 15
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite && !deployed && !portable
+	Armament@elite:
+		Weapon: M60E
+		Damage: 20
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite && !deployed && !portable
+	Armament@portable:
+		Weapon: para
+		Damage: 20
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite && !deployed && portable
+	Armament@elite-portable:
+		Weapon: paraE
+		Damage: 25
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite && !deployed && portable
+	Armament@deployed:
+		Name: deployed
+		Weapon: para
+		Damage: 20
+		Turret: deploy
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite && deployed
+	Armament@elite-deployed:
+		Name: deployed
+		Weapon: paraE
+		Damage: 25
+		Turret: deploy
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite && deployed
+	Armament@opentopped:
+		Name: opentopped
+		Weapon: para
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-opentopped:
+		Name: opentopped
+		Weapon: paraE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@garrisoned:
+		Weapon: UCpara
+		Name: garrisoned
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-garrisoned:
+		Weapon: UCparaE
+		Name: garrisoned
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	GrantConditionOnDeploy:
+		DeployedCondition: deployed
+		UndeployedCondition: undeployed
+		CanDeployOnRamps: True
+		SmartDeploy: True
+		Facing: 384
+		Voice: Deploy
+		UndeployOnMove: true
+		DeploySounds: igidepa.wav
+		UndeploySounds: igidepb.wav
+		PauseOnCondition: chronodisable
+		RequiresCondition: !parachute && !webdisable && !dogstun
+	GrantCondition:
+		Condition: editorhack
+	WithInfantryBody@Editor: # HACK: negative conditions don't count in EnabledByDefault, we can use this duplicate WIB to render it on map editor
+		DefaultAttackSequence: shoot
+		RequiresCondition: !editorhack
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+		RequiresCondition: undeployed && !parachute && !webdisable
+	Turreted:
+		Turret: deploy
+		RealignDelay: -1
+		TurnSpeed: 1023
+		InitialFacing: 368
+	WithSpriteTurret@idle:
+		Turret: deploy
+		Sequence: deployed
+		RequiresCondition: deployed && !animate-turret && !parachute && !webdisable && !fortifications
+	WithSpriteTurret@animated:
+		Turret: deploy
+		Sequence: shoot-deployed
+		RequiresCondition: deployed && animate-turret && !parachute && !webdisable && !fortifications
+	WithSpriteTurret@idle-fortifications:
+		Turret: deploy
+		Sequence: deployed-fortifications
+		RequiresCondition: deployed && !animate-turret && !parachute && !webdisable && fortifications
+	WithSpriteTurret@animated-fortifications:
+		Turret: deploy
+		Sequence: shoot-deployed-fortifications
+		RequiresCondition: deployed && animate-turret && !parachute && !webdisable && fortifications
+	WithSpriteBody:
+		Sequence: dot
+		Name: dot
+		RequiresCondition: !undeployed && !fortifications
+	WithSpriteBody@fortifications:
+		Sequence: dot
+		Name: dot-fortifications
+		RequiresCondition: !undeployed && fortifications
+	WithMakeAnimation:
+		Sequence: deploy
+		BodyNames: dot
+	WithMakeAnimation@fortifications:
+		Sequence: deploy-fortifications
+		BodyNames: dot-fortifications
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+		RequiresCondition: undeployed
+	AttackTurreted@deployed:
+		Armaments: deployed
+		Turrets: deploy
+		Voice: Attack
+		RequiresCondition: deployed
+		OutsideRangeRequiresForceFire: True
+	GrantConditionOnAttack:
+		Condition: animate-turret
+		RevokeDelay: 10
+		ArmamentNames: deployed
+	RejectsOrders@deployment:
+		Reject: AttackMove, AssaultMove
+		RequiresCondition: !ai-control && deployed && !chaos
+	RejectsMoveToAttack:
+		RequiresCondition: !ai-control && deployed && !chaos
+	TakeCover:
+		RequiresCondition: undeployed
+	Voiced:
+		VoiceSet: GIVoice
+	ProducibleWithLevel@1:
+		Prerequisites: barracks.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: barracks.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: barracks.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: barracks.infiltrated, baacdm
+		Types: chevron-elite
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	IssueOrderToBot@AI:
+		RequiresCondition: !deployed
+		OrderName: GrantConditionOnDeploy
+		OrderChance: 100
+		OrderInterval: 55
+		OrderTrigger: Attack
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+		Upgrades: upgrade.gi_fortifications, upgrade.advanced_training, upgrade.portable_weaponry
+
+ggi:
+	Inherits: ^Infantry
+	Inherits@ADVTRAINING: ^AffectedByAdvancedTraining
+	Inherits@AI: ^AIMicroManagable
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@BOOSTGLIDING: ^AffectedByBoostGlidingSystems
+	Inherits@ENDURANCE: ^AffectedByEnduranceTraining
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@CHAOS: ^BerserkableArmed
+	Inherits@MC: ^MindControllable
+	Inherits@PARACHUTE: ^Parachutable
+	Inherits@PORTABLE: ^AffectedByPortableWeaponry
+	Inherits@VOICES: ^WithFeedbackVoicelines
+	AutoTargetPriority@DEFAULT:
+		RequiresCondition: !stance-attackanything && !assault-move && undeployed && !portable && !ai-control
+	AutoTargetPriority@ATTACKANYTHING:
+		RequiresCondition: (stance-attackanything || assault-move) && undeployed && !portable && !ai-control
+	AutoTargetPriority@AI:
+		RequiresCondition: ai-control && undeployed && !portable
+		ValidTargets: Infantry, Vehicle, TerrorDrone, Water, Underwater, Air, Structure, Defense
+		InvalidTargets: NoAutoTarget
+	AutoTargetPriority@DEFAULT_ALL:
+		RequiresCondition: (!stance-attackanything && !assault-move) && (deployed || portable)
+		ValidTargets: Infantry, Vehicle, TerrorDrone, Water, Underwater, Air, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	AutoTargetPriority@ATTACKANYTHING_ALL:
+		RequiresCondition: (stance-attackanything || assault-move) && (deployed || portable)
+		ValidTargets: Infantry, Vehicle, TerrorDrone, Water, Underwater, Air, Structure, Defense
+		InvalidTargets: NoAutoTarget
+	Buildable:
+		Queue: Infantry.Shared, Infantry.Allies, Infantry.USA, Infantry.UK
+		BuildAtProductionType: Soldier
+		Prerequisites: ~infantry.allies, ~techlevel.1
+		BuildPaletteOrder: 20
+		Description: actor-ggi.description
+		BuildDuration: 175
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 300
+	DeliversCash:
+		Payload: 150
+		Voice: Move
+	Tooltip:
+		Name: actor-ggi.name
+	Tooltip@NoRow:
+		Name: actor-ggi.name
+	Selectable:
+		Bounds: 482, 1448, 0, -530
+	Health:
+		HP: 12500
+	Mobile:
+		Speed: 60
+		RequireForceMoveCondition: !undeployed
+	Garrisoner:
+		Voice: Move
+		CustomPipType: blue
+		GarrisonType: Garrisoner
+	Passenger:
+		CustomPipType: blue
+		RequireForceMoveCondition: !undeployed
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	Crushable:
+		RequiresCondition: !cheater-ai && !vengeful-ai && undeployed
+	Crushable@Cheater:
+		RequiresCondition: cheater-ai && undeployed
+	Crushable@Vengeful:
+		RequiresCondition: vengeful-ai && undeployed
+	Crushable@deployed:
+		WarnProbability: 0
+		CrushClasses: vehicle
+		CrushSound: igensqua.wav
+		RequiresCondition: !undeployed
+	Armament@primary:
+		Weapon: M60
+		Damage: 15
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite && !deployed && !portable
+	Armament@elite:
+		Weapon: M60E
+		Damage: 20
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite && !deployed && !portable
+	Armament@portable:
+		Weapon: MissileLauncher
+		Damage: 40
+		LocalOffset: 480,63,992
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-air
+		RequiresCondition: !rank-elite && portable && !deployed && !boostgliding
+	Armament@elite-portable:
+		Weapon: MissileLauncherE
+		Damage: 80
+		LocalOffset: 480,64,992
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-air
+		RequiresCondition: rank-elite && portable && !deployed && !boostgliding
+	Armament@portable-aa:
+		Weapon: MissileLauncherAA
+		LocalOffset: 480,63,992
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+		RequiresCondition: !rank-elite && portable && !deployed && !boostgliding
+	Armament@elite-portable-aa:
+		Weapon: MissileLauncherAAE
+		LocalOffset: 480,64,992
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+		RequiresCondition: rank-elite && portable && !deployed && !boostgliding
+	Armament@portable-boost:
+		Weapon: MissileLauncherBoosted
+		Damage: 60
+		LocalOffset: 480,63,992
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-air
+		RequiresCondition: !rank-elite && portable && !deployed && boostgliding
+	Armament@elite-portable-boost:
+		Weapon: MissileLauncherBoostedE
+		Damage: 120
+		LocalOffset: 480,64,992
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-air
+		RequiresCondition: rank-elite && portable && !deployed && boostgliding
+	Armament@portable-aa-boost:
+		Weapon: MissileLauncherAABoosted
+		LocalOffset: 480,63,992
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+		RequiresCondition: !rank-elite && portable && !deployed && boostgliding
+	Armament@elite-portable-aa-boost:
+		Weapon: MissileLauncherAABoostedE
+		LocalOffset: 480,64,992
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+		RequiresCondition: rank-elite && portable && !deployed && boostgliding
+	Armament@deployed:
+		Name: deployed
+		Weapon: MissileLauncher
+		Damage: 40
+		Turret: deploy
+		LocalOffset: 480,63,992
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-air
+		RequiresCondition: !rank-elite && deployed && !boostgliding
+	Armament@elite-deployed:
+		Name: deployed
+		Weapon: MissileLauncherE
+		Damage: 80
+		Turret: deploy
+		LocalOffset: 480,64,992
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-air
+		RequiresCondition: rank-elite && deployed && !boostgliding
+	Armament@deployed-aa:
+		Name: deployed
+		Weapon: MissileLauncherAA
+		Turret: deploy
+		LocalOffset: 480,63,992
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+		RequiresCondition: !rank-elite && deployed && !boostgliding
+	Armament@elite-deployed-aa:
+		Name: deployed
+		Weapon: MissileLauncherAAE
+		Turret: deploy
+		LocalOffset: 480,64,992
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+		RequiresCondition: rank-elite && deployed && !boostgliding
+	Armament@deployed-boost:
+		Name: deployed
+		Weapon: MissileLauncherBoosted
+		Damage: 60
+		Turret: deploy
+		LocalOffset: 480,63,992
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-air
+		RequiresCondition: !rank-elite && deployed && boostgliding
+	Armament@elite-deployed-boost:
+		Name: deployed
+		Weapon: MissileLauncherBoostedE
+		Damage: 120
+		Turret: deploy
+		LocalOffset: 480,64,992
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-air
+		RequiresCondition: rank-elite && deployed && boostgliding
+	Armament@deployed-aa-boost:
+		Name: deployed
+		Weapon: MissileLauncherAABoosted
+		Turret: deploy
+		LocalOffset: 480,63,992
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+		RequiresCondition: !rank-elite && deployed && boostgliding
+	Armament@elite-deployed-aa-boost:
+		Name: deployed
+		Weapon: MissileLauncherAABoostedE
+		Turret: deploy
+		LocalOffset: 480,64,992
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+		RequiresCondition: rank-elite && deployed && boostgliding
+	Armament@opentopped:
+		Weapon: MissileLauncher
+		Name: opentopped
+		LocalOffset: 480,63,992
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-air
+		RequiresCondition: !rank-elite && !boostgliding
+	Armament@elite-opentopped:
+		Weapon: MissileLauncherE
+		Name: opentopped
+		LocalOffset: 480,64,992
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-air
+		RequiresCondition: rank-elite && !boostgliding
+	Armament@opentopped-aa:
+		Weapon: MissileLauncherAA
+		Name: opentopped
+		LocalOffset: 480,63,992
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+		RequiresCondition: !rank-elite && !boostgliding
+	Armament@elite-opentopped-aa:
+		Weapon: MissileLauncherAAE
+		Name: opentopped
+		LocalOffset: 480,64,992
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+		RequiresCondition: rank-elite && !boostgliding
+	Armament@opentopped-boost:
+		Weapon: MissileLauncherBoosted
+		Name: opentopped
+		LocalOffset: 480,63,992
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-air
+		RequiresCondition: !rank-elite && boostgliding
+	Armament@elite-opentopped-boost:
+		Weapon: MissileLauncherBoostedE
+		Name: opentopped
+		LocalOffset: 480,64,992
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-air
+		RequiresCondition: rank-elite && boostgliding
+	Armament@opentopped-aa-boost:
+		Weapon: MissileLauncherAABoosted
+		Name: opentopped
+		LocalOffset: 480,63,992
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+		RequiresCondition: !rank-elite && boostgliding
+	Armament@elite-opentopped-aa-boost:
+		Weapon: MissileLauncherAABoostedE
+		Name: opentopped
+		LocalOffset: 480,64,992
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+		RequiresCondition: rank-elite && boostgliding
+	Armament@garrisoned:
+		Name: garrisoned
+		Weapon: UCMissileLauncher
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-air
+		RequiresCondition: !rank-elite && !boostgliding
+	Armament@elite-garrisoned:
+		Name: garrisoned
+		Weapon: UCMissileLauncherE
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-air
+		RequiresCondition: rank-elite && !boostgliding
+	Armament@garrisoned-aa:
+		Name: garrisoned
+		Weapon: UCMissileLauncherAA
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+		RequiresCondition: !rank-elite && !boostgliding
+	Armament@elite-garrisoned-aa:
+		Name: garrisoned
+		Weapon: UCMissileLauncherAAE
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+		RequiresCondition: rank-elite && !boostgliding
+	Armament@garrisoned-boost:
+		Name: garrisoned
+		Weapon: UCMissileLauncherBoosted
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-air
+		RequiresCondition: !rank-elite && boostgliding
+	Armament@elite-garrisoned-boost:
+		Name: garrisoned
+		Weapon: UCMissileLauncherBoostedE
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-air
+		RequiresCondition: rank-elite && boostgliding
+	Armament@garrisoned-aa-boost:
+		Name: garrisoned
+		Weapon: UCMissileLauncherAABoosted
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+		RequiresCondition: !rank-elite && boostgliding
+	Armament@elite-garrisoned-aa-boost:
+		Name: garrisoned
+		Weapon: UCMissileLauncherAABoostedE
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ground
+		RequiresCondition: rank-elite && boostgliding
+	Armament@AIDummyAiming: ## Hack: Make AI GGI deploy to attack air
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: ai-control && !deployed
+		Weapon: AirDummyAim
+	GrantConditionOnDeploy:
+		DeployedCondition: deployed
+		UndeployedCondition: undeployed
+		CanDeployOnRamps: True
+		SmartDeploy: True
+		Facing: 384
+		Voice: Deploy
+		UndeployOnMove: true
+		DeploySounds: iggidepa.wav
+		UndeploySounds: iggidepa.wav
+		PauseOnCondition: chronodisable
+		RequiresCondition: !parachute && !webdisable && !dogstun
+	GrantCondition:
+		Condition: editorhack
+	WithInfantryBody@Editor: # HACK: negative conditions don't count in EnabledByDefault, we can use this duplicate WIB to render it on map editor
+		DefaultAttackSequence: shoot
+		RequiresCondition: !editorhack
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+		RequiresCondition: undeployed && !parachute && !webdisable && !portable
+	WithInfantryBody@PORTABLE:
+		IdleSequences: idle1-portable, idle2-portable
+		MoveSequence: run-portable
+		StandSequences: stand-portable
+		DefaultAttackSequence: shoot-portable
+		RequiresCondition: undeployed && !parachute && !webdisable && portable
+	WithSpriteBody@Parachute:
+		RequiresCondition: parachute && !portable
+	WithSpriteBody@Parachute-PORTABLE:
+		Name: parachute-portable
+		Sequence: paradrop-portable
+		RequiresCondition: parachute && portable
+	WithDeathAnimation@normal:
+		RequiresCondition: !portable
+	WithDeathAnimation@PORTABLE:
+		DeathSequence: die-portable
+		DeathSequencePalette: infantry
+		DeathTypes:
+			ExplosionDeath: 1
+			BulletDeath: 2
+		RequiresCondition: portable
+	Turreted:
+		Turret: deploy
+		RealignDelay: -1
+		TurnSpeed: 1023
+		InitialFacing: 368
+	WithSpriteTurret@idle:
+		Turret: deploy
+		Sequence: deployed
+		RequiresCondition: deployed && !animate-turret && !parachute && !webdisable
+	WithSpriteTurret@animated:
+		Turret: deploy
+		Sequence: shoot-deployed
+		RequiresCondition: deployed && animate-turret && !parachute && !webdisable
+	WithSpriteBody:
+		Sequence: dot
+		Name: dot
+		RequiresCondition: !undeployed
+	WithMakeAnimation:
+		Sequence: deploy
+		BodyNames: dot
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+		RequiresCondition: undeployed
+	AttackTurreted@deployed:
+		Armaments: deployed
+		Turrets: deploy
+		Voice: Attack
+		RequiresCondition: deployed
+		OutsideRangeRequiresForceFire: True
+	GrantConditionOnAttack:
+		Condition: animate-turret
+		RevokeDelay: 5
+		ArmamentNames: deployed
+	RejectsOrders@deployment:
+		Reject: AttackMove, AssaultMove
+		RequiresCondition: !ai-control && deployed && !chaos
+	RejectsMoveToAttack:
+		RequiresCondition: !ai-control && deployed && !chaos
+	TakeCover:
+		RequiresCondition: undeployed
+	Voiced:
+		VoiceSet: GGIVoice
+	ProducibleWithLevel@1:
+		Prerequisites: barracks.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: barracks.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: barracks.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: barracks.infiltrated, baacdm
+		Types: chevron-elite
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	IssueOrderToBot@AI:
+		RequiresCondition: !deployed
+		OrderName: GrantConditionOnDeploy
+		OrderChance: 100
+		OrderInterval: 55
+		OrderTrigger: Attack
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+		Upgrades: upgrade.gi_fortifications, upgrade.advanced_training, upgrade.boost_gliding_systems, upgrade.portable_weaponry
+	ActorStatOverride@deployed:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
+		RequiresCondition: deployed || portable
+
+snipe:
+	Inherits: ^Infantry
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CHAOS: ^BerserkableArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@HIGHCALIBER: ^AffectedByHighCaliberRounds
+	Inherits@MC: ^MindControllable
+	Inherits@VOICES: ^WithFeedbackVoicelines
+	Valued:
+		Cost: 600
+	DeliversCash:
+		Payload: 300
+		Voice: Move
+	Tooltip:
+		Name: actor-snipe.name
+	Tooltip@NoRow:
+		Name: actor-snipe.name
+	Buildable:
+		Queue: Infantry.Shared, Infantry.UK
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 100
+		Prerequisites: ~infantry.england, gaairc, ~techlevel.3
+		Description: actor-snipe.description
+		BuildDuration: 375
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Selectable:
+		Bounds: 482, 1448, 0, -530
+	Health:
+		HP: 7500
+	Garrisoner:
+		Voice: Move
+		CustomPipType: gray
+		GarrisonType: Garrisoner
+	Passenger:
+		CustomPipType: gray
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	Armor:
+		Type: None
+	Armament@primary:
+		Weapon: awp
+		ReloadingCondition: reload-ap
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-at
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: AWPE
+		ReloadingCondition: reload-ap
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-at
+		RequiresCondition: rank-elite
+	Armament@secondary:
+		Weapon: awpat
+		ReloadingCondition: reload-at
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ap
+		RequiresCondition: !rank-elite && highcaliber
+	Armament@secondary-elite:
+		Weapon: awpatE
+		ReloadingCondition: reload-at
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ap
+		RequiresCondition: rank-elite && highcaliber
+	Armament@opentopped:
+		Name: opentopped
+		Weapon: awp
+		ReloadingCondition: reload-ap
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-at
+		RequiresCondition: !rank-elite
+	Armament@elite-opentopped:
+		Name: opentopped
+		Weapon: AWPE
+		ReloadingCondition: reload-ap
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-at
+		RequiresCondition: rank-elite
+	Armament@secondary-opentopped:
+		Name: opentopped
+		Weapon: awpat
+		ReloadingCondition: reload-at
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ap
+		RequiresCondition: !rank-elite && highcaliber
+	Armament@secondary-elite-opentopped:
+		Name: opentopped
+		Weapon: awpatE
+		ReloadingCondition: reload-at
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ap
+		RequiresCondition: rank-elite && highcaliber
+	Armament@garrisoned:
+		Name: garrisoned
+		Weapon: UCawp
+		ReloadingCondition: reload-ap
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-at
+		RequiresCondition: !rank-elite
+	Armament@elite-garrisoned:
+		Name: garrisoned
+		Weapon: UCAWPE
+		ReloadingCondition: reload-ap
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-at
+		RequiresCondition: rank-elite
+	Armament@secondary-garrisoned:
+		Name: garrisoned
+		Weapon: UCawpat
+		ReloadingCondition: reload-at
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ap
+		RequiresCondition: !rank-elite && highcaliber
+	Armament@secondary-elite-garrisoned:
+		Name: garrisoned
+		Weapon: UCawpatE
+		ReloadingCondition: reload-at
+		PauseOnCondition: chronodisable || webdisable || dogstun || reload-ap
+		RequiresCondition: rank-elite && highcaliber
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+		TargetFrozenActors: true
+	Voiced:
+		VoiceSet: SniperVoice
+	ProducibleWithLevel@1:
+		Prerequisites: barracks.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: barracks.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: barracks.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: barracks.infiltrated, baacdm
+		Types: chevron-elite
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+		Damage: 200
+
+spy:
+	Inherits: ^Infantry
+	Inherits@SWIMSUITPARACHUTE: ^WithSwimSuitAndParachute
+	Inherits@VOICES: ^WithFeedbackVoicelines
+	Buildable:
+		Queue: Infantry.Shared, Infantry.Allies, Infantry.USA, Infantry.UK
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 80
+		Prerequisites: ~infantry.allies, gaairc, ~techlevel.3
+		Description: actor-spy.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 500
+	DeliversCash:
+		Payload: 250
+		Voice: Move
+	-Tooltip:
+	-Tooltip@NoRow:
+	DisguiseTooltip:
+		Name: actor-spy.name
+		GenericName: meta-infantry.name
+		RequiresCondition: showownername
+	DisguiseTooltip@NoRow:
+		Name: actor-spy.name
+		GenericName: meta-infantry.name
+		ShowOwnerRow: false
+		RequiresCondition: !showownername
+	Selectable:
+		Bounds: 579, 1351, -24, -386
+	Health:
+		HP: 10000
+	Mobile:
+		Locomotor: swimsuit
+	Garrisoner:
+		Voice: Move
+		CustomPipType: yellow
+		GarrisonType: Garrisoner
+	Passenger:
+		CustomPipType: yellow
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	TakeCover:
+	Disguise:
+		DisguisedCondition: disguise
+		DisguisedAsConditions:
+			dog: swim-disguise
+			engineer: swim-disguise
+			mengineer: swim-disguise
+			ghost: swim-disguise
+			spy: swim-disguise
+			sspy: swim-disguise
+			hjck: swim-disguise
+			tany: swim-disguise
+			boris: swim-disguise
+			yurix: swim-disguise-yuri
+	Infiltrates:
+		Types: SpyInfiltrate
+	-WithInfantryBody:
+	WithDisguisingInfantryBody:
+		IdleSequences: idle1,idle2
+		StandSequences: stand
+		RequiresCondition: !parachute && !webdisable && !swimming
+	WithInfantryBody@Water:
+		RequiresCondition: !parachute && !webdisable && swimming && !swim-disguise && !swim-disguise-yuri
+	WithDisguisingInfantryBody@water:
+		Name: swim
+		IdleSequences: swim-idle1,swim-idle2
+		MoveSequence: swim-run
+		StandSequences: swim-stand
+		RequiresCondition: !parachute && !webdisable && swimming && (swim-disguise || swim-disguise-yuri)
+	WithDecoration@disguise:
+		Image: pips
+		Sequence: pip-disguise
+		Palette: pips
+		Position: TopRight
+		RequiresCondition: disguise
+	LeavesTrails:
+		Image: wake
+		Palette: effect50alpha
+		TerrainTypes: Water, Beach
+		StationaryInterval: 18
+		MovingInterval: 6
+		RequiresCondition: !parachute && !webdisable && swimming && swim-disguise-yuri
+	Voiced:
+		VoiceSet: SpyVoice
+	Guard:
+		Voice: Action
+	AttackMove:
+		Voice: Action
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	ActorStatValues:
+		Stats: Armor, Sight, Speed
+
+ghost:
+	Inherits: ^Infantry
+	Inherits@ADVTRAINING: ^AffectedByAdvancedTraining
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CHAOS: ^BerserkableArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllable
+	Inherits@SWIMSUIT: ^WithSwimSuit
+	Buildable:
+		Queue: Infantry.Shared, Infantry.USA
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 100
+		Prerequisites: ~infantry.america, gaairc, ~techlevel.3
+		Description: actor-ghost.description
+		BuildDuration: 375
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 800
+	DeliversCash:
+		Payload: 400
+		Voice: Move
+	Tooltip:
+		Name: actor-ghost.name
+	Tooltip@NoRow:
+		Name: actor-ghost.name
+	Selectable:
+		Bounds: 482, 1448, 0, -530
+	Health:
+		HP: 12500
+	Garrisoner:
+		Voice: Move
+		CustomPipType: gray
+		GarrisonType: Garrisoner
+	Passenger:
+		CustomPipType: gray
+	Mobile:
+		Speed: 75
+		Locomotor: swimsuit
+	RevealsShroud:
+		Range: 8c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 8c0
+	RevealOnDeath:
+		Radius: 8c0
+	Armor:
+		Type: Flak
+	Armament@primary:
+		Weapon: MP5
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: MP5E
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@opentopped:
+		Name: opentopped
+		Weapon: MP5
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-opentopped:
+		Name: opentopped
+		Weapon: MP5E
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@sapper:
+		Weapon: SealC4Attacher
+		Cursor: c4
+		OutsideRangeCursor: c4
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@sapper-elite:
+		Weapon: SealC4AttacherE
+		Cursor: c4
+		OutsideRangeCursor: c4
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@garrisoned:
+		Name: garrisoned
+		Weapon: UCMP5
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-garrisoned:
+		Name: garrisoned
+		Weapon: UCMP5E
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+		PauseOnCondition: chronodisable || webdisable || dogstun
+	RenderSprites:
+		Image: seal
+	Voiced:
+		VoiceSet: SealVoice
+	ProducibleWithLevel@1:
+		Prerequisites: barracks.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: barracks.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: barracks.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: barracks.infiltrated, baacdm
+		Types: chevron-elite
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+		RequiresCondition: !swimming && !webdisable
+	TakeCover:
+		RequiresCondition: !swimming
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+		Armaments: primary
+		Damage: 70
+
+ccomand:
+	Inherits: ghost
+	Buildable:
+		Queue: Infantry.Shared, Infantry.Allies, Infantry.USA, Infantry.UK
+		BuildPaletteOrder: 960
+		Prerequisites: ~infantry.allies, ~allies.tech.infiltrated, ~techlevel.4
+		Description: actor-ccomand.description
+		BuildDuration: 375
+		BuildDurationModifier: 100
+	Tooltip:
+		Name: actor-ccomand.name
+	Tooltip@NoRow:
+		Name: actor-ccomand.name
+	Valued:
+		Cost: 1500
+	DeliversCash:
+		Payload: 750
+	Health:
+		HP: 12500
+	Mobile:
+		Locomotor: foot
+	Crushable:
+		CrushClasses: vehicle
+	Crushable@Cheater:
+		CrushClasses: vehicle
+	Crushable@Vengeful:
+		CrushClasses: vehicle
+	Armament@sapper:
+		Weapon: CommandoC4Attacher
+	Armament@sapper-elite:
+		Weapon: CommandoC4AttacherE
+	PortableChronoRA2:
+		ChronoshiftSound: ichrmova.wav
+		DeployCursor: chronosphere
+		DeployBlockedCursor: chronosphere
+		Voice: Move
+		ChargeDelay: 120
+		HasDistanceLimit: false
+		TargetCursor: chronosphere
+		TeleportCondition: chronoed
+		ConditionDuration: 120
+		PauseOnCondition: affectedbytemporal
+	Contrail@Teleport: ##HACK: add a trace for teleport. 
+		Offset: 0, 0, 700
+		StartColor: 00F0F8AA
+		StartColorAlpha: 176
+		StartColorUsePlayerColor: false
+		ZOffset: -1024
+		StartWidth: 36
+		TrailLength: 2
+	GrantCondition@ChronoDisable:
+		RequiresCondition: affectedbytemporal || chronoed
+	Chronoshiftable:
+		ExplodeInstead: false
+	WithInfantryBody:
+		RequiresCondition: !webdisable
+	WithDeathAnimation@normal:
+		-RequiresCondition:
+	WithDeathAnimation@effect:
+		-RequiresCondition:
+	TakeCover:
+		-RequiresCondition:
+	-GrantConditionOnTerrain@Water:
+	-WithInfantryBody@Water:
+	-WithDeathAnimation@Water:
+	-Targetable@WaterBorne:
+	RenderSprites:
+		Image: ccomand
+
+ptroop:
+	Inherits: yuri
+	Inherits@MASTERYOFMIND: ^AffectedByMasteryOfMind
+	Buildable:
+		Queue: Infantry.Shared, Infantry.Allies, Infantry.USA, Infantry.UK
+		BuildPaletteOrder: 990
+		Prerequisites: ~infantry.allies, ~yuri.tech.infiltrated, ~techlevel.4
+		Description: actor-ptroop.description
+		BuildDuration: 375
+	Buildable@Yuri:
+		Queue: Infantry.Shared, Infantry.Yuri, Infantry.Moon
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 970
+		Prerequisites: ~infantry.yuri, ~allies.tech.infiltrated, ~techlevel.4
+		Description: actor-ptroop.description
+		BuildDuration: 375
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 1500
+	DeliversCash:
+		Payload: 750
+	Tooltip:
+		Name: actor-ptroop.name
+	Tooltip@NoRow:
+		Name: actor-ptroop.name
+	Armament@sapper:
+		Name: sapper
+		Weapon: CommandoC4Attacher
+		Cursor: c4
+		OutsideRangeCursor: c4
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@sapper-elite:
+		Name: sapper
+		Weapon: CommandoC4AttacherE
+		Cursor: c4
+		OutsideRangeCursor: c4
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	AttackFrontal:
+		Armaments: primary, sapper
+	PeriodicExplosion:
+		RequiresCondition: deployed && !masteryofmind && !chronodisable && !webdisable && !dogstun
+	PeriodicExplosion@Mastery:
+		Weapon: PsiWaveMastery
+		RequiresCondition: deployed && masteryofmind && !chronodisable && !webdisable && !dogstun
+	Selectable:
+		Class: ptroop
+	RenderSprites:
+		Image: ptroop
+	ActorStatValues:
+		Armaments: primary
+
+tany:
+	Inherits: ^Infantry
+	Inherits@ADVTRAINING: ^AffectedByAdvancedTraining
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@SWIMSUIT: ^WithSwimSuit
+	Inherits@VOICES: ^WithFeedbackVoicelines
+	Buildable:
+		Queue: Infantry.Shared, Infantry.Allies, Infantry.USA, Infantry.UK
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 160
+		Prerequisites: ~infantry.allies, gatech, ~techlevel.4
+		BuildLimit: 1
+		Description: actor-tany.description
+		BuildDuration: 1125
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 2000
+	DeliversCash:
+		Payload: 1000
+		Voice: Move
+	Tooltip:
+		Name: actor-tany.name
+	Tooltip@NoRow:
+		Name: actor-tany.name
+	Selectable:
+		Bounds: 482, 1448, 0, -530
+	Health:
+		HP: 15000
+	Garrisoner:
+		Voice: Move
+		CustomPipType: red
+		GarrisonType: Garrisoner
+	Passenger:
+		CustomPipType: red
+	Mobile:
+		Speed: 75
+		Locomotor: swimsuit
+		RequiresCondition: !chronodisable && !webdisable
+	RevealsShroud:
+		Range: 8c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 8c0
+	RevealOnDeath:
+		Radius: 8c0
+	Demolition:
+		TargetRelationships: Enemy
+		Voice: Demolish
+		DamageTypes: NonTemporal
+	Armor:
+		Type: Flak
+	Crushable:
+		CrushClasses: vehicle
+	Crushable@Cheater:
+		CrushClasses: vehicle
+	Crushable@Vengeful:
+		CrushClasses: vehicle
+	ChangesHealth:
+		PercentageStep: 1
+		Step: 0
+		Delay: 100
+		DamageCooldown: 100
+		StartIfBelow: 100
+	ProvidesPrerequisite@default:
+	Armament@primary:
+		Weapon: DoublePistols
+		PauseOnCondition: chronodisable || webdisable
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: DoublePistolsE
+		PauseOnCondition: chronodisable || webdisable
+		RequiresCondition: rank-elite
+	Armament@opentopped:
+		Name: opentopped
+		Weapon: DoublePistols
+		PauseOnCondition: chronodisable || webdisable
+		RequiresCondition: !rank-elite
+	Armament@elite-opentopped:
+		Name: opentopped
+		Weapon: DoublePistolsE
+		PauseOnCondition: chronodisable || webdisable
+		RequiresCondition: rank-elite
+	Armament@sapper:
+		Weapon: TanyaC4Attacher
+		Cursor: c4
+		OutsideRangeCursor: c4
+		PauseOnCondition: chronodisable || webdisable
+	Armament@garrisoned:
+		Name: garrisoned
+		Weapon: UCDoublePistols
+		PauseOnCondition: chronodisable || webdisable
+		RequiresCondition: !rank-elite
+	Armament@elite-garrisoned:
+		Name: garrisoned
+		Weapon: UCDoublePistolsE
+		PauseOnCondition: chronodisable || webdisable
+		RequiresCondition: rank-elite
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	NotificationAnnouncement:
+		RequiresCondition: produced
+		Notification: LetsRockAndRoll
+	Voiced:
+		VoiceSet: TanyaVoice
+	ProducibleWithLevel@1:
+		Prerequisites: barracks.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: barracks.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: barracks.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: barracks.infiltrated, baacdm
+		Types: chevron-elite
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+		RequiresCondition: !swimming && !webdisable
+	-TakeCover:
+	-WithColoredOverlay@IDISABLE:
+	-GrantCondition@IDISABLE:
+	-SpeedMultiplier@DOGSTUN:
+	-Targetable@DOGSTUN:
+	-TimedConditionBar@DOGSTUN:
+	-ExternalCondition@dogstun:
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+		Damage: 125
+
+jumpjet:
+	Inherits: ^JumpjetInfantry
+	Inherits@ADVTRAINING: ^AffectedByAdvancedTraining
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@VOICES: ^WithFeedbackVoicelines
+	HiddenUnderFog:
+		Type: CenterPosition
+	Buildable:
+		Queue: Infantry.Shared, Infantry.Allies, Infantry.USA, Infantry.UK
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 60
+		Prerequisites: ~infantry.allies, gaairc, ~techlevel.2
+		Description: actor-jumpjet.description
+		BuildDuration: 375
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 450
+	Tooltip:
+		Name: actor-jumpjet.name
+	Tooltip@NoRow:
+		Name: actor-jumpjet.name
+	Selectable:
+		Bounds: 482, 1448, 0, -530
+	Health:
+		HP: 12500
+	RevealsShroud:
+		Range: 8c0
+	RevealsShroud@Ground:
+		Range: 8c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 8c0
+	Armor:
+		Type: Light
+	Armament@primary:
+		Weapon: 20mm
+		Damage: 25
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || reload-air
+		RequiresCondition: !rank-elite
+	Armament@primary-aa:
+		Weapon: 20mmAA
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || reload-ground
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: 20mmE
+		Damage: 50
+		ReloadingCondition: reload-ground
+		PauseOnCondition: chronodisable || reload-air
+		RequiresCondition: rank-elite
+	Armament@elite-aa:
+		Weapon: 20mmAAE
+		ReloadingCondition: reload-air
+		PauseOnCondition: chronodisable || reload-ground
+		RequiresCondition: rank-elite
+	AttackAircraft:
+		Voice: Attack
+		FacingTolerance: 2
+		AttackType: Hover
+	WithInfantryBody:
+		RequiresCondition: !airborne
+	WithInfantryBody@Air:
+		StandSequences: fly
+		MoveSequence: fly
+		DefaultAttackSequence: shoot-air
+		IdleSequences: idle-air
+		RequiresCondition: airborne
+	Voiced:
+		VoiceSet: RocketeerVoice
+	# AmbientSound:
+	#	SoundFiles: iroclo2a.wav, iroclo2b.wav, iroclo2c.wav
+	#	Volume: 0.25
+	#	RequiresCondition: moving
+	# GrantConditionOnMovement:
+	#	Condition: moving
+	ProducibleWithLevel@1:
+		Prerequisites: barracks.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: barracks.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: barracks.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: barracks.infiltrated, baacdm
+		Types: chevron-elite
+	SpawnActorOnDeath:
+		Actor: jumpjet.husk
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
+
+jumpjet.husk:
+	Inherits: ^HelicopterHusk
+	Inherits@1: ^SpriteActor
+	WithFacingSpriteBody:
+	-RenderVoxels:
+	-WithVoxelBody:
+	Tooltip:
+		Name: actor-jumpjet.name
+	Tooltip@NoRow:
+		Name: actor-jumpjet.name
+	Aircraft:
+		TurnSpeed: 40
+		Speed: 180
+	FallsToEarth:
+		Explosion: InfantryExplode
+	RevealsShroud:
+		Range: 8c0
+		Type: GroundPosition
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 8c0
+	#	Types: SatelliteScan
+	#	Type: GroundPosition
+	RevealOnDeath:
+		Radius: 8c0
+		Duration: 125
+	WithSpriteBody@shadow:
+		Name: shadow
+		Sequence: shadow
+		ForceToGround: true
+
+jumpjet.spawner:
+	Inherits: ^Infantry
+	FreeActor:
+		Actor: jumpjet
+		Facing: 640
+	KillsSelf:
+		RemoveInstead: true
+	-MapEditorData:
+	RenderSprites:
+		Image: jumpjet
+
+cleg:
+	Inherits: ^Infantry
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CHAOS: ^BerserkableArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllable
+	Inherits@VOICES: ^WithFeedbackVoicelines
+	Selectable:
+		Bounds: 482, 1448, 0, -530
+	Tooltip:
+		Name: actor-cleg.name
+	Tooltip@NoRow:
+		Name: actor-cleg.name
+	Buildable:
+		Queue: Infantry.Shared, Infantry.Allies, Infantry.USA, Infantry.UK
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 140
+		Prerequisites: ~infantry.allies, gatech, ~techlevel.4
+		Description: actor-cleg.description
+		BuildDuration: 500
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	ProducibleWithLevel@1:
+		Prerequisites: barracks.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: barracks.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: barracks.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: barracks.infiltrated, baacdm
+		Types: chevron-elite
+	Valued:
+		Cost: 1200
+	DeliversCash:
+		Payload: 600
+		Voice: Move
+	Health:
+		HP: 12500
+	Garrisoner:
+		Voice: Move
+		GarrisonType: Garrisoner
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	Passenger:
+	-TakeCover:
+	PortableChronoRA2:
+		ChronoshiftSound: ichrmova.wav
+		DeployCursor: chronosphere
+		DeployBlockedCursor: chronosphere
+		Voice: Move
+		ChargeDelay: 120
+		HasDistanceLimit: false
+		TargetCursor: chronosphere
+		TeleportCondition: chronoed
+		ConditionDuration: 120
+		PauseOnCondition: affectedbytemporal
+	Contrail@Teleport: ##HACK: add a trace for teleport. 
+		Offset: 0, 0, 700
+		StartColor: 00F0F8AA
+		StartColorAlpha: 176
+		StartColorUsePlayerColor: false
+		ZOffset: -1024
+		StartWidth: 36
+		TrailLength: 2
+	Chronoshiftable:
+		ExplodeInstead: false
+	Voiced:
+		VoiceSet: ChronoLegionnaireVoice
+	Armament@primary:
+		Weapon: NeutronRifle
+		LocalOffset: 512,0,384
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: NeutronRifleE
+		LocalOffset: 512,0,384
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@sound:
+		Weapon: NeutronRifleSound
+		LocalOffset: 512,0,384
+		PauseOnCondition: chronodisable || webdisable || dogstun
+	Armament@opentopped:
+		Name: opentopped
+		Weapon: NeutronRifle
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-opentopped:
+		Name: opentopped
+		Weapon: NeutronRifleE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@sound-opentopped:
+		Name: opentopped
+		Weapon: NeutronRifleSound
+		PauseOnCondition: chronodisable || webdisable || dogstun
+	Armament@garrisoned:
+		Name: garrisoned
+		Weapon: UCNeutronRifle
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !rank-elite
+	Armament@elite-garrisoned:
+		Name: garrisoned
+		Weapon: UCNeutronRifleE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: rank-elite
+	Armament@sound-garrisoned:
+		Name: garrisoned
+		Weapon: UCNeutronRifleSound
+		PauseOnCondition: chronodisable || webdisable || dogstun
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+	GrantCondition@ChronoDisable:
+		RequiresCondition: affectedbytemporal || chronoed
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+
+# Custom Allied Infantry:
+gren:
+	Inherits: ^Infantry
+	Inherits@ADVTRAINING: ^AffectedByAdvancedTraining
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CHAOS: ^BerserkableArmed
+	Inherits@EMPAMMO: ^AffectedByEMPMunitions
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllable
+	Inherits@PARACHUTE: ^Parachutable
+	Buildable:
+		Queue: Infantry.Shared, Infantry.Allies, Infantry.USA, Infantry.UK
+		BuildAtProductionType: Soldier
+		Prerequisites: ~infantry.allies, gaairc, ~techlevel.2
+		BuildPaletteOrder: 70
+		Description: actor-gren.description
+		BuildDuration: 175
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 250
+	DeliversCash:
+		Payload: 125
+		Voice: Move
+	Tooltip:
+		Name: actor-gren.name
+	Tooltip@NoRow:
+		Name: actor-gren.name
+	Selectable:
+		Bounds: 482, 1448, 0, -530
+	Health:
+		HP: 12500
+	Armor:
+		Type: Flak
+	Mobile:
+		Speed: 75
+	Garrisoner:
+		Voice: Move
+		GarrisonType: Garrisoner
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+	Armament@primary:
+		Weapon: Grenade
+		Damage: 80
+		FireDelay: 5
+		LocalOffset: 64,0,512
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !empammo && !rank-elite
+	Armament@primary-emp:
+		Weapon: GrenadeEMP
+		Damage: 80
+		FireDelay: 5
+		LocalOffset: 64,0,512
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: empammo && !rank-elite
+	Armament@elite:
+		Weapon: GrenadeE
+		Damage: 100
+		FireDelay: 5
+		LocalOffset: 64,0,512
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !empammo && rank-elite
+	Armament@elite-emp:
+		Weapon: GrenadeEMPE
+		Damage: 100
+		FireDelay: 5
+		LocalOffset: 64,0,512
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: empammo && rank-elite
+	Armament@opentopped:
+		Name: opentopped
+		Weapon: Grenade
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !empammo && !rank-elite
+	Armament@opentopped-emp:
+		Name: opentopped
+		Weapon: GrenadeEMP
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: empammo && !rank-elite
+	Armament@elite-opentopped:
+		Name: opentopped
+		Weapon: GrenadeE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !empammo && rank-elite
+	Armament@elite-opentopped-emp:
+		Name: opentopped
+		Weapon: GrenadeEMPE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: empammo && rank-elite
+	Armament@garrisoned:
+		Name: garrisoned
+		Weapon: UCGrenade
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !empammo && !rank-elite
+	Armament@garrisoned-emp:
+		Name: garrisoned
+		Weapon: UCGrenadeEMP
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: empammo && !rank-elite
+	Armament@elite-garrisoned:
+		Name: garrisoned
+		Weapon: UCGrenadeE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: !empammo && rank-elite
+	Armament@elite-garrisoned-emp:
+		Name: garrisoned
+		Weapon: UCGrenadeEMPE
+		PauseOnCondition: chronodisable || webdisable || dogstun
+		RequiresCondition: empammo && rank-elite
+	WithInfantryBody:
+		RequiresCondition: !parachute && !webdisable && !empammo
+	WithInfantryBody@EMPAMMO:
+		IdleSequences: idle1-empammo, idle2-empammo
+		MoveSequence: run-empammo
+		StandSequences: stand-empammo
+		DefaultAttackSequence: shoot-empammo
+		RequiresCondition: !parachute && !webdisable && empammo
+	WithSpriteBody@Parachute:
+		RequiresCondition: parachute && !empammo
+	WithSpriteBody@Parachute-EMPAMMO:
+		Name: parachute-empammo
+		Sequence: paradrop-empammo
+		RequiresCondition: parachute && empammo
+	WithDeathAnimation@normal:
+		RequiresCondition: !empammo
+	WithDeathAnimation@EMPAMMO:
+		DeathSequence: die-empammo
+		DeathSequencePalette: infantry
+		DeathTypes:
+			ExplosionDeath: 1
+			BulletDeath: 2
+		RequiresCondition: empammo
+	Voiced:
+		VoiceSet: GrenadierVoice
+		Volume: 6
+	ProducibleWithLevel@1:
+		Prerequisites: barracks.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: barracks.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: barracks.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: barracks.infiltrated, baacdm
+		Types: chevron-elite
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+		Upgrades: upgrade.advanced_training, upgrade.emp_munitions

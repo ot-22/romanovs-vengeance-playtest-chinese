@@ -1,0 +1,134 @@
+CycleBase: H
+	Description: 转到基地
+	Types: World
+	Contexts: Player, Spectator
+
+ToLastEvent: SPACE
+	Description: 转到最后一次雷达事件
+	Types: World
+	Contexts: Player, Spectator
+
+ToSelection: HOME
+	Description: 转到所选单位
+	Types: World
+	Contexts: Player, Spectator
+
+SelectAllUnits: Q
+	Description: 选择所有战斗单位
+	Types: World
+	Contexts: Player, Spectator
+
+SelectUnitsByType: W
+	Description: 选择所有同类单位
+	Types: World
+	Contexts: Player, Spectator
+
+CycleHarvesters: N
+	Description:  循环选择矿车
+	Types: World
+	Contexts: Player, Spectator
+
+Pause: PAUSE
+	Description: 暂停/取消暂停
+	Types: World
+	Contexts: Player, Spectator
+
+Sell: Z
+	Description: 出售
+	Types: OrderGenerator
+	Contexts: Player
+
+Repair: C
+	Description: 维修
+	Types: OrderGenerator
+	Contexts: Player
+
+PlaceBeacon: B
+	Description: 放置信标
+	Types: OrderGenerator
+	Contexts: Player
+
+CycleStatusBars: COMMA
+	Description: 依生命值浏览单位
+	Types: World
+	Contexts: Player, Spectator
+
+ToggleMute: M
+	Description: 静音/取消静音
+	Types: World
+	Contexts: Menu, Player, Spectator
+
+TogglePlayerStanceColor: COMMA Ctrl
+	Description: 启用敌友颜色模式
+	Types: World
+	Contexts: Player, Spectator
+
+TakeScreenshot: P Ctrl
+	Description: 截图
+	Types: World
+	Contexts: Menu, Player, Spectator
+
+AttackMove: A
+	Description: 移动攻击
+	Types: Unit
+	Contexts: Player
+
+Stop: S
+	Description: 停止
+	Types: Unit
+	Contexts: Player
+
+Scatter: X Ctrl
+	Description: 分散
+	Types: Unit
+	Contexts: Player
+
+Deploy: F
+	Description: 部署
+	Types: Unit
+	Contexts: Player
+
+Guard: D
+	Description: 警戒
+	Types: Unit
+	Contexts: Player
+
+StanceAttackAnything: A Alt
+	Description: 侵略姿态
+	Types: Stance
+	Contexts: Player
+
+StanceDefend: S Alt
+	Description: 防御姿态
+	Types: Stance
+	Contexts: Player
+
+StanceReturnFire: D Alt
+	Description: 固守姿态
+	Types: Stance
+	Contexts: Player
+
+StanceHoldFire: F Alt
+	Description: 停火姿态
+	Types: Stance
+	Contexts: Player
+
+StopMusic: AUDIOSTOP
+	Description: 暂停
+	Types: Music
+	Contexts: Menu, Player, Spectator
+
+PauseMusic: AUDIOPLAY
+	Description: 暂停/继续
+	Types: Music
+	Contexts: Menu, Player, Spectator
+
+PrevMusic: AUDIOPREV
+	Description: 上一首
+	Types: Music
+	Contexts: Menu, Player, Spectator
+
+NextMusic: AUDIONEXT
+	Description: 下一首
+	Types: Music
+	Contexts: Menu, Player, Spectator

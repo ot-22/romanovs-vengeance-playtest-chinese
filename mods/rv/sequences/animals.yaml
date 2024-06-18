@@ -1,0 +1,218 @@
+cow:
+	Defaults:
+		Filename: conquer|cow.shp
+	stand:
+		Facings: 8
+		ShadowStart: 116
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+		ShadowStart: 124
+		Tick: 120
+	idle1:
+		Start: 56
+		Length: 15
+		ShadowStart: 172
+		Tick: 100
+	idle2:
+		Start: 71
+		Length: 15
+		ShadowStart: 187
+		Tick: 100
+	die1:
+		Start: 86
+		Length: 15
+		ShadowStart: 202
+	die2:
+		Start: 101
+		Length: 15
+		ShadowStart: 217
+	icon:
+		Filename: bits/cameos/cowicon.png
+
+all:
+	Defaults:
+		Filename: conquer|all.shp
+	stand:
+		Facings: 8
+		ShadowStart: 164
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+		ShadowStart: 172
+		Tick: 120
+	shoot:
+		Start: 116
+		Length: 6
+		Facings: 8
+		ShadowStart: 280
+	idle1:
+		Start: 56
+		Length: 15
+		ShadowStart: 220
+	idle2:
+		Start: 71
+		Length: 15
+		ShadowStart: 235
+	die1:
+		Start: 86
+		Length: 15
+		ShadowStart: 250
+	die2:
+		Start: 101
+		Length: 15
+		ShadowStart: 265
+	icon:
+		Filename: bits/cameos/gtoricon.shp
+
+polarb:
+	Defaults:
+		Filename: conquer|polarb.shp
+	stand:
+		Facings: 8
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+		Tick: 120
+	shoot:
+		Start: 116
+		Length: 6
+		Facings: 8
+	idle1:
+		Start: 56
+		Length: 15
+	idle2:
+		Start: 71
+		Length: 15
+	die1:
+		Start: 86
+		Length: 15
+	die2:
+		Start: 101
+		Length: 15
+	die4:
+		Filename: nukedie.shp
+		Length: *
+		Tick: 50
+	die5:
+		Filename: yuridie.shp
+		Length: *
+		Tick: 80
+	die6:
+		Filename: electro.shp
+		Length: *
+		Tick: 80
+	die7:
+		Filename: virusd.shp
+		Length: *
+		Tick: 80
+	die8:
+		Filename: brutdie.shp
+		Length: *
+		Tick: 80
+	die9:
+		Filename: gendeath.shp
+		Length: *
+		Tick: 80
+	die10:
+		Filename: gendeath.shp
+		Length: *
+		Tick: 80
+	icon:
+		Filename: bits/cameos/plbricon.shp
+
+josh:
+	Defaults:
+		Filename: conquer|josh.shp
+	stand:
+		Facings: 8
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+		Tick: 120
+	shoot:
+		Start: 116
+		Length: 6
+		Facings: 8
+	idle1:
+		Start: 56
+		Length: 15
+	idle2:
+		Start: 71
+		Length: 15
+	die1:
+		Start: 86
+		Length: 15
+	die2:
+		Start: 101
+		Length: 15
+	die4:
+		Filename: nukedie.shp
+		Length: *
+		Tick: 50
+	die5:
+		Filename: yuridie.shp
+		Length: *
+		Tick: 80
+	die6:
+		Filename: electro.shp
+		Length: *
+		Tick: 80
+	die7:
+		Filename: virusd.shp
+		Length: *
+		Tick: 80
+	die8:
+		Filename: brutdie.shp
+		Length: *
+		Tick: 80
+	die9:
+		Filename: gendeath.shp
+		Length: *
+		Tick: 80
+	die10:
+		Filename: gendeath.shp
+		Length: *
+		Tick: 80
+	icon:
+		Filename: bits/cameos/joshicon.png
+
+# Yuri's Revenge Animals
+caml:
+	Defaults:
+		Filename: conqmd|caml.shp
+	stand:
+		Facings: 8
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+		Tick: 120
+	idle1:
+		Start: 56
+		Length: 15
+		Tick: 100
+	idle2:
+		Start: 71
+		Length: 15
+		Tick: 100
+	die1:
+		Start: 86
+		Length: 15
+	die2:
+		Start: 101
+		Length: 15
+	icon:
+		Filename: bits/cameos/camlicon.png
+
+# Custom Animals
+gbear:
+	Inherits: polarb
+	Defaults:
+		Filename: bits/infantry/gbear.shp
+	icon:
+		Filename: bits/cameos/grbricon.shp

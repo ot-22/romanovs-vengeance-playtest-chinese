@@ -1,0 +1,671 @@
+babarr:
+	Inherits: ^Barracks
+	Inherits@SHAPE: ^3x2Shape
+	Buildable:
+		Queue: Building.Shared, Building.Baku
+		Description: actor-babarr.description
+		Prerequisites: ~building.baku, power, ~techlevel.1
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	RallyPoint:
+		Path: 2,3
+	Exit@1Shared:
+		SpawnOffset: 0,768,0
+		ExitCell: 2,2
+		Priority: 2
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@2Shared:
+		SpawnOffset: -694,-196,0
+		ExitCell: 0,2
+		Priority: 2
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback1Shared:
+		SpawnOffset: -384,512,0
+		ExitCell: 1,2
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback2Shared:
+		SpawnOffset: 384,768,0
+		ExitCell: 3,1
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback3Shared:
+		SpawnOffset: 1086,362,0
+		ExitCell: 3,0
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback4Shared:
+		SpawnOffset: 1086,362,0
+		ExitCell: 3,-1
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback5Shared:
+		SpawnOffset: 1086,362,0
+		ExitCell: 2,-1
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback6Shared:
+		SpawnOffset: 362,-362,0
+		ExitCell: 1,-1
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback7Shared:
+		SpawnOffset: -362,-1086,0
+		ExitCell: 0,-1
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback8Shared:
+		SpawnOffset: -362,-1086,0
+		ExitCell: -1,-1
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback9Shared:
+		SpawnOffset: -362,-1086,0
+		ExitCell: -1,0
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback10Shared:
+		SpawnOffset: -1086,-362,0
+		ExitCell: -1,1
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback11Shared:
+		SpawnOffset: -1086,-362,0
+		ExitCell: -1,2
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback12Shared:
+		SpawnOffset: 384,768,0
+		ExitCell: 3,2
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@1:
+		SpawnOffset: 0,768,0
+		ExitCell: 2,2
+		Priority: 2
+		RequiresCondition: multiqueue
+	Exit@2:
+		SpawnOffset: -694,-196,0
+		ExitCell: 0,2
+		Priority: 2
+		RequiresCondition: multiqueue
+	Exit@fallback1:
+		SpawnOffset: -384,512,0
+		ExitCell: 1,2
+		RequiresCondition: multiqueue
+	Exit@fallback2:
+		SpawnOffset: 384,768,0
+		ExitCell: 3,1
+		RequiresCondition: multiqueue
+	Exit@fallback3:
+		SpawnOffset: 1086,362,0
+		ExitCell: 3,0
+		RequiresCondition: multiqueue
+	Exit@fallback4:
+		SpawnOffset: 1086,362,0
+		ExitCell: 3,-1
+		RequiresCondition: multiqueue
+	Exit@fallback5:
+		SpawnOffset: 1086,362,0
+		ExitCell: 2,-1
+		RequiresCondition: multiqueue
+	Exit@fallback6:
+		SpawnOffset: 362,-362,0
+		ExitCell: 1,-1
+		RequiresCondition: multiqueue
+	Exit@fallback7:
+		SpawnOffset: -362,-1086,0
+		ExitCell: 0,-1
+		RequiresCondition: multiqueue
+	Exit@fallback8:
+		SpawnOffset: -362,-1086,0
+		ExitCell: -1,-1
+		RequiresCondition: multiqueue
+	Exit@fallback9:
+		SpawnOffset: -362,-1086,0
+		ExitCell: -1,0
+		RequiresCondition: multiqueue
+	Exit@fallback10:
+		SpawnOffset: -1086,-362,0
+		ExitCell: -1,1
+		RequiresCondition: multiqueue
+	Exit@fallback11:
+		SpawnOffset: -1086,-362,0
+		ExitCell: -1,2
+		RequiresCondition: multiqueue
+	Exit@fallback12:
+		SpawnOffset: 384,768,0
+		ExitCell: 3,2
+		RequiresCondition: multiqueue
+	Production:
+		Produces: Infantry.Baku, Infantry.Turkmenistan, Infantry.Tuva
+	ProductionQueue:
+		Type: Infantry.Baku
+		DisplayOrder: 16
+		Factions: america, germany, england, france, korea, japan, belarus, poland, ukraine, aussie, china, turkey, canada, cuba, libya, iraq, russia, vietnam, chile, mexico, mongolia, psicorps, psinepal, psisouth, psitrans, psimoon, transcaucus, russianfed, serbia
+	ProductionQueue@Turkmenistan:
+		Type: Infantry.Turkmenistan
+		Group: Infantry
+		DisplayOrder: 16
+		LowPowerModifier: 200
+		Factions: turkmen
+		ReadyAudio: UnitReady
+		ReadyTextNotification: notification-unit-ready
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: notification-unable-to-comply-building-in-progress
+		QueuedAudio: Training
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+	ProductionQueue@Tuva:
+		Type: Infantry.Tuva
+		Group: Infantry
+		DisplayOrder: 16
+		LowPowerModifier: 200
+		Factions: tuva
+		ReadyAudio: UnitReady
+		ReadyTextNotification: notification-unit-ready
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: notification-unable-to-comply-building-in-progress
+		QueuedAudio: Training
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+	ProductionBar:
+		ProductionType: Infantry.Baku
+	ProductionBar@Turkmenistan:
+		ProductionType: Infantry.Turkmenistan
+	ProductionBar@Tuva:
+		ProductionType: Infantry.Tuva
+	ProvidesPrerequisite@buildingname:
+		Prerequisite: babarr
+	ProvidesPrerequisite@nahand:
+		Prerequisite: nahand
+	ProvidesPrerequisite@infantry.baku:
+		Prerequisite: infantry.baku
+	ProvidesPrerequisite@infantry.turkmen:
+		Prerequisite: infantry.turkmen
+		Factions: turkmen
+	ProvidesPrerequisite@infantry.tuva:
+		Prerequisite: infantry.tuva
+		Factions: tuva
+	ProvidesPrerequisite@infantry.sovietsorbaku:
+		Prerequisite: infantry.sovietsorbaku
+	ProvidesPrerequisite@mwfacref:
+		Prerequisite: narefn
+	PlaceBuildingVariants:
+		Actors: babarb
+	WithIdleOverlay@light:
+		Sequence: idle-light
+		PauseOnCondition: chronodisable
+		RequiresCondition: !build-incomplete
+	IsometricSelectable:
+		Class: babarr
+		DecorationHeight: 45
+
+basops:
+	Inherits: ^Radar
+	Inherits@SHAPE: ^2x2Shape
+	Inherits@AI: ^AIMicroManagable
+	Buildable:
+		Queue: Building.Shared, Building.Baku
+		Prerequisites: ~building.baku, power, narefn, ~techlevel.2, ~!ai.sops
+		Description: actor-basops.description
+	ProvidesPrerequisite@AIbuildinglimit:
+		RequiresCondition: ai-control
+		Prerequisite: ai.sops
+	Tooltip:
+		Name: actor-basops.name
+	Tooltip@NoRow:
+		Name: actor-basops.name
+	ProvidesPrerequisite@naradr:
+		Prerequisite: naradr
+	ProvidesPrerequisite@transcaucus:
+		Prerequisite: radar.transcaucus
+		Factions: transcaucus
+	ProvidesPrerequisite@turkmen:
+		Prerequisite: radar.turkmen
+		Factions: turkmen
+	ProvidesPrerequisite@tuva:
+		Prerequisite: radar.tuva
+		Factions: tuva
+	ProvidesPrerequisite@russianfed:
+		Prerequisite: radar.russianfed
+		Factions: russianfed
+	ProvidesPrerequisite@serbia:
+		Prerequisite: radar.serbia
+		Factions: serbia
+	ProvidesPrerequisite@baku:
+		Prerequisite: radar.baku
+		Factions: transcaucus, turkmen, tuva, russianfed, serbia
+	ProvidesPrerequisite@upgrade.transcaucus:
+		Prerequisite: upgrade.transcaucus
+		Factions: transcaucus
+	ProvidesPrerequisite@upgrade.turkmen:
+		Prerequisite: upgrade.turkmen
+		Factions: turkmen
+	ProvidesPrerequisite@upgrade.tuva:
+		Prerequisite: upgrade.tuva
+		Factions: tuva
+	ProvidesPrerequisite@upgrade.russianfed:
+		Prerequisite: upgrade.russianfed
+		Factions: russianfed
+	ProvidesPrerequisite@upgrade.serbia:
+		Prerequisite: upgrade.serbia
+		Factions: serbia
+	ProvidesPrerequisite@upgrade.baku:
+		Prerequisite: upgrade.baku
+	ProvidesPrerequisite@upgrade.sovietsorbaku:
+		Prerequisite: upgrade.sovietsorbaku
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	AirstrikePower@leafletdrop:
+		OrderName: BakuPactLeafletDrop
+		PauseOnCondition: disabled || chronodisable
+		Prerequisites:
+			1: basops
+		Icons:
+			1: leaflet
+		ChargeInterval: 3750
+		Names:
+			1: Leaflet Drop
+		Descriptions:
+			1: A Cargo Plane drops leaflets\nanywhere on the map.\nLeaflets slow enemy infantry\nand vehicle movement and\nfire speed.
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+		IncomingSpeechNotification: WarningEnemyAirstrikeInitiated
+		IncomingTextNotification: notification-enemy-airstrike-initiated
+		UnitTypes:
+			1: pdplane.leaflet.baku
+		SquadSizes:
+			1: 1
+		QuantizedFacings: 8
+		CameraActor: CAMERA
+		CameraRemoveDelay: 100
+		DisplayBeacon: True
+		BeaconPosters:
+			1: leaficon
+		ArrowSequence: arrow
+		ClockSequence: clock
+		UseDirectionalTarget: True
+		DirectionArrowAnimation: swdirection
+		DirectionArrowPalette: mouse
+	WithIdleOverlay@dish:
+		Sequence: idle-dish
+		PauseOnCondition: disabled || chronodisable
+		RequiresCondition: !build-incomplete
+	GrantCondition@IDISABLE:
+		RequiresCondition: lowpower || powerdown || emp
+	IsometricSelectable:
+		DecorationHeight: 60
+
+baairf:
+	Inherits: ^Helipad
+	Inherits@SHAPE: ^3x5Shape
+	Buildable:
+		Queue: Building.Shared, Building.Baku
+		Description: actor-baairf.description
+		Prerequisites: ~building.baku, basops, ~techlevel.2
+	Building:
+		Footprint: xx= xxx xxx _xx _xx
+		Dimensions: 3,5
+	Tooltip:
+		Name: actor-baairf.name
+	Tooltip@NoRow:
+		Name: actor-baairf.name
+	RallyPoint:
+		Path: 1,5
+		Palette: mouse
+		IsPlayerPalette: false
+	GrantExternalConditionToOwner:
+		Condition: airdock
+	Reservable:
+	Exit@1:
+		Facing: 384
+		ExitCell: 1,5
+		SpawnOffset: 1472,-1472,0
+	Exit@2:
+		Facing: 384
+		ExitCell: 2,5
+		SpawnOffset: 2048,512,0
+	SpawnNeighboringActors:
+		ActorTypes: badock
+		Locations: 2,0
+	Production:
+		Produces: Aircraft.Baku
+	ProductionQueue:
+		Type: Aircraft.Baku
+		DisplayOrder: 28
+	ProductionBar:
+		ProductionType: Aircraft.Baku
+	ProvidesPrerequisite@buildingname:
+		Prerequisite: baairf
+	ProvidesPrerequisite@aircraft.baku:
+		Prerequisite: aircraft.baku
+	ProvidesPrerequisite@aircraft.sovietsorbaku:
+		Prerequisite: aircraft.sovietsorbaku
+	PlaceBuildingVariants:
+		Actors: baairb
+	WithIdleOverlay@lights:
+		Sequence: idle-lights
+		PauseOnCondition: chronodisable
+		RequiresCondition: !build-incomplete
+	WithIdleOverlay@fans:
+		Sequence: idle-fans
+		PauseOnCondition: chronodisable
+		RequiresCondition: !build-incomplete
+	WithIdleOverlay@bib:
+		Sequence: idle-bib
+		RequiresCondition: !build-incomplete
+	WithIdleOverlay@waves:
+		Sequence: idle-waves
+		RequiresCondition: in_water
+	DroneSpawnerMaster:
+		Actors: repdron, repdron, repdron
+		SpawnOffset: -1024,1024,0, 0,0,0, 1024,1024,0
+		GatherCell: 1,2, 1,1, 2,1
+	IsometricSelectable:
+		Class: baairf
+		DecorationHeight: 105
+
+badock:
+	Inherits: gadock
+	Exit@1:
+		Facing: 384
+
+baacdm:
+	Inherits: ^BaseBuilding
+	Inherits@EMPULSE: ^DisabledByEMP
+	Inherits@MC: ^MindControllableBuilding
+	Inherits@SHAPE: ^3x3Shape
+	Buildable:
+		Queue: Building.Shared, Building.Baku
+		BuildPaletteOrder: 120
+		Prerequisites: ~building.baku, natech, ~techlevel.4
+		Description: actor-baacdm.description
+		BuildLimit: 1
+		BuildDuration: 1250
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: actor-baacdm.name
+	Tooltip@NoRow:
+		Name: actor-baacdm.name
+	ProvidesPrerequisite@default:
+		RequiresCondition: !disabled && !chronodisable
+	ProvidesPrerequisite@barracks.infiltratedorbaacdm:
+		Prerequisite: barracks.infiltratedorbaacdm
+		RequiresCondition: !disabled && !chronodisable
+	ProvidesPrerequisite@vete2flaktorbaacdm:
+		Prerequisite: vete2flaktorbaacdm
+		RequiresCondition: !disabled && !chronodisable
+	ProvidesPrerequisite@vetmtrporbaacdm:
+		Prerequisite: vetmtrporbaacdm
+		RequiresCondition: !disabled && !chronodisable
+	ProvidesPrerequisite@vetgtrporbaacdm:
+		Prerequisite: vetgtrporbaacdm
+		RequiresCondition: !disabled && !chronodisable
+	ProvidesPrerequisite@warfactory.infiltratedorbaacdm:
+		Prerequisite: warfactory.infiltratedorbaacdm
+		RequiresCondition: !disabled && !chronodisable
+	ProvidesPrerequisite@vetifvorbaacdm:
+		Prerequisite: vetifvorbaacdm
+		RequiresCondition: !disabled && !chronodisable
+	ProvidesPrerequisite@vetytnkorbaacdm:
+		Prerequisite: vetytnkorbaacdm
+		RequiresCondition: !disabled && !chronodisable
+	ProvidesPrerequisite@vetgradorbaacdm:
+		Prerequisite: vetgradorbaacdm
+		RequiresCondition: !disabled && !chronodisable
+	ProvidesPrerequisite@vetgatsuborbaacdm:
+		Prerequisite: vetgatsuborbaacdm
+		RequiresCondition: !disabled && !chronodisable
+	ProvidesPrerequisite@vetairorbaacdm:
+		Prerequisite: vetairorbaacdm
+		RequiresCondition: !disabled && !chronodisable
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	WithIdleOverlay@flag:
+		Sequence: idle-flag
+		PauseOnCondition: chronodisable || disabled
+		RequiresCondition: !build-incomplete
+	WithIdleOverlay@waves:
+		Sequence: idle-waves
+		RequiresCondition: in_water && !build-incomplete
+	Health:
+		HP: 75000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 6c0
+	Power:
+		Amount: -200
+		RequiresCondition: !chronodisable
+	IsometricSelectable:
+		DecorationHeight: 60
+	Voiced:
+		VoiceSet: BarracksVoice
+		Volume: 0.8
+	ActorStatValues:
+		Stats: Armor, Sight, Power
+
+bamort:
+	Inherits: ^SupportBuilding
+	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@DRAIN: ^DiskDrainable
+	Inherits@LOWPOWER: ^DisableOnLowPowerOrPowerDown
+	Inherits@EMPULSE: ^DisabledByEMP
+	Inherits@MC: ^MindControllableBuilding
+	Buildable:
+		Queue: Support.Shared, Support.Baku
+		BuildPaletteOrder: 60
+		Prerequisites: ~building.baku, basops, ~techlevel.3
+		Description: actor-bamort.description
+		BuildDuration: 625
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: actor-bamort.name
+	Tooltip@NoRow:
+		Name: actor-bamort.name
+	Health:
+		HP: 60000
+	Armor:
+		Type: Steel
+	RevealsShroud:
+		Range: 8c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 8c0
+	Turreted:
+		TurnSpeed: 40
+		Offset: 0,0,0
+		RealignDelay: -1
+	AttackTurreted:
+		TargetFrozenActors: True
+		PauseOnCondition: build-incomplete || chronodisable || disabled
+	Armament:
+		Weapon: TurretMortar
+		LocalOffset: 896,0,2048
+		MuzzleSequence: muzzle
+	WithMuzzleOverlay:
+	DetectCloaked:
+		Range: 7c0
+		RequiresCondition: !disabled
+	RenderDetectionCircle:
+	WithSpriteTurret:
+		RequiresCondition: !build-incomplete
+	WithRangeCircle:
+		Range: 10c0
+		Type: mortar
+	Power:
+		Amount: -75
+		RequiresCondition: !chronodisable
+	GrantCondition@IDISABLE:
+		RequiresCondition: lowpower || powerdown || emp || diskdrain
+	IsometricSelectable:
+		Class: bamort
+		DecorationHeight: 45
+	WithIdleOverlay@waves:
+		Sequence: idle-waves
+		RequiresCondition: in_water
+	Voiced:
+		VoiceSet: SentryGunVoice
+		Volume: 0.8
+	ActorStatValues:
+		Stats: Armor, Sight, Power, Damage, ReloadDelay, MaxRange
+		Damage: 130
+
+baprop:
+	Inherits: naprop
+	Buildable:
+		Queue: Support.Shared, Support.Baku
+		BuildPaletteOrder: 70
+		Prerequisites: ~building.baku, nahand, ~techlevel.1
+		Description: actor-baprop.description
+		BuildDuration: 125
+		BuildDurationModifier: 100
+	ActorStatValues:
+		Upgrades: upgrade.propaganda_effort
+
+babarb:
+	Inherits: babarr
+	Inherits@SHAPE: ^2x3Shape
+	-Buildable:
+	-PlaceBuildingVariants:
+	Building:
+		Footprint: xx xx xx
+		Dimensions: 2,3
+	RallyPoint:
+		Path: 3,2
+	Exit@1Shared:
+		SpawnOffset: 0,768,0
+		ExitCell: 2,2
+	Exit@2Shared:
+		SpawnOffset: 694,-196,0
+		ExitCell: 2,0
+	Exit@fallback1Shared:
+		SpawnOffset: -362,1086,0
+		ExitCell: 2,3
+	Exit@fallback2Shared:
+		SpawnOffset: -362,1086,0
+		ExitCell: 1,3
+	Exit@fallback3Shared:
+		SpawnOffset: -1086,362,0
+		ExitCell: 0,3
+	Exit@fallback4Shared:
+		SpawnOffset: -1086,362,0
+		ExitCell: -1,3
+	Exit@fallback5Shared:
+		SpawnOffset: -1086,362,0
+		ExitCell: -1,2
+	Exit@fallback6Shared:
+		SpawnOffset: -362,-362,0
+		ExitCell: -1,1
+	Exit@fallback7Shared:
+		SpawnOffset: 362,-1086,0
+		ExitCell: -1,0
+	Exit@fallback8Shared:
+		SpawnOffset: 362,-1086,0
+		ExitCell: -1,-1
+	Exit@fallback9Shared:
+		SpawnOffset: 362,-1086,0
+		ExitCell: 0,-1
+	Exit@fallback10Shared:
+		SpawnOffset: 1086,-362,0
+		ExitCell: 1,-1
+	Exit@fallback11Shared:
+		SpawnOffset: 1086,-362,0
+		ExitCell: 2,-1
+	Exit@fallback12Shared:
+		SpawnOffset: 384,512,0
+		ExitCell: 2,1
+	Exit@1:
+		SpawnOffset: 0,768,0
+		ExitCell: 2,2
+	Exit@2:
+		SpawnOffset: 694,-196,0
+		ExitCell: 2,0
+	Exit@fallback1:
+		SpawnOffset: -362,1086,0
+		ExitCell: 2,3
+	Exit@fallback2:
+		SpawnOffset: -362,1086,0
+		ExitCell: 1,3
+	Exit@fallback3:
+		SpawnOffset: -1086,362,0
+		ExitCell: 0,3
+	Exit@fallback4:
+		SpawnOffset: -1086,362,0
+		ExitCell: -1,3
+	Exit@fallback5:
+		SpawnOffset: -1086,362,0
+		ExitCell: -1,2
+	Exit@fallback6:
+		SpawnOffset: -362,-362,0
+		ExitCell: -1,1
+	Exit@fallback7:
+		SpawnOffset: 362,-1086,0
+		ExitCell: -1,0
+	Exit@fallback8:
+		SpawnOffset: 362,-1086,0
+		ExitCell: -1,-1
+	Exit@fallback9:
+		SpawnOffset: 362,-1086,0
+		ExitCell: 0,-1
+	Exit@fallback10:
+		SpawnOffset: 1086,-362,0
+		ExitCell: 1,-1
+	Exit@fallback11:
+		SpawnOffset: 1086,-362,0
+		ExitCell: 2,-1
+	Exit@fallback12:
+		SpawnOffset: 384,512,0
+		ExitCell: 2,1
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
+		TooltipActor: babarr
+
+baairb:
+	Inherits: baairf
+	Inherits@SHAPE: ^5x3Shape
+	-Buildable:
+	-PlaceBuildingVariants:
+	Building:
+		Footprint: xxx__ xxxxx =xxxx
+		Dimensions: 5,3
+	RallyPoint:
+		Path: 5,1
+	Exit@1:
+		Facing: 640
+		ExitCell: 5,1
+		SpawnOffset: -1472,-1472,0
+	Exit@2:
+		Facing: 640
+		ExitCell: 5,2
+		SpawnOffset: -2048,512,0
+	SpawnNeighboringActors:
+		ActorTypes: badocb
+		Locations: 0,2
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
+		TooltipActor: baairf
+
+badocb:
+	Inherits: badock
+	Exit@1:
+		Facing: 640

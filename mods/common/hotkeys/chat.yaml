@@ -1,0 +1,21 @@
+OpenTeamChat: Return
+	Description: 小队聊天
+	Types: Chat
+	Contexts: Player, Spectator
+
+OpenGeneralChat: Return Shift
+	Description: 公开聊天
+	Types: Chat
+	Contexts: Player, Spectator
+
+ToggleChatMode: Tab Shift
+	Description: 按下以持续聊天
+	Types: Chat
+	Contexts: Chat Input, Menu
+	Readonly: True
+
+Autocomplete: Tab
+	Description: 自动聊天
+	Types: Chat
+	Contexts: Chat Input
+	Readonly: True

@@ -1,0 +1,145 @@
+cow:
+	Inherits: ^Animal
+	Tooltip:
+		Name: actor-cow.name
+		GenericName: actor-cow.name
+	Tooltip@NoRow:
+		Name: actor-cow.name
+		GenericName: actor-cow.name
+	Health:
+		HP: 15000
+	RevealsShroud:
+		Range: 4c0
+	Voiced:
+		VoiceSet: CowVoice
+	# AmbientSound:
+	#	SoundFiles: gcowsela.wav, gcowselb.wav, gcowselc.wav
+	#	Interval: 250, 500
+	#	Volume: 0.45
+	-Guard:
+	-AttackFrontal:
+	WithInfantryBody:
+		-DefaultAttackSequence:
+
+all:
+	Inherits: ^Animal
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Tooltip:
+		Name: actor-all.name
+		GenericName: actor-all.name
+	Tooltip@NoRow:
+		Name: actor-all.name
+		GenericName: actor-all.name
+	Voiced:
+		VoiceSet: AlligatorVoice
+	Armament:
+		Weapon: AlligatorBite
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+		Damage: 30
+
+polarb:
+	Inherits: ^Animal
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Tooltip:
+		Name: actor-polarb.name
+		GenericName: actor-polarb.generic-name
+	Tooltip@NoRow:
+		Name: actor-polarb.name
+		GenericName: actor-polarb.generic-name
+	Voiced:
+		VoiceSet: BearVoice
+	Armament:
+		Weapon: BearBite
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+		Damage: 30
+
+josh:
+	Inherits: ^Animal
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@WEB: ^WebDisable
+	Tooltip:
+		Name: actor-josh.name
+		GenericName: actor-josh.name
+	Tooltip@NoRow:
+		Name: actor-josh.name
+		GenericName: actor-josh.name
+	Voiced:
+		VoiceSet: ChimpanzeeVoice
+	# AmbientSound:
+	#	SoundFiles: gchiamba.wav, gchiambb.wav, gchiambc.wav
+	#	Interval: 250, 500
+	#	Volume: 0.50
+	Mobile:
+		RequiresCondition: !chronodisable && !webdisable
+	Armament:
+		Weapon: ChimpBite
+	Explodes@Corpse:
+		DeathTypes: NonTemporal, ExplosionDeath, BulletDeath
+		Weapon: CorpseSpawner
+		EmptyWeapon: CorpseSpawner
+	WithDeathAnimation@effect:
+		DeathSequencePalette: effect
+		DeathPaletteIsPlayerPalette: false
+		DeathTypes:
+			RadiationDeath: 4
+			PsychicDeath: 5
+			ElectroDeath: 6
+			VirusDeath: 7
+			BruteDeath: 8
+			OrangeRadiationDeath: 10
+	SpawnActorOnDeath@brute:
+		Actor: brute.spawner
+		DeathType: MutationDeath
+		OwnerType: Killer
+	SpawnActorOnDeath@flames:
+		Actor: FLAMEGUY
+		DeathType: FlameDeath
+	SpawnSmokeParticleOnDeath@virus:
+		Amount: 1
+		Image: txgasg
+		Sequences: idle
+		Palette: effect
+		Weapon: CloudDamage
+		Duration: 250
+		DeathTypes: VirusDeath
+	DeathSounds@zapped:
+		Voice: Zapped
+	DeathSounds@radiation:
+		Voice: Melted
+	DeathSounds@psycrush:
+		Voice: PsyCrush
+	DeathSounds@virus:
+		Voice: Virus
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+		Damage: 30
+
+# Yuri's Revenge Animals
+caml:
+	Inherits: ^Animal
+	Tooltip:
+		Name: actor-caml.name
+		GenericName: actor-caml.name
+	Tooltip@NoRow:
+		Name: actor-caml.name
+		GenericName: actor-caml.name
+	Health:
+		HP: 20000
+	RevealsShroud:
+		Range: 4c0
+	Voiced:
+		VoiceSet: CamelVoice
+	-Guard:
+	-AttackFrontal:
+	WithInfantryBody:
+		-DefaultAttackSequence:
+
+# Custom Animals
+gbear:
+	Inherits: polarb
+	Tooltip:
+		Name: actor-gbear.name
+	Tooltip@NoRow:
+		Name: actor-gbear.name

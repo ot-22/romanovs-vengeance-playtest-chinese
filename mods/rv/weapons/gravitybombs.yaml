@@ -1,0 +1,853 @@
+BlimpBomb:
+	Inherits@1: ^BreakPointDefenseDrones
+	ReloadDelay: 50
+	Range: 0c256
+	MinRange: 0c1
+	Report: vkiratta.wav
+	Projectile: GravityBomb
+		Velocity: 0, 0, -50
+		Acceleration: 0, 0, -10
+		Image: zbomb
+		Palette: player
+		IsPlayerPalette: true
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c512
+		Falloff: 100, 83, 67, 50, 0
+		Damage: 75000 # 25000
+		ValidTargets: Building, Ground, Water
+		Versus:
+			None: 100
+			Flak: 100
+			Plate: 100
+			Light: 70
+			Medium: 35
+			Heavy: 35
+			Wood: 85
+			Steel: 75
+			Concrete: 50
+			Drone: 100
+			Rocket: 100
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath, NonTemporal
+	Warhead@2Eff: CreateEffect
+		Explosions: medium_clsn
+		ImpactSounds: gexp14a.wav
+		ValidTargets: Ground, Air
+	Warhead@3EffWater: CreateEffect
+		Explosions: small_watersplash
+		ImpactSounds: gexpwasa.wav
+		ValidTargets: Water
+	Warhead@4Smu: LeaveSmudge
+		SmudgeType: MediumCrater, MediumScorch
+
+BlimpBombE:
+	Inherits: BlimpBomb
+	ReloadDelay: 45
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c576
+		Damage: 82500 # 27500
+	Warhead@2Eff: CreateEffect
+		Explosions: kirovtesla
+
+BlimpBombRad:
+	Inherits: BlimpBomb
+	Projectile: GravityBomb
+		Image: zbombu
+	Warhead@4Radiation: CreateTintedCells
+		Spread: 2c0
+		Falloff: 100, 100
+		Level: 500
+		MaxLevel: 500
+	Warhead@2Eff: CreateEffect
+		Explosions: demotruck_explosion
+
+BlimpBombRadE:
+	Inherits: BlimpBombE
+	Projectile: GravityBomb
+		Image: zbombu
+	Warhead@4Radiation: CreateTintedCells
+		Spread: 3c0
+		Falloff: 100, 100
+		Level: 750
+		MaxLevel: 750
+
+BlimpBombRadOrange:
+	Inherits: BlimpBombRad
+	Projectile: GravityBomb
+		Image: zbombuo
+	Warhead@2Eff: CreateEffect
+		Explosions: demotruck_explosion_orange
+	Warhead@4Radiation: CreateTintedCells
+		LayerName: radioactivityorange
+
+BlimpBombRadOrangeE:
+	Inherits: BlimpBombRadE
+	Projectile: GravityBomb
+		Image: zbombuo
+	Warhead@4Radiation: CreateTintedCells
+		LayerName: radioactivityorange
+
+BlimpBombCryo:
+	Inherits: BlimpBomb
+	Projectile: GravityBomb
+		Image: zbombuc
+	Warhead@2Eff: CreateEffect
+		Explosions: kirovtesla
+	Warhead@5Con: GrantExternalCondition
+		Range: 2c0
+		Duration: 250
+		Condition: cryo
+		ValidTargets: Ground, Water
+		InvalidTargets: IronCurtained, ForceShielded
+
+BlimpBombCryoE:
+	Inherits: BlimpBombE
+	Projectile: GravityBomb
+		Image: zbombuc
+	Warhead@5Con: GrantExternalCondition
+		Range: 3c0
+		Duration: 375
+		Condition: cryo
+		ValidTargets: Ground, Water
+		InvalidTargets: IronCurtained, ForceShielded
+
+NapalmBomb:
+	Inherits@1: ^BreakPointDefenseDrones
+	ReloadDelay: 50
+	Range: 0c512
+	MinRange: 0c1
+	Report: vkiratta.wav
+	Projectile: GravityBomb
+		Velocity: 0, 0, -100
+		Acceleration: 0, 0, -10
+		Image: zbomb
+		Palette: player
+		IsPlayerPalette: true
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c384
+		Falloff: 100, 83, 67, 50, 0
+		Damage: 15000
+		ValidTargets: Building, Ground, Water
+		InvalidTargets: LoadedTankBunker
+		Versus:
+			None: 100
+			Flak: 100
+			Plate: 100
+			Light: 70
+			Medium: 15
+			Heavy: 15
+			Wood: 70
+			Steel: 35
+			Concrete: 60
+			Drone: 100
+			Rocket: 100
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath, NonTemporal
+	Warhead@1Gar: OpenToppedDamage
+		ValidTargets: LoadedTankBunker
+		InvalidTargets: IronCurtained, ForceShielded
+		Spread: 0c384
+		Damage: 15000
+		Versus:
+			None: 100
+			Flak: 100
+			Plate: 100
+			Light: 70
+			Medium: 15
+			Heavy: 15
+			Wood: 70
+			Steel: 35
+			Concrete: 60
+			Drone: 100
+			Rocket: 100
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath, NonTemporal
+	Warhead@2Eff: CreateEffect
+		Explosions: napalm_large
+		ExplosionPalette: ra
+		ImpactSounds: firebl3.aud
+		ValidTargets: Ground, Water, Air
+	Warhead@4Smu: LeaveSmudge
+		SmudgeType: MediumScorch
+	Warhead@5Par: SpawnSmokeParticle
+		ValidTargets: Ground, Air, Water
+		Image: mediumfire
+		Sequences: idle
+		Palette: effect
+		Weapon: FireDamage
+		Duration: 500
+		Speed: 0, 25
+		TurnRate: 10
+		Delay: 4
+	Warhead@6Par: SpawnSmokeParticle
+		ValidTargets: Ground, Air, Water
+		Image: mediumfire
+		Sequences: idle
+		Palette: effect
+		Weapon: FireDamage
+		Duration: 500
+		Speed: 0, 25
+		TurnRate: 10
+		Delay: 4
+	Warhead@7Par: SpawnSmokeParticle
+		ValidTargets: Ground, Air, Water
+		Image: largefire
+		Sequences: idle
+		Palette: effect
+		Weapon: FireDamage
+		Duration: 500
+		Speed: 0, 25
+		TurnRate: 10
+		Delay: 2
+	Warhead@8Par: SpawnSmokeParticle
+		ValidTargets: Ground, Air, Water
+		Image: smallfire
+		Sequences: idle
+		Palette: effect
+		Weapon: FireDamage
+		Duration: 500
+		Speed: 0, 25
+		TurnRate: 10
+		Delay: 5
+	Warhead@9Par: SpawnSmokeParticle
+		ValidTargets: Ground, Air, Water
+		Image: smallfire
+		Sequences: idle
+		Palette: effect
+		Weapon: FireDamage
+		Duration: 500
+		Speed: 0, 25
+		TurnRate: 10
+		Delay: 5
+
+NapalmBombE:
+	Inherits: NapalmBomb
+	ReloadDelay: 30
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c512
+		Damage: 20000
+	Warhead@1Gar: OpenToppedDamage
+		Spread: 0c512
+		Damage: 20000
+	Warhead@5Par: SpawnSmokeParticle
+		Weapon: FireDamageE
+	Warhead@6Par: SpawnSmokeParticle
+		Weapon: FireDamageE
+	Warhead@7Par: SpawnSmokeParticle
+		Weapon: FireDamageE
+	Warhead@8Par: SpawnSmokeParticle
+		Weapon: FireDamageE
+	Warhead@9Par: SpawnSmokeParticle
+		Weapon: FireDamageE
+
+NapalmBombBlack:
+	Inherits: NapalmBomb
+	Warhead@1Dam: SpreadDamage
+		Damage: 30000
+	Warhead@1Gar: OpenToppedDamage
+		Damage: 30000
+	Warhead@2Eff: CreateEffect
+		Explosions: napalm_large_blue
+	Warhead@5Par: SpawnSmokeParticle
+		Image: mediumfireblue
+		Weapon: FireDamageBlack
+	Warhead@6Par: SpawnSmokeParticle
+		Image: mediumfireblue
+		Weapon: FireDamageBlack
+	Warhead@7Par: SpawnSmokeParticle
+		Image: largefireblue
+		Weapon: FireDamageBlack
+	Warhead@8Par: SpawnSmokeParticle
+		Image: smallfireblue
+		Weapon: FireDamageBlack
+	Warhead@9Par: SpawnSmokeParticle
+		Image: smallfireblue
+		Weapon: FireDamageBlack
+
+NapalmBombBlackE:
+	Inherits: NapalmBombE
+	Warhead@1Dam: SpreadDamage
+		Damage: 40000
+	Warhead@1Gar: OpenToppedDamage
+		Damage: 40000
+	Warhead@2Eff: CreateEffect
+		Explosions: napalm_large_blue
+	Warhead@5Par: SpawnSmokeParticle
+		Image: mediumfireblue
+		Weapon: FireDamageBlackE
+	Warhead@6Par: SpawnSmokeParticle
+		Image: mediumfireblue
+		Weapon: FireDamageBlackE
+	Warhead@7Par: SpawnSmokeParticle
+		Image: largefireblue
+		Weapon: FireDamageBlackE
+	Warhead@8Par: SpawnSmokeParticle
+		Image: smallfireblue
+		Weapon: FireDamageBlackE
+	Warhead@9Par: SpawnSmokeParticle
+		Image: smallfireblue
+		Weapon: FireDamageBlackE
+
+ChaosGasDrop:
+	Range: 7c0
+	ReloadDelay: 2
+	Report: vchaatta.wav
+	Projectile: GravityBomb
+		Velocity: 0, 0, -50
+		Acceleration: 0, 0, -5
+		Image: txgasp
+		Sequences: projectile
+		Palette: effect
+	Warhead@1Dam: TargetDamage
+		Damage: 0
+	Warhead@2Par: SpawnSmokeParticle
+		ValidTargets: Ground, Air, Water
+		Image: txgasp
+		Sequences: idle
+		Palette: effect
+		Weapon: ChaosCloud
+		Duration: 250
+		Speed: 0, 25
+		TurnRate: 10
+
+EMPulse:
+	ReloadDelay: 10
+	Range: 1c0
+	Report: vkiratta.wav
+	Projectile: GravityBomb
+		Velocity: 0, 0, -50
+		Acceleration: 0, 0, -10
+		Image: empbomb
+		Palette: player
+		IsPlayerPalette: true
+	Warhead@1Dis: GrantExternalCondition
+		Range: 6c0
+		Duration: 375
+		Condition: emp
+		ValidTargets: EMPulse
+		InvalidTargets: IronCurtained, ForceShielded
+	Warhead@2Eff: CreateEffect
+		Explosions: empulse
+		ExplosionPalette: tseffect
+		ImpactSounds: sempexpl.wav
+
+EMPulseBEagle:
+	Inherits: EMPulse
+	Inherits@1: ^BreakPointDefenseDrones
+	Range: 6c0
+	MinRange: 1c0
+	-Projectile:
+	Projectile: Missile
+		Speed: 512
+		Blockable: false
+		Image: empbomb50p
+		Palette: player
+		IsPlayerPalette: true
+		RangeLimit: 20c204
+	Warhead@1Dam: SpreadDamage
+		InvalidTargets: LoadedTankBunker
+		Spread: 0c512
+		Falloff: 100, 70, 40, 0
+		Damage: 15000
+		Versus:
+			None: 50
+			Flak: 50
+			Plate: 50
+			Concrete: 75
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, NonTemporal
+	Warhead@1Gar: OpenToppedDamage
+		ValidTargets: LoadedTankBunker
+		InvalidTargets: IronCurtained, ForceShielded
+		Spread: 0c512
+		Damage: 15000
+		Versus:
+			None: 50
+			Flak: 50
+			Plate: 50
+			Concrete: 75
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, NonTemporal
+	Warhead@1Dis: GrantExternalCondition
+		Range: 1c256
+		Duration: 200
+	Warhead@2Eff: CreateEffect
+		Explosions: empulse50p
+		ValidTargets: Ground, Water, Air
+
+EMPulseBEagleE:
+	Inherits: EMPulseBEagle
+	Warhead@1Dam: SpreadDamage
+		Damage: 20000
+	Warhead@1Gar: OpenToppedDamage
+		Damage: 20000
+	Warhead@1Dis: GrantExternalCondition
+		Duration: 300
+
+ParaBomb:
+	Inherits@1: ^BreakPointDefenseDrones
+	ReloadDelay: 8
+	Range: 4c0
+	Report: sparadra.wav
+	Projectile: ParaBomb
+		Image: parabomb
+		ParachuteSequence: parach
+		ParachuteOpeningSequence: open
+		ParachuteClosingSequence: close
+		Velocity: 0, 0, -128
+		Acceleration: 0, 0, 0
+		Palette: player
+		IsPlayerPalette: true
+	Warhead@1Dam: SpreadDamage
+		Spread: 1c0
+		Damage: 25000
+		Versus:
+			None: 150
+			Flak: 150
+			Plate: 150
+			Light: 150
+			Medium: 150
+			Heavy: 150
+			Wood: 50
+			Steel: 150
+			Concrete: 50
+			Drone: 100
+			Rocket: 100
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, SuppressTerrorDrone, NonTemporal
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Crater
+		InvalidTargets: Vehicle, TerrorDrone, Structure, Barrel, Mine, Wall, Husk, Trees
+	Warhead@3Eff: CreateEffect
+		Explosions: parabomb
+		ExplosionPalette: tseffect
+		ImpactSounds: gexpapoa.wav
+		ValidTargets: Ground, Air
+	Warhead@3EffWater: CreateEffect
+		Explosions: large_watersplash
+		ImpactSounds: gexpwasa.wav
+		ValidTargets: Water
+
+FalloutBomb:
+	Inherits@1: ^BreakPointDefenseDrones
+	ReloadDelay: 10
+	Range: 1c0
+	Report: vkiratta.wav
+	Projectile: GravityBomb
+		Velocity: 0, 0, -50
+		Acceleration: 0, 0, -10
+		Image: nbomb
+		Palette: player
+		IsPlayerPalette: true
+	Warhead@1Dam: SpreadDamage
+		Spread: 2c512
+		Damage: 40000
+		Versus:
+			None: 100
+			Flak: 90
+			Plate: 80
+			Light: 90
+			Medium: 70
+			Heavy: 70
+			Wood: 100
+			Steel: 60
+			Concrete: 90
+			Drone: 80
+			Rocket: 0
+		DamageTypes: Prone70Percent, TriggerProne, RadiationDeath, SuppressTerrorDrone, NonTemporal
+	Warhead@2Eff: CreateEffect
+		Explosions: demotruck_explosion
+		ImpactSounds: vdemdiea.wav
+	Warhead@4Radiation: CreateTintedCells
+		Spread: 10c0
+		Falloff: 100, 100
+		Level: 1500
+		MaxLevel: 1500
+	Warhead@5Smu: LeaveSmudge
+		SmudgeType: MediumCrater, MediumScorch
+
+FalloutBombOrange:
+	Inherits: FalloutBomb
+	Warhead@1Dam: SpreadDamage
+		DamageTypes: Prone70Percent, TriggerProne, OrangeRadiationDeath, SuppressTerrorDrone, NonTemporal
+	Warhead@2Eff: CreateEffect
+		Explosions: demotruck_explosion_orange
+	Warhead@4Radiation: CreateTintedCells
+		LayerName: radioactivityorange
+
+BadgerBomb:
+	Inherits@1: ^BreakPointDefenseDrones
+	ReloadDelay: 10
+	Range: 1c0
+	Report: vkiratta.wav
+	Projectile: GravityBomb
+		Velocity: 0, 0, -50
+		Acceleration: 0, 0, -10
+		Image: parabomb
+		Palette: player
+		IsPlayerPalette: true
+	Warhead@1Dam: SpreadDamage
+		Spread: 2c512
+		Falloff: 100, 37, 14, 0
+		Damage: 75000
+		Versus:
+			None: 125
+			Flak: 125
+			Plate: 125
+			Light: 100
+			Medium: 80
+			Heavy: 80
+			Wood: 50
+			Steel: 100
+			Concrete: 50
+			Drone: 100
+			Rocket: 100
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, SuppressTerrorDrone, NonTemporal
+	Warhead@2Eff: CreateEffect
+		Explosions: nuke_explosion_small
+		ImpactSounds: snukexpl.wav
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air
+	Warhead@5Smu: LeaveSmudge
+		SmudgeType: MediumCrater, MediumScorch
+
+BadgerBombE:
+	Inherits: BadgerBomb
+	Warhead@1Dam: SpreadDamage
+		Damage: 100000
+
+CryoBomb:
+	Inherits: FalloutBomb
+	Projectile: GravityBomb
+		Image: parabomb
+	Warhead@1Dam: SpreadDamage
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath, SuppressTerrorDrone, NonTemporal
+	Warhead@2Eff: CreateEffect
+		Explosions: kirovtesla
+		ImpactSounds: gexp14a.wav
+	-Warhead@4Radiation:
+	Warhead@4Con: GrantExternalCondition
+		Range: 10c0
+		Duration: 500
+		Condition: cryo
+		ValidTargets: Ground, Water
+		InvalidTargets: IronCurtained, ForceShielded
+	Warhead@5Con: GrantExternalCondition
+		Range: 10c0
+		Duration: 500
+		Condition: cryo
+		ValidTargets: Ground, Water
+		InvalidTargets: IronCurtained, ForceShielded
+	Warhead@6Con: GrantExternalCondition
+		Range: 10c0
+		Duration: 500
+		Condition: cryo
+		ValidTargets: Ground, Water
+		InvalidTargets: IronCurtained, ForceShielded
+	Warhead@7Con: GrantExternalCondition
+		Range: 10c0
+		Duration: 500
+		Condition: cryo
+		ValidTargets: Ground, Water
+		InvalidTargets: IronCurtained, ForceShielded
+
+MutatorBomb:
+	ReloadDelay: 10
+	Range: 1c0
+	Report: vkiratta.wav
+	Projectile: GravityBomb
+		Velocity: 0, 0, -50
+		Acceleration: 0, 0, -10
+		Image: parabomb
+		Palette: player
+		IsPlayerPalette: true
+	Warhead@1Dam: SpreadDamage
+		Spread: 3c0
+		Damage: 50000
+		ValidTargets: Infantry, SeaAnimal
+		DamageTypes: Prone100Percent, TriggerProne, MutationDeath, NonTemporal
+	Warhead@2Eff: CreateEffect
+		Explosions: psi_wave
+		ImpactSounds: sgenon.wav
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air
+
+CarpetBomb:
+	Inherits@1: ^BreakPointDefenseDrones
+	ReloadDelay: 6
+	Range: 8c0
+	Report: vkiratta.wav
+	Projectile: GravityBomb
+		Velocity: 0, 0, -25
+		Acceleration: 0, 0, -10
+		Image: bomberbomb
+		Shadow: false
+		Palette: player
+		IsPlayerPalette: true
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c768
+		Damage: 40000
+		Versus:
+			None: 100
+			Flak: 100
+			Plate: 100
+			Light: 100
+			Medium: 100
+			Heavy: 100
+			Wood: 40
+			Steel: 85
+			Concrete: 30
+			Drone: 100
+			Rocket: 100
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, NonTemporal
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Crater
+		InvalidTargets: Vehicle, TerrorDrone, Structure, Barrel, Mine, Wall, Husk, Trees
+	Warhead@3Eff: CreateEffect
+		Explosions: medium_explosion
+		ImpactSounds: gexpapoa.wav
+		ValidTargets: Ground, Air
+	Warhead@3EffWater: CreateEffect
+		Explosions: large_watersplash
+		ImpactSounds: gexpwasa.wav
+		ValidTargets: Water
+
+ToxinBomb:
+	Inherits@1: ^BreakPointDefenseDrones
+	ReloadDelay: 7
+	Range: 3c0
+	Report: vkiratta.wav
+	Projectile: GravityBomb
+		Velocity: 0, 0, -25
+		Acceleration: 0, 0, -10
+		Image: 160mm
+		Shadow: true
+		Palette: ra
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c768
+		Damage: 15000
+		Versus:
+			None: 150
+			Flak: 150
+			Plate: 150
+			Light: 100
+			Medium: 100
+			Heavy: 100
+			Wood: 40
+			Steel: 100
+			Concrete: 40
+			Drone: 100
+			Rocket: 100
+		DamageTypes: Prone50Percent, TriggerProne, VirusDeath, NonTemporal
+	Warhead@2Shr: FireShrapnel
+		Weapon: ToxinSplash
+		AffectsParent: true
+		Amount: 3
+	Warhead@3Smu: LeaveSmudge
+		SmudgeType: Crater
+		InvalidTargets: Vehicle, TerrorDrone, Structure, Barrel, Mine, Wall, Husk, Trees
+	Warhead@4Eff: CreateEffect
+		Explosions: medium_toxin_explosion
+		ExplosionPalette: player
+		ImpactSounds: gexpapoa.wav
+		ValidTargets: Ground, Air
+	Warhead@4EffWater: CreateEffect
+		Explosions: large_watersplash
+		ImpactSounds: gexpwasa.wav
+		ValidTargets: Water
+
+ToxinSplash:
+	Inherits@1: ^BreakPointDefenseDrones
+	Range: 1c512
+	MinRange: 0c640
+	ReloadDelay: 1
+	Projectile: BulletAS
+		Speed: 32
+		LaunchAngle: 165, 215
+		Image: 120mm
+		Shadow: true
+		Palette: ra
+	Warhead@1Dam: SpreadDamage
+		Spread: 1c0
+		Damage: 2000
+		Versus:
+			None: 150
+			Flak: 150
+			Plate: 150
+			Light: 100
+			Medium: 100
+			Heavy: 100
+			Wood: 40
+			Steel: 100
+			Concrete: 40
+			Drone: 100
+			Rocket: 100
+		DamageTypes: Prone50Percent, TriggerProne, VirusDeath, NonTemporal
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Crater
+		InvalidTargets: Vehicle, TerrorDrone, Structure, Barrel, Mine, Wall, Husk, Trees
+	Warhead@3Eff: CreateEffect
+		Explosions: small_toxin_explosion
+		ExplosionPalette: player
+		ImpactSounds: gexpapoa.wav
+		ValidTargets: Ground, Air
+	Warhead@3EffWater: CreateEffect
+		Explosions: large_watersplash
+		ImpactSounds: gexpwasa.wav
+		ValidTargets: Water
+	Warhead@4Par: SpawnSmokeParticle
+		ValidTargets: Ground, Air, Water
+		Image: txgasg
+		Sequences: idle
+		Palette: effect
+		Weapon: CloudDamage
+		Duration: 250
+		Speed: 0, 25
+		TurnRate: 10
+
+NavalMines:
+	ReloadDelay: 5
+	Range: 4c0
+	Report: vkiratta.wav
+	Projectile: GravityBomb
+		Velocity: 0, 0, -50
+		Acceleration: 0, 0, -10
+		Image: nmine
+		Sequences: projectile
+		Palette: player
+	Warhead@1Spa: SpawnBuildingOrWeapon
+		Buildings: nmine
+		Weapon: NavalMineExplosion
+		Range: 1
+		Sounds: gexpwasa.wav
+		ValidTargets: Ground, Water, Air
+
+ClusterMines:
+	ReloadDelay: 10
+	Range: 1c0
+	Report: vkiratta.wav
+	Projectile: InstantExplode
+	Warhead@1Clu: FireCluster
+		Weapon: SpawnMine
+		Dimensions: 5,5
+		Footprint: __X__ _XXX_ XXXXX _XXX_ __X__
+		ValidTargets: Ground, Water, Air
+
+SpawnMine:
+	Range: 5c0
+	Projectile: BulletAS
+		Image: mine
+		Sequences: projectile
+		Palette: player
+		IsPlayerPalette: true
+		Blockable: false
+		Speed: 384
+	Warhead@1Spa: SpawnActorOrWeapon
+		Actors: mine
+		Weapon: MineExplosion
+		Range: 0
+		ForceGround: true
+		ValidTargets: Ground, Water, Air
+
+SpiritBomb:
+	Inherits@1: ^BreakPointDefenseDrones
+	ReloadDelay: 60
+	Burst: 5
+	BurstDelays: 3
+	Range: 2c512
+	Report: vkiratta.wav
+	TargetActorCenter: true
+	Projectile: GravityBomb
+		Velocity: 72, 0, -50
+		Acceleration: 0, 0, -10
+		Image: bomberbomb
+		Shadow: false
+		Palette: player
+		IsPlayerPalette: true
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c384
+		Falloff: 100, 83, 67, 50, 0
+		Damage: 10000
+		Versus:
+			None: 100
+			Flak: 100
+			Plate: 100
+			Light: 100
+			Medium: 100
+			Heavy: 100
+			Wood: 100
+			Steel: 150
+			Concrete: 90
+			Drone: 100
+			Rocket: 100
+		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath, NonTemporal
+	Warhead@2Eff: CreateEffect
+		Explosions: medium_clsn
+		ImpactSounds: gexp14a.wav
+		ValidTargets: Ground, Air
+	Warhead@3EffWater: CreateEffect
+		Explosions: small_watersplash
+		ImpactSounds: gexpwasa.wav
+		ValidTargets: Water
+	Warhead@4Smu: LeaveSmudge
+		SmudgeType: MediumCrater, MediumScorch
+		InvalidTargets: Vehicle, Building, Wall
+
+SpiritBombE:
+	Inherits: SpiritBomb
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c512
+		Damage: 15000
+		Versus:
+			Concrete: 100
+	Warhead@2Eff: CreateEffect
+		Explosions: terrorist_explosion
+		ImpactSounds: gexpapoa.wav
+		ValidTargets: Ground, Air
+
+SpiritBomb10:
+	Inherits: SpiritBomb
+	Range: 5c0
+	Burst: 10
+
+SpiritBomb10E:
+	Inherits: SpiritBombE
+	Range: 5c0
+	Burst: 10
+
+LeafletDrop:
+	ReloadDelay: 50
+	Range: 0c384
+	Report: sleafdro.wav
+	Projectile: InstantExplode
+	Warhead@1Clu: FireCluster
+		Weapon: Leaflet
+		Dimensions: 7,7
+		Footprint: __XXX__ _XXXXX_ _XXXXX_ XXXXXXX _XXXXX_ _XXXXX_ __XXX__
+		ValidTargets: Ground, Water, Air
+	Warhead@2Clu: FireCluster
+		Weapon: Leaflet
+		Dimensions: 7,7
+		Footprint: __XXX__ _XXXXX_ _XXXXX_ XXXXXXX _XXXXX_ _XXXXX_ __XXX__
+		ValidTargets: Ground, Water, Air
+		Delay: 2
+	Warhead@3Clu: FireCluster
+		Weapon: Leaflet
+		Dimensions: 7,7
+		Footprint: __XXX__ _XXXXX_ _XXXXX_ XXXXXXX _XXXXX_ _XXXXX_ __XXX__
+		ValidTargets: Ground, Water, Air
+		Delay: 4
+	Warhead@4Clu: FireCluster
+		Weapon: Leaflet
+		Dimensions: 7,7
+		Footprint: __XXX__ _XXXXX_ _XXXXX_ XXXXXXX _XXXXX_ _XXXXX_ __XXX__
+		ValidTargets: Ground, Water, Air
+		Delay: 6
+
+Leaflet:
+	Range: 5c0
+	Projectile: BulletAS
+		Image: leaflet
+		Blockable: false
+		Speed: 128
+		Inaccuracy: 512
+		Palette: ra
+	Warhead@1Con: GrantExternalCondition
+		Condition: leaflet
+		Duration: 1000
+		Range: 1c0
+		ValidRelationships: Neutral, Enemy

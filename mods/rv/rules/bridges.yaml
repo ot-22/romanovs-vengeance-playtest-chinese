@@ -1,0 +1,370 @@
+cabhut:
+	Inherits@1: ^ExistsInWorld
+	Inherits@2: ^SpriteActor
+	FrozenUnderFog:
+	WithSpriteBody:
+	Tooltip:
+		Name: actor-cabhut.name
+	Building:
+		Footprint: x
+		Dimensions: 1, 1
+	BridgeHut:
+		NeighbourOffsets: -2,-2, -2,-1, -2,0, -2,1, -2,2, -1,-2, -1,-1, -1,0, -1,1, -1,2, 0,-2, 0,-1, 0,1, 0,2, 1,-2, 1,-1, 1,0, 1,1, 1,2, 2,-2, 2,-1, 2,0, 2,1, 2,2
+	RenderSprites:
+		Palette: player
+	Targetable:
+		TargetTypes: C4
+	MapEditorData:
+		Categories: Bridge
+	Interactable:
+	IsometricSelectable:
+		Height: 30
+
+^LowBridgeRamp:
+	AlwaysVisible:
+	RenderSprites:
+		Palette: terrain
+	WithSpriteBody:
+	AppearsOnRadar:
+	RadarColorFromTerrain:
+		Terrain: Bridge
+	AppearsOnMapPreview:
+		Terrain: Bridge
+	BodyOrientation:
+		UseClassicPerspectiveFudge: false
+		QuantizedFacings: 1
+	Tooltip:
+		Name: meta-wooden-bridge.name
+	MapEditorData:
+		Categories: Bridge
+	Interactable:
+
+^LowBridge:
+	Inherits: ^LowBridgeRamp
+	Inherits@1: ^AcceptsIvanBomb
+	Inherits@2: ^AcceptsSEALC4
+	Inherits@3: ^AcceptsCommandoC4
+	Inherits@4: ^AcceptsTeslaBomb
+	Inherits@5: ^AcceptsToxinBomb
+	Targetable:
+		TargetTypes: Ground, Building, Bridge
+		RequiresForceFire: true
+	Health:
+		HP: 50000
+	Armor:
+		Type: Concrete
+	HitShape:
+
+lobrdb_a:
+	Inherits: ^LowBridge
+	Tooltip:
+		Name: meta-concrete-bridge.name
+	Building:
+		Footprint: ===
+		Dimensions: 3, 1
+	GroundLevelBridge:
+		NeighbourOffsets: 1,-1, 1,1
+	SpawnActorOnDeath:
+		Actor: lobrdb_a_d
+	-WithSpriteBody:
+	WithBridgeSpriteBody:
+		AOffset: 1,-1
+		BOffset: 1,1
+		Sequences: idle, idle2, idle3, idle4
+		ADestroyedSequences: adead
+		BDestroyedSequences: bdead
+		ABDestroyedSequences: abdead
+	ShakeOnDeath:
+		Duration: 15
+		Intensity: 6
+
+lobrdb_a_d:
+	Inherits: lobrdb_a
+	EditorOnlyTooltip:
+		Name: meta-dead-bridge.name
+	-GroundLevelBridge:
+	-AppearsOnRadar:
+	BridgePlaceholder:
+		DamageState: Dead
+		ReplaceWithActor: lobrdb_a
+		NeighbourOffsets: 1,-1, 1,1
+	-WithBridgeSpriteBody:
+	WithDeadBridgeSpriteBody:
+		RampActors: lobrdb_r_ne, lobrdb_r_sw
+		AOffset: 1,-1
+		BOffset: 1,1
+	Interactable:
+		Bounds: 2316, 2316
+	-ShakeOnDeath:
+
+lobrdb_b:
+	Inherits: ^LowBridge
+	Tooltip:
+		Name: meta-concrete-bridge.name
+	Building:
+		Footprint: = = =
+		Dimensions: 1, 3
+	GroundLevelBridge:
+		NeighbourOffsets: -1,1, 1,1
+	SpawnActorOnDeath:
+		Actor: lobrdb_b_d
+	-WithSpriteBody:
+	WithBridgeSpriteBody:
+		AOffset: -1,1
+		BOffset: 1,1
+		Sequences: idle, idle2, idle3, idle4
+		ADestroyedSequences: adead
+		BDestroyedSequences: bdead
+		ABDestroyedSequences: abdead
+	ShakeOnDeath:
+		Duration: 15
+		Intensity: 6
+
+lobrdb_b_d:
+	Inherits: lobrdb_b
+	EditorOnlyTooltip:
+		Name: meta-dead-bridge.name
+	-GroundLevelBridge:
+	-AppearsOnRadar:
+	BridgePlaceholder:
+		DamageState: Dead
+		ReplaceWithActor: lobrdb_b
+		NeighbourOffsets: -1,1, 1,1
+	-WithBridgeSpriteBody:
+	WithDeadBridgeSpriteBody:
+		RampActors: lobrdb_r_nw, lobrdb_r_se
+		AOffset: 1,1
+		BOffset: -1,1
+	Interactable:
+		Bounds: 2316, 2316
+	-ShakeOnDeath:
+
+lobrdb_r_se:
+	Inherits: ^LowBridgeRamp
+	Building:
+		Footprint: = = =
+		Dimensions: 1, 3
+	BridgePlaceholder:
+		NeighbourOffsets: -1,1
+	Tooltip:
+		Name: meta-concrete-bridge.name
+	EditorOnlyTooltip:
+		Name: meta-bridge-ramp.name
+
+lobrdb_r_nw:
+	Inherits: ^LowBridgeRamp
+	Building:
+		Footprint: = = =
+		Dimensions: 1, 3
+	BridgePlaceholder:
+		NeighbourOffsets: 1,1
+	Tooltip:
+		Name: meta-concrete-bridge.name
+	EditorOnlyTooltip:
+		Name: meta-bridge-ramp.name
+
+lobrdb_r_ne:
+	Inherits: ^LowBridgeRamp
+	Building:
+		Footprint: ===
+		Dimensions: 3, 1
+	BridgePlaceholder:
+		NeighbourOffsets: 1,1
+	Tooltip:
+		Name: meta-concrete-bridge.name
+	EditorOnlyTooltip:
+		Name: meta-bridge-ramp.name
+
+lobrdb_r_sw:
+	Inherits: ^LowBridgeRamp
+	Building:
+		Footprint: ===
+		Dimensions: 3, 1
+	BridgePlaceholder:
+		NeighbourOffsets: 1,-1
+	Tooltip:
+		Name: meta-concrete-bridge.name
+	EditorOnlyTooltip:
+		Name: meta-bridge-ramp.name
+
+lobrdg_a:
+	Inherits: ^LowBridge
+	Building:
+		Footprint: ===
+		Dimensions: 3, 1
+	GroundLevelBridge:
+		NeighbourOffsets: 1,-1, 1,1
+	SpawnActorOnDeath:
+		Actor: lobrdg_a_d
+	-WithSpriteBody:
+	WithBridgeSpriteBody:
+		AOffset: 1,-1
+		BOffset: 1,1
+		Sequences: idle, idle2, idle3, idle4
+		ADestroyedSequences: adead
+		BDestroyedSequences: bdead
+		ABDestroyedSequences: abdead
+	ShakeOnDeath:
+		Duration: 15
+		Intensity: 6
+
+lobrdg_a_d:
+	Inherits: lobrdg_a
+	EditorOnlyTooltip:
+		Name: meta-dead-bridge.name
+	-GroundLevelBridge:
+	-AppearsOnRadar:
+	BridgePlaceholder:
+		DamageState: Dead
+		ReplaceWithActor: lobrdg_a
+		NeighbourOffsets: 1,-1, 1,1
+	-WithBridgeSpriteBody:
+	WithDeadBridgeSpriteBody:
+		RampActors: lobrdg_r_ne, lobrdg_r_sw
+		AOffset: 1,-1
+		BOffset: 1,1
+	Interactable:
+		Bounds: 2316, 2316
+	-ShakeOnDeath:
+
+lobrdg_b:
+	Inherits: ^LowBridge
+	Building:
+		Footprint: = = =
+		Dimensions: 1, 3
+	GroundLevelBridge:
+		NeighbourOffsets: -1,1, 1,1
+	SpawnActorOnDeath:
+		Actor: lobrdg_b_d
+	-WithSpriteBody:
+	WithBridgeSpriteBody:
+		AOffset: -1,1
+		BOffset: 1,1
+		Sequences: idle, idle2, idle3, idle4
+		ADestroyedSequences: adead
+		BDestroyedSequences: bdead
+		ABDestroyedSequences: abdead
+	ShakeOnDeath:
+		Duration: 15
+		Intensity: 6
+
+lobrdg_b_d:
+	Inherits: lobrdg_b
+	EditorOnlyTooltip:
+		Name: meta-dead-bridge.name
+	-GroundLevelBridge:
+	-AppearsOnRadar:
+	BridgePlaceholder:
+		DamageState: Dead
+		ReplaceWithActor: lobrdg_b
+		NeighbourOffsets: -1,1, 1,1
+	-WithBridgeSpriteBody:
+	WithDeadBridgeSpriteBody:
+		RampActors: lobrdg_r_nw, lobrdg_r_se
+		AOffset: 1,1
+		BOffset: -1,1
+	Interactable:
+		Bounds: 2316, 2316
+	-ShakeOnDeath:
+
+lobrdg_r_se:
+	Inherits: ^LowBridgeRamp
+	Building:
+		Footprint: = = =
+		Dimensions: 1, 3
+	BridgePlaceholder:
+		NeighbourOffsets: -1,1
+	EditorOnlyTooltip:
+		Name: meta-bridge-ramp.name
+
+lobrdg_r_nw:
+	Inherits: ^LowBridgeRamp
+	Building:
+		Footprint: = = =
+		Dimensions: 1, 3
+	BridgePlaceholder:
+		NeighbourOffsets: 1,1
+	EditorOnlyTooltip:
+		Name: meta-bridge-ramp.name
+
+lobrdg_r_ne:
+	Inherits: ^LowBridgeRamp
+	Building:
+		Footprint: ===
+		Dimensions: 3, 1
+	BridgePlaceholder:
+		NeighbourOffsets: 1,1
+	EditorOnlyTooltip:
+		Name: meta-bridge-ramp.name
+
+lobrdg_r_sw:
+	Inherits: ^LowBridgeRamp
+	Building:
+		Footprint: ===
+		Dimensions: 3, 1
+	BridgePlaceholder:
+		NeighbourOffsets: 1,-1
+	EditorOnlyTooltip:
+		Name: meta-bridge-ramp.name
+
+^ElevatedBridgePlaceholder:
+	AlwaysVisible:
+	RenderSprites:
+		Palette: terrain
+	WithSpriteBody:
+	AppearsOnRadar:
+	RadarColorFromTerrain:
+		Terrain: Bridge
+	AppearsOnMapPreview:
+		Terrain: Bridge
+	BodyOrientation:
+		UseClassicPerspectiveFudge: false
+		QuantizedFacings: 1
+	Tooltip:
+		Name: meta-concrete-bridge.name
+	Immobile:
+		OccupiesSpace: false
+	MapEditorData:
+		Categories: Bridge
+	Interactable:
+		Bounds: 2316, 6950
+
+bridge1:
+	Inherits: ^ElevatedBridgePlaceholder
+
+bridge2:
+	Inherits: ^ElevatedBridgePlaceholder
+
+bridgb1:
+	Inherits: ^ElevatedBridgePlaceholder
+	Tooltip:
+		Name: meta-wooden-bridge.name
+
+bridgb2:
+	Inherits: ^ElevatedBridgePlaceholder
+	Tooltip:
+		Name: meta-wooden-bridge.name
+
+TUNTOP01:
+	Inherits: ^Tunnel
+	TunnelEntrance:
+		RallyPoint: -3, 1
+		Sensor: 0, 1
+
+TUNTOP02:
+	Inherits: ^Tunnel
+	TunnelEntrance:
+		RallyPoint: 1, -3
+		Sensor: 1, 0
+
+TUNTOP03:
+	Inherits: ^Tunnel
+	TunnelEntrance:
+		RallyPoint: 3, 1
+		Sensor: 0, 1
+
+TUNTOP04:
+	Inherits: ^Tunnel
+	TunnelEntrance:
+		RallyPoint: 1, 3
+		Sensor: 1, 0

@@ -1,0 +1,113 @@
+tug:
+	Inherits: ^Ship
+	Inherits@MC: ^MindControllable
+	Inherits@SQUID: ^SquidGrabbable
+	Buildable:
+		Queue: Ship.Civilian
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: actor-tug.name
+	Tooltip@NoRow:
+		Name: actor-tug.name
+	Mobile:
+		TurnSpeed: 8
+		Speed: 60
+	Health:
+		HP: 20000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 8c0
+	RenderSprites:
+	Selectable:
+		Bounds: 1544, 2509, 0, -289
+	RenderVoxels:
+		NormalsPalette: ts-normals
+	WithVoxelBody:
+	-Voiced:
+	# AmbientSound:
+	#	SoundFiles: gtugboaa.wav, gtugboab.wav
+	#	Interval: 300, 600
+	#	Volume: 0.40
+	HitShape:
+	-GivesExperience:
+	ActorStatValues:
+		Stats: Armor, Sight, Speed
+
+cruise:
+	Inherits: ^Ship
+	Inherits@MC: ^MindControllable
+	Inherits@SQUID: ^SquidGrabbable
+	Buildable:
+		Queue: Ship.Civilian
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: actor-cruise.name
+	Tooltip@NoRow:
+		Name: actor-cruise.name
+	Mobile:
+		TurnSpeed: 4
+		Speed: 60
+	Health:
+		HP: 30000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 8c0
+	RenderSprites:
+	Selectable:
+		Bounds: 1544, 2509, 0, -289
+	WithVoxelBody:
+	-Voiced:
+	# AmbientSound:
+	#	SoundFiles: gship1a
+	#	Interval: 500, 1000
+	#	Volume: 0.40
+	HitShape:
+	-GivesExperience:
+	# GrantConditionOnMovement@MoveStart:
+	#	Condition: moving
+	#	ValidMovementTypes: Horizontal, Turn
+	# SoundAnnouncement:
+	#	SoundFiles: vaccstaa.wav, vaccstab.wav
+	#	Volume: 0.5
+	#	RequiresCondition: moving
+	ActorStatValues:
+		Stats: Armor, Sight, Speed
+
+cdest:
+	Inherits: dest
+	Buildable:
+		Queue: Ship.Civilian
+	Tooltip:
+		Name: actor-cdest.name
+	Tooltip@NoRow:
+		Name: actor-cdest.name
+	Armor:
+		Type: Light
+	-Voiced:
+
+vlad:
+	Inherits: dred
+	Buildable:
+		Queue: Ship.Civilian
+	Tooltip:
+		Name: actor-vlad.name
+	Tooltip@NoRow:
+		Name: actor-vlad.name
+	Health:
+		HP: 250000
+	Mobile:
+		Speed: 120
+	RevealsShroud:
+		Range: 8c0
+	WithVoxelBody@FULL:
+		RequiresCondition: loaded >= 2
+	-WithVoxelBody@FULL-RADBOMBS:
+	-WithVoxelBody@FULL-RADBOMBS-ORANGE:
+	WithVoxelBody@HALF:
+		RequiresCondition: loaded == 1
+	-WithVoxelBody@HALF-RADBOMBS:
+	-WithVoxelBody@HALF-RADBOMBS-ORANGE:

@@ -1,0 +1,3975 @@
+^ExistsInWorld:
+	AppearsOnRadar:
+	UpdatesPlayerStatistics:
+	CombatDebugOverlay:
+	RenderDebugState:
+	DrawLineToTarget:
+	GivesExperience:
+		PlayerExperienceModifier: 10
+	ScriptTriggers:
+	Huntable:
+
+^SpriteActor:
+	BodyOrientation:
+		UseClassicPerspectiveFudge: false
+	QuantizeFacingsFromSequence:
+	RenderSprites:
+
+^1x1Shape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			LocalYaw: -128
+			TopLeft: -512, -512
+			BottomRight: 512, 512
+
+^1x2Shape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			LocalYaw: -128
+			TopLeft: -512, -1024
+			BottomRight: 512, 1024
+
+^1x3Shape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			LocalYaw: -128
+			TopLeft: -512, -1536
+			BottomRight: 512, 1536
+
+^1x4Shape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			LocalYaw: -128
+			TopLeft: -512, -2048
+			BottomRight: 512, 2048
+
+^2x1Shape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			LocalYaw: -128
+			TopLeft: -1024, -512
+			BottomRight: 1024, 512
+
+^2x2Shape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			LocalYaw: -128
+			TopLeft: -1024, -1024
+			BottomRight: 1024, 1024
+
+^2x3Shape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			LocalYaw: -128
+			TopLeft: -1024, -1536
+			BottomRight: 1024, 1536
+
+^2x5Shape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			LocalYaw: -128
+			TopLeft: -1024, -2560
+			BottomRight: 1024, 2560
+
+^2x6Shape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			LocalYaw: -128
+			TopLeft: -1024, -3072
+			BottomRight: 1024, 3072
+
+^3x1Shape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			LocalYaw: -128
+			TopLeft: -1536, -512
+			BottomRight: 1536, 512
+
+^3x2Shape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			LocalYaw: -128
+			TopLeft: -1536, -1024
+			BottomRight: 1536, 1024
+
+^3x3Shape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			LocalYaw: -128
+			TopLeft: -1536, -1536
+			BottomRight: 1536, 1536
+
+^3x4Shape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			LocalYaw: -128
+			TopLeft: -1536, -2048
+			BottomRight: 1536, 2048
+
+^3x5Shape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			LocalYaw: -128
+			TopLeft: -1536, -2560
+			BottomRight: 1536, 2560
+
+^4x2Shape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			TopLeft: -2048, -1024
+			BottomRight: 2048, 1024
+
+^4x3Shape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			LocalYaw: -128
+			TopLeft: -2048, -1536
+			BottomRight: 2048, 1536
+
+^4x4Shape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			LocalYaw: -128
+			TopLeft: -2048, -2048
+			BottomRight: 2048, 2048
+
+^4x6Shape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			LocalYaw: -128
+			TopLeft: -2048, -3072
+			BottomRight: 2048, 3072
+
+^5x3Shape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			LocalYaw: -128
+			TopLeft: -2560, -1536
+			BottomRight: 2560, 1536
+
+^5x4Shape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			LocalYaw: -128
+			TopLeft: -2560, -2048
+			BottomRight: 2560, 2048
+
+^6x4Shape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			LocalYaw: -128
+			TopLeft: -3072, -2048
+			BottomRight: 3072, 2048
+
+^NormalRefineryShape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			LocalYaw: -128
+			TopLeft: -2048, -1536
+			BottomRight: 1024, 1536
+
+^FlippedRefineryShape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			LocalYaw: -128
+			TopLeft: -1024, -1536
+			BottomRight: 2048, 1536
+
+^FlippedRefineryXShape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			LocalYaw: -128
+			TopLeft: -1536, -2048
+			BottomRight: 1536, 1024
+
+^FlippedRefineryYShape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			LocalYaw: -128
+			TopLeft: -1536, -1024
+			BottomRight: 1536, 2048
+
+^NormalFactoryShape:
+	HitShape:
+		Type: Rectangle
+			LocalYaw: -128
+			TopLeft: -2560, -1536
+			BottomRight: 1536, 1536
+
+^FlippedFactoryShape:
+	HitShape:
+		Type: Rectangle
+			LocalYaw: -128
+			TopLeft: -1536, -1536
+			BottomRight: 2560, 1536
+
+^FlippedFactoryXShape:
+	HitShape:
+		Type: Rectangle
+			LocalYaw: -128
+			TopLeft: -1536, -2560
+			BottomRight: 1536, 1536
+
+^FlippedFactoryYShape:
+	HitShape:
+		Type: Rectangle
+			LocalYaw: -128
+			TopLeft: -1536, -1536
+			BottomRight: 1536, 2560
+
+^GainsExperience:
+	GainsExperience:
+		LevelUpNotification: LevelUp
+		LevelUpTextNotification: notification-unit-promoted
+		Conditions:
+			200: rank-veteran
+			400: rank-veteran
+			600: rank-veteran
+		LevelUpImage: crate-effects
+	FirepowerMultiplier@RANK-1:
+		RequiresCondition: rank-veteran >= 1
+		Modifier: 120
+	DamageMultiplier@RANK-2:
+		RequiresCondition: rank-veteran >= 2
+		Modifier: 70
+	GrantCondition@RANK-ELITE:
+		RequiresCondition: rank-veteran >= 3
+		Condition: rank-elite
+	ChangesHealth@ELITE:
+		PercentageStep: 2
+		Delay: 75
+		StartIfBelow: 100
+		DamageCooldown: 0
+		RequiresCondition: rank-elite
+	SpeedMultiplier@ELITE:
+		RequiresCondition: rank-elite
+		Modifier: 130
+	RevealsShroudMultiplier@ELITE:
+		RequiresCondition: rank-elite
+		Modifier: 130
+	WithDecoration@RANK-1:
+		Image: rank
+		Sequence: rank-veteran-1
+		Palette: pips
+		Position: BottomRight
+		RequiresCondition: rank-veteran == 1
+		ValidRelationships: Ally, Enemy, Neutral
+	WithDecoration@RANK-2:
+		Image: rank
+		Sequence: rank-veteran-2
+		Palette: pips
+		Position: BottomRight
+		RequiresCondition: rank-veteran == 2
+		ValidRelationships: Ally, Enemy, Neutral
+	WithDecoration@RANK-ELITE:
+		Image: rank
+		Sequence: rank-elite
+		Palette: pips
+		Position: BottomRight
+		RequiresCondition: rank-elite
+		ValidRelationships: Ally, Enemy, Neutral
+	WithStatIconOverlay@RANK-1:
+		Image: cameo-chevron
+		Sequence: veteran
+		Palette: pips
+		RequiresCondition: rank-veteran == 1
+	WithStatIconOverlay@RANK-2:
+		Image: cameo-chevron
+		Sequence: elite
+		Palette: pips
+		RequiresCondition: rank-veteran == 2
+	WithStatIconOverlay@RANK-ELITE:
+		Image: cameo-chevron
+		Sequence: heroic
+		Palette: pips
+		RequiresCondition: rank-elite
+	GainsExperienceMultiplier@ARMORY:
+		Modifier: 150
+		RequiresCondition: armory
+	GrantConditionOnPrerequisite@ARMORY:
+		Prerequisites: caarmr
+		Condition: armory
+	ProducibleWithLevel@1:
+		Prerequisites: baacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: baacdm
+		Types: chevron-veteran
+
+^HospitalHealing:
+	ChangesHealth@HOSPITAL:
+		PercentageStep: 1
+		Delay: 100
+		StartIfBelow: 100
+		RequiresCondition: heal
+	WithDecoration@HOSPITAL:
+		Image: tech
+		Sequence: heal
+		Palette: pips
+		Position: TopRight
+		RequiresCondition: heal
+		ValidRelationships: Ally
+	GrantConditionOnPrerequisite@HOSPITAL:
+		Condition: heal
+		Prerequisites: cahosp
+	ExternalCondition@heal:
+		Condition: heal
+
+^MachineShopRepair:
+	ChangesHealth@MACHINESHOP:
+		PercentageStep: 1
+		Delay: 100
+		StartIfBelow: 100
+		RequiresCondition: repair
+	WithDecoration@MACHINESHOP:
+		Image: tech
+		Sequence: repair
+		Palette: pips
+		Position: TopRight
+		RequiresCondition: repair
+		ValidRelationships: Ally
+	GrantConditionOnPrerequisite@MACHINESHOP:
+		Condition: repair
+		Prerequisites: camach
+
+^CrateStatModifiers:
+	FirepowerMultiplier@CRATES:
+		RequiresCondition: crate-firepower
+		Modifier: 200
+	DamageMultiplier@CRATES:
+		RequiresCondition: crate-armor
+		Modifier: 67
+	SpeedMultiplier@CRATES:
+		RequiresCondition: crate-speed
+		Modifier: 120
+	ExternalCondition@CRATE-FIREPOWER:
+		Condition: crate-firepower
+		TotalCap: 1
+	ExternalCondition@CRATE-ARMOR:
+		Condition: crate-armor
+		TotalCap: 1
+	ExternalCondition@CRATE-SPEED:
+		Condition: crate-speed
+		TotalCap: 1
+
+^AffectedByIndustrialPlant:
+	ProductionCostMultiplier@1_INDUSTRAL_PLANT:
+		Multiplier: 75
+		Prerequisites: prerequisite.one_naindp
+	ProductionCostMultiplier@2_INDUSTRAL_PLANT:
+		Multiplier: 75
+		Prerequisites: prerequisite.two_naindp
+	ProductionCostMultiplier@3_INDUSTRAL_PLANT:
+		Multiplier: 75
+		Prerequisites: prerequisite.three_naindp
+	ProductionCostMultiplier@4_INDUSTRAL_PLANT:
+		Multiplier: 75
+		Prerequisites: prerequisite.four_naindp
+	ProductionCostMultiplier@5_INDUSTRAL_PLANT:
+		Multiplier: 75
+		Prerequisites: prerequisite.five_naindp
+
+^AffectedByLeaflets:
+	ReloadDelayMultiplier@LEAFLET:
+		Modifier: 300
+		RequiresCondition: leaflet
+	SpeedMultiplier@LEAFLET:
+		Modifier: 50
+		RequiresCondition: leaflet
+	WithDecoration@LEAFLET:
+		Image: leaflet
+		Sequence: icon
+		Palette: ra
+		RequiresCondition: leaflet
+		ValidRelationships: Ally, Enemy, Neutral
+	ExternalCondition@LEAFLET:
+		Condition: leaflet
+
+^AffectedByPropaganda:
+	Inherits@PROPEFFORT: ^AffectedByPropagandaEffort
+	FirepowerMultiplier@PROPAGANDA1:
+		Modifier: 125
+		RequiresCondition: propaganda1
+	FirepowerMultiplier@PROPAGANDA2:
+		Modifier: 150
+		RequiresCondition: propaganda2
+	FirepowerMultiplier@PROPAGANDA3:
+		Modifier: 175
+		RequiresCondition: propaganda3
+	FirepowerMultiplier@PROPAGANDA_UPG:
+		RequiresCondition: (propaganda1 || propaganda2 || propaganda3) && propeffort
+		Modifier: 125
+	ReloadDelayMultiplier@PROPAGANDA1:
+		Modifier: 80
+		RequiresCondition: propaganda1
+	ReloadDelayMultiplier@PROPAGANDA2:
+		Modifier: 67
+		RequiresCondition: propaganda2
+	ReloadDelayMultiplier@PROPAGANDA3:
+		Modifier: 57
+		RequiresCondition: propaganda3
+	ReloadDelayMultiplier@PROPAGANDA_UPG:
+		RequiresCondition: (propaganda1 || propaganda2 || propaganda3) && propeffort
+		Modifier: 80
+	SpeedMultiplier@PROPAGANDA:
+		Modifier: 70
+		RequiresCondition: propaganda1 || propaganda2 || propaganda3
+	# WithColoredOverlay@PROPAGANDA:
+	#	Color: FF800080
+	#	RequiresCondition: propaganda1 || propaganda2 || propaganda3
+	TimedConditionBar@PROPAGANDA1:
+		Color: FF8000
+		Condition: propaganda1
+	TimedConditionBar@PROPAGANDA2:
+		Color: FF8000
+		Condition: propaganda2
+	TimedConditionBar@PROPAGANDA3:
+		Color: FF8000
+		Condition: propaganda3
+	ExternalCondition@PROPAGANDA1:
+		Condition: propaganda1
+	ExternalCondition@PROPAGANDA2:
+		Condition: propaganda2
+	ExternalCondition@PROPAGANDA3:
+		Condition: propaganda3
+	ReloadDelayMultiplier@PROPAGANDA_TOWER:
+		RequiresCondition: propaganda_tower
+		Modifier: 75
+	ReloadDelayMultiplier@PROPAGANDA_TOWER_UPG:
+		RequiresCondition: propaganda_tower && propeffort
+		Modifier: 80
+	# WithColoredOverlay@PROPAGANDA_TOWER:
+	#	Color: FF800040
+	#	RequiresCondition: propaganda_tower
+	WithDecoration@PROPAGANDA:
+		Image: propaganda
+		Sequence: icon
+		Palette: player
+		RequiresCondition: (propaganda1 || propaganda2 || propaganda3 || propaganda_tower) && !baku
+		ValidRelationships: Ally, Enemy, Neutral
+	WithDecoration@PROPAGANDA-BAKU:
+		Image: propaganda-baku
+		Sequence: icon
+		Palette: player
+		RequiresCondition: (propaganda1 || propaganda2 || propaganda3 || propaganda_tower) && baku
+		ValidRelationships: Ally, Enemy, Neutral
+	GrantConditionOnFaction@BAKU:
+		Condition: baku
+		Factions: transcaucus, turkmen, tuva, russianfed, serbia
+	ChangesHealth@PROPAGANDA_TOWER:
+		Step: 0
+		PercentageStep: 2
+		Delay: 30
+		StartIfBelow: 100
+		DamageCooldown: 0
+		RequiresCondition: propaganda_tower && !propeffort
+	ChangesHealth@PROPAGANDA_TOWER_UPG:
+		Step: 0
+		PercentageStep: 2
+		Delay: 24
+		StartIfBelow: 100
+		DamageCooldown: 0
+		RequiresCondition: propaganda_tower && propeffort
+	ExternalCondition@PROPAGANDA_TOWER:
+		Condition: propaganda_tower
+
+^AffectedByChronoBoost:
+	ReloadDelayMultiplier@BOOST:
+		Modifier: 80
+		RequiresCondition: boost1 || boost2 || boost3
+	SpeedMultiplier@BOOST1:
+		Modifier: 130
+		RequiresCondition: boost1
+	SpeedMultiplier@BOOST2:
+		Modifier: 160
+		RequiresCondition: boost2
+	SpeedMultiplier@BOOST3:
+		Modifier: 200
+		RequiresCondition: boost3
+	# WithColoredOverlay@BOOST:
+	#	Color: FFFFFF40
+	#	RequiresCondition: boost1 || boost2 || boost3
+	WithDecoration@BOOST:
+		Image: chronoboost
+		Sequence: icon
+		Palette: pips
+		RequiresCondition: boost1 || boost2 || boost3
+		ValidRelationships: Ally, Enemy, Neutral
+	TimedConditionBar@BOOST1:
+		Color: FFFFFF
+		Condition: boost1
+	TimedConditionBar@BOOST2:
+		Color: FFFFFF
+		Condition: boost2
+	TimedConditionBar@BOOST3:
+		Color: FFFFFF
+		Condition: boost3
+	ExternalCondition@BOOST1:
+		Condition: boost1
+	ExternalCondition@BOOST2:
+		Condition: boost2
+	ExternalCondition@BOOST3:
+		Condition: boost3
+
+^AffectedByGIFortifications:
+	DamageMultiplier@FORTIFICATIONS:
+		Modifier: 75
+		RequiresCondition: fortifications && deployed
+	ActorStatValues:
+		Upgrades: upgrade.gi_fortifications
+	GrantConditionOnPrerequisite@FORTIFICATIONS:
+		Condition: fortifications
+		Prerequisites: upgrade.gi_fortifications
+
+^AffectedByEnduranceTraining:
+	SpeedMultiplier@ENDURANCE_TRAINING:
+		Modifier: 125
+		RequiresCondition: endurance_training
+	# ActorStatValues:
+	#	Upgrades: upgrade.endurance_training
+	GrantConditionOnPrerequisite@ENDURANCE_TRAINING:
+		Condition: endurance_training
+		Prerequisites: upgrade.endurance_training
+
+^AffectedByA2AMissiles:
+	ActorStatValues:
+		Upgrades: upgrade.a2a_missiles
+	GrantConditionOnPrerequisite@A2AMISSILES:
+		Condition: a2amissiles
+		Prerequisites: upgrade.a2a_missiles
+
+^AffectedByAdvancedCoolants:
+	ActorStatValues:
+		Upgrades: upgrade.advanced_coolants
+	GrantConditionOnPrerequisite@ADVCOOLANTS:
+		Condition: advcoolants
+		Prerequisites: upgrade.advanced_coolants
+
+^AffectedByAdvancedTraining:
+	GainsExperienceMultiplier@ADVTRAINING:
+		Modifier: 150
+		RequiresCondition: advtraining
+	ActorStatValues:
+		Upgrades: upgrade.advanced_training
+	GrantConditionOnPrerequisite@ADVTRAINING:
+		Condition: advtraining
+		Prerequisites: upgrade.advanced_training
+
+^AffectedByCompositeArmor:
+	DamageMultiplier@COMPOSITE_ARMOR:
+		Modifier: 75
+		RequiresCondition: composite_armor
+	ActorStatValues:
+		Upgrades: upgrade.composite_armor
+	GrantConditionOnPrerequisite@COMPOSITE_ARMOR:
+		Condition: composite_armor
+		Prerequisites: upgrade.composite_armor
+
+^AffectedByPredatorMissiles:
+	FirepowerMultiplier@PREDATOR_MISSILES:
+		Modifier: 125
+		RequiresCondition: predator_missiles
+	ActorStatValues:
+		Upgrades: upgrade.predator_missiles
+	GrantConditionOnPrerequisite@PREDATOR_MISSILES:
+		Condition: predator_missiles
+		Prerequisites: upgrade.predator_missiles
+
+^AffectedByBoostGlidingSystems:
+	ActorStatValues:
+		Upgrades: upgrade.boost_gliding_systems
+	GrantConditionOnPrerequisite@BOOSTGLIDING:
+		Condition: boostgliding
+		Prerequisites: upgrade.boost_gliding_systems
+
+^AffectedByPortableWeaponry:
+	ReloadDelayMultiplier@PORTABLE:
+		Modifier: 80
+		RequiresCondition: portable && deployed
+	ActorStatValues:
+		Upgrades: upgrade.portable_weaponry
+	GrantConditionOnPrerequisite@PORTABLE:
+		Condition: portable
+		Prerequisites: upgrade.portable_weaponry
+
+^AffectedByGrandCannonProtocols:
+	DamageMultiplier@GTGCAN_PROTOCOLS:
+		Modifier: 87
+		RequiresCondition: gtgcan_protocols
+	ActorStatValues:
+		Upgrades: upgrade.grand_cannon_protocols
+	GrantConditionOnPrerequisite@GTGCAN_PROTOCOLS:
+		Condition: gtgcan_protocols
+		Prerequisites: upgrade.grand_cannon_protocols
+
+^AffectedByAdvancedGunSystems:
+	RangeMultiplier@ADVANCED_GUNS:
+		Modifier: 125
+		RequiresCondition: advanced_guns
+	ActorStatValues:
+		Upgrades: upgrade.advanced_gun_systems
+	GrantConditionOnPrerequisite@ADVANCED_GUNS:
+		Condition: advanced_guns
+		Prerequisites: upgrade.advanced_gun_systems
+
+^AffectedByEMPMunitions:
+	ActorStatValues:
+		Upgrades: upgrade.emp_munitions
+	GrantConditionOnPrerequisite@EMPAMMO:
+		Condition: empammo
+		Prerequisites: upgrade.emp_munitions
+
+^AffectedByIncreasedPayload:
+	ActorStatValues:
+		Upgrades: upgrade.increased_payload
+	GrantConditionOnPrerequisite@INCREASED_PAYLOAD:
+		Condition: increased_payload
+		Prerequisites: upgrade.increased_payload
+
+^AffectedByImprovedFlaks:
+	# ActorStatValues:
+	#	Upgrades: upgrade.improved_flaks
+	GrantConditionOnPrerequisite@IMPFLAKS:
+		Condition: impflaks
+		Prerequisites: upgrade.improved_flaks
+
+^AffectedByBulletProofCoats:
+	DamageMultiplier@BULLETPROOF:
+		Modifier: 75
+		RequiresCondition: bulletproof
+	ActorStatValues:
+		Upgrades: upgrade.bullet_proof_coats
+	GrantConditionOnPrerequisite@BULLETPROOF:
+		Condition: bulletproof
+		Prerequisites: upgrade.bullet_proof_coats
+
+^AffectedByMolotovCocktails:
+	ActorStatValues:
+		Upgrades: upgrade.molotov_cocktails
+	GrantConditionOnPrerequisite@MOLOTOV:
+		Condition: molotov
+		Prerequisites: upgrade.molotov_cocktails
+
+^AffectedBySmokeGrenades:
+	# ActorStatValues:
+	#	Upgrades: upgrade.smoke_grenades
+	GrantConditionOnPrerequisite@SMOKEGRENS:
+		Condition: smokegrens
+		Prerequisites: upgrade.smoke_grenades
+
+^AffectedByAPBullets:
+	FirepowerMultiplier@APBULLETS:
+		Modifier: 125
+		RequiresCondition: apbullets
+	ActorStatValues:
+		Upgrades: upgrade.ap_bullets
+	GrantConditionOnPrerequisite@APBULLETS:
+		Condition: apbullets
+		Prerequisites: upgrade.ap_bullets
+
+^AffectedByBlackNapalm:
+	ActorStatValues:
+		Upgrades: upgrade.black_napalm
+	GrantConditionOnPrerequisite@BLACK_NAPALM:
+		Condition: black_napalm
+		Prerequisites: upgrade.black_napalm
+
+^AffectedByPropagandaEffort:
+	# ActorStatValues:
+	#	Upgrades: upgrade.propaganda_effort
+	GrantConditionOnPrerequisite@PROPEFFORT:
+		Condition: propeffort
+		Prerequisites: upgrade.propaganda_effort
+
+^AffectedByMountedMG:
+	ActorStatValues:
+		Upgrades: upgrade.mounted_mg
+	GrantConditionOnPrerequisite@MACHINEGUN:
+		Condition: machinegun
+		Prerequisites: upgrade.mounted_mg
+
+^AffectedByRadioactiveBombs:
+	ActorStatValues:
+		Upgrades: upgrade.radioactive_bombs
+	GrantConditionOnPrerequisite@RADBOMBS:
+		Condition: radbombs
+		Prerequisites: upgrade.radioactive_bombs
+
+^AffectedByCryoWarheads:
+	ActorStatValues:
+		Upgrades: upgrade.cryo_warheads
+	GrantConditionOnPrerequisite@CRYOWARHEADS:
+		Condition: cryowarheads
+		Prerequisites: upgrade.cryo_warheads
+
+^AffectedByOvercharge:
+	ActorStatValues:
+		Upgrades: upgrade.overcharge
+	GrantConditionOnPrerequisite@OVERCHARGE:
+		Condition: overcharge
+		Prerequisites: upgrade.overcharge
+
+^AffectedByAdvancedIrradiators:
+	ActorStatValues:
+		Upgrades: upgrade.advanced_irradiators
+	GrantConditionOnPrerequisite@ADVIRRAD:
+		Condition: advirrad
+		Prerequisites: upgrade.advanced_irradiators
+
+^AffectedByAerialPropaganda:
+	ProximityExternalCondition@AIRPROP:
+		Condition: propaganda_tower
+		Range: 6c0
+		AffectsParent: true
+		RequiresCondition: airprop && !chronodisable
+	WithRangeCircle@AIRPROP:
+		Range: 6c0
+		Type: propaganda
+		RenderOnGround: true
+		RequiresCondition: airprop
+	ActorStatValues:
+		Upgrades: upgrade.aerial_propaganda
+	GrantConditionOnPrerequisite@AIRPROP:
+		Condition: airprop
+		Prerequisites: upgrade.aerial_propaganda
+
+^AffectedByTargetedExplosives:
+	GrantConditionOnPrerequisite@TARGETEDEXP:
+		Condition: targetedexp
+		Prerequisites: upgrade.targeted_explosives
+
+^AffectedByHighExplosiveBombs:
+	FirepowerMultiplier@HIEXPLOSIVE:
+		Modifier: 125
+		RequiresCondition: hiexplosive
+	ActorStatValues:
+		Upgrades: upgrade.high_explosive_bombs
+	GrantConditionOnPrerequisite@HIEXPLOSIVE:
+		Condition: hiexplosive
+		Prerequisites: upgrade.high_explosive_bombs
+
+^AffectedByHighCaliberRounds:
+	# ActorStatValues:
+	#	Upgrades: upgrade.high_caliber_rounds
+	GrantConditionOnPrerequisite@HIGHCALIBER:
+		Condition: highcaliber
+		Prerequisites: upgrade.high_caliber_rounds
+
+^AffectedByNuclearEngines:
+	Inherits: ^AffectedByAdvancedIrradiators
+	SpeedMultiplier@NUCLEAR_ENGINES:
+		Modifier: 117
+		RequiresCondition: nuclear_engines
+	Explodes@NUCLEAR_ENGINES:
+		DeathTypes: NonTemporal
+		Weapon: NuclearEngineExplode
+		EmptyWeapon: NuclearEngineExplode
+		RequiresCondition: nuclear_engines && !advirrad
+	Explodes@NUCLEAR_ENGINES_ORANGE:
+		DeathTypes: NonTemporal
+		Weapon: NuclearEngineExplodeOrange
+		EmptyWeapon: NuclearEngineExplodeOrange
+		RequiresCondition: nuclear_engines && advirrad
+	ActorStatValues:
+		Upgrades: upgrade.nuclear_engines
+	GrantConditionOnPrerequisite@NUCLEAR_ENGINES:
+		Condition: nuclear_engines
+		Prerequisites: upgrade.nuclear_engines
+
+^AffectedByUraniumShells:
+	FirepowerMultiplier@URANIUM_SHELLS:
+		Modifier: 125
+		RequiresCondition: uranium_shells
+	ActorStatValues:
+		Upgrades: upgrade.uranium_shells
+	GrantConditionOnPrerequisite@URANIUM_SHELLS:
+		Condition: uranium_shells
+		Prerequisites: upgrade.uranium_shells
+
+^AffectedByCryoShells:
+	FirepowerMultiplier@CRYO_SHELLS:
+		Modifier: 125
+		RequiresCondition: cryo_shells
+	# ActorStatValues:
+	#	Upgrades: upgrade.cryo_shells
+	GrantConditionOnPrerequisite@CRYO_SHELLS:
+		Condition: cryo_shells
+		Prerequisites: upgrade.cryo_shells
+
+^AffectedByGrinderTreads:
+	ChangesHealth@GRINDER_TREADS:
+		Step: 0
+		PercentageStep: 5
+		Delay: 2
+		StartIfBelow: 100
+		DamageCooldown: 0
+		RequiresCondition: grinder_treads && grinder_treads_active
+	ExternalCondition@GRINDER_TREADS:
+		Condition: grinder_treads_active
+	ActorStatValues:
+		Upgrades: upgrade.grinder_treads
+	GrantConditionOnPrerequisite@GRINDER_TREADS:
+		Condition: grinder_treads
+		Prerequisites: upgrade.grinder_treads
+
+^AffectedByToxinSprayer:
+	GainsExperienceMultiplier@TOXINSPRAYER:
+		Modifier: 0
+		RequiresCondition: !toxinsprayer
+	ActorStatValues:
+		Upgrades: upgrade.toxin_sprayer
+	GrantConditionOnPrerequisite@TOXINSPRAYER:
+		Condition: toxinsprayer
+		Prerequisites: upgrade.toxin_sprayer
+
+^AffectedByCamouflage:
+	Cloak@CAMOUFLAGE:
+		RequiresCondition: camouflage && !chronodisable
+		InitialDelay: 25
+		CloakDelay: 100
+		CloakStyle: Palette
+		CloakedPalette: cloak
+		IsPlayerPalette: true
+		CloakSound: cloak5.aud
+		UncloakSound: cloak5.aud
+		UncloakOn: Attack, Damage
+	ActorStatValues:
+		Upgrades: upgrade.camouflage
+	GrantConditionOnPrerequisite@CAMOUFLAGE:
+		Condition: camouflage
+		Prerequisites: upgrade.camouflage
+
+^AffectedByFocusedMind:
+	ReloadDelayMultiplier@FOCUSED_MIND:
+		Modifier: 80
+		RequiresCondition: focused_mind
+	# ActorStatValues:
+	#	Upgrades: upgrade.focused_mind
+	GrantConditionOnPrerequisite@FOCUSED_MIND:
+		Condition: focused_mind
+		Prerequisites: upgrade.focused_mind
+
+^AffectedByAutoloaders:
+	ActorStatValues:
+		Upgrades: upgrade.autoloaders
+	GrantConditionOnPrerequisite@AUTOLOADERS:
+		Condition: autoloaders
+		Prerequisites: upgrade.autoloaders
+
+^AffectedByAdvancedMagnetics:
+	# ActorStatValues:
+	#	Upgrades: upgrade.advanced_magnetics
+	GrantConditionOnPrerequisite@ADVMAGNETS:
+		Condition: advmagnets
+		Prerequisites: upgrade.advanced_magnetics
+
+^AffectedByRocketBarrage:
+	ActorStatValues:
+		Upgrades: upgrade.rocket_barrage
+	GrantConditionOnPrerequisite@ROCKET_BARRAGE:
+		Condition: rocket_barrage
+		Prerequisites: upgrade.rocket_barrage
+
+^AffectedByChaosTankCompensators:
+	Explodes@COMPENSATORS:
+		DeathTypes: NonTemporal
+		Weapon: ChaosGasExplode
+		EmptyWeapon: ChaosGasExplode
+		RequiresCondition: compensators
+	ActorStatValues:
+		Upgrades: upgrade.chaos_tank_compensators
+	GrantConditionOnPrerequisite@COMPENSATORS:
+		Condition: compensators
+		Prerequisites: upgrade.chaos_tank_compensators
+
+^AffectedByLaserCapacitors:
+	FirepowerMultiplier@CAPACITORS:
+		Modifier: 125
+		RequiresCondition: capacitors
+	ActorStatValues:
+		Upgrades: upgrade.laser_capacitors
+	GrantConditionOnPrerequisite@CAPACITORS:
+		Condition: capacitors
+		Prerequisites: upgrade.laser_capacitors
+
+^AffectedByDNABoosters:
+	SpeedMultiplier@DNABOOST:
+		Modifier: 133
+		RequiresCondition: dnaboost
+	ActorStatValues:
+		Upgrades: upgrade.dna_boosters
+	GrantConditionOnPrerequisite@DNABOOST:
+		Condition: dnaboost
+		Prerequisites: upgrade.dna_boosters
+
+^AffectedByDiscArmor:
+	DamageMultiplier@DISCARMOR:
+		Modifier: 67
+		RequiresCondition: discarmor
+	ActorStatValues:
+		Upgrades: upgrade.disc_armor
+	GrantConditionOnPrerequisite@DISCARMOR:
+		Condition: discarmor
+		Prerequisites: upgrade.disc_armor
+
+^AffectedByMasteryOfMind:
+	ActorStatValues:
+		Upgrades: upgrade.mastery_of_mind
+	GrantConditionOnPrerequisite@MASTERYOFMIND:
+		Condition: masteryofmind
+		Prerequisites: upgrade.mastery_of_mind
+
+^AffectedByLazarusPrime:
+	ActorStatValues:
+		Upgrades: upgrade.lazarus_prime
+	GrantConditionOnPrerequisite@LAZARUS_PRIME:
+		Condition: lazarus_prime
+		Prerequisites: upgrade.lazarus_prime
+
+^AffectedByChainguns:
+	FirepowerMultiplier@CHAINGUNS:
+		Modifier: 125
+		RequiresCondition: chainguns
+	ActorStatValues:
+		Upgrades: upgrade.chainguns
+	GrantConditionOnPrerequisite@CHAINGUNS:
+		Condition: chainguns
+		Prerequisites: upgrade.chainguns
+
+^GunnerKillable:
+	WithDecoration@NOGUNNER:
+		Image: nogunner
+		Sequence: icon
+		Palette: pips
+		Position: TopLeft
+		RequiresCondition: nogunner
+		ValidRelationships: Enemy, Neutral, Ally
+	Targetable@GUNNER:
+		TargetTypes: GunnerKillable
+	TimedConditionBar@NOGUNNER:
+		Condition: nogunner
+		Color: FD2828
+	ExternalCondition@NOGUNNER:
+		Condition: nogunner
+
+^SmokeGrenadeModifiers:
+	RevealsShroudMultiplier@SMOKE:
+		Modifier: 50
+		RequiresCondition: smoked
+	FirepowerMultiplier@SMOKE:
+		Modifier: 80
+		RequiresCondition: smoked
+	WithIdleOverlay@SMOKE:
+		Image: particles
+		Sequence: smallsmoke
+		Palette: effect50alpha
+		RequiresCondition: smoked
+	ExternalCondition@SMOKE:
+		Condition: smoked
+
+^HealsInAmbulance:
+	ChangesHealth@AMBULANCE:
+		PercentageStep: 50
+		Delay: 25
+		StartIfBelow: 100
+		DamageCooldown: 0
+		RequiresCondition: in-ambulance
+	Passenger:
+		CargoConditions:
+			aambu: in-ambulance
+
+^LowHealthSpeedPenalty:
+	SpeedMultiplier@CRITICAL:
+		Modifier: 75
+		RequiresCondition: critical
+	GrantConditionOnDamageState@CRITICAL:
+		Condition: critical
+		ValidDamageStates: Critical
+
+^DamagedByRadiation100Percent:
+	DamagedByTintedCells:
+		Damage: 100
+		DamageLevel: 10
+		DamageTypes: RadiationDeath, NonTemporal
+	DamagedByTintedCells@ORANGE:
+		LayerName: radioactivityorange
+		Damage: 150
+		DamageLevel: 10
+		DamageTypes: OrangeRadiationDeath, NonTemporal
+
+^DamagedByRadiation50Percent:
+	DamagedByTintedCells:
+		Damage: 50
+		DamageLevel: 10
+		DamageTypes: RadiationDeath, NonTemporal
+	DamagedByTintedCells@ORANGE:
+		LayerName: radioactivityorange
+		Damage: 75
+		DamageLevel: 10
+		DamageTypes: OrangeRadiationDeath, NonTemporal
+
+^DamagedByRadiation10Percent:
+	DamagedByTintedCells:
+		Damage: 10
+		DamageLevel: 10
+		DamageTypes: RadiationDeath, NonTemporal
+	DamagedByTintedCells@ORANGE:
+		LayerName: radioactivityorange
+		Damage: 15
+		DamageLevel: 10
+		DamageTypes: OrangeRadiationDeath, NonTemporal
+
+^AcceptsDeathBomb:
+	Inherits@TARGETEDEXP: ^AffectedByTargetedExplosives
+	WithDecoration@DEATHBOMBS:
+		RequiresSelection: false
+		Image: dynamite
+		Sequence: small
+		Palette: mouse
+		ValidRelationships: Ally
+		RequiresCondition: deathbombs
+	Explodes@DEATHBOMBS:
+		DeathTypes: NonTemporal
+		Weapon: DeathBombExplode
+		EmptyWeapon: DeathBombExplode
+		RequiresCondition: deathbombs && !targetedexp
+	Explodes@DEATHBOMBSTARGETED:
+		DeathTypes: NonTemporal
+		Weapon: TargetedDeathBombExplode
+		EmptyWeapon: TargetedDeathBombExplode
+		RequiresCondition: deathbombs && targetedexp
+	ExternalCondition@DEATHBOMBS:
+		Condition: deathbombs
+
+^AcceptsIvanBomb:
+	DelayedWeaponAttachable@IVANBOMB:
+		Type: IvanBomb
+		ShowProgressBar: false
+		Condition: ivanbomb
+	Targetable@IVANBOMB:
+		TargetTypes: IvanBomb
+		RequiresCondition: !ivanbomb
+	Targetable@IVANBOMBCLEANER:
+		TargetTypes: IvanBombCleaner
+		RequiresCondition: ivanbomb
+	WithDecoration@IVANBOMB:
+		RequiresSelection: false
+		Image: dynamite
+		Sequence: idle
+		Palette: mouse
+		Position: Center
+		ValidRelationships: Ally, Neutral, Enemy
+		RequiresCondition: ivanbomb
+	AmbientSound@IVANBOMB:
+		SoundFiles: icraloop.wav
+		Volume: 0.45
+		RequiresCondition: ivanbomb
+
+^AcceptsSEALC4:
+	DelayedWeaponAttachable@SEALC4:
+		Type: SEALC4
+		ShowProgressBar: false
+		Condition: sealC4
+	Targetable@SEALC4:
+		TargetTypes: SEALC4
+		RequiresCondition: !sealC4
+	Targetable@SEALC4CLEANER:
+		TargetTypes: SEALC4Cleaner
+		RequiresCondition: sealC4
+	WithDecoration@SEALC4:
+		RequiresSelection: false
+		Image: c4
+		Sequence: idle
+		Palette: mouse
+		Position: Center
+		ValidRelationships: Ally, Neutral, Enemy
+		RequiresCondition: sealC4
+	AmbientSound@SEALC4:
+		SoundFiles: iseatima.wav, iseatima.wav, iseatimc.wav
+		Interval: 5
+		Volume: 0.65
+		RequiresCondition: sealC4
+
+^AcceptsCommandoC4:
+	DelayedWeaponAttachable@COMMANDOC4:
+		Type: CommandoC4
+		ShowProgressBar: false
+		Condition: commandoC4
+	Targetable@COMMANDOC4:
+		TargetTypes: CommandoC4
+		RequiresCondition: !commandoC4
+	Targetable@COMMANDOC4CLEANER:
+		TargetTypes: CommandoC4Cleaner
+		RequiresCondition: commandoC4
+	WithDecoration@COMMANDOC4:
+		RequiresSelection: false
+		Image: c4
+		Sequence: idle
+		Palette: mouse
+		Position: Center
+		ValidRelationships: Ally, Neutral, Enemy
+		RequiresCondition: commandoC4
+	AmbientSound@COMMANDOC4:
+		SoundFiles: iseatima.wav, iseatima.wav, iseatimc.wav
+		Interval: 5
+		Volume: 0.65
+		RequiresCondition: commandoC4
+
+^AcceptsTanyaC4:
+	DelayedWeaponAttachable@TANYAC4:
+		Type: TanyaC4
+		ShowProgressBar: false
+		Condition: tanyaC4
+	Targetable@TANYAC4:
+		TargetTypes: TanyaC4
+		RequiresCondition: !tanyaC4
+	Targetable@TANYAC4CLEANER:
+		TargetTypes: TanyaC4Cleaner
+		RequiresCondition: tanyaC4
+	WithDecoration@TANYAC4:
+		RequiresSelection: false
+		Image: c4
+		Sequence: idle
+		Position: Center
+		Palette: mouse
+		ValidRelationships: Ally, Neutral, Enemy
+		RequiresCondition: tanyaC4
+	AmbientSound@TANYAC4:
+		SoundFiles: iseatima.wav, iseatima.wav, iseatimc.wav
+		Interval: 5
+		Volume: 0.65
+		RequiresCondition: tanyaC4
+
+^AcceptsTeslaBomb:
+	DelayedWeaponAttachable@TESLABOMB:
+		Type: TeslaBomb
+		ShowProgressBar: false
+		Condition: teslabomb
+	Targetable@TESLABOMB:
+		TargetTypes: TeslaBomb
+		RequiresCondition: !teslabomb
+	Targetable@TESLABOMBCLEANER:
+		TargetTypes: TeslaBombCleaner
+		RequiresCondition: teslabomb
+	WithDecoration@TESLABOMB:
+		RequiresSelection: false
+		Image: c4
+		Sequence: idle
+		Position: Center
+		Palette: mouse
+		ValidRelationships: Ally, Neutral, Enemy
+		RequiresCondition: teslabomb
+	AmbientSound@TESLABOMB:
+		SoundFiles: iseatima.wav, iseatima.wav, iseatimc.wav
+		Interval: 5
+		Volume: 0.65
+		RequiresCondition: teslabomb
+
+^AcceptsToxinBomb:
+	DelayedWeaponAttachable@TOXINBOMB:
+		Type: ToxinBomb
+		ShowProgressBar: false
+		Condition: toxinbomb
+	Targetable@TOXINBOMB:
+		TargetTypes: ToxinBomb
+		RequiresCondition: !toxinbomb
+	Targetable@TOXINBOMBCLEANER:
+		TargetTypes: ToxinBombCleaner
+		RequiresCondition: toxinbomb
+	WithDecoration@TOXINBOMB:
+		RequiresSelection: false
+		Image: toxinbomb
+		Sequence: idle
+		Position: Center
+		Palette: mouse
+		ValidRelationships: Ally, Neutral, Enemy
+		RequiresCondition: toxinbomb
+	AmbientSound@TOXINBOMB:
+		SoundFiles: icraloop.wav
+		Volume: 0.45
+		RequiresCondition: toxinbomb
+
+^IronCurtainable:
+	WithColoredOverlay@ironcurtain:
+		Color: 40000080
+		RequiresCondition: invulnerability
+	DamageMultiplier@ironcurtain:
+		RequiresCondition: invulnerability
+		Modifier: 0
+	Targetable@ironcurtain:
+		TargetTypes: IronCurtainable
+	Targetable@ironcurtained:
+		TargetTypes: IronCurtained
+		RequiresCondition: invulnerability
+	TimedConditionBar@invulnerability:
+		Condition: invulnerability
+	ExternalCondition@INVULNERABILITY:
+		Condition: invulnerability
+
+^KilledByIronCurtain:
+	Targetable@ironcurtain:
+		TargetTypes: IronCurtainable
+	KillsSelf@ironcurtain:
+		DamageTypes: FlameDeath, NonTemporal
+		RequiresCondition: invulnerability
+	ExternalCondition@INVULNERABILITY:
+		Condition: invulnerability
+
+^LazarusShieldable:
+	Cloak@lazarus:
+		RequiresCondition: invisibility && !chronodisable
+		InitialDelay: 25
+		CloakDelay: 100
+		CloakStyle: Palette
+		CloakedPalette: cloak
+		IsPlayerPalette: true
+		CloakSound: cloak5.aud
+		UncloakSound: cloak5.aud
+		UncloakOn: Attack, Damage
+	ExternalCondition@INVISIBILITY:
+		Condition: invisibility
+
+^KilledByLazarusShield:
+	KillsSelf@lazarus:
+		DamageTypes: RadiationDeath, NonTemporal
+		RequiresCondition: invisibility
+	ExternalCondition@INVISIBILITY:
+		Condition: invisibility
+
+^AffectedByStealthGenerator:
+	Cloak@stealth-generator:
+		RequiresCondition: invisibility-generator && !chronodisable
+		InitialDelay: 25
+		CloakDelay: 100
+		CloakStyle: Palette
+		CloakedPalette: cloak
+		IsPlayerPalette: true
+		CloakSound: cloak5.aud
+		UncloakSound: cloak5.aud
+		UncloakOn: Attack, Damage, SupportPower
+	ExternalCondition@INVISIBILITY-GENERATOR:
+		Condition: invisibility-generator
+
+^ForceShieldable:
+	WithColoredOverlay@forceshield:
+		Color: 00004080
+		RequiresCondition: forceshield
+	DamageMultiplier@forceshield:
+		RequiresCondition: forceshield
+		Modifier: 0
+	TimedConditionBar@forceshield:
+		Color: 0000FF
+		Condition: forceshield
+	Targetable@forceshielded:
+		TargetTypes: ForceShielded
+		RequiresCondition: forceshield
+	ExternalCondition@FORCESHIELD:
+		Condition: forceshield
+	#ProvidesPrerequisite@FORCESHIELD:
+	#	Prerequisite: forceshield
+	#	RequiresCondition: forceshield
+
+^AcceptsPointDefenseDrones:
+	WithColoredOverlay@PointDefense1:
+		Color: 30003040
+		RequiresCondition: pointdefense && breakpointdefense == 3
+	WithColoredOverlay@PointDefense2:
+		Color: 30003060
+		RequiresCondition: pointdefense && breakpointdefense == 2
+	WithColoredOverlay@PointDefense3:
+		Color: 30003080
+		RequiresCondition: pointdefense && breakpointdefense == 1
+	WithColoredOverlay@PointDefense4:
+		Color: 300030A0
+		RequiresCondition: pointdefense && !breakpointdefense
+	ExternalCondition@PointDefense:
+		Condition: pointdefense
+	ExternalCondition@BreakPointDefense:
+		Condition: breakpointdefense
+	Targetable@PointDefense:
+		TargetTypes: WithPointDefense
+		RequiresCondition: pointdefense
+	DamageMultiplier@PointDefense1:
+		RequiresCondition: pointdefense && breakpointdefense <= 3
+		Modifier: 50
+	DamageMultiplier@PointDefense2:
+		RequiresCondition: pointdefense && breakpointdefense == 2
+		Modifier: 26
+	DamageMultiplier@PointDefense3:
+		RequiresCondition: pointdefense && breakpointdefense == 1
+		Modifier: 12
+	DamageMultiplier@PointDefense4:
+		RequiresCondition: pointdefense && !breakpointdefense
+		Modifier: 6
+
+^AffectedByCashBounty:
+	WithDecoration@BOUNTY:
+		RequiresSelection: false
+		Image: crate-effects
+		Sequence: dollar
+		Position: Center
+		Palette: effect
+		ValidRelationships: Ally, Neutral, Enemy
+		RequiresCondition: bounty
+	GivesBounty:
+		ValidRelationships: Ally, Neutral, Enemy
+		RequiresCondition: bounty
+	TimedConditionBar@BOUNTY:
+		Color: FFDD00
+		Condition: bounty
+	ExternalCondition@BOUNTY:
+		Condition: bounty
+
+^ChronoDisable:
+	AffectedByTemporal:
+		Condition: affectedbytemporal
+		EraseDamageMultiplier: 500
+		EraseSounds: ichrkill.wav
+		SelectionBarColor: FFFFFF
+	Explodes@ChronoDisable:
+		Weapon: TemporalExplode
+		DeathTypes: Temporal
+	Targetable:
+		RequiresCondition: !affectedbytemporal
+	Targetable@ChronoDisable:
+		TargetTypes: ChronoDisable
+	SpeedMultiplier@ChronoDisable:
+		Modifier: 0
+		RequiresCondition: chronodisable
+	TurnSpeedMultiplier@ChronoDisable:
+		Modifier: 0
+		RequiresCondition: chronodisable
+	WithColoredOverlay@ChronoDisable:
+		Color: 0060C040
+		RequiresCondition: chronodisable
+	GrantCondition@ChronoDisable:
+		Condition: chronodisable
+		RequiresCondition: affectedbytemporal
+
+^ChronoDisableDisabledWithIC:
+	Inherits: ^ChronoDisable
+	AffectedByTemporal:
+		RequiresCondition: !invulnerability
+
+^ChronoDisableDisabledWithICorForceShield:
+	Inherits: ^ChronoDisable
+	AffectedByTemporal:
+		RequiresCondition: !invulnerability && !forceshield
+
+^TankBunkerable:
+	FirepowerMultiplier@TANK_BUNKER:
+		Modifier: 130
+		RequiresCondition: in-tank-bunker
+	ReloadDelayMultiplier@TANK_BUNKER:
+		Modifier: 77
+		RequiresCondition: in-tank-bunker
+	RangeMultiplier@TANK_BUNKER:
+		Modifier: 134 # This is meant to be +2
+		RequiresCondition: in-tank-bunker
+	Passenger:
+		CargoType: GarrisonerVehicle
+		CargoConditions:
+			natbnk: in-tank-bunker
+
+^MindControllable:
+	MindControllable:
+		RevokeControlSounds: gmindcle.wav
+		Condition: controlled
+	WithMindControlArc:
+		UsePlayerColor: true
+		Offset: 0,0,960
+	Targetable@MC:
+		TargetTypes: MindControl
+		RequiresCondition: !controlled && !permamc
+	WithIdleOverlay@mindcontrol:
+		Image: mindcontrol
+		Sequence: mindcontrol
+		Palette: effect
+		RequiresCondition: controlled || permamc
+	Capturable@PERMAMC:
+		Types: permamc
+		RequiresCondition: !controlled && !permamc
+	CaptureManager:
+	ExternalCondition@PERMAMC:
+		Condition: permamc
+
+^MindControllableDisabledWithIC:
+	Inherits: ^MindControllable
+	MindControllable:
+		PauseOnCondition: invulnerability
+
+^MindControllableBuilding:
+	Inherits: ^MindControllableDisabledWithIC
+	MindControllable:
+		PauseOnCondition: invulnerability || forceshield
+	Targetable@MC:
+		TargetTypes: MindControlBuilding
+		RequiresCondition: !controlled
+	WithIdleOverlay@mindcontrol:
+		RequiresCondition: controlled
+	-Capturable@PERMAMC:
+	-ExternalCondition@PERMAMC:
+
+^Berserkable:
+	FirepowerMultiplier@CHAOS:
+		Modifier: 130
+		RequiresCondition: chaos
+	Berserkable@CHAOS:
+		TargetTypesToIgnore: Tree, NoBerserkAutoTarget
+		RequiresCondition: chaos
+	RejectsOrders@CHAOS:
+		RequiresCondition: chaos
+	WithColoredOverlay@CHAOS:
+		Color: 80008040
+		RequiresCondition: chaos
+	TimedConditionBar@CHAOS:
+		Color: 880088
+		Condition: chaos
+	Targetable@CHAOS:
+		TargetTypes: ChaosGasable
+	ExternalCondition@CHAOS:
+		Condition: chaos
+
+^BerserkableArmed:
+	Inherits: ^Berserkable
+	AutoTarget:
+		RequiresCondition: !chaos
+
+^BerserkableVoxel:
+	Inherits: ^Berserkable
+	WithColoredOverlay@CHAOS:
+		Color: 2A002A40
+
+^BerserkableVoxelArmed:
+	Inherits: ^BerserkableVoxel
+	AutoTarget:
+		RequiresCondition: !chaos
+
+^NotBerserkTarget:
+	Targetable@NOCHAOS:
+		TargetTypes: NoBerserkAutoTarget
+
+^TerrorDronable:
+	InfectableRV:
+		RequiresCondition: !chronodisable
+		KillInfectorDamageTypes: KillsDrone
+		BeingInfectedCondition: beingterrordroned
+		InfectedCondition: terrordroned
+	Targetable@DRONE:
+		TargetTypes: TerrorDronable
+		RequiresCondition: !chronodisable
+	RevealsShroud@DRONE:
+		Range: 2c0
+		ValidRelationships: Enemy, Neutral
+		RequiresCondition: terrordroned
+	PeriodicExplosion@dronesparks:
+		RequiresCondition: terrordroned
+		Weapon: DroneSparkSpawner
+		LocalOffset: 0,0,384
+	SpeedMultiplier@DRONE:
+		RequiresCondition: beingterrordroned
+		Modifier: 0
+
+^TerrorDronableAircraft:
+	Inherits: ^TerrorDronable
+	RevealsShroud@DRONE:
+		Type: CenterPosition
+
+^SquidGrabbable:
+	InfectableOld:
+		RequiresCondition: !chronodisable
+		RemoveInfectorDamageTypes: RemovesSquid
+		BeingInfectedCondition: beinginfected
+		InfectedByConditions:
+			sqd: squid
+	RevealsShroud@SQUID:
+		Range: 5c0
+		ValidRelationships: Enemy, Neutral
+		RequiresCondition: squid
+	Targetable@SQUID:
+		TargetTypes: SquidInfection
+		RequiresCondition: !chronodisable
+	SpeedMultiplier@SQUID:
+		RequiresCondition: beinginfected
+		Modifier: 0
+
+^Hologram:
+	GrantPeriodicCondition:
+		Condition: holokill
+		CooldownDuration: 500
+	KillsSelf@holokill:
+		RequiresCondition: holokill
+		DamageTypes: BulletDeath, NonTemporal
+	WithDecoration@holoicon:
+		Image: holo
+		Sequence: icon
+		Position: BottomRight
+		Palette: ts-mouse
+	Explodes:
+		DeathTypes: NonTemporal
+		Weapon: HoloExplode
+		EmptyWeapon: HoloExplode
+	DamageMultiplier@Hologram:
+		Modifier: 200
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
+
+^BuildingParticles:
+	SmokeParticleEmitter@1:
+		RequiresCondition: dmg_heavy
+		Sequences: smallsmoke
+		Palette: effect
+		SpawnFrequency: 6, 20
+		Speed: 32
+		Gravity: 48
+		Offset: -384,-384,0, 384,384,0
+		Duration: 38
+	SmokeParticleEmitter@2:
+		RequiresCondition: dmg_heavy
+		Sequences: fire
+		Palette: effect
+		SpawnFrequency: 96
+		Speed: 0
+		Gravity: 0
+		Offset: -384,-384,0, 384,384,0
+		Duration: 80
+	SmokeParticleEmitter@3:
+		RequiresCondition: dmg_heavy
+		Sequences: fire
+		Palette: effect
+		SpawnFrequency: 96
+		Speed: 0
+		Gravity: 0
+		Offset: -384,-384,0, 384,384,0
+		Duration: 80
+	SmokeParticleEmitter@4:
+		RequiresCondition: dmg_crit
+		Sequences: fire
+		Palette: effect
+		SpawnFrequency: 96
+		Speed: 0
+		Gravity: 0
+		Offset: -384,-384,0, 384,384,0
+		Duration: 80
+	SmokeParticleEmitter@5:
+		RequiresCondition: dmg_crit
+		Sequences: largesmoke
+		Palette: effect
+		SpawnFrequency: 6, 20
+		Speed: 48
+		Gravity: 72
+		Offset: -384,-384,0, 384,384,0
+		Duration: 38
+	GrantConditionOnDamageState@dmg_heavy:
+		Condition: dmg_heavy
+	GrantConditionOnDamageState@dmg_crit:
+		Condition: dmg_crit
+		ValidDamageStates: Critical
+
+^UnitParticles:
+	SmokeParticleEmitter@1:
+		RequiresCondition: enable_unitsmoke
+		Sequences: smallsmoke
+		Palette: effect
+		SpawnFrequency: 3, 10
+		Speed: 32
+		Gravity: 48
+		Offset: 0,0,192
+		Duration: 38
+	GrantConditionOnDamageState@dmg_heavy:
+		Condition: dmg_heavy
+	GrantPeriodicCondition@enable_unitsmoke:
+		Condition: enable_unitsmoke
+		CooldownDuration: 10000000
+		StartsGranted: true
+		RequiresCondition: dmg_heavy
+
+^VehicleParticles:
+	Inherits: ^UnitParticles
+	PeriodicExplosion@damagesparks:
+		RequiresCondition: dmg_heavy
+		Weapon: DamageSparkSpawner
+		LocalOffset: 0,0,384
+
+^WithFeedbackVoicelines:
+	GrantRandomCondition@Feedback:
+		Conditions: playfeedback, dontplayfeedback, dontplayfeedback, dontplayfeedback
+	GrantConditionOnDamageState@Feedback:
+		Condition: feedback
+		ValidDamageStates: Critical
+	VoiceAnnouncement:
+		RequiresCondition: feedback && playfeedback
+		Voice: Feedback
+		ValidRelationships: None
+
+^AutoTargetGround:
+	AutoTarget:
+		AttackAnythingCondition: stance-attackanything
+	AutoTargetPriority@DEFAULT:
+		RequiresCondition: !stance-attackanything
+		ValidTargets: Infantry, Vehicle, TerrorDrone, Water, Underwater, SeaAnimal, Defense, Mine
+		InvalidTargets: NoAutoTarget, WaterStructure
+	AutoTargetPriority@ATTACKANYTHING:
+		RequiresCondition: stance-attackanything
+		ValidTargets: Infantry, Vehicle, TerrorDrone, Water, Underwater, SeaAnimal, Structure, Defense, Mine
+		InvalidTargets: NoAutoTarget
+
+^AutoTargetGroundAssaultMove:
+	Inherits: ^AutoTargetGround
+	AutoTargetPriority@DEFAULT:
+		RequiresCondition: !stance-attackanything && !assault-move
+	AutoTargetPriority@ATTACKANYTHING:
+		RequiresCondition: stance-attackanything || assault-move
+	AttackMove:
+		AssaultMoveCondition: assault-move
+		Voice: Attack
+
+^AutoTargetAir:
+	AutoTarget:
+	AutoTargetPriority@DEFAULT:
+		ValidTargets: Air
+		InvalidTargets: NoAutoTarget
+
+^AutoTargetAirAssaultMove:
+	Inherits: ^AutoTargetAir
+	AttackMove:
+		Voice: Attack
+
+^AutoTargetAll:
+	AutoTarget:
+		AttackAnythingCondition: stance-attackanything
+	AutoTargetPriority@DEFAULT:
+		RequiresCondition: !stance-attackanything
+		ValidTargets: Infantry, Vehicle, TerrorDrone, Water, Underwater, SeaAnimal, Air, Defense, Mine
+		InvalidTargets: NoAutoTarget, WaterStructure
+	AutoTargetPriority@ATTACKANYTHING:
+		RequiresCondition: stance-attackanything
+		ValidTargets: Infantry, Vehicle, TerrorDrone, Water, Underwater, SeaAnimal, Air, Structure, Defense, Mine
+		InvalidTargets: NoAutoTarget
+
+^AutoTargetAllAssaultMove:
+	Inherits: ^AutoTargetAll
+	AutoTargetPriority@DEFAULT:
+		RequiresCondition: !stance-attackanything && !assault-move
+	AutoTargetPriority@ATTACKANYTHING:
+		RequiresCondition: stance-attackanything || assault-move
+	AttackMove:
+		AssaultMoveCondition: assault-move
+		Voice: Attack
+
+^PlayerHandicaps:
+	HandicapFirepowerMultiplier:
+	HandicapDamageMultiplier:
+
+^FlatSelectionMode:
+	Selectable:
+		PriorityModifiers: Ctrl
+
+^LowPrioritySelectionMode:
+	Selectable:
+		PriorityModifiers: Ctrl, Alt
+
+^Building:
+	Inherits@1: ^ExistsInWorld
+	Inherits@2: ^SpriteActor
+	Inherits@3: ^SelectableBuilding
+	Inherits@4: ^IronCurtainable
+	Inherits@5: ^ForceShieldable
+	Inherits@6: ^AcceptsIvanBomb
+	Inherits@7: ^AcceptsSEALC4
+	Inherits@8: ^AcceptsCommandoC4
+	Inherits@9: ^BuildingParticles
+	Inherits@10: ^ChronoDisableDisabledWithICorForceShield
+	Inherits@11: ^AffectedByStealthGenerator
+	Inherits@12: ^AcceptsTeslaBomb
+	Inherits@13: ^AcceptsToxinBomb
+	Inherits@HANDICAPS: ^PlayerHandicaps
+	Inherits@SHAPE: ^1x1Shape
+	-DrawLineToTarget:
+	AppearsOnMapPreview:
+	OwnerLostAction:
+		Action: Kill
+		DeathTypes: BulletDeath, NonTemporal
+	Targetable:
+		TargetTypes: Ground, C4, DetonateAttack, Structure, NonGarrisonableStructure
+	WithColoredOverlay@FLARE:
+		Color: FF000080
+		RequiresCondition: flare
+	ExternalCondition@FLARE:
+		Condition: flare
+	RevealsShroud:
+		Range: 6c0
+		MaxHeightDelta: 3
+	Building:
+		Dimensions: 1,1
+		Footprint: x
+		BuildSounds: uplace.wav
+		RequiresBaseProvider: True
+		UndeploySounds: uselbuil.wav
+		TerrainTypes: Clear, Rough, Road, DirtRoad
+	ActorPreviewPlaceBuildingPreview:
+		PreviewAlpha: 0.55
+		Palette: placefootprint
+		LineBuildFootprintAlpha: 0.5
+		FootprintUnderPreview: Valid, LineBuild, Invalid
+		FootprintOverPreview: None
+	FrozenUnderFog:
+	Capturable:
+		Types: building
+		RequiresCondition: !build-incomplete && !invulnerability && !forceshield
+	CaptureNotification:
+		TextNotification: notification-building-captured
+	CapturableProgressBar:
+		RequiresCondition: !instantcapture
+	CapturableProgressBlink:
+		Interval: 25
+		Sound: ucapture.aud
+		RequiresCondition: !instantcapture
+	GrantConditionOnPrerequisite@INSTANTCAPTURE:
+		Condition: instantcapture
+		Prerequisites: global-instantcapture
+	SoundOnDamageTransition:
+		DamageTypes: NonTemporal
+		DamagedSounds: gdamag1a.wav, gdamag1b.wav, gdamag1c.wav, gdamag1d.wav, gdamag1e.wav
+		DestroyedSounds: bgendiea.wav, bgendieb.wav, bgendiec.wav, bgendied.wav, bgendiee.wav, bgendief.wav
+	WithSpriteBody:
+	Explodes:
+		DeathTypes: NonTemporal
+		Type: Footprint
+		Weapon: BuildingExplode
+	Explodes@ChronoDisable:
+		Type: Footprint
+	RepairableBuilding:
+		RepairStep: 700
+		RepairingNotification: Repairing
+	InstantlyRepairable:
+		Types: building
+		RequiresCondition: !ivanbomb && !sealC4 && !commandoC4 && !teslabomb && !toxinbomb
+	SpawnActorsOnSell@allies:
+		ActorTypes: e1, e1, e1
+		Factions: america, germany, england, france, korea, japan, belarus, poland, ukraine, aussie, china, turkey, canada
+	SpawnActorsOnSell@soviets:
+		ActorTypes: e2, e2, e2, e2
+		Factions: cuba, libya, iraq, russia, vietnam, chile, mexico, , mongolia, transcaucus, turkmen, tuva, russianfed, serbia
+	SpawnActorsOnSell@psicorps:
+		ActorTypes: init, init, init
+		Factions: psicorps, psinepal, psisouth, psitrans, psimoon
+	GrantConditionOnPrerequisite@SUDDENDEATH:
+		Condition: suddendeath
+		Prerequisites: global-suddendeath
+	MustBeDestroyed:
+		RequiredForShortGame: true
+		RequiresCondition: !suddendeath
+	ShakeOnDeath:
+		DeathTypes: NonTemporal
+	ProximityCaptor:
+		Types: Building
+	Guardable:
+		Range: 3c0
+	Demolishable:
+		RequiresCondition: !invulnerability && !forceshield && !chronodisable
+	HitShape:
+		UseTargetableCellsOffsets: true
+	Tooltip:
+		Name: meta-building.name
+		GenericName: meta-building.name
+		RequiresCondition: showownername
+	Tooltip@NoRow:
+		Name: meta-building.name
+		GenericName: meta-building.name
+		ShowOwnerRow: false
+		RequiresCondition: !showownername
+	GrantConditionOnPrerequisite@SHOWOWNERNAME:
+		Condition: showownername
+		Prerequisites: global-showownername
+	MapEditorData:
+		Categories: Building
+	WithBuildingRepairDecoration:
+		Image: allyrepair
+		Sequence: repair
+		Position: Center
+		Palette: mouse
+	CaptureManager:
+	RangedGpsDot:
+		Sequence: Structure
+
+^BaseBuilding:
+	Inherits: ^Building
+	WithMakeAnimation:
+		Condition: build-incomplete
+	Building:
+		SecondaryTerrainTypes: Water
+	Sellable:
+		SellSounds: uselbuil.wav
+		Notification: StructureSold
+		RequiresCondition: !build-incomplete && !chronodisable
+	Targetable:
+		RequiresCondition: !in_water
+	Targetable@Water:
+		TargetTypes: Ground, Water, WaterStructure, C4
+		RequiresCondition: in_water
+	SpawnActorsOnSell@allies:
+		RequiresCondition: !in_water
+	SpawnActorsOnSell@soviets:
+		RequiresCondition: !in_water
+	SpawnActorsOnSell@psicorps:
+		RequiresCondition: !in_water
+	GrantConditionOnTerrain@Water:
+		TerrainTypes: Water, Beach
+		Condition: in_water
+	RequiresBuildableArea:
+		AreaTypes: building
+		Adjacent: 3
+	GivesBuildableArea:
+		AreaTypes: building, defense
+
+^SupportBuilding:
+	Inherits: ^BaseBuilding
+	-Capturable:
+	-CaptureNotification:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	-GrantConditionOnPrerequisite@INSTANTCAPTURE:
+	-ShakeOnDeath:
+	-GivesBuildableArea:
+	MustBeDestroyed:
+		RequiredForShortGame: false
+	Building:
+		SecondaryTerrainTypes: Water
+	RevealOnFire:
+		ArmamentNames: primary, secondary, gatling, support, garrisoned, garrisoned-secondary
+		Duration: 50
+	TakesBounty:
+		Percentage: 50
+	Targetable:
+		TargetTypes: Ground, C4, DetonateAttack, Structure, Defense, NonGarrisonableStructure
+	Targetable@Water:
+		TargetTypes: Ground, Water, WaterStructure, Defense, C4
+	RangedGpsDot:
+		Sequence: Defense
+	RequiresBuildableArea:
+		AreaTypes: defense
+
+^BuildingPlug:
+	Interactable:
+	AlwaysVisible:
+	Building:
+		BuildSounds: uplace.wav
+		UndeploySounds: uselbuil.wav
+	FootprintPlaceBuildingPreview:
+		Palette: placefootprint
+	KillsSelf:
+		RemoveInstead: true
+	RenderSprites:
+
+^PrimaryBuilding:
+	WithTextDecoration@primary:
+		RequiresSelection: true
+		Text: PRIMARY
+		Position: Top
+		RequiresCondition: primary && !multiqueue
+	PrimaryBuilding:
+		PrimaryCondition: primary
+		SelectionNotification: PrimaryBuildingSelected
+		SelectionTextNotification: notification-primary-building-selected
+		RequiresCondition: !multiqueue
+	GrantConditionOnPrerequisite@multiqueue:
+		Condition: multiqueue
+		Prerequisites: global-multiqueue
+	FreeActor@Dummy:
+		Actor: QueueUpdaterDummy
+		RequiresCondition: updatequeue
+	GrantConditionAfterDelay:
+		Delay: 1
+		Condition: updatequeue
+		ShowSelectionBar: false
+
+^CivBuilding:
+	Inherits: ^Building
+	-OwnerLostAction:
+	-Capturable:
+	-CaptureNotification:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	-GrantConditionOnPrerequisite@INSTANTCAPTURE:
+	-GrantConditionOnPrerequisite@SUDDENDEATH:
+	-MustBeDestroyed:
+	-GivesExperience:
+	-UpdatesPlayerStatistics:
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
+	Buildable:
+		Queue: Building.Civilian
+	InstantlyRepairable:
+		Types: civilian
+	Health:
+		HP: 140000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4c0
+	Tooltip:
+		Name: meta-civbuilding.name
+	Tooltip@NoRow:
+		Name: meta-civbuilding.name
+	MapEditorData:
+		Categories: Civilian building
+
+^GarrisonableBuilding:
+	Inherits: ^CivBuilding
+	Inherits@AUTOTARGET: ^AutoTargetAll
+	RevealsShroud:
+		Range: 10c0
+		RequiresCondition: loaded
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 10c0
+	#	RequiresCondition: loaded
+	ChangeOwnerOnGarrisoner:
+		EnterSounds: ugarris.wav
+		ExitSounds: ugarris.wav
+		EnterNotification: StructureGarrisoned
+		ExitNotification: StructureAbandoned
+	Garrisonable:
+		Types: Garrisoner
+		MaxWeight: 10
+		AfterLoadDelay: 0
+		BeforeUnloadDelay: 0
+		AfterUnloadDelay: 0
+		EjectOnDeath: true
+		OwnerChangedAffectsGarrisoners: false
+		LoadedCondition: loaded
+		PauseOnCondition: chronodisable
+		RequiresCondition: !dmg_crit
+	WithGarrisonPipsDecoration:
+		EmptySequence: pip-garrison-empty
+		FullSequence: pip-garrison-green
+		Margin: 4, 3
+		PipStride: 4, 2
+		Palette: ra
+		Position: BottomLeft
+		RequiresSelection: true
+		CustomPipSequences:
+			gray: pip-garrison-gray
+			yellow: pip-garrison-yellow
+			blue: pip-garrison-blue
+			red: pip-garrison-red
+	AttackOpenTopped:
+		Armaments: garrisoned, garrisoned-secondary
+		PortOffsets: 768,0,1024, 448,-682,1024, -448,-682,1024, -768,0,1024, -448,682,1024, 448,682,1024
+		PauseOnCondition: chronodisable
+	Targetable:
+		TargetTypes: Ground, C4, DetonateAttack, Structure
+	Targetable@GARRISONED:
+		TargetTypes: Defense, GarrisonedStructure
+		RequiresCondition: loaded
+	WithSpriteBody:
+		RequiresCondition: !loaded
+	WithSpriteBody@GARRISONED:
+		Name: garrisoned
+		Sequence: garrisoned
+		RequiresCondition: loaded
+	InstantlyRepairable:
+		RequiresCondition: !ivanbomb && !sealC4 && !commandoC4 && !teslabomb && !toxinbomb && damaged
+	GrantConditionOnDamageState@DAMAGED:
+		Condition: damaged
+		ValidDamageStates: Light, Medium, Heavy, Critical
+	ActorStatValues:
+		Stats: Armor, Sight, Cargo
+
+^Rubble:
+	Inherits@1: ^SpriteActor
+	Inherits@SHAPE: ^1x1Shape
+	Building:
+		Dimensions: 1,1
+		Footprint: _
+	RenderSprites:
+		Palette: rubble
+	WithSpriteBody:
+		Sequence: rubble
+	FrozenUnderFog:
+	HitShape:
+		UseTargetableCellsOffsets: true
+	MapEditorData:
+		Categories: Building rubble
+	Interactable:
+	Targetable:
+		TargetTypes: Rubble
+
+^TechBuilding:
+	Inherits: ^Building
+	Inherits@EMPULSE: ^DisabledByEMP
+	-GrantConditionOnPrerequisite@SUDDENDEATH:
+	-MustBeDestroyed:
+	-GivesExperience:
+	-UpdatesPlayerStatistics:
+	OwnerLostAction:
+		Action: ChangeOwner
+	Buildable:
+		Queue: Building.Tech
+	Building:
+		SecondaryTerrainTypes: Water
+	Health:
+		HP: 90000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 5c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 5c0
+	#	RequiresCondition: enabled
+	Targetable:
+		RequiresCondition: !in_water
+	Targetable@Water:
+		TargetTypes: Ground, Water, WaterStructure, C4
+		RequiresCondition: in_water
+	GrantConditionOnTerrain@Water:
+		TerrainTypes: Water, Beach
+		Condition: in_water
+	WithIdleOverlay@waves:
+		Sequence: idle-waves
+		PauseOnCondition: chronodisable
+		RequiresCondition: in_water
+	GrantConditionOnCombatantOwner:
+		Condition: enabled
+	Capturable:
+		Types: tech
+		RequiresCondition: !invulnerability
+	CaptureNotification:
+		Notification: TechBuildingCaptured
+		TextNotification: notification-tech-building-captured
+		LoseNotification: TechBuildingLost
+		LoseTextNotification: notification-tech-building-lost
+	GivesBuildableArea:
+		AreaTypes: building, defense
+		RequiresCondition: techbuild
+	BaseProvider:
+		Range: 5c0
+		RequiresCondition: techbuild
+	GrantConditionOnPrerequisite@BUILD:
+		Condition: techbuild
+		Prerequisites: global-techbuildarea
+	MapEditorData:
+		Categories: Tech building
+
+^Flag:
+	Inherits: ^CivBuilding
+	OwnerLostAction:
+		Action: ChangeOwner
+	IsometricSelectable:
+		DecorationHeight: 120
+	Building:
+		Footprint: x
+		Dimensions: 1, 1
+		TerrainTypes: Clear, Rough, Road, DirtRoad, Water
+	Tooltip:
+		Name: meta-flag.name
+	Tooltip@NoRow:
+		Name: meta-flag.name
+	Health:
+		HP: 2000
+	Armor:
+		Type: Steel
+	RevealsShroud:
+		Range: 6c0
+	Targetable:
+		RequiresCondition: !in_water
+	Targetable@Water:
+		TargetTypes: Ground, Water, WaterStructure, C4
+		RequiresCondition: in_water
+	GrantConditionOnTerrain@Water:
+		TerrainTypes: Water, Beach
+		Condition: in_water
+	WithIdleOverlay@flag:
+		Sequence: flag
+		Palette: player
+		IsPlayerPalette: false
+		PauseOnCondition: chronodisable
+	WithIdleOverlay@flag_shadow:
+		Sequence: flag-shadow
+		Palette: shadow
+		IsPlayerPalette: false
+		PauseOnCondition: chronodisable
+	WithIdleOverlay@waves:
+		Sequence: idle-waves
+		PauseOnCondition: chronodisable
+		RequiresCondition: in_water
+	SoundOnDamageTransition:
+		DamagedSounds: bmetdama.wav, bmetdamb.wav, bmetdamc.wav
+		DestroyedSounds: bmetdama.wav, bmetdamb.wav, bmetdamc.wav
+	MapEditorData:
+		Categories: Flag
+
+^VoxelLighting:
+	Inherits: ^SupportBuilding
+	RenderVoxels:
+		Scale: 11.7
+		LightYaw: 800
+		LightPitch: 150
+		LightAmbientColor: -0.5,-0.5,-0.5
+		LightDiffuseColor: 1.3,1.3,1.3
+	WithColoredOverlay@ChronoDisable:
+		Color: 00204040
+
+^Wall:
+	Inherits@1: ^ExistsInWorld
+	Inherits@2: ^SpriteActor
+	Inherits@HANDICAPS: ^PlayerHandicaps
+	Inherits@SHAPE: ^1x1Shape
+	AppearsOnMapPreview:
+	OwnerLostAction:
+		Action: ChangeOwner
+	FrozenUnderFog:
+	-GivesExperience:
+	-CombatDebugOverlay:
+	-DrawLineToTarget:
+	Building:
+		Dimensions: 1,1
+		Footprint: x
+		RequiresBaseProvider: false
+		BuildSounds: uplace.wav
+		TerrainTypes: Clear, Rough, Road, DirtRoad
+	FootprintPlaceBuildingPreview:
+		Palette: placefootprint
+		LineBuildFootprintAlpha: 0.5
+	BlocksProjectiles:
+	LineBuild:
+		Range: 6
+		NodeTypes: wall
+	LineBuildNode:
+		Types: wall
+	Targetable:
+		TargetTypes: Ground, Wall, DetonateAttack, NoAutoTarget
+	WithWallSpriteBody:
+		Type: wall
+	Sellable:
+		Notification: StructureSold
+		SellSounds: uselbuil.wav
+	Valued:
+		Cost: 100
+	CustomSellValue:
+		Value: 0
+	Health:
+		HP: 30000
+	Armor:
+		Type: Concrete
+	Crushable:
+		CrushClasses: wall
+	HitShape:
+	Tooltip:
+		Name: meta-wall.name
+		GenericName: meta-wall.name
+		RequiresCondition: showownername
+	Tooltip@NoRow:
+		Name: meta-wall.name
+		GenericName: meta-wall.name
+		ShowOwnerRow: false
+		RequiresCondition: !showownername
+	GrantConditionOnPrerequisite@SHOWOWNERNAME:
+		Condition: showownername
+		Prerequisites: global-showownername
+	MapEditorData:
+		Categories: Wall
+	RequiresBuildableArea:
+		AreaTypes: building
+		Adjacent: 6
+	Interactable:
+	RangedGpsDot:
+		Sequence: Wall
+
+^Fence:
+	Inherits: ^Wall
+	Buildable:
+		Queue: Support.Civilian
+	Valued:
+		Cost: 25
+	Health:
+		HP: 10000
+	Armor:
+		Type: Wood
+	-BlocksProjectiles:
+	LineBuild:
+		NodeTypes: fence
+	LineBuildNode:
+		Types: fence
+	Targetable:
+		TargetTypes: Ground, Fence, DetonateAttack, NoAutoTarget
+	WithWallSpriteBody:
+		Type: fence
+	Crushable:
+		CrushClasses: fence
+	SoundOnDamageTransition:
+		DamagedSounds: gblacrua.wav, gblacrub.wav
+		DestroyedSounds: gblacrua.wav, gblacrub.wav
+	Tooltip:
+		Name: meta-fence.name
+		GenericName: meta-fence.name
+	Tooltip@NoRow:
+		Name: meta-fence.name
+		GenericName: meta-fence.name
+
+^Gate:
+	Inherits: ^Building
+	Inherits@EMPULSE: ^DisabledByEMP
+	IsometricSelectable:
+		DecorationHeight: 30
+	AppearsOnMapPreview:
+	Huntable:
+	Valued:
+		Cost: 75
+	Health:
+		HP: 35000
+	Armor:
+		Type: Concrete
+	LineBuildNode:
+		Types: wall, gate
+	-Capturable:
+	-CaptureNotification:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	-GrantConditionOnPrerequisite@INSTANTCAPTURE:
+	-GrantConditionOnPrerequisite@SUDDENDEATH:
+	-MustBeDestroyed:
+	-WithSpriteBody:
+	WithGateSpriteBody:
+		OpenSequence: open
+	Buildable:
+		Description: meta-gate.description
+	HitShape:
+		Type: Rectangle
+			LocalYaw: -128
+			TopLeft: -512, -512
+			BottomRight: 512, 512
+			VerticalTopOffset: 768
+	MapEditorData:
+		Categories: Wall
+	Gate:
+		PauseOnCondition: disabled || chronodisable
+		OpeningSound: gateup1.aud
+		ClosingSound: gatedwn1.aud
+		CloseDelay: 100
+		BlocksProjectilesHeight: 768
+	Sellable:
+		RequiresCondition: !chronodisable
+	RequiresBuildableArea:
+		AreaTypes: building
+		Adjacent: 6
+	Tooltip:
+		Name: meta-gate.name
+		GenericName: meta-gate.name
+	Tooltip@NoRow:
+		Name: meta-gate.name
+		GenericName: meta-gate.name
+	Voiced:
+		VoiceSet: GateVoice
+		Volume: 0.8
+
+^Gate_A:
+	Inherits: ^Gate
+	Inherits@SHAPE: ^3x1Shape
+	Health:
+	Building:
+		Dimensions: 3,1
+		Footprint: xxx
+	RevealsShroud:
+		Range: 2c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 2c0
+	WithGateSpriteBody:
+		WallConnections: -1,0, 3,0
+	LineBuildNode:
+		Connections: -1,0, 1,0
+
+^Gate_B:
+	Inherits: ^Gate
+	Inherits@SHAPE: ^1x3Shape
+	Health:
+	Building:
+		Dimensions: 1,3
+		Footprint: x x x
+	RevealsShroud:
+		Range: 2c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 2c0
+	WithGateSpriteBody:
+		WallConnections: 0,-1, 0,3
+	LineBuildNode:
+		Connections: 0,-1, 0,1
+
+^Tunnel:
+	RenderSprites:
+		Palette: terrain
+	WithSpriteBody:
+	BodyOrientation:
+		UseClassicPerspectiveFudge: False
+		QuantizedFacings: 1
+	Building:
+		Dimensions: 3, 3
+		Footprint: ___ ___ ___
+	Targetable:
+	AlwaysVisible:
+	TunnelEntrance:
+	MapEditorData:
+		Categories: Tunnel
+	Interactable:
+		Bounds: 4344, 8688
+
+^Infantry:
+	Inherits@1: ^ExistsInWorld
+	Inherits@2: ^SpriteActor
+	Inherits@3: ^ChronoDisable
+	Inherits@4: ^CrateStatModifiers
+	Inherits@5: ^HospitalHealing
+	Inherits@6: ^KilledByIronCurtain
+	Inherits@7: ^KilledByLazarusShield
+	Inherits@8: ^DamagedByRadiation100Percent
+	Inherits@9: ^AcceptsIvanBomb
+	Inherits@10: ^AffectedByLeaflets
+	Inherits@11: ^AffectedByPropaganda
+	Inherits@12: ^AffectedByChronoBoost
+	Inherits@13: ^AffectedByStealthGenerator
+	Inherits@14: ^TerrorDronable
+	Inherits@15: ^AffectedByCashBounty
+	Inherits@16: ^WebDisable
+	Inherits@17: ^HealsInAmbulance
+	Inherits@18: ^AffectedBySpectreBullets
+	Inherits@19: ^AcceptsDeathBomb
+	Inherits@20: ^SmokeGrenadeModifiers
+	Inherits@21: ^DisabledByBarking
+	Inherits@22: ^AffectedByCryoSlowdown
+	Inherits@HANDICAPS: ^PlayerHandicaps
+	Inherits@SELECTION_MODE: ^FlatSelectionMode
+	WithColoredOverlay@MagneSlow:
+		Color: FF50F540
+	WithColoredOverlay@Cryo1:
+		Color: 00F5FF40
+	WithColoredOverlay@Cryo2:
+		Color: 00F5FF60
+	WithColoredOverlay@Cryo3:
+		Color: 00F5FF80
+	WithColoredOverlay@Cryo4:
+		Color: 00F5FFA0
+	Health:
+	OwnerLostAction:
+		Action: Kill
+		DeathTypes: BulletDeath, NonTemporal
+	HitShape:
+		Type: Circle
+			Radius: 128
+	Armor:
+		Type: None
+	RevealsShroud:
+		Range: 4c0
+		MaxHeightDelta: 3
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 4c0
+	RevealOnFire:
+		ArmamentNames: primary, secondary, deployed, sapper
+		Duration: 50
+	RevealOnDeath:
+		Radius: 4c0
+		Duration: 125
+	Mobile:
+		Speed: 60
+		Voice: Move
+		Locomotor: foot
+		AlwaysTurnInPlace: true
+		TurnsWhileMoving: true
+		RequiresCondition: !chronodisable && !webdisable && !dogstun
+	WithTextControlGroupDecoration:
+	SelectionDecorations:
+		MinimumZoom: 0
+	Selectable:
+	GrantConditionOnPrerequisite@upgrades:
+		Condition: upgrades
+		Prerequisites: global-upgrades
+	ActorStatValues:
+	ActorStatOverride@NO_UPGRADE:
+		Upgrades:
+		RequiresCondition: !upgrades
+	Targetable:
+		TargetTypes: Ground, Infantry, DetonateAttack, Disguise
+	Targetable@HEAL:
+		RequiresCondition: damaged
+		TargetTypes: Heal
+	GrantConditionOnDamageState@DAMAGED:
+		Condition: damaged
+		ValidDamageStates: Light, Medium, Heavy, Critical
+	TakesBounty:
+		Percentage: 50
+	TurnOnIdle:
+		MinDelay: 125
+		MaxDelay: 250
+	WithInfantryBody:
+		IdleSequences: idle1,idle2
+		StandSequences: stand
+		DefaultAttackSequence: shoot
+	WithDeathAnimation@normal:
+		DeathSequencePalette: infantry
+		DeathTypes:
+			ExplosionDeath: 1
+			BulletDeath: 2
+	Explodes@Corpse:
+		DeathTypes: NonTemporal, ExplosionDeath, BulletDeath
+		Weapon: CorpseSpawner
+		EmptyWeapon: CorpseSpawner
+	WithDeathAnimation@effect:
+		DeathSequencePalette: effect
+		DeathPaletteIsPlayerPalette: False
+		DeathTypes:
+			RadiationDeath: 4
+			PsychicDeath: 5
+			ElectroDeath: 6
+			VirusDeath: 7
+			BruteDeath: 8
+			OrangeRadiationDeath: 10
+	SpawnActorOnDeath@flames:
+		Actor: FLAMEGUY
+		DeathType: FlameDeath
+	SpawnActorOnDeath@brute:
+		Actor: brute.spawner
+		DeathType: MutationDeath
+		OwnerType: Killer
+	SpawnSmokeParticleOnDeath@virus:
+		Amount: 1
+		Image: txgasg
+		Sequences: idle
+		Palette: effect
+		Weapon: CloudDamage
+		Duration: 250
+		DeathTypes: VirusDeath
+		Speed: 0, 25
+		TurnRate: 10
+	TakeCover:
+		DamageModifiers:
+			Prone50Percent: 50
+			Prone70Percent: 70
+			Prone100Percent: 100
+		DamageTriggers: TriggerProne
+	Passenger:
+		Voice: Move
+		CargoType: Garrisoner
+	HiddenUnderFog:
+	ActorLostNotification:
+		TextNotification: notification-unit-lost
+	ProximityCaptor:
+		Types: Infantry
+	GrantExternalConditionToKiller@GRINDER_TREADS:
+		Duration: 1
+		DeathTypes: Crush
+		Condition: grinder_treads_active
+	Crushable:
+		WarnProbability: 0
+		CrushSound: igensqua.wav
+		RequiresCondition: !cheater-ai && !vengeful-ai
+	Crushable@Cheater:
+		WarnProbability: 50
+		CrushSound: igensqua.wav
+		RequiresCondition: cheater-ai
+	Crushable@Vengeful:
+		WarnProbability: 100
+		CrushSound: igensqua.wav
+		RequiresCondition: vengeful-ai
+	GrantConditionOnBotOwner@Cheater:
+		Condition: cheater-ai
+		Bots: cheater
+	GrantConditionOnBotOwner@Vengeful:
+		Condition: vengeful-ai
+		Bots: vengeful
+	Guard:
+		Voice: Attack
+	Guardable:
+	DeathSounds@normal:
+		DeathTypes: ExplosionDeath, BulletDeath
+	DeathSounds@zapped:
+		Voice: Zapped
+		DeathTypes: ElectroDeath
+	DeathSounds@radiation:
+		Voice: Melted
+		DeathTypes: RadiationDeath, OrangeRadiationDeath
+	DeathSounds@psycrush:
+		Voice: PsyCrush
+		DeathTypes: PsychicDeath, BruteDeath
+	DeathSounds@virus:
+		Voice: Virus
+		DeathTypes: VirusDeath
+	GrantConditionOnPrerequisite@SUDDENDEATH:
+		Condition: suddendeath
+		Prerequisites: global-suddendeath
+	MustBeDestroyed:
+		RequiresCondition: !suddendeath
+	Cloneable:
+		Types: Infantry
+	Voiced:
+		VoiceSet: GIVoice
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	Chronoshiftable:
+		ExplodeInstead: true
+		ReturnToOrigin: false
+	Tooltip:
+		Name: meta-infantry.name
+		GenericName: meta-infantry.name
+		RequiresCondition: showownername
+	Tooltip@NoRow:
+		Name: meta-infantry.name
+		GenericName: meta-infantry.name
+		ShowOwnerRow: false
+		RequiresCondition: !showownername
+	GrantConditionOnPrerequisite@SHOWOWNERNAME:
+		Condition: showownername
+		Prerequisites: global-showownername
+	MapEditorData:
+		Categories: Infantry
+	EdibleByLeap:
+	RenderSprites:
+		PlayerPalette: infantry
+	DetectCloaked:
+		Range: 1c0
+	RangedGpsDot:
+		Sequence: Infantry
+
+^Parachutable:
+	WithSpriteBody@Parachute:
+		Name: parachute
+		Sequence: paradrop
+		RequiresCondition: parachute
+	Parachutable:
+		FallRate: 52
+		KilledOnImpassableTerrain: true
+		GroundCorpseSequence:
+		GroundCorpsePalette:
+		WaterCorpseSequence:
+		WaterCorpsePalette:
+		ParachutingCondition: parachute
+	WithParachute:
+		RequiresCondition: parachute
+		Image: parach
+		ShadowImage: parach
+		OpeningSequence: open
+		Sequence: idle
+		ClosingSequence: close
+		ShadowSequence: shadow
+	WithInfantryBody:
+		RequiresCondition: !parachute
+	Targetable:
+		RequiresCondition: !parachute && !affectedbytemporal
+	Targetable@airborne:
+		TargetTypes: Air
+		RequiresCondition: parachute
+	WithDeathAnimation@normal:
+		RequiresCondition: !parachute
+	WithDeathAnimation@effect:
+		RequiresCondition: !parachute
+	ExternalCondition@PARACHUTE:
+		Condition: parachute
+
+^ParachutableVehicle:
+	Parachutable:
+		FallRate: 52
+		KilledOnImpassableTerrain: true
+		GroundCorpseSequence:
+		GroundCorpsePalette:
+		WaterCorpseSequence:
+		WaterCorpsePalette:
+		ParachutingCondition: parachute
+	WithParachute:
+		RequiresCondition: parachute
+		Image: parach
+		ShadowImage: parach
+		OpeningSequence: open
+		Sequence: idle
+		ClosingSequence: close
+		ShadowSequence: shadow
+	Targetable:
+		RequiresCondition: !parachute && !affectedbytemporal
+	Targetable@airborne:
+		TargetTypes: Air
+		RequiresCondition: parachute
+	ExternalCondition@PARACHUTE:
+		Condition: parachute
+
+^WithSwimSuit:
+	WithInfantryBody:
+		RequiresCondition: !swimming
+	WithDeathAnimation@normal:
+		RequiresCondition: !swimming
+	WithDeathAnimation@effect:
+		RequiresCondition: !swimming
+	GrantConditionOnTerrain@Water:
+		TerrainTypes: Water, Beach
+		Condition: swimming
+	WithInfantryBody@Water:
+		Name: swim
+		IdleSequences: swim-idle1,swim-idle2
+		MoveSequence: swim-run
+		StandSequences: swim-stand
+		DefaultAttackSequence: swim-shoot
+		RequiresCondition: swimming
+	WithDeathAnimation@Water:
+		RequiresCondition: swimming
+		DeathSequence: swim-die
+		DeathTypes:
+			ExplosionDeath: 1
+			BulletDeath: 2
+			RadiationDeath: 1
+			PsychicDeath: 2
+			ElectroDeath: 1
+			VirusDeath: 2
+			BruteDeath: 1
+			OrangeRadiationDeath: 1
+	Targetable@WaterBorne:
+		TargetTypes: Water
+		RequiresCondition: swimming && !affectedbytemporal
+
+^WithSwimSuitAndParachute:
+	Inherits@1: ^Parachutable
+	Inherits@2: ^WithSwimSuit
+	WithInfantryBody:
+		RequiresCondition: !swimming && !parachute
+	WithInfantryBody@Water:
+		RequiresCondition: swimming && !parachute
+	WithDeathAnimation@normal:
+		RequiresCondition: !swimming && !parachute
+	WithDeathAnimation@effect:
+		RequiresCondition: !swimming && !parachute
+	WithDeathAnimation@Water:
+		RequiresCondition: swimming && !parachute
+	Targetable@WaterBorne:
+		RequiresCondition: swimming && !parachute && !affectedbytemporal
+
+^JumpjetInfantry:
+	Inherits: ^Infantry
+	HiddenUnderFog:
+		Type: CenterPosition
+	-Mobile:
+	Aircraft:
+		CruiseAltitude: 3c852
+		InitialFacing: 80
+		TurnSpeed: 787
+		Speed: 150
+		AltitudeVelocity: 240
+		MaximumPitch: 128
+		Voice: Move
+		AirborneCondition: airborne
+		IdealSeparation: 512
+		VTOL: true
+		CanSlide: true
+		CanHover: true
+	RevealsShroud:
+		Type: GroundPosition
+		RequiresCondition: !airborne
+	RevealsShroud@Ground:
+		Type: GroundPosition
+		RequiresCondition: airborne
+	# RevealsShroudToIntelligenceOwner:
+	#	Type: GroundPosition
+	Hovers:
+		BobDistance: -45
+	-TimedConditionBar@WebDisable:
+	-SpeedMultiplier@WebDisable:
+	-WithIdleOverlay@web:
+	-Targetable@webdisable:
+	-ExternalCondition@webdisable:
+	-WithColoredOverlay@IDISABLE:
+	-GrantCondition@IDISABLE:
+	-SpeedMultiplier@DOGSTUN:
+	-Targetable@DOGSTUN:
+	-TimedConditionBar@DOGSTUN:
+	-ExternalCondition@dogstun:
+	-InfectableRV:
+	-Targetable@DRONE:
+	-SpeedMultiplier@DRONE:
+	-RevealsShroud@DRONE:
+	-PeriodicExplosion@dronesparks:
+	-Crushable:
+	-Crushable@Cheater:
+	-Crushable@Vengeful:
+	-TakeCover:
+	-Targetable:
+	-TurnOnIdle:
+	-WithDeathAnimation@normal:
+	-WithDeathAnimation@effect:
+	-DamagedByTintedCells:
+	-DamagedByTintedCells@ORANGE:
+	DeathSounds@normal:
+		DeathTypes: ExplosionDeath, BulletDeath, RadiationDeath, OrangeRadiationDeath, PsychicDeath, ElectroDeath, FlameDeath, VirusDeath, BruteDeath
+	-DeathSounds@zapped:
+	-DeathSounds@radiation:
+	-DeathSounds@psycrush:
+	-DeathSounds@virus:
+	Targetable@airborne:
+		TargetTypes: Air, Disguise
+		RequiresCondition: airborne
+	Targetable@ground:
+		TargetTypes: Ground, Infantry, DetonateAttack, Disguise
+		RequiresCondition: !airborne
+	WithSpriteBody@shadow:
+		Name: shadow
+		Sequence: shadow
+		ForceToGround: true
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	-Passenger:
+	-ChangesHealth@AMBULANCE:
+
+^CivilianInfantry:
+	Inherits: ^Infantry
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CHAOS: ^Berserkable
+	Inherits@MC: ^MindControllable
+	Selectable:
+		Bounds: 482, 1448, 0, -530
+	Valued:
+		Cost: 10
+	DeliversCash:
+		Payload: 5
+		Voice: Move
+	Buildable:
+		Queue: Infantry.Civilian
+		BuildAtProductionType: Soldier
+	Tooltip:
+		Name: meta-civilianinfantry.name
+		GenericName: meta-civilianinfantry.name
+	Tooltip@NoRow:
+		Name: meta-civilianinfantry.name
+		GenericName: meta-civilianinfantry.name
+	Health:
+		HP: 5000
+	Mobile:
+		Speed: 45
+		Voice: Move
+	RevealsShroud:
+		Range: 2c0
+	RevealOnDeath:
+		Radius: 2c0
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+	ProximityCaptor:
+		Types: CivilianInfantry
+	ScaredyCat:
+	-GivesExperience:
+	-GrantConditionOnPrerequisite@SUDDENDEATH:
+	-MustBeDestroyed:
+	-TakeCover:
+	Voiced:
+		VoiceSet: CivilianAlliedMaleVoice
+	WithInfantryBody:
+		IdleSequences: idle1
+	MapEditorData:
+		Categories: Civilian infantry
+	Wanders:
+		MinMoveDelay: 150
+		MaxMoveDelay: 750
+	ActorStatValues:
+		Stats: Armor, Sight, Speed
+
+^Pegasus:
+	Inherits: ^JumpjetInfantry
+	Buildable:
+		Queue: Infantry.Civilian
+		BuildAtProductionType: Soldier
+	Tooltip:
+		Name: meta-pegasus.name
+		GenericName: meta-pegasus.generic-name
+	Tooltip@NoRow:
+		Name: meta-pegasus.name
+		GenericName: meta-pegasus.generic-name
+	Health:
+		HP: 5000
+	Selectable:
+		Bounds: 512, 1024, 0, -256
+	RevealsShroud:
+		Range: 8c0
+	RevealsShroud@Ground:
+		Range: 8c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Range: 8c0
+	-WithInfantryBody:
+	WithVoxelAnimatedBody:
+		TickRate: 1
+		ShowShadow: false
+	-QuantizeFacingsFromSequence:
+	BodyOrientation:
+		QuantizedFacings: 0
+		CameraPitch: 85
+		UseClassicPerspectiveFudge: false
+	RenderVoxels:
+		Scale: 13
+		LightYaw: 800
+		LightPitch: 150
+		LightAmbientColor: -0.5,-0.5,-0.5
+		LightDiffuseColor: 1.3,1.3,1.3
+		NormalsPalette: ts-normals
+	-Voiced:
+	MapEditorData:
+		Categories: Civilian infantry
+	ActorStatValues:
+		Stats: Armor, Sight, Speed
+
+^RegicideLeader:
+	Inherits: ^CivilianInfantry
+	Valued:
+		Cost: 1000
+	-DeliversCash:
+	-Buildable:
+	Health:
+		HP: 15000
+	Armor:
+		Type: Flak
+	RevealsShroud:
+		Range: 5c0
+	RevealOnDeath:
+		Radius: 5c0
+	Mobile:
+		Speed: 60
+	Garrisoner:
+		Voice: Move
+		GarrisonType: Garrisoner
+	-ScaredyCat:
+	-MindControllable:
+	-WithMindControlArc:
+	-Targetable@MC:
+	-WithIdleOverlay@mindcontrol:
+	-Capturable@PERMAMC:
+	-ExternalCondition@PERMAMC:
+	-MapEditorData:
+	-Wanders:
+	WithInfantryBody:
+		-DefaultAttackSequence:
+
+^Animal:
+	Inherits: ^Infantry
+	Valued:
+		Cost: 10
+	DeliversCash:
+		Payload: 5
+		Voice: Move
+	Buildable:
+		Queue: Infantry.Civilian
+		BuildAtProductionType: Soldier
+	Armor:
+		Type: None
+	Health:
+		HP: 20000
+	Targetable:
+		TargetTypes: Ground, Infantry
+	RevealsShroud:
+		Range: 2c0
+	RevealOnDeath:
+		Radius: 2c0
+	Mobile:
+		Speed: 45
+		RequiresCondition: !chronodisable
+	Selectable:
+		Bounds: 1086, 1206, 0, -386
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+	DeathSounds@zapped:
+		Voice: Die
+	DeathSounds@radiation:
+		Voice: Die
+	DeathSounds@psycrush:
+		Voice: Die
+	DeathSounds@virus:
+		Voice: Die
+	-GivesExperience:
+	-TakeCover:
+	WithDeathAnimation@normal:
+		DeathTypes:
+			ExplosionDeath: 1
+			BulletDeath: 2
+			FlameDeath: 1
+			RadiationDeath: 1
+			PsychicDeath: 1
+			ElectroDeath: 2
+			VirusDeath: 2
+			BruteDeath: 1
+			OrangeRadiationDeath: 1
+	-Explodes@Corpse:
+	-WithDeathAnimation@effect:
+	-SpawnActorOnDeath@brute:
+	-SpawnActorOnDeath@flames:
+	-SpawnSmokeParticleOnDeath@virus:
+	-TimedConditionBar@WebDisable:
+	-SpeedMultiplier@WebDisable:
+	-WithIdleOverlay@web:
+	-Targetable@webdisable:
+	-ExternalCondition@webdisable:
+	WithInfantryBody:
+		-RequiresCondition:
+	MapEditorData:
+		Categories: Animal
+	Wanders:
+		MinMoveDelay: 150
+		MaxMoveDelay: 750
+	ActorStatValues:
+		Stats: Armor, Sight, Speed
+
+^Vehicle:
+	Inherits@1: ^ExistsInWorld
+	Inherits@2: ^IronCurtainable
+	Inherits@3: ^LazarusShieldable
+	Inherits@4: ^ChronoDisableDisabledWithIC
+	Inherits@5: ^DisabledByEMP
+	Inherits@6: ^CrateStatModifiers
+	Inherits@7: ^MachineShopRepair
+	Inherits@8: ^AcceptsIvanBomb
+	Inherits@9: ^AcceptsTanyaC4
+	Inherits@10: ^AffectedByIndustrialPlant
+	Inherits@11: ^VehicleParticles
+	Inherits@12: ^ParachutableVehicle
+	Inherits@13: ^AffectedByLeaflets
+	Inherits@14: ^AffectedByPropaganda
+	Inherits@15: ^AffectedByChronoBoost
+	Inherits@16: ^DisabledByMagnetron
+	Inherits@17: ^AffectedByStealthGenerator
+	Inherits@18: ^TerrorDronable
+	Inherits@19: ^AffectedByCashBounty
+	Inherits@20: ^AffectedBySpectreBullets
+	Inherits@21: ^AcceptsPointDefenseDrones
+	Inherits@22: ^LowHealthSpeedPenalty
+	Inherits@23: ^AcceptsDeathBomb
+	Inherits@24: ^SmokeGrenadeModifiers
+	Inherits@25: ^AffectedByCryoSlowdown
+	Inherits@HANDICAPS: ^PlayerHandicaps
+	Inherits@SELECTION_MODE: ^FlatSelectionMode
+	OwnerLostAction:
+		Action: Kill
+		DeathTypes: BulletDeath, NonTemporal
+	RevealOnFire:
+		ArmamentNames: primary, primary2, elite, elite2, primary-uranium, primary2-uranium, elite-uranium, elite2-uranium, primary-uranium-orange, primary2-uranium-orange, elite-uranium-orange, elite2-uranium-orange, primary-cryo, primary2-cryo, elite-cryo, elite2-cryo, secondary, opentopped, opentopped-secondary, gatling
+		Duration: 50
+	RevealOnDeath:
+		Duration: 125
+	WithColoredOverlay@ChronoDisable:
+		Color: 00204040
+	Mobile:
+		Voice: Move
+		Speed: 90
+		TurnSpeed: 20
+		Locomotor: wheeled
+		TerrainOrientationAdjustmentMargin: 256
+		RequiresCondition: !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
+	RevealsShroud:
+		Range: 5c0
+		MaxHeightDelta: 3
+	Health:
+		HP: 10000
+	HitShape:
+	SelectionDecorations:
+		MinimumZoom: 0
+	Selectable:
+		Bounds: 772, 1544
+	GrantConditionOnPrerequisite@upgrades:
+		Condition: upgrades
+		Prerequisites: global-upgrades
+	ActorStatValues:
+	ActorStatOverride@NO_UPGRADE:
+		Upgrades:
+		RequiresCondition: !upgrades
+	Targetable:
+		TargetTypes: Ground, Vehicle, DroneInfection, DetonateAttack
+	Targetable@REPAIR:
+		RequiresCondition: damaged
+		TargetTypes: Repair
+	GrantConditionOnDamageState@DAMAGED:
+		Condition: damaged
+		ValidDamageStates: Light, Medium, Heavy, Critical
+	TakesBounty:
+		Percentage: 50
+	Repairable:
+		Voice: Move
+		RepairActors: gadept, nadept, nadepb, yadept, yadepb, caoutp, caoutb
+	RepairableNear:
+		Voice: Move
+		CloseEnough: 3c0
+		RepairActors: gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gaairc, gaairb, baairf, baairb, naheli, yadisk
+	GrantCondition@IDISABLE:
+		RequiresCondition: emp
+	Carryable:
+	Passenger:
+		Voice: Move
+		CargoType: Vehicle
+		Weight: 3
+	GrantExternalConditionToKiller@GRINDER_TREADS:
+		Duration: 1
+		DeathTypes: Crush
+		Condition: grinder_treads_active
+	Crushable:
+		WarnProbability: 0
+		CrushClasses: vehicle
+		RequiresCondition: !invulnerability && !cheater-ai && !vengeful-ai
+	Crushable@Cheater:
+		WarnProbability: 50
+		CrushClasses: vehicle
+		RequiresCondition: !invulnerability && cheater-ai
+	Crushable@Vengeful:
+		WarnProbability: 100
+		CrushClasses: vehicle
+		RequiresCondition: !invulnerability && vengeful-ai
+	GrantConditionOnBotOwner@Cheater:
+		Condition: cheater-ai
+		Bots: cheater
+	GrantConditionOnBotOwner@Vengeful:
+		Condition: vengeful-ai
+		Bots: vengeful
+	CaptureManager:
+		BeingCapturedCondition: being-captured
+	Capturable:
+		Types: vehicle
+		CancelActivity: True
+	CaptureSound:
+		Sound: ihijweaa.wav
+	Sellable:
+		SellSounds: cashturn.aud
+		Cursor: sell2
+		Notification: UnitSold
+		RequiresCondition: unit.sellable
+	ProximityExternalCondition:
+		Condition: unit.docked
+		Range: 1c0
+	ExternalCondition@Sellable:
+		Condition: unit.sellable
+	HiddenUnderFog:
+	WithTextControlGroupDecoration:
+	ActorLostNotification:
+		TextNotification: notification-unit-lost
+	ProximityCaptor:
+		Types: Vehicle
+	Guard:
+		Voice: Attack
+	Guardable:
+	BodyOrientation:
+		QuantizedFacings: 0
+		CameraPitch: 85
+		UseClassicPerspectiveFudge: false
+	Explodes:
+		DeathTypes: NonTemporal
+		Weapon: UnitExplode
+		EmptyWeapon: UnitExplode
+	Explodes@Sinking:
+		DeathTypes: NonTemporal
+		Weapon: UnitSink
+		EmptyWeapon: UnitSink
+	RenderVoxels:
+		Scale: 11.7
+		LightYaw: 800
+		LightPitch: 150
+		LightAmbientColor: -0.5,-0.5,-0.5
+		LightDiffuseColor: 1.3,1.3,1.3
+	GrantConditionOnPrerequisite@SUDDENDEATH:
+		Condition: suddendeath
+		Prerequisites: global-suddendeath
+	MustBeDestroyed:
+		RequiresCondition: !suddendeath
+	Voiced:
+		VoiceSet: AlliedVehicleVoice
+	Chronoshiftable:
+		ChronoshiftSound: schrmov.wav
+		ReturnToOrigin: false
+		RequiresCondition: !invulnerability
+	Tooltip:
+		Name: meta-vehicle.name
+		GenericName: meta-vehicle.name
+		RequiresCondition: showownername
+	Tooltip@NoRow:
+		Name: meta-vehicle.name
+		GenericName: meta-vehicle.name
+		ShowOwnerRow: false
+		RequiresCondition: !showownername
+	GrantConditionOnPrerequisite@SHOWOWNERNAME:
+		Condition: showownername
+		Prerequisites: global-showownername
+	MapEditorData:
+		Categories: Vehicle
+	RangedGpsDot:
+		Sequence: Vehicle
+
+^CivVehicle:
+	Inherits: ^Vehicle
+	Inherits@CHAOS: ^BerserkableVoxel
+	Inherits@MC: ^MindControllable
+	Buildable:
+		Queue: Vehicle.Civilian
+	OwnerLostAction:
+		Action: ChangeOwner
+	RenderSprites:
+	Valued:
+		Cost: 50
+	DeliversCash:
+		Payload: 50
+		Voice: Move
+	Mobile:
+		Speed: 105
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 5c0
+	Selectable:
+		Bounds: 1544, 2509, 0, -289
+	WithVoxelBody:
+	-GivesExperience:
+	Voiced:
+		VoiceSet: CarVoice
+	MapEditorData:
+		Categories: Civilian vehicle
+	ActorStatValues:
+		Stats: Armor, Sight, Speed
+
+^NeutralAircraft:
+	Inherits@1: ^ExistsInWorld
+	Inherits@HANDICAPS: ^PlayerHandicaps
+	Inherits@SELECTION_MODE: ^FlatSelectionMode
+	OwnerLostAction:
+		Action: Kill
+		DeathTypes: BulletDeath, NonTemporal
+	SelectionDecorations:
+		MinimumZoom: 0
+	Selectable:
+	GrantConditionOnPrerequisite@upgrades:
+		Condition: upgrades
+		Prerequisites: global-upgrades
+	ActorStatValues:
+	ActorStatOverride@NO_UPGRADE:
+		Upgrades:
+		RequiresCondition: !upgrades
+	Aircraft:
+		Voice: Move
+		MaximumPitch: 128
+		AltitudeVelocity: 120
+		AirborneCondition: airborne
+		VTOL: true
+		TakeOffOnResupply: true
+	HiddenUnderFog:
+		Type: CenterPosition
+	ActorLostNotification:
+		TextNotification: notification-unit-lost
+	BodyOrientation:
+		QuantizedFacings: 0
+		CameraPitch: 85
+		UseClassicPerspectiveFudge: false
+	Guard:
+		Voice: Attack
+	Guardable:
+	GrantConditionOnPrerequisite@SUDDENDEATH:
+		Condition: suddendeath
+		Prerequisites: global-suddendeath
+	MustBeDestroyed:
+		RequiresCondition: !suddendeath
+	RenderVoxels:
+		Scale: 11.7
+		LightYaw: 800
+		LightPitch: 150
+		LightAmbientColor: -0.5,-0.5,-0.5
+		LightDiffuseColor: 1.3,1.3,1.3
+	Targetable@Airborne:
+		TargetTypes: Air
+		RequiresCondition: airborne
+	Targetable@Ground:
+		TargetTypes: Ground, Vehicle
+		RequiresCondition: !airborne
+	Targetable@REPAIR:
+		RequiresCondition: !airborne && damaged
+		TargetTypes: Repair
+	Targetable@REPAIRAirborne:
+		RequiresCondition: airborne && damaged
+		TargetTypes: AirRepair
+	GrantConditionOnDamageState@DAMAGED:
+		Condition: damaged
+		ValidDamageStates: Light, Medium, Heavy, Critical
+	TakesBounty:
+		Percentage: 50
+	DeathSounds:
+	AppearsOnRadar:
+		UseLocation: true
+	Tooltip:
+		Name: meta-aircraft.name
+		GenericName: meta-aircraft.name
+		RequiresCondition: showownername
+	Tooltip@NoRow:
+		Name: meta-aircraft.name
+		GenericName: meta-aircraft.name
+		ShowOwnerRow: false
+		RequiresCondition: !showownername
+	GrantConditionOnPrerequisite@SHOWOWNERNAME:
+		Condition: showownername
+		Prerequisites: global-showownername
+	MapEditorData:
+		Categories: Aircraft
+	RangedGpsDot:
+		Sequence: Plane
+
+^Aircraft:
+	Inherits@1: ^NeutralAircraft
+	Inherits@2: ^ChronoDisableDisabledWithIC
+	Inherits@3: ^MachineShopRepair
+	Inherits@4: ^AcceptsIvanBomb
+	Inherits@5: ^AcceptsTanyaC4
+	Inherits@6: ^AffectedByIndustrialPlant
+	Inherits@7: ^UnitParticles
+	Inherits@8: ^IronCurtainable
+	Inherits@9: ^LazarusShieldable
+	Inherits@10: ^AffectedByChronoBoost
+	Inherits@11: ^AffectedByPropaganda
+	Inherits@12: ^TerrorDronableAircraft
+	Inherits@13: ^AffectedByCashBounty
+	Inherits@14: ^DisabledByEMP
+	Inherits@15: ^DisabledByMagnetron
+	Inherits@16: ^AffectedBySpectreBullets
+	Inherits@17: ^AcceptsPointDefenseDrones
+	Inherits@18: ^AcceptsDeathBomb
+	Inherits@19: ^SmokeGrenadeModifiers
+	Inherits@20: ^AffectedByCryoSlowdown
+	WithColoredOverlay@ChronoDisable:
+		Color: 00204040
+	Aircraft:
+		AltitudeVelocity: 43
+	WithTextControlGroupDecoration:
+	Targetable@ChronoDisable:
+		RequiresCondition: !airborne
+	Targetable@DRONE:
+		RequiresCondition: !airborne
+	Targetable@MagneFreeze:
+		RequiresCondition: !airborne
+	Targetable@EMP:
+		RequiresCondition: !airborne
+	Targetable@IVANBOMB:
+		RequiresCondition: !ivanbomb && !airborne
+	Targetable@IVANBOMBCLEANER:
+		RequiresCondition: ivanbomb && !airborne
+	Targetable@TANYAC4:
+		RequiresCondition: !tanyaC4 && !airborne
+	Targetable@TANYAC4CLEANER:
+		RequiresCondition: tanyaC4 && !airborne
+	GrantCondition@IDISABLE:
+		RequiresCondition: emp
+	#Chronoshiftable:
+	#	ChronoshiftSound: schrmov.wav
+	#	ReturnToOrigin: false
+	#	RequiresCondition: !invulnerability
+	RevealsShroud:
+		Type: GroundPosition
+		RequiresCondition: airborne
+	RevealsShroud@Ground:
+		MaxHeightDelta: 3
+		Type: GroundPosition
+		RequiresCondition: !airborne
+	RevealOnFire:
+		ArmamentNames: primary, secondary, infiltrate, deployed, growth
+		Duration: 50
+	CaptureManager:
+	Capturable:
+		Types: vehicle
+		CancelActivity: True
+		RequiresCondition: !airborne
+	CaptureSound:
+		Sound: ihijweaa.wav
+	Sellable:
+		SellSounds: cashturn.aud
+		Cursor: sell2
+		Notification: UnitSold
+		RequiresCondition: unit.sellable && !airborne
+	ProximityExternalCondition:
+		Condition: unit.docked
+		Range: 1c0
+		RequiresCondition: !airborne
+	ExternalCondition@Sellable:
+		Condition: unit.sellable
+
+^Plane:
+	Inherits: ^Aircraft
+	Aircraft:
+		CruiseAltitude: 5c852
+		CruisingCondition: cruising
+		AltitudeVelocity: 120
+	Hovers@CRUISING:
+		RequiresCondition: cruising
+	WithVoxelBody:
+
+^Helicopter:
+	Inherits: ^Aircraft
+	Inherits@1: ^CrateStatModifiers
+	Aircraft:
+		CruiseAltitude: 3c852
+		CanSlide: true
+		CanHover: true
+	RangedGpsDot:
+		Sequence: Helicopter
+
+^ShootableMissile:
+	Inherits@1: ^ExistsInWorld
+	Inherits@HANDICAPS: ^PlayerHandicaps
+	-GivesExperience:
+	Armor:
+		Type: Missile
+	BallisticMissile:
+		LaunchAngle: 128
+		Speed: 170
+		AirborneCondition: airborne
+	Targetable@GROUND:
+		TargetTypes: Ground, Vehicle
+		RequiresCondition: !airborne
+	Targetable@AIRBORNE:
+		TargetTypes: Air
+		RequiresCondition: airborne
+	HiddenUnderFog:
+		Type: GroundPosition
+	Tooltip:
+		Name: meta-shootablemissile.name
+		GenericName: meta-shootablemissile.name
+		RequiresCondition: showownername
+	Tooltip@NoRow:
+		Name: meta-shootablemissile.name
+		GenericName: meta-shootablemissile.name
+		ShowOwnerRow: false
+		RequiresCondition: !showownername
+	GrantConditionOnPrerequisite@SHOWOWNERNAME:
+		Condition: showownername
+		Prerequisites: global-showownername
+	HitShape:
+	RejectsOrders:
+	BodyOrientation:
+		QuantizedFacings: 0
+		CameraPitch: 85
+		UseClassicPerspectiveFudge: false
+	RenderVoxels:
+	WithVoxelBody:
+	Interactable:
+
+^Husk:
+	RenderVoxels:
+		Scale: 11.7
+		LightYaw: 800
+		LightPitch: 150
+		LightAmbientColor: -0.5,-0.5,-0.5
+		LightDiffuseColor: 1.3,1.3,1.3
+	WithVoxelBody:
+	BodyOrientation:
+		QuantizedFacings: 0
+		CameraPitch: 85
+	Aircraft:
+	HiddenUnderFog:
+		Type: CenterPosition
+	ScriptTriggers:
+	Health:
+		HP: 100
+	FallsToEarth:
+		Velocity: 86
+	HitShape:
+	Tooltip:
+		Name: meta-aircraft.name
+		GenericName: meta-aircraft.name
+		RequiresCondition: showownername
+	Tooltip@NoRow:
+		Name: meta-aircraft.name
+		GenericName: meta-aircraft.name
+		ShowOwnerRow: false
+		RequiresCondition: !showownername
+	GrantConditionOnPrerequisite@SHOWOWNERNAME:
+		Condition: showownername
+		Prerequisites: global-showownername
+	MapEditorData:
+		Categories: Husk
+	Interactable:
+
+^PlaneHusk:
+	Inherits: ^Husk
+	Aircraft:
+		AltitudeVelocity: 120
+	FallsToEarth:
+		Explosion: PlaneExplode
+		Velocity: 240
+		Moves: true
+		MaximumSpinSpeed: 0
+	SpeedMultiplier@HUSK:
+		Modifier: 150
+	RangedGpsDot:
+		Sequence: Plane
+
+^HelicopterHusk:
+	Inherits: ^Husk
+	Aircraft:
+		VTOL: true
+		CanSlide: true
+		CanHover: true
+	FallsToEarth:
+		Velocity: 240
+	RangedGpsDot:
+		Sequence: Helicopter
+
+^Ship:
+	Inherits@1: ^ExistsInWorld
+	Inherits@2: ^IronCurtainable
+	Inherits@3: ^LazarusShieldable
+	Inherits@4: ^ChronoDisableDisabledWithIC
+	Inherits@5: ^DisabledByEMP
+	Inherits@6: ^CrateStatModifiers
+	Inherits@7: ^MachineShopRepair
+	Inherits@8: ^AcceptsIvanBomb
+	Inherits@9: ^AcceptsTanyaC4
+	Inherits@10: ^AffectedByIndustrialPlant
+	Inherits@11: ^VehicleParticles
+	Inherits@12: ^AffectedByLeaflets
+	Inherits@13: ^AffectedByPropaganda
+	Inherits@14: ^AffectedByChronoBoost
+	Inherits@15: ^DisabledByMagnetron
+	Inherits@16: ^AffectedByStealthGenerator
+	Inherits@17: ^AffectedByCashBounty
+	Inherits@18: ^AffectedBySpectreBullets
+	Inherits@19: ^AcceptsPointDefenseDrones
+	Inherits@20: ^AcceptsDeathBomb
+	Inherits@21: ^SmokeGrenadeModifiers
+	Inherits@22: ^AffectedByCryoSlowdown
+	Inherits@HANDICAPS: ^PlayerHandicaps
+	Inherits@SELECTION_MODE: ^FlatSelectionMode
+	OwnerLostAction:
+		Action: Kill
+		DeathTypes: BulletDeath, NonTemporal
+	RevealOnFire:
+		ArmamentNames: primary, secondary, missile, asw
+		Duration: 50
+	RevealOnDeath:
+		Duration: 125
+	WithColoredOverlay@ChronoDisable:
+		Color: 00204040
+	Mobile:
+		Voice: Move
+		Locomotor: naval
+		TurnSpeed: 20
+		RequiresCondition: !chronodisable && !emp && !magnefreeze && !squid && !beinginfected
+	LeavesTrails:
+		Image: wake
+		Palette: effect50alpha
+		TerrainTypes: Water, Beach
+		Type: CenterPosition
+		StationaryInterval: 18
+		MovingInterval: 6
+	SelectionDecorations:
+		MinimumZoom: 0
+	Selectable:
+		Bounds: 772, 1544
+	GrantConditionOnPrerequisite@upgrades:
+		Condition: upgrades
+		Prerequisites: global-upgrades
+	ActorStatValues:
+	ActorStatOverride@NO_UPGRADE:
+		Upgrades:
+		RequiresCondition: !upgrades
+	Targetable:
+		TargetTypes: Ground, Water, Ship
+	Targetable@REPAIR:
+		RequiresCondition: damaged
+		TargetTypes: Repair
+	GrantConditionOnDamageState@DAMAGED:
+		Condition: damaged
+		ValidDamageStates: Light, Medium, Heavy, Critical
+	TakesBounty:
+		Percentage: 50
+	RepairableNear:
+		Voice: Move
+		CloseEnough: 3c0
+		RepairActors: gayard, nayard, yayard
+	GrantCondition@IDISABLE:
+		RequiresCondition: emp
+	CaptureManager:
+		BeingCapturedCondition: being-captured
+	Capturable:
+		Types: vehicle
+		CancelActivity: True
+	CaptureSound:
+		Sound: ihijweaa.wav
+	HiddenUnderFog:
+	ActorLostNotification:
+		TextNotification: notification-unit-lost
+	ProximityCaptor:
+		Types: Ship
+	Guard:
+		Voice: Attack
+	Guardable:
+	BodyOrientation:
+		QuantizedFacings: 0
+		CameraPitch: 85
+		UseClassicPerspectiveFudge: false
+	Explodes:
+		DeathTypes: NonTemporal
+		Weapon: UnitExplode
+		EmptyWeapon: UnitExplode
+	Explodes@Sinking:
+		DeathTypes: NonTemporal
+		Weapon: UnitSink
+		EmptyWeapon: UnitSink
+	RenderVoxels:
+		Scale: 11.7
+		LightYaw: 800
+		LightPitch: 150
+		LightAmbientColor: -0.5,-0.5,-0.5
+		LightDiffuseColor: 1.3,1.3,1.3
+	GrantConditionOnPrerequisite@SUDDENDEATH:
+		Condition: suddendeath
+		Prerequisites: global-suddendeath
+	MustBeDestroyed:
+		RequiresCondition: !suddendeath
+	Voiced:
+		VoiceSet: SovietNavalVoice
+	Chronoshiftable:
+		ChronoshiftSound: schrmov.wav
+		ReturnToOrigin: false
+		RequiresCondition: !invulnerability
+	Tooltip:
+		Name: meta-ship.name
+		GenericName: meta-ship.name
+		RequiresCondition: showownername
+	Tooltip@NoRow:
+		Name: meta-ship.name
+		GenericName: meta-ship.name
+		ShowOwnerRow: false
+		RequiresCondition: !showownername
+	GrantConditionOnPrerequisite@SHOWOWNERNAME:
+		Condition: showownername
+		Prerequisites: global-showownername
+	MapEditorData:
+		Categories: Naval
+	RangedGpsDot:
+		Sequence: Ship
+
+^OreDrill:
+	Inherits@1: ^SpriteActor
+	Tooltip:
+		Name: meta-oredrill.name
+	WithSpriteBody:
+	Building:
+		Footprint: x
+		Dimensions: 1,1
+	AppearsOnRadar:
+	RadarColorFromTerrain:
+		Terrain: Ore
+	AppearsOnMapPreview:
+		Terrain: Ore
+	BodyOrientation:
+	FrozenUnderFog:
+	SeedsResource:
+		ResourceType: Ore
+		Interval: 50
+	WithIdleAnimation:
+		Interval: 250
+	QuantizeFacingsFromSequence:
+	RenderSprites:
+		Palette: player
+	HitShape:
+		UseTargetableCellsOffsets: true
+	MapEditorData:
+		Categories: Resource spawn
+	Interactable:
+	Targetable:
+		TargetTypes: OreDrill
+	GrantConditionOnPrerequisite@megawealth:
+		Condition: megawealth
+		Prerequisites: global-megawealth
+	KillsSelf:
+		RemoveInstead: true
+		RequiresCondition: megawealth
+
+^Tree:
+	Inherits@1: ^ExistsInWorld
+	Inherits@2: ^SpriteActor
+	WithSpriteBody:
+	FrozenUnderFog:
+	Building:
+		Footprint: x
+		Dimensions: 1, 1
+	RadarColorFromTerrain:
+		Terrain: Tree
+	AppearsOnMapPreview:
+		Terrain: Tree
+	BodyOrientation:
+	Tooltip:
+		Name: meta-tree.name
+	QuantizeFacingsFromSequence:
+	RenderSprites:
+		Palette: terrain
+	Targetable:
+		TargetTypes: Ground, Tree, DetonateAttack
+	Health:
+		HP: 20000
+	HitShape:
+	Armor:
+		Type: Wood
+	Crushable:
+		CrushClasses: tree
+		CrushSound: gsancrua.wav #, gsancrub.wav
+	MapEditorData:
+		Categories: Tree
+	Interactable:
+	MirageTarget:
+
+^StreetSign:
+	Inherits: ^Tree
+	-RadarColorFromTerrain:
+	AppearsOnMapPreview:
+		-Terrain:
+	Tooltip:
+		Name: meta-streetsign.name
+	-MirageTarget:
+
+^TrafficLight:
+	Inherits: ^StreetSign
+	Tooltip:
+		Name: meta-trafficlight.name
+
+^StreetLight:
+	Inherits: ^StreetSign
+	Tooltip:
+		Name: meta-streetlight.name
+	Armor:
+		Type: steel
+	Health:
+		HP: 5000
+
+^TelephonePole:
+	Inherits: ^StreetSign
+	Tooltip:
+		Name: meta-telephonepole.name
+	Health:
+		HP: 2000
+	Armor:
+		Type: Concrete
+
+^Rock:
+	Inherits@1: ^SpriteActor
+	WithSpriteBody:
+	FrozenUnderFog:
+	Building:
+		Footprint: x
+		Dimensions: 1, 1
+	AppearsOnRadar:
+	RadarColorFromTerrain:
+		Terrain: Rock
+	AppearsOnMapPreview:
+		Terrain: Rock
+	BodyOrientation:
+	Tooltip:
+		Name: meta-rock.name
+	QuantizeFacingsFromSequence:
+	RenderSprites:
+		Palette: terrain
+	HitShape:
+		UseTargetableCellsOffsets: true
+	MapEditorData:
+		Categories: Rock
+	Interactable:
+
+^Crate:
+	Inherits@1: ^SpriteActor
+	HiddenUnderFog:
+	Tooltip:
+		Name: meta-crate.name
+		GenericName: meta-crate.name
+	Crate:
+		TerrainTypes: Clear, Sand, Rough, Dune, Road, DirtRoad, Ore, Gems, Water
+	RenderSprites:
+		Palette: terrain
+		Image: crate
+	WithCrateBody:
+		LandSequence: land
+		WaterSequence: water
+	WithSpriteBody@shadow:
+		RequiresCondition: parachute
+		Name: shadow
+		Sequence: shadow
+		ForceToGround: true
+	Parachutable:
+		FallRate: 26
+		KilledOnImpassableTerrain: true
+		GroundCorpseSequence:
+		GroundCorpsePalette:
+		WaterCorpseSequence:
+		WaterCorpsePalette:
+		ParachutingCondition: parachute
+	Passenger:
+	WithParachute:
+		RequiresCondition: parachute
+		Image: parach
+		OpeningSequence: open
+		Sequence: idle
+		ClosingSequence: close
+	MapEditorData:
+		Categories: System
+	Interactable:
+
+^WithSubmergeColorOverlay:
+	WithColoredOverlay@SUBMERGE:
+		Color: 12131780
+		RequiresCondition: !surfaced && !squid
+	GrantConditionOnAttack@Surfaced:
+		Condition: surfaced
+		RevokeDelay: 100
+		ArmamentNames: primary, missile
+
+^DisableOnLowPower:
+	WithColoredOverlay@IDISABLE:
+		Color: 00000080
+		RequiresCondition: disabled
+	GrantConditionOnPowerState@LOWPOWER:
+		Condition: lowpower
+		ValidPowerStates: Low, Critical
+	GrantCondition@IDISABLE:
+		RequiresCondition: lowpower
+		Condition: disabled
+
+^DisableOnLowPowerOrPowerDown:
+	Inherits: ^DisableOnLowPower
+	GrantCondition@IDISABLE:
+		RequiresCondition: lowpower || powerdown
+		Condition: disabled
+	ToggleConditionOnOrder:
+		DisabledSound: EnablePower
+		EnabledSound: DisablePower
+		Condition: powerdown
+		OrderName: PowerDown
+	WithDecoration@POWERDOWN:
+		Image: poweroff
+		Sequence: offline
+		Palette: ts-mouse
+		RequiresCondition: powerdown
+		Position: Center
+	PowerMultiplier@POWERDOWN:
+		RequiresCondition: powerdown
+		Modifier: 0
+
+^DisabledByPowerOutage:
+	WithColoredOverlay@IDISABLE:
+		Color: 00000080
+		RequiresCondition: disabled
+	GrantCondition@IDISABLE:
+		RequiresCondition: power-outage
+		Condition: disabled
+	AffectedByPowerOutage:
+		Condition: power-outage
+	InfiltrateForPowerOutage:
+		Types: SpyInfiltrate
+		InfiltratedNotification: PowerSabotaged
+		InfiltrationNotification: BuildingInfiltratedPowerSabotaged
+	Power:
+		RequiresCondition: !disabled
+
+^DisabledByEMP:
+	WithColoredOverlay@IDISABLE:
+		Color: 00000080
+		RequiresCondition: disabled
+	GrantCondition@IDISABLE:
+		RequiresCondition: emp
+		Condition: disabled
+	WithIdleOverlay@EMP:
+		Image: emp
+		Sequence: emp
+		Palette: tseffect
+		RequiresCondition: emp
+	Targetable@EMP:
+		TargetTypes: EMPulse
+	TimedConditionBar@EMP:
+		Condition: emp
+		Color: 0088FF
+	ExternalCondition@emp:
+		Condition: emp
+
+^DisabledByBarking:
+	WithColoredOverlay@IDISABLE:
+		Color: 00000080
+		RequiresCondition: disabled
+	GrantCondition@IDISABLE:
+		RequiresCondition: dogstun
+		Condition: disabled
+	SpeedMultiplier@DOGSTUN:
+		RequiresCondition: dogstun
+		Modifier: 0
+	Targetable@DOGSTUN:
+		TargetTypes: DogStun
+	TimedConditionBar@DOGSTUN:
+		Condition: dogstun
+		Color: 8800FF
+	ExternalCondition@dogstun:
+		Condition: dogstun
+
+^DisabledByInfiltration:
+	GrantConditionOnInfiltration:
+		Types: SpyInfiltrate
+		Condition: infiltrated
+		Duration: 750
+	WithColoredOverlay@IDISABLE:
+		Color: 00000080
+		RequiresCondition: disabled
+	GrantCondition@IDISABLE:
+		RequiresCondition: infiltrated
+		Condition: disabled
+	TimedConditionBar@INFILTRATED:
+		Condition: infiltrated
+		Color: 0088FF
+
+^DisabledByMagnetron:
+	WithColoredOverlay@MagneFreeze:
+		Color: 551A5180 # FF50F580
+		RequiresCondition: magnefreeze
+	SpeedMultiplier@MagneFreeze:
+		Modifier: 0
+		RequiresCondition: magnefreeze
+	TurnSpeedMultiplier@MagneFreeze:
+		Modifier: 0
+		RequiresCondition: magnefreeze
+	Targetable@MagneFreeze:
+		TargetTypes: MagneFreezable
+	ExternalCondition@MagneFreeze:
+		Condition: magnefreeze
+
+^AffectedBySpectreBullets:
+	SpeedMultiplier@MagneSlow:
+		Modifier: 33
+		RequiresCondition: magneslow
+	WithColoredOverlay@MagneSlow:
+		Color: 551A5140 # FF50F540
+		RequiresCondition: magneslow
+	ExternalCondition@MagneSlow:
+		Condition: magneslow
+
+^AffectedByCryoSlowdown:
+	SpeedMultiplier@Cryo1:
+		Modifier: 80
+		RequiresCondition: cryo == 1
+	SpeedMultiplier@Cryo2:
+		Modifier: 67
+		RequiresCondition: cryo == 2
+	SpeedMultiplier@Cryo3:
+		Modifier: 57
+		RequiresCondition: cryo == 3
+	SpeedMultiplier@Cryo4:
+		Modifier: 50
+		RequiresCondition: cryo >= 4
+	DamageMultiplier@Cryo1:
+		Modifier: 125
+		RequiresCondition: cryo == 1
+	DamageMultiplier@Cryo2:
+		Modifier: 150
+		RequiresCondition: cryo == 2
+	DamageMultiplier@Cryo3:
+		Modifier: 175
+		RequiresCondition: cryo == 3
+	DamageMultiplier@Cryo4:
+		Modifier: 200
+		RequiresCondition: cryo >= 4
+	WithColoredOverlay@Cryo1:
+		Color: 00515540 # 00F5FF40
+		RequiresCondition: cryo == 1
+	WithColoredOverlay@Cryo2:
+		Color: 00515560 # 00F5FF60
+		RequiresCondition: cryo == 2
+	WithColoredOverlay@Cryo3:
+		Color: 00515580 # 00F5FF80
+		RequiresCondition: cryo == 3
+	WithColoredOverlay@Cryo4:
+		Color: 005155A0 # 00F5FFA0
+		RequiresCondition: cryo >= 4
+	ExternalCondition@Cryo:
+		Condition: cryo
+
+^WebDisable:
+	TimedConditionBar@WebDisable:
+		Condition: webdisable
+		Color: FFFFFF
+	SpeedMultiplier@WebDisable:
+		RequiresCondition: webdisable
+		Modifier: 0
+	WithInfantryBody:
+		RequiresCondition: !webdisable
+	WithIdleOverlay@web:
+		Image: webguy
+		Sequence: webguy
+		Palette: player
+		RequiresCondition: webdisable
+	Targetable@webdisable:
+		TargetTypes: WebDisableable
+	ExternalCondition@webdisable:
+		Condition: webdisable
+
+^DiskDrainable:
+	WithColoredOverlay@IDISABLE:
+		Color: 00000080
+		RequiresCondition: disabled
+	ExternalCondition@DISKDRAIN:
+		Condition: diskdrain
+	Targetable@DISKDRAIN:
+		TargetTypes: DiskDrain
+
+^DiskStealable:
+	Targetable@DISKSTEAL:
+		TargetTypes: DiskSteal
+
+^SelectableBuilding:
+	IsometricSelectable:
+		Priority: 3
+		Height: 0
+		DecorationHeight: 30
+	IsometricSelectionDecorations:
+		MinimumZoom: 0
+	WithTextControlGroupDecoration:
+		Margin: 1, 1
+	GrantConditionOnPrerequisite@upgrades:
+		Condition: upgrades
+		Prerequisites: global-upgrades
+	ActorStatValues:
+	ActorStatOverride@NO_UPGRADE:
+		Upgrades:
+		RequiresCondition: !upgrades
+
+^AIMicroManagable:
+	GrantConditionOnBotOwner@ai-control:
+		Condition: ai-control
+		Bots: easy, cheater, vengeful
+
+^AICashCheat:
+	GrantConditionOnBotOwner@cheater:
+		Condition: enable-cheater-ai
+		Bots: cheater
+	GrantConditionOnBotOwner@vengeful:
+		Condition: enable-vengeful-ai
+		Bots: vengeful
+	CashTrickler@cheater:
+		Interval: 500
+		Amount: 300
+		ShowTicks: false
+		RequiresCondition: enable-cheater-ai
+	CashTrickler@vengeful:
+		Interval: 250
+		Amount: 280
+		ShowTicks: false
+		RequiresCondition: enable-vengeful-ai

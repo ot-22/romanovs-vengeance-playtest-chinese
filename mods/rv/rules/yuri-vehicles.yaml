@@ -1,0 +1,1647 @@
+pcv:
+	Inherits: ^ConstructionVehicle
+	Inherits@COMPENSATORS: ^AffectedByChaosTankCompensators
+	Inherits@GRINDER: ^AffectedByGrinderTreads
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.Yuri, Vehicle.Psi, Vehicle.Trans, Ship.Shared, Ship.Yuri
+		Description: actor-pcv.description
+		Prerequisites: ~vehicleorship.yuri, ~techlevel.2, ~!global-suddendeath, ~!ai.mcv
+	Hovers:
+		Ticks: 10
+		FallTicks: 5
+		BobDistance: -48
+		InitialHeight: 48
+		# PauseOnCondition: chronodisable
+		RequiresCondition: in_water && !emp && !magnefreeze
+	Transforms:
+		IntoActor: yacnst
+	Voiced:
+		VoiceSet: YuriConstructionVehicleVoice
+	ActorStatValues:
+		Upgrades: upgrade.grinder_treads, upgrade.chaos_tank_compensators
+
+smin:
+	Inherits: ^Vehicle
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@COMPENSATORS: ^AffectedByChaosTankCompensators
+	Inherits@GRINDER: ^AffectedByGrinderTreads
+	Inherits@NOGUNNER: ^GunnerKillable
+	Inherits@RADIATON: ^DamagedByRadiation10Percent
+	Inherits@SELECTION_MODE: ^LowPrioritySelectionMode
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.Psi
+		BuildPaletteOrder: 90
+		Description: actor-smin.description
+		Prerequisites: ~vehicle.psicorps, yadome, ~!global-megawealth, ~techlevel.3
+		BuildDuration: 750
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 1500
+	DeliversCash:
+		Payload: 1500
+		Voice: Move
+	Tooltip:
+		Name: actor-smin.name
+	Tooltip@NoRow:
+		Name: actor-smin.name
+	Selectable:
+		Priority: 7
+		Bounds: 1544, 2509, 0, -289
+	Transforms:
+		Facing: 896
+		IntoActor: yarefn
+		TransformSounds: uplace.wav
+		NoTransformNotification: BuildingCannotPlaceAudio
+		NoTransformTextNotification: notification-cannot-deploy-here
+		Voice: Deploy
+	TransferTimedExternalConditionOnTransform@INVULNERABILITY:
+		Condition: invulnerability
+	TransferTimedExternalConditionOnTransform@INVISIBILITY:
+		Condition: invisibility
+	Health:
+		HP: 150000
+	Armor:
+		Type: Medium
+	Mobile:
+		Speed: 60
+		TurnSpeed: 20
+	Turreted:
+		TurnSpeed: 20
+	Armament@primary:
+		Weapon: 20mmrapid
+		Damage: 30
+		LocalOffset: 512,0,1388
+		MuzzleSequence: muzzle
+	#	RequiresCondition: !rank-elite
+	# Armament@elite:
+	#	Weapon: 20mmrapidE
+	#	Damage: 50
+	#	LocalOffset: 512,0,1388
+	#	MuzzleSequence: muzzle
+	#	RequiresCondition: rank-elite
+	AttackTurreted:
+		Voice: Attack
+		PauseOnCondition: chronodisable || emp || nogunner || parachute
+	WithMuzzleOverlay:
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	MustBeDestroyed:
+		RequiredForShortGame: true
+	ProvidesPrerequisite@smin:
+		Prerequisite: smin
+	ProvidesPrerequisite@yarefnorsmin:
+		Prerequisite: yarefnorsmin
+	ProvidesPrerequisite@psirefn:
+		Prerequisite: psirefn
+	ProvidesPrerequisite@refinery:
+		Prerequisite: refinery
+	ProvidesPrerequisite@showslave:
+		Prerequisite: showslave
+	RenderSprites:
+	RenderVoxels:
+	WithVoxelBody:
+	WithVoxelTurret:
+	Voiced:
+		VoiceSet: SlaveMinerVoice
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+		ValidRelationships: None
+	HitShape:
+	StoresPlayerResources:
+		Capacity: 1000
+	Explodes:
+		RequiresCondition: !spawn-ore
+	Explodes@Ore:
+		Type: Footprint
+		DeathTypes: NonTemporal
+		Weapon: RefineryExplode
+		RequiresCondition: spawn-ore
+	GrantConditionOnPlayerResources:
+		Condition: spawn-ore
+	RangedGpsDot:
+		Sequence: Harvester
+	WithResourceStoragePipsDecoration:
+		Margin: 4, 3
+		FullSequence: pip-yellow
+		Palette: ra
+		Position: BottomLeft
+		RequiresSelection: true
+		PipCount: 10
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+		Upgrades: upgrade.grinder_treads, upgrade.chaos_tank_compensators
+
+gmin:
+	Inherits: ^Miner
+	Inherits@COMPENSATORS: ^AffectedByChaosTankCompensators
+	Inherits@GRINDER: ^AffectedByGrinderTreads
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.Yuri, Vehicle.Psi, Vehicle.Trans, Ship.Shared, Ship.Yuri
+		Description: actor-gmin.description
+		Prerequisites: ~vehicleorship.yuri, refinery, ~!global-megawealth, ~techlevel.1
+	Tooltip:
+		Name: actor-gmin.name
+	Tooltip@NoRow:
+		Name: actor-gmin.name
+	Guard:
+		Voice: Move
+	Cloak:
+		RequiresCondition: !chronodisable && !emp
+		CloakedCondition: cloaked
+		InitialDelay: 25
+		CloakDelay: 100
+		CloakStyle: Palette
+		CloakedPalette: cloak
+		IsPlayerPalette: true
+		CloakSound: cloak5.aud
+		UncloakSound: cloak5.aud
+		UncloakOn: Attack, Damage, Dock
+	-Cloak@lazarus:
+	-ExternalCondition@INVISIBILITY:
+	LeavesTrails:
+		RequiresCondition: !cloaked && !on_dock
+	Voiced:
+		VoiceSet: SlaveMinerVoice
+	ActorStatValues:
+		Upgrades: upgrade.grinder_treads, upgrade.chaos_tank_compensators
+
+ltnk:
+	Inherits: ^MainBattleTank
+	Inherits@AUTOLOADERS: ^AffectedByAutoloaders
+	Inherits@CAPACITORS: ^AffectedByLaserCapacitors
+	Inherits@COMPENSATORS: ^AffectedByChaosTankCompensators
+	Inherits@GRINDER: ^AffectedByGrinderTreads
+	Valued:
+		Cost: 600
+	DeliversCash:
+		Payload: 600
+		Voice: Move
+	Tooltip:
+		Name: actor-ltnk.name
+	Tooltip@NoRow:
+		Name: actor-ltnk.name
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.Yuri, Vehicle.Psi, Vehicle.Trans
+		Description: actor-ltnk.description
+		Prerequisites: ~vehicle.yuri, ~techlevel.1
+		BuildDuration: 375
+		BuildDurationModifier: 100
+	Mobile:
+		Speed: 120
+	Health:
+		HP: 20000
+	-FirepowerMultiplier@CAPACITORS:
+	Armament@primary:
+		Weapon: ATGUN
+		Damage: 65
+		Recoil: 87
+		RecoilRecovery: 12
+		LocalOffset: 800,0,832
+		MuzzleSequence: muzzle
+		RequiresCondition: !rank-elite && !autoloaders && !capacitors
+	Armament@elite:
+		Weapon: ATGUNE
+		Damage: 130
+		Recoil: 87
+		RecoilRecovery: 12
+		LocalOffset: 800,0,832
+		MuzzleSequence: muzzle-2
+		RequiresCondition: rank-elite && !autoloaders && !capacitors
+	Armament@primary-auto:
+		Weapon: ATGUNAuto
+		Damage: 130
+		Recoil: 87
+		RecoilRecovery: 12
+		LocalOffset: 800,0,832
+		MuzzleSequence: muzzle
+		RequiresCondition: !rank-elite && autoloaders && !capacitors
+	Armament@elite-auto:
+		Weapon: ATGUNAutoE
+		Damage: 260
+		Recoil: 87
+		RecoilRecovery: 12
+		LocalOffset: 800,0,832
+		MuzzleSequence: muzzle-2
+		RequiresCondition: rank-elite && autoloaders && !capacitors
+	Armament@primary-laser:
+		Weapon: ATLASER
+		Damage: 65
+		LocalOffset: 800,0,832
+		MuzzleSequence: muzzle
+		RequiresCondition: !rank-elite && !autoloaders && capacitors
+	Armament@elite-laser:
+		Weapon: ATLASERE
+		Damage: 130
+		LocalOffset: 800,0,832
+		MuzzleSequence: muzzle-2
+		RequiresCondition: rank-elite && !autoloaders && capacitors
+	Armament@primary-laser-auto:
+		Weapon: ATLASERAuto
+		Damage: 130
+		LocalOffset: 800,0,832
+		MuzzleSequence: muzzle
+		RequiresCondition: !rank-elite && autoloaders && capacitors
+	Armament@elite-laser-auto:
+		Weapon: ATLASERAutoE
+		Damage: 260
+		LocalOffset: 800,0,832
+		MuzzleSequence: muzzle-2
+		RequiresCondition: rank-elite && autoloaders && capacitors
+	WithVoxelTurret:
+		RequiresCondition: !autoloaders
+	WithVoxelTurret@AUTOLOADERS:
+		Sequence: turret-autoloaders
+		RequiresCondition: autoloaders
+	-WithVoxelBarrel:
+	Selectable:
+		Bounds: 1544, 2509, 0, -289
+	Voiced:
+		VoiceSet: LasherTankVoice
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+		ValidRelationships: None
+	# GrantConditionOnMovement@MoveStart:
+	#	Condition: moving
+	#	ValidMovementTypes: Horizontal, Turn
+	# SoundAnnouncement:
+	#	SoundFiles: vlasstaa.wav, vlasstab.wav, vlasstac.wav
+	#	Volume: 0.35
+	#	RequiresCondition: moving
+	ActorStatValues:
+		Upgrades: upgrade.grinder_treads, upgrade.autoloaders, upgrade.chaos_tank_compensators, upgrade.laser_capacitors
+
+ltnk.holo:
+	Inherits: ltnk
+	Inherits@HOLOGRAM: ^Hologram
+	-ActorLostNotification:
+	-Buildable:
+	-DeliversCash:
+	-GivesExperience:
+	-Passenger:
+	-Explodes@COMPENSATORS:
+	-GrantConditionOnPrerequisite@COMPENSATORS:
+	-FirepowerMultiplier@TANK_BUNKER:
+	-ReloadDelayMultiplier@TANK_BUNKER:
+	-RangeMultiplier@TANK_BUNKER:
+	-MapEditorData:
+	-MindControllable:
+	-WithMindControlArc:
+	-Targetable@MC:
+	-WithIdleOverlay@mindcontrol:
+	-Capturable@PERMAMC:
+	-ExternalCondition@PERMAMC:
+	-Carryable:
+	-Capturable:
+	Armament@primary:
+		Weapon: ATGUNHolo
+	Armament@elite:
+		Weapon: ATGUNHoloE
+	Armament@primary-auto:
+		Weapon: ATGUNHoloAuto
+	Armament@elite-auto:
+		Weapon: ATGUNHoloAutoE
+	Armament@primary-laser:
+		Weapon: ATLASERHolo
+	Armament@elite-laser:
+		Weapon: ATLASERHoloE
+	Armament@primary-laser-auto:
+		Weapon: ATLASERHoloAuto
+	Armament@elite-laser-auto:
+		Weapon: ATLASERHoloAutoE
+	Mobile:
+		Locomotor: wheeled
+	UpdatesPlayerStatistics:
+		AddToArmyValue: false
+	RenderSprites:
+		Image: ltnk
+	RenderVoxels:
+		Image: ltnk
+
+ytnk:
+	Inherits: ^Vehicle
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@BUNKER: ^TankBunkerable
+	Inherits@CHAINGUNS: ^AffectedByChainguns
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@COMPENSATORS: ^AffectedByChaosTankCompensators
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@NOGUNNER: ^GunnerKillable
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Valued:
+		Cost: 700
+	DeliversCash:
+		Payload: 700
+		Voice: Move
+	Tooltip:
+		Name: actor-ytnk.name
+	Tooltip@NoRow:
+		Name: actor-ytnk.name
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.Yuri, Vehicle.Psi, Vehicle.Trans
+		Prerequisites: ~vehicle.yuri, ~techlevel.1
+		BuildPaletteOrder: 30
+		Description: actor-ytnk.description
+		BuildDuration: 375
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		Speed: 105
+		TurnSpeed: 40
+		Locomotor: tracked
+	Health:
+		HP: 25000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 9c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 8c0
+	RevealOnDeath:
+		Radius: 8c0
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	Turreted:
+		TurnSpeed: 40
+	Armament@ag-0:
+		Weapon: AGGatling
+		LocalOffset: 544,100,1024, 544,-100,1024
+		MuzzleSequence: muzzle
+		ReloadingCondition: reload-ground
+		PauseOnCondition: reload-air
+		RequiresCondition: !gatling
+	Armament@ag-1:
+		Weapon: AGGatling2
+		LocalOffset: 544,100,1024, 544,-100,1024
+		MuzzleSequence: muzzle-1
+		ReloadingCondition: reload-ground
+		PauseOnCondition: reload-air
+		RequiresCondition: gatling == 1
+	Armament@ag-2:
+		Weapon: AGGatling3
+		LocalOffset: 544,100,1024, 544,-100,1024
+		MuzzleSequence: muzzle-2
+		ReloadingCondition: reload-ground
+		PauseOnCondition: reload-air
+		RequiresCondition: gatling >= 2
+	Armament@ag-line-0:
+		Name: secondary
+		Weapon: AGGatlingLine
+		LocalOffset: 544,100,1024, 544,-100,1024
+		ReloadingCondition: reload-line-ground
+		PauseOnCondition: reload-line-air
+		RequiresCondition: !gatling && chainguns
+	Armament@ag-line-1:
+		Name: secondary
+		Weapon: AGGatlingLine2
+		LocalOffset: 544,100,1024, 544,-100,1024
+		ReloadingCondition: reload-line-ground
+		PauseOnCondition: reload-line-air
+		RequiresCondition: gatling == 1 && chainguns
+	Armament@ag-line-2:
+		Name: secondary
+		Weapon: AGGatlingLine3
+		LocalOffset: 544,100,1024, 544,-100,1024
+		ReloadingCondition: reload-line-ground
+		PauseOnCondition: reload-line-air
+		RequiresCondition: gatling >= 2 && chainguns
+	Armament@aa-0:
+		Weapon: AAGatling
+		LocalOffset: 544,100,1024, 544,-100,1024
+		MuzzleSequence: muzzle
+		ReloadingCondition: reload-air
+		PauseOnCondition: reload-ground
+		RequiresCondition: !gatling
+	Armament@aa-1:
+		Weapon: AAGatling2
+		LocalOffset: 544,100,1024, 544,-100,1024
+		MuzzleSequence: muzzle-1
+		ReloadingCondition: reload-air
+		PauseOnCondition: reload-ground
+		RequiresCondition: gatling == 1
+	Armament@aa-2:
+		Weapon: AAGatling3
+		LocalOffset: 544,100,1024, 544,-100,1024
+		MuzzleSequence: muzzle-2
+		ReloadingCondition: reload-air
+		PauseOnCondition: reload-ground
+		RequiresCondition: gatling >= 2
+	Armament@aa-line-0:
+		Name: secondary
+		Weapon: AAGatlingLine
+		LocalOffset: 544,100,1024, 544,-100,1024
+		ReloadingCondition: reload-line-air
+		PauseOnCondition: reload-line-ground
+		RequiresCondition: !gatling && chainguns
+	Armament@aa-line-1:
+		Name: secondary
+		Weapon: AAGatlingLine2
+		LocalOffset: 544,100,1024, 544,-100,1024
+		ReloadingCondition: reload-line-air
+		PauseOnCondition: reload-line-ground
+		RequiresCondition: gatling == 1 && chainguns
+	Armament@aa-line-2:
+		Name: secondary
+		Weapon: AAGatlingLine3
+		LocalOffset: 544,100,1024, 544,-100,1024
+		ReloadingCondition: reload-line-air
+		PauseOnCondition: reload-line-ground
+		RequiresCondition: gatling >= 2 && chainguns
+	GrantConditionOnAttack:
+		Condition: gatling
+		RequiredShotsPerInstance: 12, 24
+		MaximumInstances: 2
+		RevokeDelay: 25
+		RevokeAll: true
+		IsCyclic: false
+		RevokeOnNewTarget: false
+		RequiresCondition: !rank-elite
+	GrantConditionOnAttack@elite:
+		Condition: gatling
+		RequiredShotsPerInstance: 6, 12
+		MaximumInstances: 2
+		RevokeDelay: 25
+		RevokeAll: true
+		IsCyclic: false
+		RevokeOnNewTarget: false
+		RequiresCondition: rank-elite
+	AttackTurreted:
+		Voice: Attack
+		PauseOnCondition: chronodisable || emp || nogunner || parachute
+	AutoTarget:
+	RenderSprites:
+	Selectable:
+		Bounds: 1254, 1930, 0, -289
+	RenderVoxels:
+	WithVoxelBody:
+	WithVoxelTurret:
+	WithMuzzleOverlay:
+	Voiced:
+		VoiceSet: GatlingTankVoice
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+		ValidRelationships: None
+	ProducibleWithLevel@1:
+		Prerequisites: vetytnkorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: vetytnkorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: vetytnk, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: vetytnk, baacdm
+		Types: chevron-elite
+	HitShape:
+	# GrantConditionOnMovement@MoveStart:
+	#	Condition: moving
+	#	ValidMovementTypes: Horizontal, Turn
+	# SoundAnnouncement:
+	#	SoundFiles: vgatstaa.wav, vgatstab.wav, vgatstac.wav
+	#	Volume: 0.35
+	#	RequiresCondition: moving
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MinRange, None, MaxRange
+		Damage: 20
+		Upgrades: upgrade.chaos_tank_compensators, upgrade.chainguns
+
+ytnk.holo:
+	Inherits: ytnk
+	Inherits@HOLOGRAM: ^Hologram
+	-ActorLostNotification:
+	-Buildable:
+	-DeliversCash:
+	-GivesExperience:
+	-Passenger:
+	-Explodes@COMPENSATORS:
+	-GrantConditionOnPrerequisite@COMPENSATORS:
+	-FirepowerMultiplier@TANK_BUNKER:
+	-ReloadDelayMultiplier@TANK_BUNKER:
+	-RangeMultiplier@TANK_BUNKER:
+	-MapEditorData:
+	-MindControllable:
+	-WithMindControlArc:
+	-Targetable@MC:
+	-WithIdleOverlay@mindcontrol:
+	-Capturable@PERMAMC:
+	-ExternalCondition@PERMAMC:
+	-Carryable:
+	-Capturable:
+	Armament@ag-0:
+		Weapon: AGGatlingHolo
+	Armament@ag-1:
+		Weapon: AGGatlingHolo2
+	Armament@ag-2:
+		Weapon: AGGatlingHolo3
+	Armament@aa-0:
+		Weapon: AAGatlingHolo
+	Armament@aa-1:
+		Weapon: AAGatlingHolo2
+	Armament@aa-2:
+		Weapon: AAGatlingHolo3
+	Mobile:
+		Locomotor: wheeled
+	UpdatesPlayerStatistics:
+		AddToArmyValue: false
+	RenderSprites:
+		Image: ytnk
+	RenderVoxels:
+		Image: ytnk
+
+caos:
+	Inherits: ^Vehicle
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@COMPENSATORS: ^AffectedByChaosTankCompensators
+	Inherits@NOCHAOS: ^NotBerserkTarget
+	Valued:
+		Cost: 800
+	DeliversCash:
+		Payload: 800
+		Voice: Move
+	Tooltip:
+		Name: actor-caos.name
+	Tooltip@NoRow:
+		Name: actor-caos.name
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.Yuri, Vehicle.Psi, Vehicle.Trans
+		BuildPaletteOrder: 40
+		Prerequisites: ~vehicle.yuri, ~techlevel.2
+		Description: actor-caos.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		Speed: 135
+		TurnSpeed: 60
+		RequiresCondition: !chronodisable && !emp && !magnefreeze && !beingterrordroned
+	Health:
+		HP: 25000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	Targetable:
+		TargetTypes: Ground, Vehicle, DetonateAttack, DroneInfection, ImmuneToRadiation
+	Armament@primary:
+		Weapon: ChaosAttack
+		LocalOffset: 0,0,64
+		RequiresCondition: !compensators
+	Armament@primary-big:
+		Weapon: ChaosAttackBig
+		LocalOffset: 0,0,64
+		RequiresCondition: compensators
+	PeriodicExplosion:
+		Weapon: ChaosAttack
+		LocalOffset: 0,0,64
+		ResetReloadWhenEnabled: false
+		RequiresCondition: deployed && !chronodisable && !emp && !compensators
+	PeriodicExplosion@Big:
+		Weapon: ChaosAttackBig
+		LocalOffset: 0,0,64
+		ResetReloadWhenEnabled: false
+		RequiresCondition: deployed && !chronodisable && !emp && compensators
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 512
+		PauseOnCondition: chronodisable || emp || deployed
+	GrantConditionOnDeploy:
+		DeployedCondition: deployed
+		CanDeployOnRamps: True
+		SmartDeploy: True
+		Voice: Attack
+		UndeployOnMove: true
+		PauseOnCondition: chronodisable || emp
+		RequiresCondition: !parachute
+	Cloak@lazarus:
+		RequiresCondition: invisibility && !chronodisable && !emp && !deployed
+	-CaptureManager:
+	-Capturable:
+	RenderSprites:
+	Selectable:
+		Bounds: 1254, 2316, 0, -193
+	RenderVoxels:
+	WithVoxelBody:
+	Voiced:
+		VoiceSet: ChaosDroneVoice
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+		ValidRelationships: None
+	HitShape:
+	# GrantConditionOnMovement@MoveStart:
+	#	Condition: moving
+	#	ValidMovementTypes: Horizontal, Turn
+	# SoundAnnouncement:
+	#	SoundFiles: vchastaa.wav, vchastab.wav, vchastac.wav
+	#	Volume: 0.5
+	#	RequiresCondition: moving
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+
+tele:
+	Inherits: ^Vehicle
+	Inherits@ADVMAGNETS: ^AffectedByAdvancedMagnetics
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@COMPENSATORS: ^AffectedByChaosTankCompensators
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@NOGUNNER: ^GunnerKillable
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Valued:
+		Cost: 800
+	DeliversCash:
+		Payload: 800
+		Voice: Move
+	Tooltip:
+		Name: actor-tele.name
+	Tooltip@NoRow:
+		Name: actor-tele.name
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.Yuri, Vehicle.Psi, Vehicle.Trans
+		BuildPaletteOrder: 100
+		Prerequisites: ~vehicle.yuri, yadome, ~techlevel.3
+		Description: actor-tele.description
+		BuildDuration: 500
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		Speed: 75
+		TurnSpeed: 32
+	Health:
+		HP: 15000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	Turreted:
+		TurnSpeed: 28
+		Offset: -640,0,0
+	Armament@primary:
+		Weapon: MagneShake
+		Damage: 80
+		LocalOffset: 512,0,1024
+		RequiresCondition: !advmagnets && !rank-elite
+	Armament@elite:
+		Weapon: MagneShakeE
+		Damage: 120
+		LocalOffset: 512,0,1024
+		RequiresCondition: !advmagnets && rank-elite
+	Armament@secondary:
+		Weapon: MagneFreeze
+		LocalOffset: 512,0,1024
+		RequiresCondition: !advmagnets
+	Armament@primary-adv:
+		Weapon: MagneShakeAdv
+		Damage: 100
+		LocalOffset: 512,0,1024
+		RequiresCondition: advmagnets && !rank-elite
+	Armament@elite-adv:
+		Weapon: MagneShakeAdvE
+		Damage: 150
+		LocalOffset: 512,0,1024
+		RequiresCondition: advmagnets && rank-elite
+	Armament@secondary-adv:
+		Weapon: MagneFreezeAdv
+		LocalOffset: 512,0,1024
+		RequiresCondition: advmagnets && !rank-elite
+	Armament@secondary-elite-adv:
+		Weapon: MagneFreezeAdvE
+		LocalOffset: 512,0,1024
+		RequiresCondition: advmagnets && rank-elite
+	AttackTurreted:
+		Voice: Attack
+		TargetFrozenActors: true
+		PauseOnCondition: chronodisable || emp || nogunner || parachute
+	AutoTarget:
+	RenderSprites:
+	Selectable:
+		Bounds: 1544, 2509, 0, -289
+	RenderVoxels:
+	WithVoxelBody:
+	WithVoxelTurret:
+	Voiced:
+		VoiceSet: MagnetronVoice
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+		ValidRelationships: None
+	ProducibleWithLevel@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+		Types: chevron-elite
+	HitShape:
+	# GrantConditionOnMovement@MoveStart:
+	#	Condition: moving
+	#	ValidMovementTypes: Horizontal, Turn
+	# SoundAnnouncement:
+	#	SoundFiles: vmagstaa.wav, vmagstab.wav, vmagstac.wav
+	#	Volume: 0.65
+	#	RequiresCondition: moving
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+
+mind:
+	Inherits: ^Vehicle
+	Inherits@COMPENSATORS: ^AffectedByChaosTankCompensators
+	Inherits@GRINDER: ^AffectedByGrinderTreads
+	Inherits@MASTERYOFMIND: ^AffectedByMasteryOfMind
+	Inherits@RADIATON: ^DamagedByRadiation10Percent
+	Valued:
+		Cost: 1750
+	DeliversCash:
+		Payload: 1750
+		Voice: Move
+	Tooltip:
+		Name: actor-mind.name
+	Tooltip@NoRow:
+		Name: actor-mind.name
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.Yuri, Vehicle.Psi, Vehicle.Trans
+		BuildPaletteOrder: 130
+		Prerequisites: ~vehicle.yuri, yatech, ~techlevel.4
+		Description: actor-mind.description
+		BuildDuration: 875
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		Speed: 60
+		TurnSpeed: 32
+		Locomotor: omnicrusher
+		RequiresCondition: !deployed && !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
+	-Crushable:
+	ChangesHealth@HEAL:
+		PercentageStep: 1
+		Step: 0
+		Delay: 100
+		DamageCooldown: 100
+		StartIfBelow: 100
+		RequiresCondition: controlling < 4
+	ChangesHealth@OVERLOAD-1:
+		Step: -2500
+		Delay: 30
+		StartIfBelow: 101
+		DamageTypes: NonTemporal
+		RequiresCondition: controlling >= 4 && controlling < 7
+	ChangesHealth@OVERLOAD-2:
+		Step: -5000
+		Delay: 30
+		StartIfBelow: 101
+		DamageTypes: NonTemporal
+		RequiresCondition: controlling >= 7 && controlling < 11
+	ChangesHealth@OVERLOAD-3:
+		Step: -10000
+		Delay: 30
+		StartIfBelow: 101
+		RequiresCondition: controlling >= 11
+	PeriodicExplosion@OVERLOADSPARKS:
+		RequiresCondition: controlling >= 4
+		Weapon: DisabledSparkSpawner
+		LocalOffset: 0,0,384
+	VoiceAnnouncement@OVERLOAD:
+		RequiresCondition: controlling >= 4
+		Voice: Overload
+		ValidRelationships: None
+	Health:
+		HP: 50000
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 9c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 9c0
+	RevealOnDeath:
+		Radius: 9c0
+	PeriodicExplosion:
+		Weapon: SuperPsiWaveMastery
+		LocalOffset: 0,0,128
+		RequiresCondition: deployed && masteryofmind && !chronodisable && !emp
+	GrantTimedConditionOnDeploy:
+		DeployedTicks: 100
+		CooldownTicks: 0
+		DeployedCondition: deployed
+		ShowSelectionBar: false
+		Voice:
+		PauseOnCondition: chronodisable || (emp && !deployed)
+		RequiresCondition: masteryofmind
+	Armament:
+		Weapon: MasterMindControl
+		LocalOffset: 0,0,960
+	MindController:
+		ControllingCondition: controlling
+		Sounds: iyurat1a.wav
+		Capacity: -3
+	WithMindControllerPipsDecoration:
+		Margin: 4, 3
+		Palette: ra
+		Position: BottomLeft
+		RequiresSelection: true
+	WithMindControlArc:
+		UsePlayerColor: true
+		Offset: 0,0,960
+	Turreted:
+		TurnSpeed: 1023
+	AttackTurreted:
+		Voice: Attack
+		PauseOnCondition: deployed || chronodisable || emp || parachute
+	AttackMove:
+		Voice: Move
+	AutoTarget:
+	AutoTargetPriority@DEFAULT:
+		ValidTargets: MindControl
+	RenderSprites:
+	Selectable:
+		Bounds: 1544, 2509, 0, -289
+	RenderVoxels:
+		Scale: 12
+	WithVoxelBody:
+	Voiced:
+		VoiceSet: MasterMindVoice
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+		ValidRelationships: None
+	HitShape:
+	# GrantConditionOnMovement@MoveStart:
+	#	Condition: moving
+	#	ValidMovementTypes: Horizontal, Turn
+	# SoundAnnouncement:
+	#	SoundFiles: vmasstaa.wav, vmasstab.wav, vmasstac.wav
+	#	Volume: 0.65
+	#	RequiresCondition: moving
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, MindControl, ReloadDelay, MaxRange
+		Upgrades: upgrade.grinder_treads, upgrade.chaos_tank_compensators, upgrade.mastery_of_mind
+
+# Custom Yuri Vehicles
+mlyr:
+	Inherits: ^Vehicle
+	Inherits@CHAOS: ^BerserkableVoxel
+	Inherits@COMPENSATORS: ^AffectedByChaosTankCompensators
+	Inherits@GRINDER: ^AffectedByGrinderTreads
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation10Percent
+	Valued:
+		Cost: 900
+	DeliversCash:
+		Payload: 900
+		Voice: Move
+	Tooltip:
+		Name: actor-mlyr.name
+	Tooltip@NoRow:
+		Name: actor-mlyr.name
+	Selectable:
+		Bounds: 1206, 1930, 0, -289
+	Buildable:
+		Queue: Vehicle.Unused # Vehicle.Yuri, Vehicle.Psi, Vehicle.Trans
+		Prerequisites: prerequisite.minelayer, repairpad, ~techlevel.1
+		BuildPaletteOrder: 80
+		Description: actor-mlyr.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		Speed: 90
+		TurnSpeed: 32
+		Locomotor: heavytracked
+	Health:
+		HP: 40000
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	Minelayer:
+		Mine: mine
+		TileUnknownName: build-valid
+		Voice: Attack
+	MineImmune:
+	AmmoPool:
+		Ammo: 5
+		RearmSound: minelay1.aud
+	Rearmable:
+		RearmActors: gadept, nadept, nadepb, yadept, yadepb, caoutp, caoutb
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	RenderSprites:
+	RenderVoxels:
+	WithVoxelBody:
+	Voiced:
+		VoiceSet: FlakTrackVoice
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+		ValidRelationships: None
+	HitShape:
+	WithAmmoPipsDecoration:
+		Margin: 4, 3
+		Palette: ra
+		Position: BottomLeft
+		RequiresSelection: true
+	ActorStatValues:
+		Stats: Armor, Sight, Speed
+		Upgrades: upgrade.grinder_treads, upgrade.chaos_tank_compensators
+
+kamaz:
+	Inherits: ^Vehicle
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@BUNKER: ^TankBunkerable
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@COMPENSATORS: ^AffectedByChaosTankCompensators
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@GRINDER: ^AffectedByGrinderTreads
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@NOGUNNER: ^GunnerKillable
+	Inherits@RADIATON: ^DamagedByRadiation10Percent
+	Inherits@TOXIN: ^AffectedByToxinSprayer
+	Valued:
+		Cost: 600
+	DeliversCash:
+		Payload: 600
+		Voice: Move
+	Tooltip:
+		Name: actor-kamaz.name
+	Tooltip@NoRow:
+		Name: actor-kamaz.name
+	Selectable:
+		Bounds: 1206, 1930, 0, -289
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.Yuri, Vehicle.Psi, Vehicle.Trans
+		Prerequisites: ~vehicle.yuri, ~techlevel.1
+		BuildPaletteOrder: 70
+		Description: actor-kamaz.description
+		BuildDuration: 375
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		Speed: 120
+		TurnSpeed: 20
+		Locomotor: heavytracked
+		RequiresCondition: !notmobile && !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
+	Health:
+		HP: 40000
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	Turreted:
+		TurnSpeed: 28
+		Offset: 512,0,1152
+	Armament@primary:
+		Weapon: ToxinSprayerTruck
+		Damage: 32
+		LocalOffset: 640,0,64
+		PauseOnCondition: chronodisable
+		RequiresCondition: toxinsprayer && !rank-elite
+	Armament@elite:
+		Weapon: ToxinSprayerTruckE
+		Damage: 80
+		LocalOffset: 640,0,64
+		PauseOnCondition: chronodisable
+		RequiresCondition: toxinsprayer && rank-elite
+	AttackTurreted:
+		Voice: Attack
+		PauseOnCondition: chronodisable || emp || nogunner || parachute
+		RequiresCondition: toxinsprayer
+	Targetable@GUNNER:
+		TargetTypes: GunnerKillable
+		RequiresCondition: toxinsprayer
+	Cargo:
+		Types: Infantry, Garrisoner, SmallVehicle
+		MaxWeight: 5
+		AfterLoadDelay: 0
+		BeforeUnloadDelay: 0
+		AfterUnloadDelay: 0
+		PassengerFacing: 0
+		UnloadVoice: Move
+		LoadingCondition: notmobile
+	WithCargoSounds:
+		EnterSounds: genter1a.wav
+		ExitSounds: gexit1a.wav
+	RenderSprites:
+	RenderVoxels:
+	WithVoxelBody:
+	WithVoxelTurret:
+		RequiresCondition: toxinsprayer
+	Voiced:
+		VoiceSet: FlakTrackVoice
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+		ValidRelationships: None
+	HitShape:
+	WithCargoPipsDecoration:
+		Margin: 4, 3
+		Palette: ra
+		Position: BottomLeft
+		RequiresSelection: true
+		CustomPipSequences:
+			gray: pip-gray
+			yellow: pip-yellow
+			blue: pip-blue
+			red: pip-red
+	# GrantConditionOnMovement@MoveStart:
+	#	Condition: moving
+	#	ValidMovementTypes: Horizontal, Turn
+	# SoundAnnouncement:
+	#	SoundFiles: vdemstaa.wav, vdemstab.wav, vdemstac.wav
+	#	Volume: 0.4
+	#	RequiresCondition: moving
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, None, None, None, Cargo
+		Upgrades: upgrade.grinder_treads, upgrade.toxin_sprayer, upgrade.chaos_tank_compensators
+	ActorStatOverride@toxinsprayer:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, Cargo
+		RequiresCondition: toxinsprayer
+
+lart:
+	Inherits: ^Vehicle
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CAPACITORS: ^AffectedByLaserCapacitors
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@COMPENSATORS: ^AffectedByChaosTankCompensators
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@GRINDER: ^AffectedByGrinderTreads
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@NOGUNNER: ^GunnerKillable
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Valued:
+		Cost: 1600
+	DeliversCash:
+		Payload: 1600
+		Voice: Move
+	Tooltip:
+		Name: actor-lart.name
+	Tooltip@NoRow:
+		Name: actor-lart.name
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.Yuri, Vehicle.Psi, Vehicle.Trans
+		BuildPaletteOrder: 110
+		Prerequisites: ~vehicle.yuri, prerequisite.annihilator_artillery, yatech, ~techlevel.3
+		Description: actor-lart.description
+		BuildDuration: 750
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		Speed: 60
+		TurnSpeed: 20
+		Locomotor: heavytracked
+	Health:
+		HP: 40000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	Armament@charger:
+		Name: secondary
+		Weapon: AnniLaserCharge
+		ReloadingCondition: chargingLaser
+		PauseOnCondition: laserready || firingLaser
+		RequiresCondition: !rank-elite
+	Armament@primary:
+		Weapon: AnniLaser
+		Damage: 150
+		LocalOffset: 672,0,832
+		ReloadingCondition: firingLaser
+		PauseOnCondition: !laserready
+		RequiresCondition: !rank-elite && !capacitors
+	Armament@primary-capacitors:
+		Weapon: AnniLaserUpg
+		Damage: 150
+		LocalOffset: 672,0,832
+		ReloadingCondition: firingLaser
+		PauseOnCondition: !laserready
+		RequiresCondition: !rank-elite && capacitors
+	Armament@elite-charger:
+		Name: secondary
+		Weapon: AnniLaserChargeE
+		ReloadingCondition: chargingLaser
+		PauseOnCondition: laserready || firingLaser
+		RequiresCondition: rank-elite
+	Armament@elite:
+		Weapon: AnniLaserE
+		Damage: 200
+		LocalOffset: 672,0,832
+		ReloadingCondition: firingLaser
+		PauseOnCondition: !laserready
+		RequiresCondition: rank-elite && !capacitors
+	Armament@elite-capacitors:
+		Weapon: AnniLaserUpgE
+		Damage: 200
+		LocalOffset: 672,0,832
+		ReloadingCondition: firingLaser
+		PauseOnCondition: !laserready
+		RequiresCondition: rank-elite && capacitors
+	GrantConditionAfterDelay@laserready:
+		Condition: laserready
+		Delay: 50
+		RequiresCondition: chargingLaser
+	AttackFollowFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+		MustFaceTarget: true
+		TargetFrozenActors: True
+		PauseOnCondition: chronodisable || emp || nogunner
+	RenderSprites:
+	Selectable:
+		Bounds: 1544, 2509, 0, -289
+	RenderVoxels:
+	WithVoxelBody:
+		RequiresCondition: !chargingLaser
+	WithVoxelAnimatedBody:
+		TickRate: 8
+		ResetFramesWhenDisabled: true
+		RequiresCondition: chargingLaser && !rank-elite && !capacitors
+	WithVoxelAnimatedBody@capacitors:
+		Sequence: idle-capacitors
+		TickRate: 8
+		ResetFramesWhenDisabled: true
+		RequiresCondition: chargingLaser && !rank-elite && capacitors
+	WithVoxelAnimatedBody@elite:
+		Sequence: idle-elite
+		TickRate: 8
+		ResetFramesWhenDisabled: true
+		RequiresCondition: chargingLaser && rank-elite && !capacitors
+	WithVoxelAnimatedBody@elite-capacitors:
+		Sequence: idle-elite-capacitors
+		TickRate: 8
+		ResetFramesWhenDisabled: true
+		RequiresCondition: chargingLaser && rank-elite && capacitors
+	Voiced:
+		VoiceSet: LasherTankVoice
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+		ValidRelationships: None
+	ProducibleWithLevel@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+		Types: chevron-elite
+	HitShape:
+	# GrantConditionOnMovement@MoveStart:
+	#	Condition: moving
+	#	ValidMovementTypes: Horizontal
+	# SoundAnnouncement:
+	#	SoundFiles: vtadstaa.wav, vtadstab.wav
+	#	Volume: 0.4
+	#	RequiresCondition: moving
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+		Upgrades: upgrade.grinder_treads, upgrade.chaos_tank_compensators, upgrade.laser_capacitors
+
+yhtnk:
+	Inherits: ^Vehicle
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@BUNKER: ^TankBunkerable
+	Inherits@CAPACITORS: ^AffectedByLaserCapacitors
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@COMPENSATORS: ^AffectedByChaosTankCompensators
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@GRINDER: ^AffectedByGrinderTreads
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@NOGUNNER: ^GunnerKillable
+	Inherits@RADIATON: ^DamagedByRadiation10Percent
+	Valued:
+		Cost: 1100
+	DeliversCash:
+		Payload: 1100
+		Voice: Move
+	Tooltip:
+		Name: actor-yhtnk.name
+	Tooltip@NoRow:
+		Name: actor-yhtnk.name
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.Yuri, Vehicle.Psi, Vehicle.Trans
+		BuildPaletteOrder: 120
+		Prerequisites: ~vehicle.yuri, yatech, ~techlevel.4
+		Description: actor-yhtnk.description
+		BuildDuration: 500
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		Speed: 105
+		TurnSpeed: 40
+		Locomotor: heavytracked
+	Health:
+		HP: 25000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 8c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 8c0
+	RevealOnDeath:
+		Radius: 8c0
+	Turreted:
+		TurnSpeed: 36
+	Cloak:
+		RequiresCondition: !chronodisable && !emp
+		InitialDelay: 25
+		CloakDelay: 110
+		CloakStyle: Palette
+		CloakedPalette: cloak
+		IsPlayerPalette: true
+		CloakSound: cloak5.aud
+		UncloakSound: cloak5.aud
+		UncloakOn: Attack, Damage
+	-Cloak@lazarus:
+	-ExternalCondition@INVISIBILITY:
+	Armament@primary:
+		Weapon: DoomLaser
+		Damage: 100
+		LocalOffset: 800,0,512
+		RequiresCondition: !rank-elite && !capacitors
+	Armament@elite:
+		Weapon: DoomLaserE
+		Damage: 150
+		LocalOffset: 800,0,512
+		RequiresCondition: rank-elite && !capacitors
+	Armament@primary-capacitors:
+		Weapon: DoomLaserUpg
+		Damage: 100
+		LocalOffset: 800,0,512
+		RequiresCondition: !rank-elite && capacitors
+	Armament@elite-capacitors:
+		Weapon: DoomLaserUpgE
+		Damage: 150
+		LocalOffset: 800,0,512
+		RequiresCondition: rank-elite && capacitors
+	AttackTurreted:
+		Voice: Attack
+		PauseOnCondition: chronodisable || emp || nogunner || parachute
+	AutoTarget:
+		InitialStance: ReturnFire
+	RenderSprites:
+	Selectable:
+		Bounds: 1254, 1930, 0, -289
+	RenderVoxels:
+	WithVoxelBody:
+	WithVoxelTurret:
+	Voiced:
+		Volume: 2
+		VoiceSet: LazarusTankVoice
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+		ValidRelationships: None
+	ProducibleWithLevel@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+		Types: chevron-elite
+	HitShape:
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+		Upgrades: upgrade.grinder_treads, upgrade.chaos_tank_compensators, upgrade.laser_capacitors
+
+grtk:
+	Inherits: ^Vehicle
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@COMPENSATORS: ^AffectedByChaosTankCompensators
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@GRINDER: ^AffectedByGrinderTreads
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@NOGUNNER: ^GunnerKillable
+	Inherits@RADIATON: ^DamagedByRadiation10Percent
+	Valued:
+		Cost: 2200
+	DeliversCash:
+		Payload: 2200
+		Voice: Move
+	Tooltip:
+		Name: actor-grtk.name
+	Tooltip@NoRow:
+		Name: actor-grtk.name
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.Yuri, Vehicle.Psi, Vehicle.Trans
+		BuildPaletteOrder: 990
+		Prerequisites: ~vehicle.yuri, yatech, ~caslab, ~techlevel.4
+		Description: actor-grtk.description
+		BuildDuration: 1125
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		Speed: 120
+		TurnSpeed: 20
+		Locomotor: heavytracked
+	ChangesHealth:
+		PercentageStep: 1
+		Step: 0
+		Delay: 100
+		DamageCooldown: 100
+		StartIfBelow: 100
+	Health:
+		HP: 80000
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	Armament@primary:
+		Weapon: TankGrind
+		LocalOffset: 1024,0,128
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: TankGrindE
+		LocalOffset: 1024,0,128
+		RequiresCondition: rank-elite
+	AttackFollowFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+		MustFaceTarget: true
+		PauseOnCondition: chronodisable || emp || nogunner
+	AutoTarget:
+		ScanRadius: 5
+		InitialStance: AttackAnything
+	RenderSprites:
+	Selectable:
+		Bounds: 1544, 2509, 0, -289
+	RenderVoxels:
+	WithVoxelBody:
+	Voiced:
+		VoiceSet: GrinderTankVoice
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+		ValidRelationships: None
+	ProducibleWithLevel@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+	WithProductionIconOverlay@1:
+		Prerequisites: warfactory.infiltratedorbaacdm
+		Types: chevron-veteran
+	ProducibleWithLevel@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+	WithProductionIconOverlay@2:
+		Prerequisites: warfactory.infiltrated, baacdm
+		Types: chevron-elite
+	HitShape:
+	# GrantConditionOnMovement@MoveStart:
+	#	Condition: moving
+	#	ValidMovementTypes: Horizontal
+	# SoundAnnouncement:
+	#	SoundFiles: vmagstaa.wav, vmagstab.wav, vmagstac.wav
+	#	Volume: 0.65
+	#	RequiresCondition: moving
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+		Damage: 150
+		Upgrades: upgrade.grinder_treads, upgrade.chaos_tank_compensators
+
+spider:
+	Inherits: ^Vehicle
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CHAOS: ^BerserkableArmed
+	Inherits@DNABOOST: ^AffectedByDNABoosters
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@HOSPITAL: ^HospitalHealing
+	Inherits@IRON: ^KilledByIronCurtain
+	Inherits@LAZARUS: ^KilledByLazarusShield
+	WithColoredOverlay@ChronoDisable:
+		Color: 0060C040
+	WithColoredOverlay@MagneSlow:
+		Color: FF50F540
+	WithColoredOverlay@Cryo1:
+		Color: 00F5FF40
+	WithColoredOverlay@Cryo2:
+		Color: 00F5FF60
+	WithColoredOverlay@Cryo3:
+		Color: 00F5FF80
+	WithColoredOverlay@Cryo4:
+		Color: 00F5FFA0
+	Valued:
+		Cost: 700
+	DeliversCash:
+		Payload: 700
+		Voice: Move
+	Tooltip:
+		Name: actor-spider.name
+	Tooltip@NoRow:
+		Name: actor-spider.name
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.Trans
+		BuildPaletteOrder: 90
+		Prerequisites: ~vehicle.psitrans, yadome, ~techlevel.3
+		Description: actor-spider.description
+		BuildDuration: 500
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Mobile:
+		Speed: 105
+		TurnSpeed: 1023
+		Locomotor: heavytracked
+		RequiresCondition: !chronodisable
+	Health:
+		HP: 40000
+	Armor:
+		Type: Heavy
+	Passenger:
+		CargoType: NaturalVehicle
+		Weight: 3
+	RenderSprites:
+	-SmokeParticleEmitter@1:
+	-GrantConditionOnDamageState@dmg_heavy:
+	-GrantPeriodicCondition@enable_unitsmoke:
+	-PeriodicExplosion@damagesparks:
+	-SpeedMultiplier@CRITICAL:
+	-GrantConditionOnDamageState@CRITICAL:
+	-InfectableRV:
+	-Targetable@DRONE:
+	-SpeedMultiplier@DRONE:
+	-RevealsShroud@DRONE:
+	-PeriodicExplosion@dronesparks:
+	-RenderVoxels:
+	-Carryable:
+	-CaptureManager:
+	-Capturable:
+	-DelayedWeaponAttachable@TANYAC4:
+	-Targetable@TANYAC4:
+	-Targetable@TANYAC4CLEANER:
+	-WithDecoration@TANYAC4:
+	-AmbientSound@TANYAC4:
+	-WithColoredOverlay@IDISABLE:
+	-GrantCondition@IDISABLE:
+	-WithIdleOverlay@EMP:
+	-Targetable@EMP:
+	-TimedConditionBar@EMP:
+	-ExternalCondition@emp:
+	-WithColoredOverlay@MagneFreeze:
+	-SpeedMultiplier@MagneFreeze:
+	-TurnSpeedMultiplier@MagneFreeze:
+	-Targetable@MagneFreeze:
+	-ExternalCondition@MagneFreeze:
+	-Explodes:
+	-ChangesHealth@MACHINESHOP:
+	-WithDecoration@MACHINESHOP:
+	-GrantConditionOnPrerequisite@MACHINESHOP:
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	Armament@primary:
+		Weapon: PoisonSting
+		Damage: 80
+		LocalOffset: 128,-96,768, 128,96,768
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: PoisonStingE
+		Damage: 160
+		LocalOffset: 128,-96,768, 128,96,768
+		RequiresCondition: rank-elite
+	Armament@secondary:
+		Name: secondary
+		Weapon: SpiderWeb
+		LocalOffset: -512,0,1024
+	AttackFollowFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+		MustFaceTarget: true
+		PauseOnCondition: chronodisable
+	AutoTarget:
+	Selectable:
+		Bounds: 965, 1930, 0, -482
+	Targetable:
+		TargetTypes: Ground, Infantry, DetonateAttack
+	Targetable@REPAIR:
+		TargetTypes: Heal
+	Voiced:
+		VoiceSet: AntVoice
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+		ValidRelationships: None
+	WithInfantryBody:
+		DefaultAttackSequence: spit
+		AttackSequences:
+			secondary: web
+	DeathSounds:
+		DeathTypes: NonTemporal
+	WithDeathAnimation@normal:
+		DeathTypes:
+			ExplosionDeath: 1
+			BulletDeath: 2
+			FlameDeath: 1
+			RadiationDeath: 1
+			PsychicDeath: 1
+			ElectroDeath: 2
+			VirusDeath: 2
+			BruteDeath: 1
+			OrangeRadiationDeath: 1
+	HitShape:
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+
+expy:
+	Inherits: ^ExpansionVehicle
+	Inherits@COMPENSATORS: ^AffectedByChaosTankCompensators
+	Inherits@GRINDER: ^AffectedByGrinderTreads
+	Buildable:
+		Queue: Vehicle.Shared, Vehicle.Yuri, Vehicle.Psi, Vehicle.Trans, Ship.Shared, Ship.Yuri
+		Description: actor-expy.description
+		Prerequisites: ~vehicleorship.yuri, ~techlevel.1, ~!ai.ev
+	Selectable:
+		Bounds: 1641, 2702, 0, -337
+	Transforms:
+		IntoActor: yaexpn
+	Voiced:
+		VoiceSet: YuriConstructionVehicleVoice
+	RenderSprites:
+		Image: expn
+	RenderVoxels:
+		Image: expn
+	ActorStatValues:
+		Upgrades: upgrade.grinder_treads, upgrade.chaos_tank_compensators

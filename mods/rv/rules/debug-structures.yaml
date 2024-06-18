@@ -1,0 +1,602 @@
+cacnst:
+	Inherits: gacnst
+	Tooltip:
+		Name: actor-cacnst.name
+	Tooltip@NoRow:
+		Name: actor-cacnst.name
+	Buildable:
+		Queue: Building.Shared, Building.Allies, Building.Soviets, Building.Yuri, Building.Baku
+		Prerequisites: ~disabled
+		BuildPaletteOrder: 1000
+		Description: actor-cacnst.description
+	-Production@Shared:
+	Production:
+		Produces: Building.Debug
+		-RequiresCondition:
+	ProductionQueue@Building:
+		Type: Building.Debug
+	-ProductionQueue@Support:
+	-ProductionQueue@SupportFrance:
+	ProductionBar@Building:
+		ProductionType: Building.Debug
+	-ProductionBar@Building.Shared:
+	-ProductionBar@Support.Shared:
+	-ProductionBar@Support:
+	-ProductionBar@SupportFrance:
+	-MapEditorData:
+	-Transforms:
+	-TransformsIntoMobile:
+	-TransformsIntoRepairable:
+	-TransformsIntoPassenger:
+	-GrantConditionOnPrerequisite@GLOBALFACTUNDEPLOY:
+	-TransferTimedExternalConditionOnTransform@INVULNERABILITY:
+	-TransferTimedExternalConditionOnTransform@INVISIBILITY:
+	-ExternalCondition@INVISIBILITY:
+
+# Allied ConYards
+gacnst.america:
+	Inherits: gacnst
+	Tooltip:
+		Name: actor-gacnst.america-name
+	Tooltip@NoRow:
+		Name: actor-gacnst.america-name
+	Buildable:
+		BuildPaletteOrder: 40
+		ForceFaction: america
+	-MapEditorData:
+
+gacnst.england:
+	Inherits: gacnst
+	Tooltip:
+		Name: actor-gacnst.england-name
+	Tooltip@NoRow:
+		Name: actor-gacnst.england-name
+	Buildable:
+		BuildPaletteOrder: 50
+		ForceFaction: england
+	-MapEditorData:
+
+gacnst.france:
+	Inherits: gacnst
+	Tooltip:
+		Name: actor-gacnst.france-name
+	Tooltip@NoRow:
+		Name: actor-gacnst.france-name
+	Buildable:
+		BuildPaletteOrder: 60
+		ForceFaction: france
+	-MapEditorData:
+
+gacnst.germany:
+	Inherits: gacnst
+	Tooltip:
+		Name: actor-gacnst.germany-name
+	Tooltip@NoRow:
+		Name: actor-gacnst.germany-name
+	Buildable:
+		BuildPaletteOrder: 70
+		ForceFaction: germany
+	-MapEditorData:
+
+gacnst.korea:
+	Inherits: gacnst
+	Tooltip:
+		Name: actor-gacnst.korea-name
+	Tooltip@NoRow:
+		Name: actor-gacnst.korea-name
+	Buildable:
+		BuildPaletteOrder: 80
+		ForceFaction: korea
+	-MapEditorData:
+
+gacnst.japan:
+	Inherits: gacnst
+	Tooltip:
+		Name: actor-gacnst.japan-name
+	Tooltip@NoRow:
+		Name: actor-gacnst.japan-name
+	Buildable:
+		BuildPaletteOrder: 320
+		ForceFaction: japan
+	-MapEditorData:
+
+gacnst.belarus:
+	Inherits: gacnst
+	Tooltip:
+		Name: actor-gacnst.belarus-name
+	Tooltip@NoRow:
+		Name: actor-gacnst.belarus-name
+	Buildable:
+		BuildPaletteOrder: 330
+		ForceFaction: belarus
+	-MapEditorData:
+
+gacnst.poland:
+	Inherits: gacnst
+	Tooltip:
+		Name: actor-gacnst.poland-name
+	Tooltip@NoRow:
+		Name: actor-gacnst.poland-name
+	Buildable:
+		BuildPaletteOrder: 340
+		ForceFaction: poland
+	-MapEditorData:
+
+gacnst.ukraine:
+	Inherits: gacnst
+	Tooltip:
+		Name: actor-gacnst.ukraine-name
+	Tooltip@NoRow:
+		Name: actor-gacnst.ukraine-name
+	Buildable:
+		BuildPaletteOrder: 350
+		ForceFaction: ukraine
+	-MapEditorData:
+
+gacnst.aussie:
+	Inherits: gacnst
+	Tooltip:
+		Name: actor-gacnst.aussie-name
+	Tooltip@NoRow:
+		Name: actor-gacnst.aussie-name
+	Buildable:
+		BuildPaletteOrder: 360
+		ForceFaction: aussie
+	-MapEditorData:
+
+gacnst.china:
+	Inherits: gacnst
+	Tooltip:
+		Name: actor-gacnst.china-name
+	Tooltip@NoRow:
+		Name: actor-gacnst.china-name
+	Buildable:
+		BuildPaletteOrder: 370
+		ForceFaction: china
+	-MapEditorData:
+
+gacnst.turkey:
+	Inherits: gacnst
+	Tooltip:
+		Name: actor-gacnst.turkey-name
+	Tooltip@NoRow:
+		Name: actor-gacnst.turkey-name
+	Buildable:
+		BuildPaletteOrder: 380
+		ForceFaction: turkey
+	-MapEditorData:
+
+gacnst.canada:
+	Inherits: gacnst
+	Tooltip:
+		Name: actor-gacnst.canada-name
+	Tooltip@NoRow:
+		Name: actor-gacnst.canada-name
+	Buildable:
+		BuildPaletteOrder: 390
+		ForceFaction: canada
+	-MapEditorData:
+
+#Soviet ConYards
+nacnst.russia:
+	Inherits: nacnst
+	Tooltip:
+		Name: actor-nacnst.russia-name
+	Tooltip@NoRow:
+		Name: actor-nacnst.russia-name
+	Buildable:
+		BuildPaletteOrder: 90
+		ForceFaction: russia
+	-MapEditorData:
+
+nacnst.iraq:
+	Inherits: nacnst
+	Tooltip:
+		Name: actor-nacnst.iraq-name
+	Tooltip@NoRow:
+		Name: actor-nacnst.iraq-name
+	Buildable:
+		BuildPaletteOrder: 100
+		ForceFaction: iraq
+	-MapEditorData:
+
+nacnst.vietnam:
+	Inherits: nacnst
+	Tooltip:
+		Name: actor-nacnst.vietnam-name
+	Tooltip@NoRow:
+		Name: actor-nacnst.vietnam-name
+	Buildable:
+		BuildPaletteOrder: 110
+		ForceFaction: vietnam
+	-MapEditorData:
+
+nacnst.cuba:
+	Inherits: nacnst
+	Tooltip:
+		Name: actor-nacnst.cuba-name
+	Tooltip@NoRow:
+		Name: actor-nacnst.cuba-name
+	Buildable:
+		BuildPaletteOrder: 120
+		ForceFaction: cuba
+	-MapEditorData:
+
+nacnst.libya:
+	Inherits: nacnst
+	Tooltip:
+		Name: actor-nacnst.libya-name
+	Tooltip@NoRow:
+		Name: actor-nacnst.libya-name
+	Buildable:
+		BuildPaletteOrder: 130
+		ForceFaction: libya
+	-MapEditorData:
+
+nacnst.chile:
+	Inherits: nacnst
+	Tooltip:
+		Name: actor-nacnst.chile-name
+	Tooltip@NoRow:
+		Name: actor-nacnst.chile-name
+	Buildable:
+		BuildPaletteOrder: 400
+		ForceFaction: chile
+	-MapEditorData:
+
+nacnst.mexico:
+	Inherits: nacnst
+	Tooltip:
+		Name: actor-nacnst.mexico-name
+	Tooltip@NoRow:
+		Name: actor-nacnst.mexico-name
+	Buildable:
+		BuildPaletteOrder: 410
+		ForceFaction: mexico
+	-MapEditorData:
+
+nacnst.mongolia:
+	Inherits: nacnst
+	Tooltip:
+		Name: actor-nacnst.mongolia-name
+	Tooltip@NoRow:
+		Name: actor-nacnst.mongolia-name
+	Buildable:
+		BuildPaletteOrder: 420
+		ForceFaction: mongolia
+	-MapEditorData:
+
+#Psi-Corps ConYards
+yacnst.psicorps:
+	Inherits: yacnst
+	Tooltip:
+		Name: actor-yacnst.psicorps-name
+	Tooltip@NoRow:
+		Name: actor-yacnst.psicorps-name
+	Buildable:
+		BuildPaletteOrder: 140
+		ForceFaction: psicorps
+	-MapEditorData:
+
+yacnst.psinepal:
+	Inherits: yacnst
+	Tooltip:
+		Name: actor-yacnst.psinepal-name
+	Tooltip@NoRow:
+		Name: actor-yacnst.psinepal-name
+	Buildable:
+		BuildPaletteOrder: 150
+		ForceFaction: psinepal
+	-MapEditorData:
+
+yacnst.psisouth:
+	Inherits: yacnst
+	Tooltip:
+		Name: actor-yacnst.psisouth-name
+	Tooltip@NoRow:
+		Name: actor-yacnst.psisouth-name
+	Buildable:
+		BuildPaletteOrder: 160
+		ForceFaction: psisouth
+	-MapEditorData:
+
+yacnst.psitrans:
+	Inherits: yacnst
+	Tooltip:
+		Name: actor-yacnst.psitrans-name
+	Tooltip@NoRow:
+		Name: actor-yacnst.psitrans-name
+	Buildable:
+		BuildPaletteOrder: 170
+		ForceFaction: psitrans
+	-MapEditorData:
+
+yacnst.psimoon:
+	Inherits: yacnst
+	Tooltip:
+		Name: actor-yacnst.psimoon-name
+	Tooltip@NoRow:
+		Name: actor-yacnst.psimoon-name
+	Buildable:
+		BuildPaletteOrder: 180
+		ForceFaction: psimoon
+	-MapEditorData:
+
+#Baku Pact ConYards
+nacnst.transcaucus:
+	Inherits: nacnst
+	Tooltip:
+		Name: actor-nacnst.transcaucus-name
+	Tooltip@NoRow:
+		Name: actor-nacnst.transcaucus-name
+	Buildable:
+		BuildPaletteOrder: 190
+		ForceFaction: transcaucus
+	-MapEditorData:
+
+nacnst.turkmen:
+	Inherits: nacnst
+	Tooltip:
+		Name: actor-nacnst.turkmen-name
+	Tooltip@NoRow:
+		Name: actor-nacnst.turkmen-name
+	Buildable:
+		BuildPaletteOrder: 200
+		ForceFaction: turkmen
+	-MapEditorData:
+
+nacnst.tuva:
+	Inherits: nacnst
+	Tooltip:
+		Name: actor-nacnst.tuva-name
+	Tooltip@NoRow:
+		Name: actor-nacnst.tuva-name
+	Buildable:
+		BuildPaletteOrder: 210
+		ForceFaction: tuva
+	-MapEditorData:
+
+nacnst.russianfed:
+	Inherits: nacnst
+	Tooltip:
+		Name: actor-nacnst.russianfed-name
+	Tooltip@NoRow:
+		Name: actor-nacnst.russianfed-name
+	Buildable:
+		BuildPaletteOrder: 220
+		ForceFaction: russianfed
+	-MapEditorData:
+
+nacnst.serbia:
+	Inherits: nacnst
+	Tooltip:
+		Name: actor-nacnst.serbia-name
+	Tooltip@NoRow:
+		Name: actor-nacnst.serbia-name
+	Buildable:
+		BuildPaletteOrder: 230
+		ForceFaction: serbia
+	-MapEditorData:
+
+#Civilian ConYards
+cacnst.civilian:
+	Inherits: cacnst
+	Tooltip:
+		Name: actor-cacnst.civilian-name
+	Tooltip@NoRow:
+		Name: actor-cacnst.civilian-name
+	Buildable:
+		Queue: Building.Debug
+		BuildPaletteOrder: 240
+	Production:
+		Produces: Building.Civilian, Support.Civilian
+	ProductionQueue@Building:
+		Type: Building.Civilian
+	ProductionQueue@Support:
+		Type: Support.Civilian
+		Group: Support
+		LowPowerModifier: 200
+		ReadyAudio: ConstructionComplete
+		ReadyTextNotification: notification-construction-complete
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: notification-unable-to-comply-building-in-progress
+		QueuedAudio: Building
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+	ProductionBar@Building:
+		ProductionType: Building.Civilian
+	ProductionBar@Support:
+		ProductionType: Support.Civilian
+
+cacnst.tech:
+	Inherits: cacnst
+	Tooltip:
+		Name: actor-cacnst.tech-name
+	Tooltip@NoRow:
+		Name: actor-cacnst.tech-name
+	Buildable:
+		Queue: Building.Debug
+		BuildPaletteOrder: 250
+	Production:
+		Produces: Building.Tech
+	ProductionQueue@Building:
+		Type: Building.Tech
+	ProductionBar@Building:
+		ProductionType: Building.Tech
+
+cacnst.unused:
+	Inherits: cacnst
+	Tooltip:
+		Name: actor-cacnst.unused-name
+	Tooltip@NoRow:
+		Name: actor-cacnst.unused-name
+	Buildable:
+		Queue: Building.Debug
+		BuildPaletteOrder: 260
+	Production:
+		Produces: Building.Unused, Support.Unused
+	ProductionQueue@Building:
+		Type: Building.Unused
+	ProductionQueue@Support:
+		Type: Support.Unused
+		Group: Support
+		LowPowerModifier: 200
+		ReadyAudio: ConstructionComplete
+		ReadyTextNotification: notification-construction-complete
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: notification-unable-to-comply-building-in-progress
+		QueuedAudio: Building
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+	ProductionBar@Building:
+		ProductionType: Building.Unused
+	ProductionBar@Support:
+		ProductionType: Support.Unused
+
+#Civilian Barracks
+cabrck:
+	Inherits: gapile
+	Tooltip:
+		Name: actor-cabrck.name
+	Tooltip@NoRow:
+		Name: actor-cabrck.name
+	Buildable:
+		Queue: Building.Debug
+		BuildPaletteOrder: 270
+	-Production@Shared:
+	Production:
+		Produces: Infantry.Civilian
+		-RequiresCondition:
+	ProductionQueue:
+		Type: Infantry.Civilian
+		-Factions:
+	-ProductionQueue@USA:
+	-ProductionQueue@UK:
+	-ProductionBar@Shared:
+	ProductionBar:
+		ProductionType: Infantry.Civilian
+	-ProductionBar@USA:
+	-ProductionBar@UK:
+	-PlaceBuildingVariants:
+	RenderSprites:
+		Image: gapile
+	-MapEditorData:
+
+cabrck.unused:
+	Inherits: nahand
+	Tooltip:
+		Name: actor-cabrck.unused-name
+	Tooltip@NoRow:
+		Name: actor-cabrck.unused-name
+	Buildable:
+		Queue: Building.Debug
+		BuildPaletteOrder: 280
+		Description: actor-cabrck.unused-description
+	-Production@Shared:
+	Production:
+		Produces: Infantry.Unused
+		-RequiresCondition:
+	ProductionQueue:
+		Type: Infantry.Unused
+		-Factions:
+	-ProductionQueue@Cuba:
+	-ProductionQueue@Iraq:
+	-ProductionBar@Shared:
+	ProductionBar:
+		ProductionType: Infantry.Unused
+	-ProductionBar@Cuba:
+	-ProductionBar@Iraq:
+	RenderSprites:
+		Image: nahand
+	-MapEditorData:
+
+#Civilian Factory
+caweap:
+	Inherits: gaweap
+	Tooltip:
+		Name: actor-caweap.name
+	Tooltip@NoRow:
+		Name: actor-caweap.name
+	Buildable:
+		Queue: Building.Debug
+		BuildPaletteOrder: 290
+	-Production@Shared:
+	Production:
+		Produces: Vehicle.Civilian
+		-RequiresCondition:
+	ProductionQueue:
+		Type: Vehicle.Civilian
+		-Factions:
+	-ProductionQueue@USA:
+	-ProductionQueue@UK:
+	-ProductionQueue@Germany:
+	-ProductionBar@Shared:
+	ProductionBar:
+		ProductionType: Vehicle.Civilian
+	-ProductionBar@USA:
+	-ProductionBar@UK:
+	-ProductionBar@Germany:
+	-PlaceBuildingVariants:
+	RenderSprites:
+		Image: gaweap
+	-MapEditorData:
+
+caweap.unused:
+	Inherits: naweap
+	Tooltip:
+		Name: actor-caweap.unused-name
+	Tooltip@NoRow:
+		Name: actor-caweap.unused-name
+	Buildable:
+		Queue: Building.Debug
+		BuildPaletteOrder: 300
+		Description: actor-caweap.unused-description
+	-Production@Shared:
+	Production:
+		Produces: Vehicle.Unused
+		-RequiresCondition:
+	ProductionQueue:
+		Type: Vehicle.Unused
+		-Factions:
+	-ProductionQueue@Iraq:
+	-ProductionQueue@Cuba:
+	-ProductionQueue@Libya:
+	-ProductionQueue@Baku:
+	-ProductionBar@Shared:
+	ProductionBar:
+		ProductionType: Vehicle.Unused
+	-ProductionBar@Iraq:
+	-ProductionBar@Cuba:
+	-ProductionBar@Libya:
+	-ProductionBar@Baku:
+	-PlaceBuildingVariants:
+	RenderSprites:
+		Image: naweap
+	-MapEditorData:
+
+#Civilian Shipyard
+cayard:
+	Inherits: gayard
+	Tooltip:
+		Name: actor-cayard.name
+	Tooltip@NoRow:
+		Name: actor-cayard.name
+	Buildable:
+		Queue: Building.Debug
+		BuildPaletteOrder: 310
+	-Production@Shared:
+	Production:
+		Produces: Ship.Civilian
+		-RequiresCondition:
+	ProductionQueue:
+		Type: Ship.Civilian
+	-ProductionBar@Shared:
+	ProductionBar:
+		ProductionType: Ship.Civilian
+	RenderSprites:
+		Image: gayard
+	-MapEditorData:

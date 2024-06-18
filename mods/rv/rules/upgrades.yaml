@@ -1,0 +1,761 @@
+^default.upgrade:
+	AlwaysVisible:
+	Interactable:
+	ScriptTriggers:
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade
+		BuildLimit: 1
+		BuildDurationModifier: 100
+	RenderSprites:
+	ProvidesPrerequisite@upgradename:
+	Valued:
+		Cost: 0
+	UpdatesPlayerStatistics:
+		AddToUpgradesTab: true
+	WithProductionIconOverlay:
+		Prerequisites: default.upgrade
+		Types: stripe-upgraded
+
+### Allies ###
+upgrade.gi_fortifications:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-gi-fortifications.name
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade.Allies
+		BuildPaletteOrder: 10
+		BuildDuration: 1500
+		Prerequisites: ~upgrade.allies, gaairc, ~techlevel.2
+		Description: actor-upgrade-gi-fortifications.description
+	Valued:
+		Cost: 2000
+	ProvidesPrerequisite@endurance_training:
+		Prerequisite: upgrade.endurance_training
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.gi_fortifications
+
+upgrade.a2a_missiles:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-a2a-missiles.name
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade.Allies
+		BuildPaletteOrder: 20
+		BuildDuration: 750
+		Prerequisites: ~upgrade.allies, gaairc, ~techlevel.2
+		Description: actor-upgrade-a2a-missiles.description
+	Valued:
+		Cost: 1500
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.a2a_missiles
+
+upgrade.advanced_coolants:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-advanced-coolants.name
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade.Allies
+		BuildPaletteOrder: 30
+		BuildDuration: 750
+		Prerequisites: ~upgrade.allies, gaairc, ~techlevel.2
+		Description: actor-upgrade-advanced-coolants.description
+	Valued:
+		Cost: 1500
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.advanced_coolants
+
+upgrade.advanced_training:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-advanced-training.name
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade.Allies
+		BuildPaletteOrder: 40
+		BuildDuration: 1000
+		Prerequisites: ~upgrade.allies, gatech, ~techlevel.3
+		Description: actor-upgrade-advanced-training.description
+	Valued:
+		Cost: 1500
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.advanced_training
+
+upgrade.predator_missiles:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-predator-missiles.name
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade.Allies
+		BuildPaletteOrder: 50
+		BuildDuration: 1000
+		Prerequisites: ~upgrade.allies, gatech, ~techlevel.3
+		Description: actor-upgrade-predator-missiles.description
+	Valued:
+		Cost: 1500
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.predator_missiles
+
+upgrade.composite_armor:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-composite-armor.name
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade.Allies
+		BuildPaletteOrder: 60
+		BuildDuration: 1500
+		Prerequisites: ~upgrade.allies, gatech, ~techlevel.3
+		Description: actor-upgrade-composite-armor.description
+	Valued:
+		Cost: 2000
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.composite_armor
+
+upgrade.boost_gliding_systems:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-boost-gliding-systems.name
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade.Allies
+		BuildPaletteOrder: 70
+		BuildDuration: 1500
+		Prerequisites: ~upgrade.america, gatech, ~techlevel.3
+		Description: actor-upgrade-boost-gliding-systems.description
+	Valued:
+		Cost: 2500
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.boost_gliding_systems
+
+upgrade.portable_weaponry:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-portable-weaponry.name
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade.Allies
+		BuildPaletteOrder: 80
+		BuildDuration: 1500
+		Prerequisites: ~upgrade.england, gatech, ~techlevel.3
+		Description: actor-upgrade-portable-weaponry.description
+	Valued:
+		Cost: 2000
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.portable_weaponry
+
+upgrade.grand_cannon_protocols:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-grand-cannon-protocols.name
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade.Allies
+		BuildPaletteOrder: 90
+		BuildDuration: 1000
+		Prerequisites: ~upgrade.france, gatech, ~techlevel.3
+		Description: actor-upgrade-grand-cannon-protocols.description
+	Valued:
+		Cost: 1500
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.grand_cannon_protocols
+
+upgrade.advanced_gun_systems:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-advanced-gun-systems.name
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade.Allies
+		BuildPaletteOrder: 100
+		BuildDuration: 1000
+		Prerequisites: ~upgrade.germany, gatech, ~techlevel.3
+		Description: actor-upgrade-advanced-gun-systems.description
+	Valued:
+		Cost: 1500
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.advanced_gun_systems
+
+upgrade.emp_munitions:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-emp-munitions.name
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade.Allies
+		BuildPaletteOrder: 110
+		BuildDuration: 1500
+		Prerequisites: ~upgrade.korea, gatech, ~techlevel.3
+		Description: actor-upgrade-emp-munitions.description
+	Valued:
+		Cost: 2000
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.emp_munitions
+
+upgrade.increased_payload:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-increased-payload.name
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade.Allies
+		BuildPaletteOrder: 120
+		BuildDuration: 1500
+		Prerequisites: ~upgrade.allies, gaweat, ~techlevel.4
+		Description: actor-upgrade-increased-payload.description
+	Valued:
+		Cost: 2500
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.increased_payload
+
+### Soviets ###
+upgrade.ap_bullets:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-ap-bullets.name
+	Buildable:
+		Queue: Upgrade.Soviets
+		BuildPaletteOrder: 10
+		BuildDuration: 2250
+		Prerequisites: ~upgrade.soviets, naradr, ~techlevel.2
+		Description: actor-upgrade-ap-bullets.description
+	Buildable@Baku:
+		Queue: Upgrade.Baku
+		BuildPaletteOrder: 10
+		BuildDuration: 2250
+		BuildDurationModifier: 100
+		BuildLimit: 1
+		Prerequisites: ~upgrade.baku, basops, ~techlevel.2
+		Description: actor-upgrade-ap-bullets.description-baku
+	Buildable@Shared:
+		Queue: Upgrade.Shared
+		BuildPaletteOrder: 10
+		BuildDuration: 2250
+		BuildDurationModifier: 100
+		BuildLimit: 1
+		Prerequisites: ~upgrade.sovietsorbaku, naradr, ~techlevel.2
+		Description: actor-upgrade-ap-bullets.description
+	Valued:
+		Cost: 2500
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.ap_bullets
+
+upgrade.bullet_proof_coats:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-bullet-proof-coats.name
+	Buildable:
+		Queue: Upgrade.Soviets
+		BuildPaletteOrder: 20
+		BuildDuration: 1500
+		Prerequisites: ~upgrade.soviets, naradr, ~techlevel.2
+		Description: actor-upgrade-bullet-proof-coats.description
+	Buildable@Baku:
+		Queue: Upgrade.Baku
+		BuildPaletteOrder: 20
+		BuildDuration: 1500
+		BuildDurationModifier: 100
+		BuildLimit: 1
+		Prerequisites: ~upgrade.baku, basops, ~techlevel.2
+		Description: actor-upgrade-bullet-proof-coats.description-baku
+	Buildable@Shared:
+		Queue: Upgrade.Shared
+		BuildPaletteOrder: 20
+		BuildDuration: 1500
+		BuildDurationModifier: 100
+		BuildLimit: 1
+		Prerequisites: ~upgrade.sovietsorbaku, naradr, ~techlevel.2
+		Description: actor-upgrade-bullet-proof-coats.description
+	Valued:
+		Cost: 2000
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.bullet_proof_coats
+
+upgrade.molotov_cocktails:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-molotov-cocktails.name
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade.Soviets
+		BuildPaletteOrder: 30
+		BuildDuration: 1000
+		Prerequisites: ~upgrade.soviets, naradr, ~techlevel.2
+		Description: actor-upgrade-molotov-cocktails.description
+	Valued:
+		Cost: 1000
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.molotov_cocktails
+
+upgrade.smoke_grenades:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-smoke-grenades.name
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade.Baku
+		BuildPaletteOrder: 30
+		BuildDuration: 750
+		Prerequisites: ~upgrade.baku, basops, ~techlevel.2
+		Description: actor-upgrade-smoke-grenades.description
+	Valued:
+		Cost: 1000
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.smoke_grenades
+
+upgrade.nuclear_engines:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-nuclear-engines.name
+	Buildable:
+		Queue: Upgrade.Soviets
+		BuildPaletteOrder: 40
+		BuildDuration: 1500
+		Prerequisites: ~upgrade.soviets, natech, ~techlevel.3
+		Description: actor-upgrade-nuclear-engines.description
+	Buildable@Baku:
+		Queue: Upgrade.Baku
+		BuildPaletteOrder: 40
+		BuildDuration: 1500
+		BuildDurationModifier: 100
+		BuildLimit: 1
+		Prerequisites: ~upgrade.baku, natech, ~techlevel.3
+		Description: actor-upgrade-nuclear-engines.description-baku
+	Buildable@Shared:
+		Queue: Upgrade.Shared
+		BuildPaletteOrder: 40
+		BuildDuration: 1500
+		BuildDurationModifier: 100
+		BuildLimit: 1
+		Prerequisites: ~upgrade.sovietsorbaku, natech, ~techlevel.3
+		Description: actor-upgrade-nuclear-engines.description
+	Valued:
+		Cost: 1500
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.nuclear_engines
+
+upgrade.uranium_shells:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-uranium-shells.name
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade.Soviets
+		BuildPaletteOrder: 50
+		BuildDuration: 2250
+		Prerequisites: ~upgrade.soviets, natech, ~techlevel.3
+		Description: actor-upgrade-uranium-shells.description # \nShells of both units leave radiation at the target location.
+	Valued:
+		Cost: 2500
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.uranium_shells
+
+upgrade.mounted_mg:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-mounted-mg.name
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade.Baku
+		BuildPaletteOrder: 50
+		BuildDuration: 2250
+		Prerequisites: ~upgrade.baku, natech, ~techlevel.3
+		Description: actor-upgrade-mounted-mg.description
+	Valued:
+		Cost: 2000
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.mounted_mg
+
+upgrade.black_napalm:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-black-napalm.name
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade.Soviets
+		BuildPaletteOrder: 60
+		BuildDuration: 1000
+		Prerequisites: ~upgrade.soviets, natech, ~techlevel.3
+		Description: actor-upgrade-black-napalm.description
+	Valued:
+		Cost: 1500
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.black_napalm
+
+upgrade.propaganda_effort:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-propaganda-effort.name
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade.Baku
+		BuildPaletteOrder: 60
+		BuildDuration: 750
+		Prerequisites: ~upgrade.baku, natech, ~techlevel.3
+		Description: actor-upgrade-propaganda-effort.description
+	Valued:
+		Cost: 1500
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.propaganda_effort
+
+upgrade.overcharge:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-overcharge.name
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade.Soviets
+		BuildPaletteOrder: 70
+		BuildDuration: 1500
+		Prerequisites: ~upgrade.russia, natech, ~techlevel.3
+		Description: actor-upgrade-overcharge.description
+	Valued:
+		Cost: 2500
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.overcharge
+
+upgrade.advanced_irradiators:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-advanced-irradiators.name
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade.Soviets
+		BuildPaletteOrder: 80
+		BuildDuration: 1500
+		Prerequisites: ~upgrade.iraq, natech, ~techlevel.3
+		Description: actor-upgrade-advanced-irradiators.description
+	Valued:
+		Cost: 1000
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.advanced_irradiators
+
+upgrade.aerial_propaganda:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-aerial-propaganda.name
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade.Soviets
+		BuildPaletteOrder: 90
+		BuildDuration: 1000
+		Prerequisites: ~upgrade.vietnam, natech, ~techlevel.3
+		Description: actor-upgrade-aerial-propaganda.description
+	Valued:
+		Cost: 2000
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.aerial_propaganda
+
+upgrade.targeted_explosives:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-targeted-explosives.name
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade.Soviets
+		BuildPaletteOrder: 100
+		BuildDuration: 1000
+		Prerequisites: ~upgrade.cuba, natech, ~techlevel.3
+		Description: actor-upgrade-targeted-explosives.description
+	Valued:
+		Cost: 1500
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.targeted_explosives
+
+upgrade.high_explosive_bombs:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-high-explosive-bombs.name
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade.Soviets
+		BuildPaletteOrder: 110
+		BuildDuration: 1500
+		Prerequisites: ~upgrade.libya, natech, ~techlevel.3
+		Description: actor-upgrade-high-explosive-bombs.description
+	Valued:
+		Cost: 2500
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.high_explosive_bombs
+
+upgrade.radioactive_bombs:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-radioactive-bombs.name
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade.Soviets
+		BuildPaletteOrder: 120
+		BuildDuration: 1500
+		Prerequisites: ~upgrade.soviets, namisl, ~techlevel.5
+		Description: actor-upgrade-radioactive-bombs.description
+	Valued:
+		Cost: 2500
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.radioactive_bombs
+
+upgrade.cryo_warheads:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-cryo-warheads.name
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade.Baku
+		BuildPaletteOrder: 120
+		BuildDuration: 1500
+		Prerequisites: ~upgrade.baku, natech, ~techlevel.4
+		Description: actor-upgrade-cryo-warheads.description
+	Valued:
+		Cost: 2000
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.cryo_warheads
+
+### Psi-Corps ###
+upgrade.camouflage:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-camouflage.name
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade.Yuri
+		BuildPaletteOrder: 10
+		BuildDuration: 1500
+		Prerequisites: ~upgrade.yuri, yadome, ~techlevel.2
+		Description: actor-upgrade-camouflage.description
+	Valued:
+		Cost: 2000
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.camouflage
+
+upgrade.grinder_treads:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-grinder-treads.name
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade.Yuri
+		BuildPaletteOrder: 20
+		BuildDuration: 1000
+		Prerequisites: ~upgrade.yuri, yadome, ~techlevel.2
+		Description: actor-upgrade-grinder-treads.description
+	Valued:
+		Cost: 1000
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.grinder_treads
+
+upgrade.toxin_sprayer:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-toxin-sprayer.name
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade.Yuri
+		BuildPaletteOrder: 30
+		BuildDuration: 750
+		Prerequisites: ~upgrade.yuri, yadome, ~techlevel.2
+		Description: actor-upgrade-toxin-sprayer.description
+	Valued:
+		Cost: 1000
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.toxin_sprayer
+
+upgrade.lazarus_prime:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-lazarus-prime.name
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade.Yuri
+		BuildPaletteOrder: 40
+		BuildDuration: 1500
+		Prerequisites: ~upgrade.yuri, yatech, ~techlevel.3
+		Description: actor-upgrade-lazarus-prime.description
+	Valued:
+		Cost: 1000
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.lazarus_prime
+
+upgrade.autoloaders:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-autoloaders.name
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade.Yuri
+		BuildPaletteOrder: 50
+		BuildDuration: 2250
+		Prerequisites: ~upgrade.yuri, yatech, ~techlevel.3
+		Description: actor-upgrade-autoloaders.description
+	Valued:
+		Cost: 2500
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.autoloaders
+
+upgrade.rocket_barrage:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-rocket-barrage.name
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade.Yuri
+		BuildPaletteOrder: 60
+		BuildDuration: 1000
+		Prerequisites: ~upgrade.yuri, yatech, ~techlevel.3
+		Description: actor-upgrade-rocket-barrage.description
+	Valued:
+		Cost: 1500
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.rocket_barrage
+
+upgrade.chaos_tank_compensators:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-chaos-tank-compensators.name
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade.Yuri
+		BuildPaletteOrder: 70
+		BuildDuration: 1500
+		Prerequisites: ~upgrade.psicorps, yatech, ~techlevel.3
+		Description: actor-upgrade-chaos-tank-compensators.description
+	Valued:
+		Cost: 1500
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.chaos_tank_compensators
+
+upgrade.laser_capacitors:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-laser-capacitors.name
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade.Yuri
+		BuildPaletteOrder: 80
+		BuildDuration: 2250
+		Prerequisites: ~upgrade.psinepal, yatech, ~techlevel.3
+		Description: actor-upgrade-laser-capacitors.description
+	Valued:
+		Cost: 2500
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.laser_capacitors
+
+upgrade.mastery_of_mind:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-mastery-of-mind.name
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade.Yuri
+		BuildPaletteOrder: 90
+		BuildDuration: 1500
+		Prerequisites: ~upgrade.psisouth, yatech, ~techlevel.3
+		Description: actor-upgrade-mastery-of-mind.description # \nYuri Clone and Yuri Prime can control 2 assets at the same time.
+	Valued:
+		Cost: 1500
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.mastery_of_mind
+
+upgrade.dna_boosters:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-dna-boosters.name
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade.Yuri
+		BuildPaletteOrder: 100
+		BuildDuration: 1500
+		Prerequisites: ~upgrade.psitrans, yatech, ~techlevel.3
+		Description: actor-upgrade-dna-boosters.description
+	Valued:
+		Cost: 2000
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.dna_boosters
+
+upgrade.disc_armor:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-disc-armor.name
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade.Yuri
+		BuildPaletteOrder: 110
+		BuildDuration: 1500
+		Prerequisites: ~upgrade.psimoon, yatech, ~techlevel.3
+		Description: actor-upgrade-disc-armor.description
+	Valued:
+		Cost: 2000
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.disc_armor
+
+upgrade.chainguns:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-chainguns.name
+	Buildable:
+		Queue: Upgrade.Shared, Upgrade.Yuri
+		BuildPaletteOrder: 120
+		BuildDuration: 1500
+		Prerequisites: ~upgrade.yuri, yatech, ~techlevel.4
+		Description: actor-upgrade-chainguns.description
+	Valued:
+		Cost: 2000
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.chainguns
+
+### Unused ###
+upgrade.endurance_training:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-endurance-training.name
+	Buildable:
+		Queue: Upgrade.Unused # Upgrade.Shared, Upgrade.Allies
+		BuildPaletteOrder: 10
+		BuildDuration: 750
+		Prerequisites: ~disabled # ~upgrade.allies, gaairc, ~techlevel.2
+		Description: actor-upgrade-endurance-training.description
+	Valued:
+		Cost: 1000
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.endurance_training
+
+upgrade.improved_flaks:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-improved-flaks.name
+	Buildable:
+		Queue: Upgrade.Unused # Upgrade.Shared, Upgrade.Soviets, Upgrade.Baku
+		BuildPaletteOrder: 20
+		BuildDuration: 750
+		Prerequisites: ~disabled # ~upgrade.sovietsorbaku, naradr, ~techlevel.2
+		Description: actor-upgrade-improved-flaks.description
+	Valued:
+		Cost: 1000
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.improved_flaks
+
+upgrade.focused_mind:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-focused-mind.name
+	Buildable:
+		Queue: Upgrade.Unused # Upgrade.Shared, Upgrade.Yuri
+		BuildPaletteOrder: 30
+		BuildDuration: 1000
+		Prerequisites: ~disabled # ~upgrade.yuri, yadome, ~techlevel.2
+		Description: actor-upgrade-focused-mind.description
+	Valued:
+		Cost: 1500
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.focused_mind
+
+upgrade.advanced_magnetics:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-advanced-magnetics.name
+	Buildable:
+		Queue: Upgrade.Unused # Upgrade.Shared, Upgrade.Yuri
+		BuildPaletteOrder: 40
+		BuildDuration: 750
+		Prerequisites: ~disabled # ~upgrade.yuri, yatech, ~techlevel.3
+		Description: actor-upgrade-advanced-magnetics.description
+	Valued:
+		Cost: 1500
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.advanced_magnetics
+
+upgrade.cryo_shells:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-cryo-shells.name
+	Buildable:
+		Queue: Upgrade.Unused # Upgrade.Shared, Upgrade.Baku
+		BuildPaletteOrder: 50
+		BuildDuration: 1500
+		Prerequisites: ~disabled # ~upgrade.baku, natech, ~techlevel.3
+		Description: actor-upgrade-cryo-shells.description
+	Valued:
+		Cost: 2500
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.cryo_shells
+
+upgrade.high_caliber_rounds:
+	Inherits: ^default.upgrade
+	Tooltip:
+		Name: actor-upgrade-high-caliber-rounds.name
+	Buildable:
+		Queue: Upgrade.Unused # Upgrade.Shared, Upgrade.Baku
+		BuildPaletteOrder: 80
+		BuildDuration: 1500
+		Prerequisites: ~disabled # ~upgrade.baku, natech, ~techlevel.3
+		Description: actor-upgrade-high-caliber-rounds.description
+	Valued:
+		Cost: 3000
+	WithProductionIconOverlay:
+		Prerequisites: upgrade.high_caliber_rounds

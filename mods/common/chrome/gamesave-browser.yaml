@@ -1,0 +1,120 @@
+Background@GAMESAVE_BROWSER_PANEL:
+	Logic: GameSaveBrowserLogic
+	X: (WINDOW_RIGHT - WIDTH) / 2
+	Y: (WINDOW_BOTTOM - HEIGHT) / 2
+	Width: 700
+	Height: 500
+	Children:
+		Label@LOAD_TITLE:
+			Width: PARENT_RIGHT
+			Y: 16
+			Height: 25
+			Font: Bold
+			Align: Center
+			Text: label-gamesave-browser-panel-load-title
+			Visible: False
+		Label@SAVE_TITLE:
+			Width: PARENT_RIGHT
+			Y: 16
+			Height: 25
+			Font: Bold
+			Align: Center
+			Text: label-gamesave-browser-panel-save-title
+			Visible: False
+		ScrollPanel@GAME_LIST:
+			X: 20
+			Y: 45
+			Width: PARENT_RIGHT - 40
+			Height: PARENT_BOTTOM - 97
+			Children:
+				ScrollItem@NEW_TEMPLATE:
+					Width: PARENT_RIGHT - 27
+					Height: 25
+					X: 2
+					Visible: false
+					Children:
+						Label@TITLE:
+							Width: PARENT_RIGHT
+							Height: PARENT_BOTTOM
+							Align: Center
+							Text: label-gamesave-browser-panel-title
+				ScrollItem@GAME_TEMPLATE:
+					Width: PARENT_RIGHT - 27
+					Height: 25
+					X: 2
+					Visible: false
+					EnableChildMouseOver: True
+					Children:
+						LabelWithTooltip@TITLE:
+							X: 10
+							Width: PARENT_RIGHT - 200 - 10
+							Height: 25
+							TooltipContainer: GAMESAVE_TOOLTIP_CONTAINER
+							TooltipTemplate: SIMPLE_TOOLTIP
+						Label@DATE:
+							X: PARENT_RIGHT - WIDTH - 10
+							Width: 200
+							Height: 25
+							Align: Right
+		Container@SAVE_WIDGETS:
+			X: 20
+			Y: PARENT_BOTTOM - 77
+			Width: PARENT_RIGHT - 40
+			Height: 32
+			Visible: False
+			Children:
+				TextField@SAVE_TEXTFIELD:
+					Width: PARENT_RIGHT
+					Height: 25
+					Type: Filename
+		Button@CANCEL_BUTTON:
+			Key: escape
+			X: 20
+			Y: PARENT_BOTTOM - 45
+			Width: 100
+			Height: 25
+			Text: button-back
+			Font: Bold
+		Button@DELETE_ALL_BUTTON:
+			X: PARENT_RIGHT - 350 - WIDTH
+			Y: PARENT_BOTTOM - 45
+			Width: 100
+			Height: 25
+			Text: button-gamesave-browser-panel-delete-all
+			Font: Bold
+		Button@DELETE_BUTTON:
+			X: PARENT_RIGHT - 240 - WIDTH
+			Y: PARENT_BOTTOM - 45
+			Width: 100
+			Height: 25
+			Text: button-gamesave-browser-panel-delete
+			Font: Bold
+			Key: Delete
+		Button@RENAME_BUTTON:
+			X: PARENT_RIGHT - 130 - WIDTH
+			Y: PARENT_BOTTOM - 45
+			Width: 100
+			Height: 25
+			Text: button-gamesave-browser-panel-rename
+			Font: Bold
+			Key: F2
+		Button@LOAD_BUTTON:
+			Key: return
+			X: PARENT_RIGHT - WIDTH - 20
+			Y: PARENT_BOTTOM - 45
+			Width: 100
+			Height: 25
+			Text: button-gamesave-browser-panel-load
+			Font: Bold
+			Visible: False
+		Button@SAVE_BUTTON:
+			Key: return
+			X: PARENT_RIGHT - WIDTH - 20
+			Y: PARENT_BOTTOM - 45
+			Width: 100
+			Height: 25
+			Text: button-gamesave-browser-panel-save
+			Font: Bold
+			Visible: False
+		TooltipContainer@GAMESAVE_TOOLTIP_CONTAINER:
+

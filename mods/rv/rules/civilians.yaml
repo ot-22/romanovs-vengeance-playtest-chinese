@@ -1,0 +1,287 @@
+civ1:
+	Inherits: ^CivilianInfantry
+	Voiced:
+		VoiceSet: CivilianAlliedFemaleVoice
+
+civ2:
+	Inherits: ^CivilianInfantry
+
+civ3:
+	Inherits: ^CivilianInfantry
+
+civa:
+	Inherits: ^CivilianInfantry
+	Voiced:
+		VoiceSet: CivilianTexanVoice
+
+civb:
+	Inherits: ^CivilianInfantry
+	Voiced:
+		VoiceSet: CivilianTexanVoice
+
+civc:
+	Inherits: ^CivilianInfantry
+	Voiced:
+		VoiceSet: CivilianTexanVoice
+
+civbbp:
+	Inherits: ^CivilianInfantry
+
+civbfm:
+	Inherits: ^CivilianInfantry
+	WithInfantryBody:
+		-DefaultAttackSequence:
+
+civbf:
+	Inherits: ^CivilianInfantry
+	Voiced:
+		VoiceSet: CivilianAlliedFemaleVoice
+	WithInfantryBody:
+		-DefaultAttackSequence:
+
+civbtm:
+	Inherits: ^CivilianInfantry
+	WithInfantryBody:
+		-DefaultAttackSequence:
+
+civsfm:
+	Inherits: ^CivilianInfantry
+	Voiced:
+		VoiceSet: CivilianSovietMaleVoice
+
+civsf:
+	Inherits: ^CivilianInfantry
+	Voiced:
+		VoiceSet: CivilianSovietFemaleVoice
+
+civstm:
+	Inherits: ^CivilianInfantry
+	Voiced:
+		VoiceSet: CivilianSovietMaleVoice
+
+vladimir:
+	Inherits: ^CivilianInfantry
+	Tooltip:
+		Name: actor-vladimir.name
+	Tooltip@NoRow:
+		Name: actor-vladimir.name
+	WithInfantryBody:
+		IdleSequences: idle1, idle2
+	-ScaredyCat:
+	-Wanders:
+
+pentgen:
+	Inherits: ^CivilianInfantry
+	Tooltip:
+		Name: actor-pentgen.name
+	Tooltip@NoRow:
+		Name: actor-pentgen.name
+	Voiced:
+		VoiceSet: GIVoice
+	-ScaredyCat:
+	-Wanders:
+
+ssrv:
+	Inherits: ^CivilianInfantry
+	Tooltip:
+		Name: actor-ssrv.name
+	Tooltip@NoRow:
+		Name: actor-ssrv.name
+	Voiced:
+		VoiceSet: SecretServiceVoice
+	-ScaredyCat:
+	-Wanders:
+
+pres:
+	Inherits: ^CivilianInfantry
+	Tooltip:
+		Name: actor-pres.name
+	Tooltip@NoRow:
+		Name: actor-pres.name
+	-Wanders:
+	WithInfantryBody:
+		-DefaultAttackSequence:
+
+# Yuri's Revenge Civilians
+rmnv:
+	Inherits: ^CivilianInfantry
+	Tooltip:
+		Name: actor-rmnv.name
+	Tooltip@NoRow:
+		Name: actor-rmnv.name
+	Voiced:
+		VoiceSet: RomanovVoice
+	-ScaredyCat:
+	-Wanders:
+	WithInfantryBody:
+		-DefaultAttackSequence:
+
+eins:
+	Inherits: ^CivilianInfantry
+	Tooltip:
+		Name: actor-eins.name
+	Tooltip@NoRow:
+		Name: actor-eins.name
+	Voiced:
+		VoiceSet: EinsteinVoice
+	-Wanders:
+	WithInfantryBody:
+		-DefaultAttackSequence:
+
+mumy:
+	Inherits: ^CivilianInfantry
+	Tooltip:
+		Name: actor-mumy.name
+	Tooltip@NoRow:
+		Name: actor-mumy.name
+	Health:
+		HP: 40000
+	Armor:
+		Type: Plate
+	Armament@primary:
+		Weapon: MummyPunch
+	Armament@second:
+		Weapon: MummySmash
+	WithInfantryBody:
+		IdleSequences: idle1, idle2
+	Voiced:
+		VoiceSet: MummyVoice
+	-ScaredyCat:
+	-Wanders:
+	ActorStatValues:
+		Damage: 100
+
+# Custom Civilians
+pentgen2:
+	Inherits: pentgen
+
+myak:
+	Inherits: ssrv
+	Tooltip:
+		Name: actor-myak.name
+	Tooltip@NoRow:
+		Name: actor-myak.name
+
+rainbow_dash:
+	Inherits: ^Pegasus
+	Tooltip:
+		Name: actor-rainbow-dash.name
+	Tooltip@NoRow:
+		Name: actor-rainbow-dash.name
+	Aircraft:
+		Speed: 640
+	Contrail@R:
+		Offset: -100,-70,25
+		StartColor: DD302A80
+		StartColorAlpha: 128
+		StartColorUsePlayerColor: false
+		StartWidth: 40
+	Contrail@O:
+		Offset: -100,-50,25
+		StartColor: E2611F80
+		StartColorAlpha: 128
+		StartColorUsePlayerColor: false
+		StartWidth: 40
+	Contrail@Y:
+		Offset: -100,-10,25
+		StartColor: FECC4480
+		StartColorAlpha: 128
+		StartColorUsePlayerColor: false
+		StartWidth: 40
+	Contrail@G:
+		Offset: -100,10,25
+		StartColor: 7AB93480
+		StartColorAlpha: 128
+		StartColorUsePlayerColor: false
+		StartWidth: 40
+	Contrail@B:
+		Offset: -100,50,25
+		StartColor: 008ECA80
+		StartColorAlpha: 128
+		StartColorUsePlayerColor: false
+		StartWidth: 40
+	Contrail@P:
+		Offset: -100,70,25
+		StartColor: 69328580
+		StartColorAlpha: 128
+		StartColorUsePlayerColor: false
+		StartWidth: 40
+
+derpy_hooves:
+	Inherits: ^Pegasus
+	Tooltip:
+		Name: actor-derpy-hooves.name
+	Tooltip@NoRow:
+		Name: actor-derpy-hooves.name
+	Contrail@1:
+		Offset: -100,-50,25
+		StartColor: C2C5D580
+		StartColorAlpha: 128
+		StartColorUsePlayerColor: false
+		StartWidth: 80
+	Contrail@2:
+		Offset: -100,0,25
+		StartColor: FFFAAD80
+		StartColorAlpha: 128
+		StartColorUsePlayerColor: false
+		StartWidth: 80
+	Contrail@3:
+		Offset: -100,50,25
+		StartColor: C2C5D580
+		StartColorAlpha: 128
+		StartColorUsePlayerColor: false
+		StartWidth: 80
+
+pres.regicide:
+	Inherits: ^RegicideLeader
+	Tooltip:
+		Name: actor-pres.name
+	Tooltip@NoRow:
+		Name: actor-pres.name
+	RenderSprites:
+		Image: pres
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
+
+rmnv.regicide:
+	Inherits: ^RegicideLeader
+	Tooltip:
+		Name: actor-rmnv.name
+	Tooltip@NoRow:
+		Name: actor-rmnv.name
+	Voiced:
+		VoiceSet: RomanovVoice
+	RenderSprites:
+		Image: rmnv
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
+
+yuripr.regicide:
+	Inherits: ^RegicideLeader
+	Tooltip:
+		Name: actor-yuripr-regicide.name
+	Tooltip@NoRow:
+		Name: actor-yuripr-regicide.name
+	Voiced:
+		VoiceSet: YuriPrimeVoice
+	RenderSprites:
+		Image: yuripr
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
+
+myak.regicide:
+	Inherits: ^RegicideLeader
+	Tooltip:
+		Name: actor-myak.name
+	Tooltip@NoRow:
+		Name: actor-myak.name
+	Voiced:
+		VoiceSet: SecretServiceVoice
+	RenderSprites:
+		Image: myak
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome

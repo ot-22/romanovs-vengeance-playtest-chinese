@@ -1,0 +1,214 @@
+^AmphibiousTransport:
+	Inherits: ^Ship
+	Inherits@CHAOS: ^BerserkableVoxel
+	Inherits@DRONE: ^TerrorDronable
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Inherits@SQUID: ^SquidGrabbable
+	Buildable:
+		Queue: Ship.Shared, Ship
+		Prerequisites: ~techlevel.1
+		BuildPaletteOrder: 45
+		Description: meta-amphibioustransport.description
+		BuildDuration: 500
+		BuildDurationModifier: 100
+	BuildPaletteOrderModifier@Megawealth:
+		Prerequisites: global-megawealth
+		Modifier: -35 # 10
+	Valued:
+		Cost: 500
+	DeliversCash:
+		Payload: 500
+		Voice: Move
+	Tooltip:
+		Name: meta-amphibioustransport.name
+	Tooltip@NoRow:
+		Name: meta-amphibioustransport.name
+	Selectable:
+		Bounds: 1448, 3861, 0, -772
+	Health:
+		HP: 40000
+	Armor:
+		Type: Light
+	Mobile:
+		TurnSpeed: 16
+		Speed: 120
+		TurnsWhileMoving: true
+		Locomotor: heavyamphibious
+		RequiresCondition: !notmobile && !chronodisable && !emp && !magnefreeze && !squid && !beinginfected
+	Hovers:
+		Ticks: 10
+		BobDistance: -64
+		InitialHeight: 384
+		# PauseOnCondition: chronodisable
+		RequiresCondition: !emp && !magnefreeze && !squid
+	Guard:
+		Voice: Move
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	Targetable:
+		RequiresCondition: in_water
+	Targetable@GROUND:
+		TargetTypes: Ground, Vehicle, DroneInfection, DetonateAttack
+		RequiresCondition: !in_water
+	GrantConditionOnTerrain@Water:
+		TerrainTypes: Water, Beach
+		Condition: in_water
+	Repairable:
+		Voice: Move
+		RepairActors: gadept, nadept, nadepb, yadept, yadepb, caoutp, caoutb
+	Cargo:
+		Types: Infantry, Garrisoner, SmallVehicle, Vehicle, GarrisonerVehicle, NaturalVehicle
+		MaxWeight: 12
+		AfterLoadDelay: 0
+		BeforeUnloadDelay: 0
+		AfterUnloadDelay: 0
+		PassengerFacing: 384
+		UnloadTerrainTypes: Clear, Rough, Rail, Road, DirtRoad, Beach, Ore, Gems
+		UnloadVoice: Move
+		LoadingCondition: notmobile
+	WithCargoSounds:
+		EnterSounds: genter1a.wav
+		ExitSounds: gexit1a.wav
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+		ValidRelationships: None
+	WithVoxelBody:
+	RenderSprites:
+	HitShape:
+	WithCargoPipsDecoration:
+		Margin: 4, 3
+		Palette: ra
+		Position: BottomLeft
+		RequiresSelection: true
+		CustomPipSequences:
+			gray: pip-gray
+			yellow: pip-yellow
+			blue: pip-blue
+			red: pip-red
+	# GrantConditionOnMovement@MoveStart:
+	#	Condition: moving
+	#	ValidMovementTypes: Horizontal, Turn
+	# SoundAnnouncement:
+	#	SoundFiles: vlanstaa.wav, vlanstab.wav, vlanstac.wav
+	#	Volume: 0.45
+	#	RequiresCondition: moving
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, None, None, None, Cargo
+
+^SeaAnimal:
+	Inherits@1: ^ExistsInWorld
+	Inherits@2: ^SpriteActor
+	Inherits@3: ^ChronoDisable
+	Inherits@4: ^CrateStatModifiers
+	Inherits@5: ^AffectedByLeaflets
+	Inherits@6: ^AffectedByPropaganda
+	Inherits@7: ^AffectedByChronoBoost
+	Inherits@8: ^AffectedByStealthGenerator
+	Inherits@9: ^AffectedByCashBounty
+	Inherits@10: ^AffectedBySpectreBullets
+	Inherits@11: ^AcceptsDeathBomb
+	Inherits@12: ^SmokeGrenadeModifiers
+	Inherits@13: ^AffectedByCryoSlowdown
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@INVULNERABILITY: ^KilledByIronCurtain
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Inherits@SUBMERGE: ^WithSubmergeColorOverlay
+	OwnerLostAction:
+		Action: Kill
+		DeathTypes: BulletDeath
+	WithColoredOverlay@SUBMERGE:
+		Color: 24262D80
+		RequiresCondition: !surfaced
+	Buildable:
+		Queue: Ship.Shared, Ship
+		BuildPaletteOrder: 70
+		Prerequisites: radar, ~techlevel.3
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Tooltip:
+		Name: meta-seaanimal.name
+		GenericName: meta-seaanimal.name
+		RequiresCondition: showownername
+	Tooltip@NoRow:
+		Name: meta-seaanimal.name
+		GenericName: meta-seaanimal.name
+		ShowOwnerRow: false
+		RequiresCondition: !showownername
+	GrantConditionOnPrerequisite@SHOWOWNERNAME:
+		Condition: showownername
+		Prerequisites: global-showownername
+	Armor:
+		Type: Light
+	Mobile:
+		TurnSpeed: 1023
+		Speed: 120
+		Locomotor: naval
+		Voice: Move
+	SelectionDecorations:
+	ActorStatValues:
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+		ValidRelationships: None
+	RevealsShroud:
+		Range: 8c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 8c0
+	RevealOnDeath:
+		Radius: 8c0
+		Duration: 125
+	# Cloak:
+	#	DetectionTypes: Underwater
+	#	InitialDelay: 50
+	#	CloakDelay: 75
+	#	CloakStyle: Palette
+	#	CloakedPalette: cloak
+	#	IsPlayerPalette: true
+	#	CloakSound: vnavupa.wav
+	#	UncloakSound: vnavupa.wav
+	#	UncloakOn: Damage
+	Targetable:
+		TargetTypes: Ground, Water, SeaAnimal, Underwater
+	Targetable@REPAIR:
+		RequiresCondition: damaged
+		TargetTypes: SeaAnimalRepair
+	GrantConditionOnDamageState@DAMAGED:
+		Condition: damaged
+		ValidDamageStates: Light, Medium, Heavy, Critical
+	DetectCloaked:
+		# DetectionTypes: Underwater
+		Range: 4c0
+	RenderDetectionCircle:
+	HiddenUnderFog:
+	ActorLostNotification:
+		TextNotification: notification-unit-lost
+	Guard:
+		Voice: Attack
+	Guardable:
+	DeathSounds:
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	Chronoshiftable:
+		ExplodeInstead: true
+	RenderSprites:
+	RepairableNear:
+		Voice: Move
+		CloseEnough: 3c0
+		RepairActors: gayard, nayard, yayard
+	HitShape:
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange

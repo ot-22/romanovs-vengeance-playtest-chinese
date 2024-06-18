@@ -1,0 +1,450 @@
+lcrf:
+	Inherits: ^AmphibiousTransport
+	Buildable:
+		Queue: Ship.Shared, Ship.Allies
+		Prerequisites: ~ship.allies, ~techlevel.1
+	Voiced:
+		VoiceSet: AlliedAmphibiousTransportVoice
+
+dest:
+	Inherits: ^Ship
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	# Inherits@C4: ^AcceptsSEALC4
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@NOGUNNER: ^GunnerKillable
+	Inherits@RADIATON: ^DamagedByRadiation10Percent
+	Inherits@SQUID: ^SquidGrabbable
+	Buildable:
+		Queue: Ship.Civilian # Ship.Shared, Ship.Allies
+		Prerequisites: gaairc, ~techlevel.3
+		BuildPaletteOrder: 80
+		Description: actor-dest.description
+		BuildDuration: 625
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 1400
+	Tooltip:
+		Name: actor-dest.name
+	Tooltip@NoRow:
+		Name: actor-dest.name
+	Health:
+		HP: 80000
+	Armor:
+		Type: Heavy
+	Mobile:
+		TurnSpeed: 32
+		Speed: 90
+	RevealsShroud:
+		Range: 8c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 8c0
+	RevealOnDeath:
+		Radius: 8c0
+	Selectable:
+		Bounds: 1930, 3861, 0, -289
+	Armament@primary:
+		Weapon: 155mm
+		Damage: 90
+		LocalOffset: 1152,0,800
+		MuzzleSequence: muzzle
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: 155mmE
+		Damage: 180
+		LocalOffset: 1152,0,800
+		MuzzleSequence: muzzle-2
+		RequiresCondition: rank-elite
+	Armament@asw:
+		Name: asw
+		Weapon: ASWLauncher
+	CarrierMaster:
+		Actors: asw
+		SpawnOffset: 0,0,256
+		RespawnTicks: 200
+		RearmTicks: 40
+		SpawnAllAtOnce: true
+		ArmamentNames: asw
+		LoadedCondition: loaded
+	WithSpawnerMasterPipsDecoration:
+		Margin: 4, 3
+		Palette: ra
+		Position: BottomLeft
+		RequiresSelection: true
+	#Exit@0: ## Cause Crash
+	#	SpawnOffset: 0,0,256
+	#	Facing: 0
+	AttackFollowFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+		MustFaceTarget: true
+		Armaments: primary, asw
+		PauseOnCondition: chronodisable || emp
+	WithMuzzleOverlay:
+	DetectCloaked:
+		# DetectionTypes: Underwater
+		Range: 6c0
+	RenderDetectionCircle:
+	Explodes:
+		Weapon: UnitExplode
+		EmptyWeapon: UnitExplode
+	WithVoxelBody@FULL:
+		RequiresCondition: loaded
+	WithVoxelBody@EMPTY:
+		Sequence: empty
+		RequiresCondition: !loaded
+	RenderSprites:
+	Voiced:
+		VoiceSet: AlliedNavalVoice
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+		ValidRelationships: None
+	HitShape:
+	# GrantConditionOnMovement@MoveStart:
+	#	Condition: moving
+	#	ValidMovementTypes: Horizontal, Turn
+	# SoundAnnouncement:
+	#	SoundFiles: vdesstaa.wav, vdesstab.wav
+	#	Volume: 0.3
+	#	RequiresCondition: moving
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, Carrier
+
+aegis:
+	Inherits: ^Ship
+	Inherits@AUTOTARGET: ^AutoTargetAirAssaultMove
+	Inherits@BOOSTGLIDING: ^AffectedByBoostGlidingSystems
+	# Inherits@C4: ^AcceptsSEALC4
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation10Percent
+	Inherits@SQUID: ^SquidGrabbable
+	Buildable:
+		Queue: Ship.Shared, Ship.Allies
+		BuildPaletteOrder: 41
+		Prerequisites: ~ship.allies, ~techlevel.1
+		Description: actor-aegis.description
+		BuildDuration: 500
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: actor-aegis.name
+	Tooltip@NoRow:
+		Name: actor-aegis.name
+	Selectable:
+		Bounds: 1448, 3861, 0, -289
+	Health:
+		HP: 40000
+	Armor:
+		Type: Light
+	Mobile:
+		TurnSpeed: 24
+		Speed: 90
+	RevealsShroud:
+		Range: 10c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 10c0
+	RevealOnDeath:
+		Radius: 10c0
+	Armament@primary:
+		Weapon: Medusa
+		Damage: 300
+		RequiresCondition: !boostgliding && !rank-elite
+	Armament@elite:
+		Weapon: MedusaE
+		Damage: 800
+		RequiresCondition: !boostgliding && rank-elite
+	Armament@primary-boost:
+		Weapon: MedusaBoosted
+		Damage: 450
+		RequiresCondition: boostgliding && !rank-elite
+	Armament@elite-boost:
+		Weapon: MedusaBoostedE
+		Damage: 1200
+		RequiresCondition: boostgliding && rank-elite
+	Turreted:
+		TurnSpeed: 1023
+	AttackTurreted:
+		Voice: Attack
+		PauseOnCondition: chronodisable || emp
+	AutoTarget:
+	Explodes:
+		Weapon: UnitExplode
+		EmptyWeapon: UnitExplode
+	WithVoxelBody:
+	RenderSprites:
+	Voiced:
+		VoiceSet: AegisVoice
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+		ValidRelationships: None
+	HitShape:
+	# GrantConditionOnMovement@MoveStart:
+	#	Condition: moving
+	#	ValidMovementTypes: Horizontal, Turn
+	# SoundAnnouncement:
+	#	SoundFiles: vaegstaa.wav, vaegstab.wav
+	#	Volume: 0.5
+	#	RequiresCondition: moving
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+
+dlph:
+	Inherits: ^SeaAnimal
+	Buildable:
+		Queue: Ship.Shared, Ship.Allies
+		BuildPaletteOrder: 20
+		Prerequisites: ~ship.allies, ~techlevel.1
+		Description: actor-dlph.description
+		BuildDuration: 250
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: actor-dlph.name
+		GenericName: actor-dlph.name
+	Tooltip@NoRow:
+		Name: actor-dlph.name
+		GenericName: actor-dlph.name
+	Health:
+		HP: 20000
+	Mobile:
+		Speed: 150
+	Selectable:
+		Bounds: 965, 1930
+	Voiced:
+		VoiceSet: DolphinVoice
+	Armament@primary:
+		Weapon: SonicZap
+		Damage: 17
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: SonicZapE
+		Damage: 25
+		RequiresCondition: rank-elite
+	AttackFollowFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+		MustFaceTarget: true
+		PauseOnCondition: chronodisable
+	Targetable:
+		TargetTypes: Ground, Water, SeaAnimal, Underwater, ImmuneToAllySonic
+	WithInfantryBody:
+		MinIdleDelay: 1
+		MaxIdleDelay: 2
+		IdleSequences: idle
+		StandSequences: stand
+		DefaultAttackSequence: shoot
+	WithDeathAnimation:
+		UseDeathTypeSuffix: false
+
+carrier:
+	Inherits: ^Ship
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	# Inherits@C4: ^AcceptsSEALC4
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation10Percent
+	Inherits@SQUID: ^SquidGrabbable
+	Buildable:
+		Queue: Ship.Shared, Ship.Allies
+		BuildPaletteOrder: 90
+		Prerequisites: ~ship.allies, gatech, ~techlevel.4
+		Description: actor-carrier.description
+		BuildDuration: 1000
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 2500
+	Tooltip:
+		Name: actor-carrier.name
+	Tooltip@NoRow:
+		Name: actor-carrier.name
+	Health:
+		HP: 80000
+	Armor:
+		Type: Heavy
+	Selectable:
+		Bounds: 1448, 3861, 0, -289
+	Mobile:
+		TurnSpeed: 12
+		Speed: 60
+	RevealsShroud:
+		Range: 7c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 7c0
+	RevealOnDeath:
+		Radius: 7c0
+	AttackFollowFrontal:
+		Voice: Attack
+		FacingTolerance: 512
+		TargetFrozenActors: True
+		PauseOnCondition: chronodisable || emp
+	AutoTarget:
+	Explodes:
+		Weapon: UnitExplode
+		EmptyWeapon: UnitExplode
+	WithVoxelBody:
+	RenderSprites:
+	Voiced:
+		VoiceSet: AircraftCarrierVoice
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+		ValidRelationships: None
+	HitShape:
+	CarrierMaster:
+		Actors: hornet, hornet, hornet, hornet, hornet
+		RespawnTicks: 400
+		SpawnAllAtOnce: true
+	WithSpawnerMasterPipsDecoration:
+		Margin: 4, 3
+		Palette: ra
+		Position: BottomLeft
+		RequiresSelection: true
+	Armament:
+		Weapon: HornetLauncher
+	GrantConditionOnMovement@MoveStart:
+		Condition: moving
+		ValidMovementTypes: Horizontal, Turn
+	# SoundAnnouncement:
+	#	SoundFiles: vaccstaa.wav, vaccstab.wav
+	#	Volume: 0.5
+	#	RequiresCondition: moving
+	ActorStatValues:
+		Damage: 80
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, Carrier
+
+# Custom Allied Vessels
+adest:
+	Inherits: ^Ship
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	# Inherits@C4: ^AcceptsSEALC4
+	Inherits@CHAOS: ^BerserkableVoxelArmed
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@NOGUNNER: ^GunnerKillable
+	Inherits@RADIATON: ^DamagedByRadiation10Percent
+	Inherits@SQUID: ^SquidGrabbable
+	Buildable:
+		Queue: Ship.Shared, Ship.Allies
+		Prerequisites: ~ship.allies, gaairc, ~techlevel.3
+		BuildPaletteOrder: 80
+		Description: actor-adest.description
+		BuildDuration: 625
+		BuildDurationModifier: 100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Valued:
+		Cost: 1400
+	DeliversCash:
+		Payload: 1400
+		Voice: Move
+	Tooltip:
+		Name: actor-adest.name
+	Tooltip@NoRow:
+		Name: actor-adest.name
+	Health:
+		HP: 60000
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 90
+		TurnSpeed: 16
+		Locomotor: omniamphibious
+		RequiresCondition: !chronodisable && !emp && !magnefreeze && !squid && !beinginfected
+	SpeedMultiplier:
+		Modifier: 67
+		RequiresCondition: !in_water
+	RevealsShroud:
+		Range: 8c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 8c0
+	RevealOnDeath:
+		Radius: 8c0
+	Selectable:
+		Bounds: 2000, 3800, 0, -350
+	Armament@primary:
+		Weapon: 155mmAssault
+		Damage: 90
+		LocalOffset: 1280,0,896
+		MuzzleSequence: muzzle
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Weapon: 155mmAssaultE
+		Damage: 180
+		LocalOffset: 1280,0,896
+		MuzzleSequence: muzzle-2
+		RequiresCondition: rank-elite
+	AttackFollowFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+		MustFaceTarget: true
+		PauseOnCondition: chronodisable || emp
+	WithMuzzleOverlay:
+	DetectCloaked:
+		# DetectionTypes: Underwater
+		Range: 6c0
+	RenderDetectionCircle:
+	Explodes:
+		Weapon: UnitExplode
+		EmptyWeapon: UnitExplode
+	WithVoxelBody:
+		RequiresCondition: in_water
+	WithVoxelBody@land:
+		Sequence: idle-land
+		RequiresCondition: !in_water
+	RenderSprites:
+	RenderVoxels:
+		Scale: 10
+	Targetable:
+		RequiresCondition: in_water
+	Targetable@GROUND:
+		TargetTypes: Ground, Vehicle, DetonateAttack, DroneInfection
+		RequiresCondition: !in_water
+	GrantConditionOnTerrain@Water:
+		TerrainTypes: Water, Beach
+		Condition: in_water
+	Repairable:
+		Voice: Move
+		RepairActors: gadept, nadept, nadepb, yadept, yadepb, caoutp, caoutb
+	RepairableNear:
+		RepairActors: gaweap, gaweab, gaweac, gawead, naweap, naweab, naweac, nawead, yaweap, yaweab, yaweac, yawead, gayard, nayard, yayard, gaairc, gaairb, baairf, baairb, naheli, yadisk
+	Voiced:
+		VoiceSet: AlliedNavalVoice
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+		ValidRelationships: None
+	HitShape:
+	# GrantConditionOnMovement@MoveStart:
+	#	Condition: moving
+	#	ValidMovementTypes: Horizontal, Turn
+	# SoundAnnouncement:
+	#	SoundFiles: vdesstaa.wav, vdesstab.wav
+	#	Volume: 0.3
+	#	RequiresCondition: moving && in_water
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange

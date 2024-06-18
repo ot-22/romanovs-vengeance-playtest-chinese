@@ -1,0 +1,74 @@
+ObserverCombinedView: MINUS
+	Description: 所有玩家视角
+	Types: Observer
+	Contexts: Spectator
+
+ObserverWorldView: EQUALS
+	Description: 关闭雾区
+	Types: Observer
+	Contexts: Spectator
+
+ReplaySpeedSlow: F9
+	Description: 慢速
+	Types: Replay
+	Contexts: Spectator
+
+ReplaySpeedRegular: F10
+	Description: 常速
+	Types: Replay
+	Contexts: Spectator
+
+ReplaySpeedFast: F11
+	Description: 快速
+	Types: Replay
+	Contexts: Spectator
+
+ReplaySpeedMax: F12
+	Description: 最大速度
+	Types: Replay
+	Contexts: Spectator
+
+StatisticsNone: F1
+	Description: 关闭统计信息
+	Types: Observer
+	Contexts: Spectator
+
+StatisticsBasic: F2
+	Description: 基本统计信息
+	Types: Observer
+	Contexts: Spectator
+
+StatisticsEconomy: F3
+	Description: 经济统计信息
+	Types: Observer
+	Contexts: Spectator
+
+StatisticsProduction: F4
+	Description: 生产统计信息
+	Types: Observer
+	Contexts: Spectator
+
+StatisticsSupportPowers: F5
+	Description: 支援能力统计信息
+	Types: Observer
+	Contexts: Spectator
+
+StatisticsCombat: F6
+	Description: 战斗统计信息
+	Types: Observer
+	Contexts: Spectator
+
+StatisticsArmy: F7
+	Description: 军队统计信息
+	Types: Observer
+	Contexts: Spectator
+
+StatisticsGraph:
+	Description: 统计图表
+	Types: Observer
+	Contexts: Spectator
+
+StatisticsArmyGraph:
+	Description: 军队价值图表
+	Types: Observer
+	Contexts: Spectator

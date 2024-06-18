@@ -1,0 +1,1305 @@
+RedEye2:
+	Inherits: ^AAMissile
+	ReloadDelay: 30
+	Range: 10c0
+	Burst: 2
+	Projectile: Missile
+		TrailImage: smokey2
+		LockOnProbability: 100
+		Speed: 640
+		MinimumLaunchAngle: 255
+		MaximumLaunchAngle: 255
+		MaximumLaunchSpeed: 512
+		MinimumLaunchSpeed: 512
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c307
+		Falloff: 100, 0
+		Damage: 3000
+		ValidTargets: Air
+		Versus:
+			None: 100
+			Flak: 100
+			Plate: 100
+			Light: 100
+			Medium: 60
+			Heavy: 100
+			Wood: 0
+			Steel: 0
+			Concrete: 0
+			Drone: 100
+
+RedEye2Boosted:
+	Inherits: RedEye2
+	Projectile: Missile
+		Speed: 960
+		ContrailStartColor: 00b6ff
+	Warhead@1Dam: SpreadDamage
+		Damage: 4500
+
+MammothTusk:
+	Inherits: ^AAMissile
+	ReloadDelay: 80
+	Range: 8c0
+	Report: vapoat2a.wav, vapoar2b.wav, vapoat2c.wav
+	Burst: 2
+	Projectile: Missile
+		ContrailLength: 8
+		Speed: 512
+		RangeLimit: 12c512
+		TrailImage: smokey2
+		MinimumLaunchAngle: 255
+		MaximumLaunchAngle: 255
+		MaximumLaunchSpeed: 384
+		MinimumLaunchSpeed: 384
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c128
+		Falloff: 100, 83, 67, 50, 0
+		Damage: 8000
+		Versus:
+			Flak: 90
+			Plate: 80
+			Light: 70
+			Medium: 35
+			Heavy: 35
+			Wood: 75
+			Steel: 40
+			Concrete: 20
+			Drone: 20
+		DamageTypes: ExplosionDeath, SuppressTerrorDrone, NonTemporal, NonTemporal
+	Warhead@2Eff: CreateEffect
+		Explosions: medium_bang
+
+MammothTuskE:
+	Inherits: MammothTusk
+	Burst: 4
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c128
+		Falloff: 100, 83, 67, 50, 0
+		Damage: 7000
+
+APTusk:
+	Inherits: ^Missile
+	ReloadDelay: 90
+	Range: 8c0
+	MinRange: 2c0
+	Burst: 8
+	BurstDelays: 4
+	Report: rocket1.aud
+	ValidTargets: Ground, Water
+	TargetActorCenter: true
+	-Projectile:
+	Projectile: BulletAS
+		Blockable: false
+		Image: DRAGON
+		Shadow: true
+		Inaccuracy: 853
+		LaunchAngle: 62
+		ContrailStartWidth: 24
+		ContrailLength: 10
+		Speed: 512
+	Warhead@1Dam: SpreadDamage
+		Spread: 683
+		Damage: 2500
+		ValidTargets: Ground, Water
+		Versus:
+			None: 15
+			Flak: 15
+			Plate: 10
+			Light: 100
+			Medium: 100
+			Heavy: 75
+			Wood: 65
+			Steel: 85
+			Concrete: 60
+			Drone: 20
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, SuppressTerrorDrone, NonTemporal
+	Warhead@3Eff: CreateEffect
+		Explosions: chronotank_explosion
+		ExplosionPalette: ra
+		ImpactSounds: gexpifva.wav
+		ValidTargets: Ground, Air
+	Warhead@3EffWater: CreateEffect
+		Explosions: small_watersplash
+		ImpactSounds: gexpwasa.wav
+		ValidTargets: Water
+	Warhead@4Smu: LeaveSmudge
+		SmudgeType: SmallCrater
+
+APTuskE:
+	Inherits: APTusk
+	ReloadDelay: 75
+	Range: 9c0
+	Warhead@1Dam: SpreadDamage
+		Damage: 5000
+
+APTuskBoosted:
+	Inherits: APTusk
+	Projectile: BulletAS
+		Speed: 768
+		ContrailStartColor: 00b6ff
+	Warhead@1Dam: SpreadDamage
+		Damage: 3750
+
+APTuskBoostedE:
+	Inherits: APTuskE
+	Projectile: BulletAS
+		Speed: 768
+		ContrailStartColor: 00b6ff
+	Warhead@1Dam: SpreadDamage
+		Damage: 7500
+
+GradTusk:
+	Inherits: APTusk
+	Burst: 10
+	Range: 12c0
+	Warhead@1Dam: SpreadDamage
+		Versus:
+			None: 80
+			Flak: 80
+			Plate: 70
+			Light: 50
+			Medium: 50
+			Heavy: 40
+			Wood: 100
+			Steel: 85
+			Concrete: 60
+			Drone: 60
+
+GradTuskE:
+	Inherits: APTuskE
+	Burst: 10
+	Range: 12c0
+	Warhead@1Dam: SpreadDamage
+		Versus:
+			None: 80
+			Flak: 80
+			Plate: 70
+			Light: 50
+			Medium: 50
+			Heavy: 40
+			Wood: 100
+			Steel: 85
+			Concrete: 60
+			Drone: 60
+
+GradTuskCryo:
+	Inherits: GradTusk
+	Warhead@4Con: GrantExternalCondition
+		Range: 256
+		Duration: 500
+		Condition: cryo
+		ValidTargets: Ground, Water
+		InvalidTargets: IronCurtained, ForceShielded
+
+GradTuskCryoE:
+	Inherits: GradTuskE
+	Warhead@4Con: GrantExternalCondition
+		Range: 256
+		Duration: 500
+		Condition: cryo
+		ValidTargets: Ground, Water
+		InvalidTargets: IronCurtained, ForceShielded
+
+Maverick:
+	Inherits: ^Missile
+	ReloadDelay: 3
+	Range: 6c0
+	Report: vintatta.wav
+	ValidTargets: Ground, Water
+	Projectile: Missile
+		Speed: 512
+		Arm: 3
+		RangeLimit: 20c204
+		ContrailStartColor: D8D8FF
+		MinimumLaunchAngle: 255
+		MaximumLaunchAngle: 255
+		MaximumLaunchSpeed: 384
+		MinimumLaunchSpeed: 384
+		HorizontalRateOfTurn: 160
+		VerticalRateOfTurn: 160
+	Warhead@1Dam: SpreadDamage
+		InvalidTargets: LoadedTankBunker
+		Spread: 0c512
+		Falloff: 100, 0
+		Damage: 10000
+		Versus:
+			None: 150
+			Flak: 150
+			Plate: 100
+			Light: 50
+			Medium: 75
+			Heavy: 75
+			Wood: 60
+			Steel: 75
+			Concrete: 50
+			Drone: 100
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, SuppressTerrorDrone, NonTemporal
+	Warhead@1Gar: OpenToppedDamage
+		ValidTargets: LoadedTankBunker
+		InvalidTargets: IronCurtained, ForceShielded
+		Spread: 0c512
+		Damage: 10000
+		Versus:
+			None: 150
+			Flak: 150
+			Plate: 100
+			Light: 50
+			Medium: 75
+			Heavy: 75
+			Wood: 60
+			Steel: 75
+			Concrete: 50
+			Drone: 100
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, SuppressTerrorDrone, NonTemporal
+	Warhead@2Eff: CreateEffect
+		Explosions: verylarge_clsn
+		ImpactSounds: gexp14a.wav
+		ValidTargets: Ground, Air
+	Warhead@3EffWater: CreateEffect
+		Explosions: huge_watersplash
+		ImpactSounds: gexpwala.wav
+		ValidTargets: Water
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: MediumCrater, MediumScorch
+
+MaverickE:
+	Inherits: Maverick
+	Range: 7c0
+	Projectile: Missile
+		RangeLimit: 22c204
+		ContrailStartColor: EA0000
+	Warhead@1Dam: SpreadDamage
+		Damage: 15000
+	Warhead@1Gar: OpenToppedDamage
+		Damage: 15000
+
+MaverickAA:
+	Inherits: Maverick
+	Range: 8c0
+	ValidTargets: Air
+	Projectile: Missile
+		Speed: 640
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Air
+
+MaverickAAE:
+	Inherits: MaverickE
+	Range: 9c0
+	ValidTargets: Air
+	Projectile: Missile
+		Speed: 640
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Air
+
+Maverick2:
+	Inherits: Maverick
+	Report: vmigatta.wav
+	Projectile: Missile
+		Image: ra1patriot
+	Warhead@1Dam: SpreadDamage
+		Damage: 22500
+	Warhead@1Gar: OpenToppedDamage
+		Damage: 22500
+	Warhead@2Eff: CreateEffect
+		Explosions: ra1_atomic
+		ExplosionPalette: ra
+		ImpactSounds: gexpbara.wav, gexpbarb.wav, gexpbarc.wav
+
+Maverick2E:
+	Inherits: Maverick2
+	Range: 7c0
+	ReloadDelay: 10
+	Projectile: Missile
+		RangeLimit: 22c204
+		ContrailStartColor: EA0000
+	Warhead@1Dam: SpreadDamage
+		Damage: 35000
+	Warhead@1Gar: OpenToppedDamage
+		Damage: 35000
+
+Maverick2AA:
+	Inherits: Maverick2
+	Range: 8c0
+	ValidTargets: Air
+	Projectile: Missile
+		Speed: 640
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Air
+
+Maverick2AAE:
+	Inherits: Maverick2E
+	Range: 9c0
+	ValidTargets: Air
+	Projectile: Missile
+		Speed: 640
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Air
+
+Maverick2Cryo:
+	Inherits: Maverick2
+	Warhead@4Con: GrantExternalCondition
+		Range: 256
+		Duration: 500
+		Condition: cryo
+		ValidTargets: Ground, Water
+		InvalidTargets: IronCurtained, ForceShielded
+
+Maverick2CryoE:
+	Inherits: Maverick2E
+	Warhead@4Con: GrantExternalCondition
+		Range: 256
+		Duration: 500
+		Condition: cryo
+		ValidTargets: Ground, Water
+		InvalidTargets: IronCurtained, ForceShielded
+
+Maverick2AACryo:
+	Inherits: Maverick2AA
+	Warhead@4Con: GrantExternalCondition
+		Range: 256
+		Duration: 500
+		Condition: cryo
+		ValidTargets: Air
+		InvalidTargets: IronCurtained, ForceShielded
+
+Maverick2AACryoE:
+	Inherits: Maverick2AAE
+	Warhead@4Con: GrantExternalCondition
+		Range: 256
+		Duration: 500
+		Condition: cryo
+		ValidTargets: Air
+		InvalidTargets: IronCurtained, ForceShielded
+
+Maverick3:
+	Inherits: Maverick
+	Report: vmigatta.wav
+	Projectile: Missile
+		Image: ra1patriot
+	Warhead@1Dam: SpreadDamage
+		Damage: 30000
+		-InvalidTargets:
+		Versus:
+			Wood: 100
+			Steel: 100
+			Concrete: 100
+	-Warhead@1Gar:
+	Warhead@2Eff: CreateEffect
+		Explosions: ra1_atomic
+		ExplosionPalette: ra
+		ImpactSounds: gexpbara.wav, gexpbarb.wav, gexpbarc.wav
+
+Maverick3E:
+	Inherits: Maverick3
+	Range: 7c0
+	Warhead@1Dam: SpreadDamage
+		Damage: 100000
+
+Medusa:
+	Inherits: ^AAMissile
+	ReloadDelay: 100
+	Report: vaegatta.wav, vaegattb.wav
+	Burst: 3
+	BurstDelays: 13
+	Projectile: Missile
+		Speed: 640
+		ContrailLength: 35
+		LockOnProbability: 85
+		RangeLimit: 15c409
+		MinimumLaunchAngle: 255
+		MaximumLaunchAngle: 255
+		MaximumLaunchSpeed: 512
+		MinimumLaunchSpeed: 512
+	Warhead@1Dam: SpreadDamage
+		Damage: 10000
+
+MedusaE:
+	Inherits: Medusa
+	ReloadDelay: 120
+	Burst: 8
+	BurstDelays: 7
+	Projectile: Missile
+		ContrailStartColor: EA0000
+
+MedusaBoosted:
+	Inherits: Medusa
+	Projectile: Missile
+		Speed: 960
+		ContrailStartColor: 00b6ff
+	Warhead@1Dam: SpreadDamage
+		Damage: 15000
+
+MedusaBoostedE:
+	Inherits: MedusaE
+	Projectile: Missile
+		Speed: 960
+		ContrailStartColor: FF8888
+	Warhead@1Dam: SpreadDamage
+		Damage: 15000
+
+HoverMissile:
+	Inherits: ^Missile
+	ReloadDelay: 50
+	Burst: 2
+	Range: 6c0
+	Report: vifvatta.wav
+	ValidTargets: Ground, Water
+	Projectile: Missile
+		Speed: 512
+		Arm: 2
+		RangeLimit: 12c0
+		ContrailStartColor: D8D8FF
+		MinimumLaunchAngle: 255
+		MaximumLaunchAngle: 255
+		MaximumLaunchSpeed: 384
+		MinimumLaunchSpeed: 384
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c128
+		Falloff: 100, 83, 67, 50, 0
+		Damage: 3000
+		ValidTargets: Ground, Water
+		Versus:
+			None: 100
+			Flak: 100
+			Plate: 90
+			Light: 100
+			Medium: 35
+			Heavy: 35
+			Wood: 70
+			Steel: 35
+			Concrete: 60
+			Drone: 20
+			Rocket: 200
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, SuppressTerrorDrone, NonTemporal
+	Warhead@2Eff: CreateEffect
+		Explosions: small_grey_explosion
+		ImpactSounds: gexpifva.wav
+		ValidTargets: Ground, Air
+	Warhead@3EffWater: CreateEffect
+		Explosions: small_watersplash
+		ImpactSounds: gexpwasa.wav
+		ValidTargets: Water
+	Warhead@4Smu: LeaveSmudge
+		SmudgeType: SmallCrater
+
+HoverMissileE:
+	Inherits: HoverMissile
+	Burst: 4
+	Projectile: Missile
+		ContrailStartColor: EA0000
+	Warhead@2Eff: CreateEffect
+		Explosions: medium_grey_explosion
+		ImpactSounds: gexp15a.wav
+
+HoverMissileAA:
+	Inherits: HoverMissile
+	Range: 8c0
+	ValidTargets: Air
+	Projectile: Missile
+		RangeLimit: 14c512
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Air
+
+HoverMissileAAE:
+	Inherits: HoverMissileE
+	Range: 8c0
+	ValidTargets: Air
+	Projectile: Missile
+		RangeLimit: 14c512
+		ContrailStartColor: EA0000
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Air
+
+HoverMissileBoosted:
+	Inherits: HoverMissile
+	Projectile: Missile
+		Speed: 768
+		ContrailStartColor: 00b6ff
+	Warhead@1Dam: SpreadDamage
+		Damage: 4500
+
+HoverMissileBoostedE:
+	Inherits: HoverMissileE
+	Projectile: Missile
+		Speed: 768
+		ContrailStartColor: FF8888
+	Warhead@1Dam: SpreadDamage
+		Damage: 4500
+
+HoverMissileAABoosted:
+	Inherits: HoverMissileAA
+	Projectile: Missile
+		Speed: 768
+		ContrailStartColor: 00b6ff
+	Warhead@1Dam: SpreadDamage
+		Damage: 4500
+
+HoverMissileAABoostedE:
+	Inherits: HoverMissileAAE
+	Projectile: Missile
+		Speed: 768
+		ContrailStartColor: FF8888
+	Warhead@1Dam: SpreadDamage
+		Damage: 4500
+
+OutpostMissile:
+	Inherits: HoverMissile
+	ReloadDelay: 50
+	Burst: 4
+	Range: 12c0
+	Report: vifvatta.wav
+	ValidTargets: Ground, Water, Air
+	Projectile: Missile
+		Speed: 512
+		Arm: 2
+		RangeLimit: 18c512
+		ContrailStartColor: D8D8FF
+		MinimumLaunchAngle: 255
+		MaximumLaunchAngle: 255
+		MaximumLaunchSpeed: 384
+		MinimumLaunchSpeed: 384
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c128
+		Falloff: 100, 83, 67, 50, 0
+		Damage: 3000
+		ValidTargets: Ground, Water, Air
+		Versus:
+			None: 80
+			Flak: 80
+			Plate: 70
+			Light: 70
+			Medium: 50
+			Heavy: 50
+			Wood: 75
+			Steel: 40
+			Concrete: 65
+			Drone: 20
+			Rocket: 200
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: SmallCrater
+
+HydroMissile:
+	Inherits: HoverMissile
+	Range: 8c0
+	Projectile: Missile
+		RangeLimit: 14c512
+
+HydroMissileE:
+	Inherits: HoverMissileE
+	Range: 8c0
+	Projectile: Missile
+		RangeLimit: 14c512
+
+HydroMissileAA:
+	Inherits: HoverMissileAA
+	Range: 12c0
+	Projectile: Missile
+		RangeLimit: 18c512
+	Warhead@1Dam: SpreadDamage
+		Versus:
+			None: 15
+			Flak: 15
+			Plate: 10
+			Light: 100
+			Medium: 100
+			Heavy: 75
+			Wood: 55
+			Steel: 65
+			Concrete: 50
+			Drone: 20
+			Rocket: 200
+
+HydroMissileAAE:
+	Inherits: HoverMissileAAE
+	Range: 12c0
+	Projectile: Missile
+		RangeLimit: 18c512
+	Warhead@1Dam: SpreadDamage
+		Versus:
+			None: 15
+			Flak: 15
+			Plate: 10
+			Light: 100
+			Medium: 100
+			Heavy: 75
+			Wood: 55
+			Steel: 65
+			Concrete: 50
+			Drone: 20
+			Rocket: 200
+
+HydroMissileCryo:
+	Inherits: HydroMissile
+	Warhead@4Con: GrantExternalCondition
+		Range: 256
+		Duration: 500
+		Condition: cryo
+		ValidTargets: Ground, Water
+		InvalidTargets: IronCurtained, ForceShielded
+
+HydroMissileCryoE:
+	Inherits: HydroMissileE
+	Warhead@4Con: GrantExternalCondition
+		Range: 256
+		Duration: 500
+		Condition: cryo
+		ValidTargets: Ground, Water
+		InvalidTargets: IronCurtained, ForceShielded
+
+HydroMissileAACryo:
+	Inherits: HydroMissileAA
+	Warhead@4Con: GrantExternalCondition
+		Range: 256
+		Duration: 500
+		Condition: cryo
+		ValidTargets: Air
+		InvalidTargets: IronCurtained, ForceShielded
+
+HydroMissileAACryoE:
+	Inherits: HydroMissileAAE
+	Warhead@4Con: GrantExternalCondition
+		Range: 256
+		Duration: 500
+		Condition: cryo
+		ValidTargets: Air
+		InvalidTargets: IronCurtained, ForceShielded
+
+MissileLauncher:
+	Inherits: ^Missile
+	ReloadDelay: 40
+	Range: 6c0
+	Report: iggiat2a.wav, iggiat2b.wav
+	ValidTargets: Ground, Water
+	Projectile: Missile
+		Speed: 512
+		Arm: 2
+		RangeLimit: 14c512
+		ContrailStartColor: D8D8FF
+		MinimumLaunchAngle: 255
+		MaximumLaunchAngle: 255
+		MaximumLaunchSpeed: 384
+		MinimumLaunchSpeed: 384
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c128
+		Falloff: 100, 83, 67, 50, 0
+		Damage: 4000
+		ValidTargets: Ground, Water
+		Versus:
+			None: 15
+			Flak: 15
+			Plate: 10
+			Light: 100
+			Medium: 100
+			Heavy: 75
+			Wood: 55
+			Steel: 65
+			Concrete: 50
+			Drone: 20
+			Rocket: 200
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, SuppressTerrorDrone, NonTemporal
+	Warhead@2Eff: CreateEffect
+		Explosions: small_grey_explosion
+		ImpactSounds: gexpifva.wav
+		ValidTargets: Ground, Air
+	Warhead@3EffWater: CreateEffect
+		Explosions: small_watersplash
+		ImpactSounds: gexpwasa.wav
+		ValidTargets: Water
+	Warhead@4Smu: LeaveSmudge
+		SmudgeType: SmallCrater
+
+MissileLauncherE:
+	Inherits: MissileLauncher
+	Burst: 2
+	Projectile: Missile
+		ContrailStartColor: EA0000
+	Warhead@2Eff: CreateEffect
+		Explosions: medium_grey_explosion
+		ImpactSounds: gexp15a.wav
+
+MissileLauncherAA:
+	Inherits: MissileLauncher
+	Range: 8c0
+	ValidTargets: Air
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Air
+		Versus:
+			Light: 75
+
+MissileLauncherAAE:
+	Inherits: MissileLauncherE
+	Range: 8c0
+	ValidTargets: Air
+	Projectile: Missile
+		ContrailStartColor: EA0000
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Air
+		Versus:
+			Light: 75
+
+UCMissileLauncher:
+	Inherits: MissileLauncher
+	Range: 7c0
+	Projectile: Missile
+		Blockable: false
+
+UCMissileLauncherE:
+	Inherits: MissileLauncherE
+	Range: 7c0
+	Projectile: Missile
+		Blockable: false
+
+UCMissileLauncherAA:
+	Inherits: MissileLauncherAA
+
+UCMissileLauncherAAE:
+	Inherits: MissileLauncherAAE
+
+MissileLauncherBoosted:
+	Inherits: MissileLauncher
+	Projectile: Missile
+		Speed: 768
+		ContrailStartColor: 00b6ff
+	Warhead@1Dam: SpreadDamage
+		Damage: 6000
+
+MissileLauncherBoostedE:
+	Inherits: MissileLauncherE
+	Projectile: Missile
+		Speed: 768
+		ContrailStartColor: FF8888
+	Warhead@1Dam: SpreadDamage
+		Damage: 6000
+
+MissileLauncherAABoosted:
+	Inherits: MissileLauncherAA
+	Projectile: Missile
+		Speed: 768
+		ContrailStartColor: 00b6ff
+	Warhead@1Dam: SpreadDamage
+		Damage: 6000
+
+MissileLauncherAABoostedE:
+	Inherits: MissileLauncherAAE
+	Projectile: Missile
+		Speed: 768
+		ContrailStartColor: FF8888
+	Warhead@1Dam: SpreadDamage
+		Damage: 6000
+
+UCMissileLauncherBoosted:
+	Inherits: MissileLauncherBoosted
+	Range: 7c0
+	Projectile: Missile
+		Blockable: false
+
+UCMissileLauncherBoostedE:
+	Inherits: MissileLauncherBoostedE
+	Range: 7c0
+	Projectile: Missile
+		Blockable: false
+
+UCMissileLauncherAABoosted:
+	Inherits: MissileLauncherAABoosted
+
+UCMissileLauncherAABoostedE:
+	Inherits: MissileLauncherAABoostedE
+
+ChaosRocket:
+	Inherits: MissileLauncher
+	Range: 9c0
+	Projectile: Missile
+		RangeLimit: 16c512
+		ContrailStartColor: FFA8FF
+	Warhead@1Dam: SpreadDamage
+		Versus:
+			Light: 65
+			Medium: 90
+			Heavy: 90
+			Wood: 30
+			Steel: 50
+			Concrete: 25
+			Rocket: 200
+	Warhead@5Con: GrantExternalCondition
+		ValidTargets: ChaosGasable
+		ValidRelationships: Enemy, Neutral
+		Condition: chaos
+		Range: 1c512
+		Duration: 200
+	Warhead@5Eff: CreateEffect
+		Explosions: chaosgas50p
+		ImpactSounds: vchaatta.wav
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air
+
+ChaosRocketE:
+	Inherits: ChaosRocket
+	Burst: 2
+	Warhead@2Eff: CreateEffect
+		Explosions: medium_grey_explosion
+		ImpactSounds: gexp15a.wav
+
+ChaosRocketAA:
+	Inherits: ChaosRocket
+	ValidTargets: Air
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Air
+
+ChaosRocketAAE:
+	Inherits: ChaosRocketE
+	ValidTargets: Air
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Air
+
+UCChaosRocket:
+	Inherits: ChaosRocket
+	Projectile: Missile
+		Blockable: false
+
+UCChaosRocketE:
+	Inherits: ChaosRocketE
+	Projectile: Missile
+		Blockable: false
+
+UCChaosRocketAA:
+	Inherits: ChaosRocketAA
+
+UCChaosRocketAAE:
+	Inherits: ChaosRocketAAE
+
+HeliRocket:
+	Inherits: ^Missile
+	ReloadDelay: 60
+	Range: 6c0
+	MinRange: 1c512
+	Burst: 4
+	Report: iggiat2a.wav, iggiat2b.wav
+	ValidTargets: Ground, Water
+	Projectile: Missile
+		Speed: 512
+		Arm: 2
+		Image: subt
+		RangeLimit: 14c512
+		ContrailLength: 35
+		ContrailStartColor: D8D8FF
+		MinimumLaunchAngle: 255
+		MaximumLaunchAngle: 255
+		MaximumLaunchSpeed: 384
+		MinimumLaunchSpeed: 384
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c128
+		Falloff: 100, 83, 67, 50, 0
+		Damage: 5000
+		ValidTargets: Ground, Water
+		Versus:
+			None: 15
+			Flak: 15
+			Plate: 10
+			Light: 50
+			Medium: 100
+			Heavy: 75
+			Wood: 50
+			Steel: 65
+			Concrete: 40
+			Drone: 20
+			Rocket: 200
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, SuppressTerrorDrone, NonTemporal
+	Warhead@2Eff: CreateEffect
+		Explosions: medium_grey_explosion
+		ImpactSounds: gexpifva.wav
+		ValidTargets: Ground, Air
+	Warhead@3EffWater: CreateEffect
+		Explosions: large_watersplash
+		ImpactSounds: gexpwasa.wav
+		ValidTargets: Water
+	Warhead@4Smu: LeaveSmudge
+		SmudgeType: SmallCrater
+
+HeliRocketE:
+	Inherits: HeliRocket
+	ReloadDelay: 85
+	Burst: 8
+	Projectile: Missile
+		ContrailStartColor: EA0000
+	Warhead@2Eff: CreateEffect
+		Explosions: medium_grey_explosion
+		ImpactSounds: gexp15a.wav
+
+SubTorpedo:
+	ReloadDelay: 75
+	Range: 7c0
+	Report: vsubatta.wav
+	ValidTargets: Water, Underwater
+	Projectile: Missile
+		Image: subt
+		Speed: 300
+		TrailImage: bbblelrg
+		HorizontalRateOfTurn: 48
+		RangeLimit: 8c409
+		BoundToTerrainType: Water
+		Palette: player
+		IsPlayerPalette: true
+		TerrainHeightAware: true
+	Warhead@1Dam: SpreadDamage
+		Spread: 256
+		Damage: 7500
+		ValidTargets: Water, Underwater, Bridge
+		Versus:
+			None: 100
+			Flak: 100
+			Plate: 100
+			Light: 100
+			Medium: 100
+			Heavy: 100
+			Wood: 65
+			Steel: 85
+			Concrete: 60
+			Drone: 25
+		DamageTypes: ExplosionDeath, SuppressTerrorDrone, NonTemporal
+	Warhead@2EffWater: CreateEffect
+		Explosions: large_watersplash
+		ImpactSounds: gexpwasa.wav
+		ValidTargets: Water
+	Warhead@3EffGround: CreateEffect
+		Explosions: medium_clsn
+		ImpactSounds: gexpwasb.wav
+		ValidTargets: Ground
+
+SubTorpedoE:
+	Inherits: SubTorpedo
+	Burst: 2
+
+PiraTorpedo:
+	Inherits: SubTorpedo
+	Range: 6c0
+	ReloadDelay: 45
+	Report: vsubatta.wav
+	Warhead@1Dam: SpreadDamage
+		Damage: 3500
+
+PiraTorpedoE:
+	Inherits: PiraTorpedo
+	Burst: 2
+
+BoomerTorpedo:
+	Inherits: SubTorpedo
+	Report: vbooat2a.wav
+	Burst: 2
+	ValidTargets: Ship, SeaAnimal, Underwater, WaterTerrain
+	Warhead@1Dam: SpreadDamage
+		Damage: 4500
+		ValidTargets: Ship, SeaAnimal, Underwater, WaterTerrain
+
+BoomerTorpedoE:
+	Inherits: BoomerTorpedo
+	Burst: 4
+
+HornetBomb:
+	Inherits: ^Missile
+	ReloadDelay: 3
+	Range: 5c0
+	Report: vospatta.wav
+	ValidTargets: Ground, Water
+	Projectile: Missile
+		Speed: 384
+		Arm: 2
+		HorizontalRateOfTurn: 32
+		RangeLimit: 11c512
+		ContrailStartColor: D8D8FF
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c410
+		Falloff: 100, 0
+		Damage: 8000
+		ValidTargets: Ground, Water
+		Versus:
+			None: 100
+			Flak: 100
+			Plate: 100
+			Light: 100
+			Medium: 100
+			Heavy: 100
+			Wood: 100
+			Steel: 100
+			Concrete: 75
+			Drone: 100
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, SuppressTerrorDrone, NonTemporal
+	Warhead@2Eff: CreateEffect
+		Explosions: hornet_explosion
+		ExplosionPalette: tseffect
+		ImpactSounds: gexpifva.wav
+		ValidTargets: Ground
+	Warhead@3EffWater: CreateEffect
+		Explosions: small_watersplash
+		ImpactSounds: gexpwasa.wav
+		ValidTargets: Water
+	Warhead@4Smu: LeaveSmudge
+		SmudgeType: SmallCrater
+
+HornetBombE:
+	Inherits: HornetBomb
+	Projectile: Missile
+		ContrailStartColor: EA0000
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c512
+		Falloff: 100, 0
+		Damage: 14000
+	Warhead@2Eff: CreateEffect
+		Explosions: terrorist_explosion
+		-ExplosionPalette: tseffect
+		ImpactSounds: gexpapoa.wav
+		ValidTargets: Ground
+	Warhead@4Smu: LeaveSmudge
+		SmudgeType: MediumCrater, MediumScorch
+
+ASWBomb:
+	Inherits: HornetBomb
+	Range: 3c0
+	ValidTargets: Underwater
+	Warhead@1Dam: SpreadDamage
+		Damage: 5000
+		Versus:
+			None: 25
+			Flak: 25
+			Plate: 25
+			Light: 100
+			Medium: 100
+			Heavy: 100
+			Wood: 65
+			Steel: 85
+			Concrete: 60
+			Drone: 25
+	Warhead@2Eff: CreateEffect
+		Explosions: small_grey_explosion
+		ExplosionPalette: effect
+	-Warhead@4Smu:
+
+ASWBombE:
+	Inherits: ASWBomb
+	Projectile: Missile
+		ContrailStartColor: EA0000
+	Warhead@1Dam: SpreadDamage
+		Damage: 8000
+
+A10Missile:
+	Inherits: ^Missile
+	ReloadDelay: 3
+	Range: 3c0
+	Report: vmigatta.wav
+	Projectile: Missile
+		Speed: 192
+		Inaccuracy: 128
+		CruiseAltitude: 2c0
+		RangeLimit: 11c410
+	Warhead@1Dam: SpreadDamage
+		Spread: 1c512
+		Damage: 8000
+		Versus:
+			None: 100
+			Flak: 100
+			Plate: 100
+			Light: 100
+			Medium: 100
+			Heavy: 100
+			Wood: 75
+			Steel: 85
+			Concrete: 50
+			Drone: 60
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, SuppressTerrorDrone, NonTemporal
+	Warhead@2Eff: CreateEffect
+		Explosions: verylarge_clsn
+		ImpactSounds: gexp14a.wav
+		ValidTargets: Ground, Air
+	Warhead@3EffWater: CreateEffect
+		Explosions: huge_watersplash
+		ImpactSounds: gexpwala.wav
+		ValidTargets: Water
+	Warhead@4Smu: LeaveSmudge
+		SmudgeType: MediumCrater, MediumScorch
+		InvalidTargets: Vehicle, Building, Wall
+
+V3StormInit:
+	Projectile: InstantExplode
+	ReloadDelay: 1
+	#Warhead@1Eff: CreateEffect
+	#	Volume: 4
+	#	AudibleThroughFog: true
+	#	ImpactSounds: sv3sweaa.wav
+	#	ValidTargets: Ground, Water, Air
+	Warhead@1Clu: FireCluster
+		Weapon: V3StormCloud
+		Dimensions: 7,7
+		Footprint: ______X __X____ _______ _______ _______ ____X__ _______
+		ValidTargets: Ground, Water, Air
+		Delay: 100
+	Warhead@2Clu: FireCluster
+		Weapon: V3StormCloud
+		Dimensions: 7,7
+		Footprint: _______ _______ _____X_ _______ _X_____ _______ ______X
+		ValidTargets: Ground, Water, Air
+		Delay: 115
+	Warhead@3Clu: FireCluster
+		Weapon: V3StormCloud
+		Dimensions: 7,7
+		Footprint: _______ _______ _______ ___X___ _______ _______ _______
+		ValidTargets: Ground, Water, Air
+		Delay: 130
+	Warhead@4Clu: FireCluster
+		Weapon: V3StormCloud
+		Dimensions: 7,7
+		Footprint: _______ _______ _X_____ _______ _____X_ _______ X______
+		ValidTargets: Ground, Water, Air
+		Delay: 145
+	Warhead@5Clu: FireCluster
+		Weapon: V3StormCloud
+		Dimensions: 7,7
+		Footprint: X______ ____X__ _______ _______ _______ __X____ _______
+		ValidTargets: Ground, Water, Air
+		Delay: 160
+	Warhead@6Clu: FireCluster
+		Weapon: V3StormCloud
+		Dimensions: 7,7
+		Footprint: _______ _______ _______ ___X___ _______ _______ _______
+		ValidTargets: Ground, Water, Air
+		Delay: 175
+
+V3StormCloud:
+	ReloadDelay: 120
+	Range: 7c0
+	Projectile: AthenaProjectile
+		Altitude: 25c0
+	Warhead@1: FireFragment
+		UseZOffsetAsAbsoluteHeight: true
+		Weapon: V3StormStrike
+		ValidTargets: Air, Ground, Water
+		Delay: 15
+	Warhead@TargetValidation: SpreadDamage
+
+V3StormStrike:
+	Inherits: ^LargeBullet
+	Range: 2c0
+	ReloadDelay: 10
+	Report: vv3latta.wav, vv3lattb.wav
+	Projectile: BulletAS
+		Image: radiationmissile
+		Sequences: down
+		Palette: player
+		IsPlayerPalette: true
+		Shadow: false
+		Speed: 640
+		TrailImage: smokeyv3
+		TrailInterval: 1
+		Blockable: false
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c768
+		Falloff: 100, 75, 50, 25, 0
+		Damage: 15000
+		Versus:
+			None: 100
+			Flak: 100
+			Plate: 100
+			Light: 100
+			Medium: 100
+			Heavy: 100
+			Wood: 100
+			Steel: 100
+			Concrete: 40
+			Drone: 100
+			Rocket: 100
+	Warhead@2Eff: CreateEffect
+		Explosions: terrorist_explosion
+		ImpactSounds: gexpapoa.wav
+	Warhead@3EffWater: CreateEffect
+		Explosions: large_watersplash
+		ImpactSounds: gexpwala.wav
+	Warhead@4Smu: LeaveSmudge
+		SmudgeType: MediumCrater, MediumScorch
+		InvalidTargets: Vehicle, Building, Wall
+
+MosquitoMissile:
+	Inherits: ^Missile
+	ReloadDelay: 50
+	Burst: 2
+	BurstDelays: 10
+	Range: 5c0
+	Report: vospatta.wav
+	Projectile: Missile
+		Speed: 512
+		Arm: 2
+		RangeLimit: 14c512
+		ContrailStartColor: A8FFA8
+		MinimumLaunchAngle: 255
+		MaximumLaunchAngle: 255
+		MaximumLaunchSpeed: 384
+		MinimumLaunchSpeed: 384
+	Warhead@1Dam: SpreadDamage
+		InvalidTargets: LoadedTankBunker
+		Spread: 0c128
+		Falloff: 100, 83, 67, 50, 0
+		Damage: 4000
+		Versus:
+			None: 15
+			Flak: 15
+			Plate: 10
+			Light: 50
+			Medium: 100
+			Heavy: 75
+			Wood: 55
+			Steel: 65
+			Concrete: 50
+			Drone: 20
+		DamageTypes: Prone70Percent, TriggerProne, VirusDeath, SuppressTerrorDrone, NonTemporal
+	Warhead@1Gar: OpenToppedDamage
+		ValidTargets: LoadedTankBunker
+		InvalidTargets: IronCurtained, ForceShielded
+		Spread: 0c128
+		Damage: 4000
+		Versus:
+			None: 15
+			Flak: 15
+			Plate: 10
+			Light: 50
+			Medium: 100
+			Heavy: 75
+			Wood: 55
+			Steel: 65
+			Concrete: 50
+			Drone: 20
+		DamageTypes: Prone70Percent, TriggerProne, VirusDeath, SuppressTerrorDrone, NonTemporal
+	Warhead@2Eff: CreateEffect
+		Explosions: small_grey_explosion
+		ImpactSounds: gexpifva.wav
+		ValidTargets: Ground, Air
+	Warhead@3EffWater: CreateEffect
+		Explosions: small_watersplash
+		ImpactSounds: gexpwasa.wav
+		ValidTargets: Water
+	Warhead@4Smu: LeaveSmudge
+		SmudgeType: SmallCrater
+	Warhead@5Par: SpawnSmokeParticle
+		ValidTargets: Ground, Air, Water
+		Image: txgasg
+		Sequences: idle
+		Palette: effect
+		Weapon: CloudDamage
+		Duration: 200
+		Speed: 0, 25
+		TurnRate: 10
+
+MosquitoMissileE:
+	Inherits: MosquitoMissile
+	Burst: 4
+	Warhead@2Eff: CreateEffect
+		Explosions: medium_grey_explosion
+		ImpactSounds: gexp15a.wav
+
+MosquitoBarrage:
+	Inherits: MosquitoMissile
+	ReloadDelay: 5
+	Burst: 1
+	Report: vletweaa.wav, vletweab.wav, vletweac.wav, vletwead.wav, vletweae.wav, vletweaf.wav
+
+MosquitoBarrageE:
+	Inherits: MosquitoMissileE
+	ReloadDelay: 5
+	Burst: 1
+	Report: vletweaa.wav, vletweab.wav, vletweac.wav, vletwead.wav, vletweae.wav, vletweaf.wav

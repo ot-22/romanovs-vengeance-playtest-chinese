@@ -1,0 +1,69 @@
+Player:
+	-ConquestVictoryConditions:
+	MissionObjectives:
+		EarlyGameOver: true
+	Shroud:
+		ExploredMapCheckboxLocked: True
+		ExploredMapCheckboxEnabled: False
+		ExploredMapCheckboxVisible: False
+	PlayerResources:
+		DefaultCashDropdownLocked: True
+		DefaultCashDropdownVisible: False
+		DefaultCash: 0
+	LobbyPrerequisiteCheckbox@DOMINATION:
+		Visible: False
+	LobbyPrerequisiteCheckbox@MEGAWEALTH:
+		Visible: False
+	LobbyPrerequisiteCheckbox@SUDDENDEATH:
+		Visible: False
+	LobbyPrerequisiteCheckbox@KOTH:
+		Visible: False
+	LobbyPrerequisiteCheckbox@REGICIDE:
+		Visible: False
+	ModularBot@CampaignAI:
+		Name: Campaign Player AI
+		Type: campaign
+
+World:
+	LobbySystemActorConditionCheckbox@CRATES:
+		Enabled: False
+		Locked: True
+		Visible: False
+	-SpawnStartingUnits:
+	-MapStartingLocations:
+	ObjectivesPanel:
+		PanelName: MISSION_OBJECTIVES
+	MapBuildRadius:
+		AllyBuildRadiusCheckboxLocked: True
+		AllyBuildRadiusCheckboxEnabled: False
+		AllyBuildRadiusCheckboxVisible: False
+	MapOptions:
+		TechLevelDropdownLocked: True
+		TechLevelDropdownVisible: False
+		ShortGameCheckboxLocked: True
+		ShortGameCheckboxVisible: False
+		ShortGameCheckboxEnabled: False
+	ScriptLobbyDropdown@CPMODIFIER:
+		Visible: false
+	TimeLimitManager:
+		TimeLimitDropdownVisible: False
+
+tany.noautotarget:
+	Inherits: tany
+	-AutoTarget:
+	-AutoTargetPriority@DEFAULT:
+	-AutoTargetPriority@ATTACKANYTHING:
+	AttackMove:
+		-AssaultMoveCondition:
+	RenderSprites:
+		Image: tany
+
+boris.noautotarget:
+	Inherits: boris
+	-AutoTarget:
+	-AutoTargetPriority@DEFAULT:
+	-AutoTargetPriority@ATTACKANYTHING:
+	AttackMove:
+		-AssaultMoveCondition:
+	RenderSprites:
+		Image: boris

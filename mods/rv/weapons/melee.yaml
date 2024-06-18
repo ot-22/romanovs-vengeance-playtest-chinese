@@ -1,0 +1,360 @@
+DogJaw:
+	ValidTargets: Infantry
+	InvalidTargets: DogImmune
+	ReloadDelay: 40
+	Range: 1c256
+	Report: idogatta.wav, idogatca.wav
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Spread: 64
+		Falloff: 100, 0
+		Damage: 100000
+		ValidTargets: Infantry
+		InvalidTargets: DogImmune
+		Versus:
+			None: 100
+			Flak: 100
+			Plate: 100
+			Light: 0
+			Medium: 0
+			Heavy: 0
+			Wood: 0
+			Steel: 0
+			Concrete: 0
+			Drone: 0
+			Rocket: 0
+		DamageTypes: BulletDeath, NonTemporal
+
+DroneJump:
+	ValidTargets: TerrorDronable
+	ReloadDelay: 40
+	Range: 3c0
+	Report: vteratta.wav
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Spread: 64
+		Falloff: 100, 0
+		Damage: 100000
+		ValidTargets: TerrorDronable
+		Versus:
+			None: 100
+			Flak: 100
+			Plate: 100
+			Light: 0
+			Medium: 0
+			Heavy: 0
+			Wood: 0
+			Steel: 0
+			Concrete: 0
+			Drone: 0
+			Rocket: 0
+		DamageTypes: BulletDeath, NonTemporal, DroneInfection
+
+DroneJumpE:
+	Inherits: DroneJump
+	ReloadDelay: 10
+
+ChitzJump:
+	Inherits: DroneJump
+	Report: idogatta.wav, idogatca.wav
+
+ChitzJumpE:
+	Inherits: ChitzJump
+	ReloadDelay: 10
+
+AlligatorBite:
+	ReloadDelay: 30
+	Range: 1c512
+	Report: galiatta.wav, galiattb.wav
+	ValidTargets: Ground
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Spread: 213
+		Damage: 3000
+		DamageTypes: BulletDeath, NonTemporal
+
+BearBite:
+	Inherits: AlligatorBite
+	Report: gbeaatta.wav, gbeaattb.wav
+
+ChimpBite:
+	Inherits: AlligatorBite
+	Report: gchiatta.wav, gchiattb.wav, gchiattc.wav
+
+CrabPunch:
+	Inherits@1: ^BreakPointDefenseDrones
+	Inherits: AlligatorBite
+	ReloadDelay: 40
+	Range: 2c128
+	Report: vsquat1a.wav
+	ValidTargets: Ground, Water
+	Warhead@1Dam: SpreadDamage
+		Damage: 6000
+		ValidTargets: Ground, Water
+		Versus:
+			Heavy: 100
+			Wood: 100
+			Steel: 100
+			Concrete: 90
+		DamageTypes: Prone100Percent, TriggerProne, BulletDeath, SuppressTerrorDrone, RemovesSquid, NonTemporal
+
+SquidPunch:
+	Inherits@1: ^BreakPointDefenseDrones
+	Inherits: AlligatorBite
+	ReloadDelay: 32
+	Range: 1c856
+	Report: vsquat1a.wav
+	ValidTargets: Water, Underwater
+	Warhead@1Dam: SpreadDamage
+		Damage: 5000
+		ValidTargets: Water, Underwater
+
+SquidSplash:
+	Inherits@1: ^BreakPointDefenseDrones
+	ReloadDelay: 100
+	Range: 1c0
+	Report: gexpwala.wav
+	Projectile: InstantExplode
+	Warhead@1Dam: SpreadDamage
+		Spread: 2c0
+		DamageTypes: RemovesSquid, NonTemporal
+	Warhead@2Eff: CreateEffect
+		Explosions: large_watersplash
+
+Shovel:
+	Inherits: AlligatorBite
+	ReloadDelay: 30
+	Range: 1c512
+	Report: isl1atta.wav
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Ground
+		Versus:
+			None: 100
+			Flak: 100
+			Plate: 80
+			Light: 50
+			Medium: 10
+			Heavy: 10
+			Wood: 55
+			Steel: 10
+			Concrete: 45
+			Drone: 100
+			Rocket: 100
+	Warhead@2Eff: CreateEffect
+		Explosions: piffpiff
+	Warhead@3Eff: CreateEffect
+		Explosions: piffpiff
+
+ShovelE:
+	Inherits: Shovel
+	ReloadDelay: 15
+	Warhead@1Dam: SpreadDamage
+		Damage: 3500
+
+Punch:
+	Inherits@1: ^BreakPointDefenseDrones
+	ReloadDelay: 60
+	Range: 1c496
+	ValidTargets: Infantry, TerrorDrone, Structure, Barrel, Mine, Bridge, Wall, Fence, Tree
+	Report: ibruatta.wav, ibruattb.wav, ibruattc.wav, ibruattd.wav, ibruatte.wav, ibruattf.wav
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Damage: 12500
+		ValidTargets: Infantry, TerrorDrone, Structure, Barrel, Mine, Bridge, Wall, Fence, Tree
+		Versus:
+			None: 100
+			Flak: 100
+			Plate: 80
+			Light: 0
+			Medium: 20
+			Heavy: 0
+			Wood: 25
+			Steel: 30
+			Concrete: 15
+			Drone: 200
+			Rocket: 100
+		DamageTypes: BruteDeath, SuppressTerrorDrone, NonTemporal
+
+PunchE:
+	Inherits: Punch
+	Burst: 2
+	BurstDelays: 10
+
+PunchHolo:
+	Inherits: Punch
+	Warhead@1Dam: SpreadDamage
+		Damage: 0
+
+PunchHoloE:
+	Inherits: PunchE
+	Warhead@1Dam: SpreadDamage
+		Damage: 0
+
+MummyPunch:
+	Inherits: Punch
+	Report: gmumatta.wav, gmumattb.wav, gmumattc.wav
+
+Smash:
+	Inherits@1: ^BreakPointDefenseDrones
+	ReloadDelay: 60
+	Range: 1c496
+	ValidTargets: Vehicle
+	Report: ibruatta.wav, ibruattb.wav, ibruattc.wav, ibruattd.wav, ibruatte.wav, ibruattf.wav
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Damage: 10000
+		ValidTargets: Vehicle
+		Versus:
+			None: 0
+			Flak: 0
+			Plate: 0
+			Light: 100
+			Medium: 100
+			Heavy: 100
+			Wood: 0
+			Steel: 0
+			Concrete: 0
+			Drone: 0
+			Rocket: 0
+		DamageTypes: BruteDeath, SuppressTerrorDrone, NonTemporal
+
+SmashE:
+	Inherits: Smash
+	Warhead@1Dam: SpreadDamage
+		Damage: 15000
+
+SmashHolo:
+	Inherits: Smash
+	Warhead@1Dam: SpreadDamage
+		Damage: 0
+
+SmashHoloE:
+	Inherits: SmashE
+	Warhead@1Dam: SpreadDamage
+		Damage: 0
+
+MummySmash:
+	Inherits: Smash
+	Report: gmumatta.wav, gmumattb.wav, gmumattc.wav
+
+Heal:
+	ReloadDelay: 80
+	Range: 2c512
+	Report: gcraheal.wav
+	ValidTargets: Heal
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Spread: 213
+		Damage: -5000
+		ValidTargets: Heal
+	Warhead@2Eff: FlashTargetsInRadius
+		Radius: 213
+		ValidRelationships: Ally
+		ValidTargets: Heal
+
+RepairBullet:
+	ReloadDelay: 80
+	Range: 1c819
+	Report: vifvrepa.wav
+	ValidTargets: Repair
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Spread: 213
+		Damage: -5000
+		ValidTargets: Repair
+		DamageTypes: KillsDrone, NonTemporal
+	Warhead@2Eff: FlashTargetsInRadius
+		Radius: 213
+		ValidRelationships: Ally
+		ValidTargets: Repair
+
+RepairBulletE:
+	Inherits: RepairBullet
+	ReloadDelay: 70
+	Warhead@1Dam: SpreadDamage
+		Damage: -7500
+
+MechRepair:
+	Inherits: RepairBullet
+	Range: 2c0
+	Report: fixit1.aud
+	Warhead@1Dam: SpreadDamage
+		Damage: -4000
+
+DroneRepair:
+	Inherits: RepairBullet
+	Range: 2c512
+	Report: vifvrepa.wav
+	ValidTargets: Repair, AirRepair, SeaAnimalRepair
+	-Projectile:
+	Projectile: LaserZap
+		ZOffset: 4000
+		Color: FFFF70
+		Width: 16
+		Duration: 5
+		HitAnim: explosion
+		HitAnimSequence: repairsparks
+		HitAnimPalette: player
+		SecondaryBeam: false
+	Warhead@1Dam: SpreadDamage
+		Damage: -1500
+		ValidTargets: Repair, AirRepair, SeaAnimalRepair
+
+TankGrind:
+	Inherits@1: ^BreakPointDefenseDrones
+	ReloadDelay: 25
+	Range: 1c819
+	Report: bgrinda.wav
+	ValidTargets: Ground
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 15000
+		ValidTargets: Ground
+		Versus:
+			None: 150
+			Flak: 150
+			Plate: 100
+			Light: 100
+			Medium: 100
+			Heavy: 100
+			Wood: 100
+			Steel: 100
+			Concrete: 90
+			Drone: 100
+			Rocket: 0
+		DamageTypes: BulletDeath, SuppressTerrorDrone, NonTemporal
+
+TankGrindE:
+	Inherits: TankGrind
+	ReloadDelay: 15
+
+SlimeAttack:
+	Inherits@1: ^BreakPointDefenseDrones
+	ReloadDelay: 60
+	Range: 1c496
+	ValidTargets: Ground
+	Report: ibruatta.wav, ibruattb.wav, ibruattc.wav, ibruattd.wav, ibruatte.wav, ibruattf.wav
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Damage: 5000
+		ValidTargets: Ground
+		Versus:
+			None: 100
+			Flak: 90
+			Plate: 80
+			Light: 70
+			Medium: 15
+			Heavy: 15
+			Wood: 25
+			Steel: 30
+			Concrete: 15
+			Drone: 50
+			Rocket: 50
+		DamageTypes: BruteDeath, SuppressTerrorDrone, NonTemporal, Prone100Percent, TriggerProne
+
+SlimeAttackE:
+	Inherits@1: SlimeAttack
+	ReloadDelay: 30
+	Warhead@1Dam: SpreadDamage
+		Damage: 7500

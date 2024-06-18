@@ -1,0 +1,2382 @@
+yacnst:
+	Inherits: ^ConstructionYard
+	Buildable:
+		BuildPaletteOrder: 30
+	ProvidesPrerequisite@building.yuri:
+		Prerequisite: building.yuri
+	ProvidesPrerequisite@building.psisouth:
+		Prerequisite: building.psisouth
+		Factions: psisouth
+	Production:
+		Produces: Building.Yuri, Support.Yuri, Support.Antarctica
+	ProductionQueue@Building:
+		Type: Building.Yuri
+		DisplayOrder: 3
+	ProductionQueue@Support:
+		Type: Support.Yuri
+		DisplayOrder: 7
+		Factions: america, germany, england, france, korea, japan, belarus, poland, ukraine, aussie, china, turkey, canada, cuba, libya, iraq, russia, vietnam, chile, mexico, mongolia, psicorps, psinepal, psitrans, psimoon, transcaucus, turkmen, tuva, russianfed, serbia
+	ProductionQueue@SupportAntarctica:
+		Type: Support.Antarctica
+		Group: Support
+		DisplayOrder: 7
+		LowPowerModifier: 200
+		Factions: psisouth
+		ReadyAudio: ConstructionComplete
+		ReadyTextNotification: notification-construction-complete
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: notification-unable-to-comply-building-in-progress
+		QueuedAudio: Building
+		OnHoldAudio: OnHold
+	Transforms:
+		IntoActor: pcv
+	ProductionBar@Building:
+		ProductionType: Building.Yuri
+	ProductionBar@Support:
+		ProductionType: Support.Yuri
+	ProductionBar@SupportAntarctica:
+		ProductionType: Support.Antarctica
+		Color: 8A8A8A
+	WithIdleOverlay@top:
+		Sequence: idle-top
+		RequiresCondition: !build-incomplete
+	WithIdleOverlay@normal:
+		Sequence: idle-normal
+		RequiresCondition: !build-incomplete
+	WithBuildingPlacedAnimation:
+		RequiresCondition: !build-incomplete
+	GrantConditionOnFaction@Yurigrad:
+		Condition: psicorps
+		Factions: psicorps
+	GrantConditionOnFaction@Lazarus:
+		Condition: psinepal
+		Factions: psinepal
+	GrantConditionOnFaction@Antarctica:
+		Condition: psisouth
+		Factions: psisouth
+	GrantConditionOnFaction@Transylvania:
+		Condition: psitrans
+		Factions: psitrans
+	GrantConditionOnFaction@Luna:
+		Condition: psimoon
+		Factions: psimoon
+	WithIdleOverlay@Yurigrad:
+		Sequence: flag-psicorps
+		RequiresCondition: !build-incomplete && psicorps
+	WithIdleOverlay@Lazarus:
+		Sequence: flag-psinepal
+		RequiresCondition: !build-incomplete && psinepal
+	WithIdleOverlay@Antarctica:
+		Sequence: flag-psisouth
+		RequiresCondition: !build-incomplete && psisouth
+	WithIdleOverlay@Transylvania:
+		Sequence: flag-psitrans
+		RequiresCondition: !build-incomplete && psitrans
+	WithIdleOverlay@Luna:
+		Sequence: flag-psimoon
+		RequiresCondition: !build-incomplete && psimoon
+	IsometricSelectable:
+		DecorationHeight: 60
+	Voiced:
+		VoiceSet: YuriConstructionYardVoice
+	RenderSprites:
+		Image: yacnst
+
+yapowr:
+	Inherits: ^PowerPlant
+	Inherits@SHAPE: ^2x2Shape
+	Buildable:
+		Queue: Building.Shared, Building.Yuri
+		Description: actor-yapowr.description
+		Prerequisites: ~building.yuri, ~techlevel.1
+	Tooltip:
+		Name: actor-yapowr.name
+	Tooltip@NoRow:
+		Name: actor-yapowr.name
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	WithIdleOverlay@empty:
+		Sequence: empty
+		PauseOnCondition: chronodisable
+		RequiresCondition: !loaded && !build-incomplete
+	WithIdleOverlay@loaded:
+		Sequence: loaded
+		PauseOnCondition: chronodisable
+		RequiresCondition: loaded && !build-incomplete
+	WithIdleOverlay@lights:
+		Sequence: idle-lights
+		PauseOnCondition: chronodisable
+		RequiresCondition: !build-incomplete
+	Power@1:
+		Amount: 50
+		RequiresCondition: !chronodisable && !forceshieldnopower && !disabled && loaded >= 1
+	Power@2:
+		Amount: 50
+		RequiresCondition: !chronodisable && !forceshieldnopower && !disabled && loaded >= 2
+	Power@3:
+		Amount: 50
+		RequiresCondition: !chronodisable && !forceshieldnopower && !disabled && loaded >= 3
+	Power@4:
+		Amount: 50
+		RequiresCondition: !chronodisable && !forceshieldnopower && !disabled && loaded >= 4
+	Power@5:
+		Amount: 50
+		RequiresCondition: !chronodisable && !forceshieldnopower && !disabled && loaded >= 5
+	Power@6:
+		Amount: 100
+		RequiresCondition: !chronodisable && !forceshieldnopower && !disabled && loadedvehicle
+	Cargo:
+		Types: Infantry, Garrisoner, NaturalVehicle
+		MaxWeight: 5
+		AfterLoadDelay: 0
+		BeforeUnloadDelay: 0
+		AfterUnloadDelay: 0
+		EjectOnDeathDamage: 0
+		LoadedCondition: loaded
+		PassengerConditions:
+			spider: loadedvehicle
+	WithCargoPipsDecoration:
+		FullSequence: pip-building-green
+		EmptySequence: pip-building-empty
+		Palette: ra
+		Margin: 8, 2
+		PipStride: 4, 2
+		Position: BottomLeft
+		RequiresSelection: true
+		CustomPipSequences:
+			gray: pip-building-gray
+			yellow: pip-building-yellow
+			blue: pip-building-blue
+			red: pip-building-red
+	WithCargoSounds:
+		EnterSounds: bbioenta.wav
+		ExitSounds: bbioenta.wav
+		SoundVolume: 0.5
+	InstantlyRepairable:
+		RequiresCondition: !ivanbomb && !sealC4 && !commandoC4 && !teslabomb && !toxinbomb && damaged
+	GrantConditionOnDamageState@DAMAGED:
+		Condition: damaged
+		ValidDamageStates: Light, Medium, Heavy, Critical
+	IsometricSelectable:
+		Class: yapowr
+		DecorationHeight: 60
+	Voiced:
+		VoiceSet: PowerPlantVoice
+		Volume: 0.8
+	RenderSprites:
+		Image: yapowr
+	ActorStatValues:
+		Stats: Armor, Sight, Power, None, None, None, Cargo
+
+yabrck:
+	Inherits: ^Barracks
+	Inherits@SHAPE: ^2x3Shape
+	Buildable:
+		Queue: Building.Shared, Building.Yuri
+		Description: actor-yabrck.description
+		Prerequisites: ~building.yuri, power, ~techlevel.1
+	Building:
+		Footprint: xx xx xx
+		Dimensions: 2,3
+	Exit@1Shared:
+		SpawnOffset: 724,362,0
+		ExitCell: 2,2
+		Priority: 2
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@2Shared:
+		SpawnOffset: 724,362,0
+		ExitCell: 2,1
+		Priority: 2
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback1Shared:
+		SpawnOffset: -362,1086,0
+		ExitCell: 2,3
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback2Shared:
+		SpawnOffset: -362,1086,0
+		ExitCell: 1,3
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback3Shared:
+		SpawnOffset: -1086,362,0
+		ExitCell: 0,3
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback4Shared:
+		SpawnOffset: -1086,362,0
+		ExitCell: -1,3
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback5Shared:
+		SpawnOffset: -1086,362,0
+		ExitCell: -1,2
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback6Shared:
+		SpawnOffset: -362,-362,0
+		ExitCell: -1,1
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback7Shared:
+		SpawnOffset: 362,-1086,0
+		ExitCell: -1,0
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback8Shared:
+		SpawnOffset: 362,-1086,0
+		ExitCell: -1,-1
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback9Shared:
+		SpawnOffset: 362,-1086,0
+		ExitCell: 0,-1
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback10Shared:
+		SpawnOffset: 1086,-362,0
+		ExitCell: 1,-1
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback11Shared:
+		SpawnOffset: 1086,-362,0
+		ExitCell: 2,-1
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@fallback12Shared:
+		SpawnOffset: 724,362,0
+		ExitCell: 2,0
+		ProductionTypes: Infantry.Shared, Soldier
+		RequiresCondition: !multiqueue
+	Exit@1:
+		SpawnOffset: 724,362,0
+		ExitCell: 2,2
+		Priority: 2
+		RequiresCondition: multiqueue
+	Exit@2:
+		SpawnOffset: 724,362,0
+		ExitCell: 2,1
+		Priority: 2
+		RequiresCondition: multiqueue
+	Exit@fallback1:
+		SpawnOffset: -362,1086,0
+		ExitCell: 2,3
+		RequiresCondition: multiqueue
+	Exit@fallback2:
+		SpawnOffset: -362,1086,0
+		ExitCell: 1,3
+		RequiresCondition: multiqueue
+	Exit@fallback3:
+		SpawnOffset: -1086,362,0
+		ExitCell: 0,3
+		RequiresCondition: multiqueue
+	Exit@fallback4:
+		SpawnOffset: -1086,362,0
+		ExitCell: -1,3
+		RequiresCondition: multiqueue
+	Exit@fallback5:
+		SpawnOffset: -1086,362,0
+		ExitCell: -1,2
+		RequiresCondition: multiqueue
+	Exit@fallback6:
+		SpawnOffset: -362,-362,0
+		ExitCell: -1,1
+		RequiresCondition: multiqueue
+	Exit@fallback7:
+		SpawnOffset: 362,-1086,0
+		ExitCell: -1,0
+		RequiresCondition: multiqueue
+	Exit@fallback8:
+		SpawnOffset: 362,-1086,0
+		ExitCell: -1,-1
+		RequiresCondition: multiqueue
+	Exit@fallback9:
+		SpawnOffset: 362,-1086,0
+		ExitCell: 0,-1
+		RequiresCondition: multiqueue
+	Exit@fallback10:
+		SpawnOffset: 1086,-362,0
+		ExitCell: 1,-1
+		RequiresCondition: multiqueue
+	Exit@fallback11:
+		SpawnOffset: 1086,-362,0
+		ExitCell: 2,-1
+		RequiresCondition: multiqueue
+	Exit@fallback12:
+		SpawnOffset: 724,362,0
+		ExitCell: 2,0
+		RequiresCondition: multiqueue
+	Production:
+		Produces: Infantry.Yuri, Infantry.Moon
+	ProductionQueue:
+		Type: Infantry.Yuri
+		DisplayOrder: 15
+		Factions: america, germany, england, france, korea, japan, belarus, poland, ukraine, aussie, china, turkey, canada, cuba, iraq, libya, russia, vietnam, chile, mexico, mongolia, psicorps, psinepal, psisouth, psitrans, transcaucus, turkmen, tuva, russianfed, serbia
+	ProductionQueue@Moon:
+		Type: Infantry.Moon
+		Group: Infantry
+		DisplayOrder: 15
+		LowPowerModifier: 200
+		Factions: psimoon
+		ReadyAudio: UnitReady
+		ReadyTextNotification: notification-unit-ready
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: notification-unable-to-comply-building-in-progress
+		QueuedAudio: Training
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+	ProductionBar:
+		ProductionType: Infantry.Yuri
+	ProductionBar@Moon:
+		ProductionType: Infantry.Moon
+	WithIdleOverlay@lights:
+		Sequence: idle-lights
+		PauseOnCondition: chronodisable
+		RequiresCondition: !build-incomplete
+	RallyPoint:
+		Path: 2,1
+	ProvidesPrerequisite@buildingname:
+		Prerequisite: yabrck
+	ProvidesPrerequisite@infantry.yuri:
+		Prerequisite: infantry.yuri
+	ProvidesPrerequisite@infantry.psimoon:
+		Prerequisite: infantry.psimoon
+		Factions: psimoon
+	ProvidesPrerequisite@showslave:
+		Prerequisite: showslave
+	ProvidesPrerequisite@mwfacref:
+		Prerequisite: psirefn
+	PlaceBuildingVariants:
+		Actors: yabrcb
+	IsometricSelectable:
+		Class: yabrck
+		DecorationHeight: 105
+
+yarefn:
+	Inherits: ^BaseBuilding
+	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@DISK: ^DiskStealable
+	Inherits@SHAPE: ^2x2Shape
+	Buildable:
+		Queue: Building.Unused # Building.Yuri
+		BuildPaletteOrder: 30
+		Prerequisites: power
+		Description: actor-yarefn.description
+		BuildDuration: 750
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: actor-yarefn.name
+	Tooltip@NoRow:
+		Name: actor-yarefn.name
+	Health:
+		HP: 150000
+	Armor:
+		Type: Medium
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 6c0
+	RevealOnDeath:
+		Radius: 6c0
+	ProvidesPrerequisite@yarefn:
+		Prerequisite: yarefn
+	ProvidesPrerequisite@yarefnorsmin:
+		Prerequisite: yarefnorsmin
+	ProvidesPrerequisite@psirefn:
+		Prerequisite: psirefn
+	ProvidesPrerequisite@refinery:
+		Prerequisite: refinery
+	ProvidesPrerequisite@showslave:
+		Prerequisite: showslave
+	Building:
+		Footprint: xx x+
+		Dimensions: 2,2
+		TerrainTypes: Clear, Sand, Rough, Dune, Road, DirtRoad
+		-SecondaryTerrainTypes:
+	Refinery:
+		ShowTicks: True
+		TickRate: 10
+		UseStorage: true
+	DockHost:
+		Type: SlaveUnload
+		DockAngle: 640
+		DockOffset: 0,724,0
+	Production@Shared:
+		Produces: Infantry.Shared, Slave
+		RequiresCondition: !multiqueue
+	Production:
+		Produces: Infantry.Slave, Slave
+		RequiresCondition: multiqueue
+	ProductionQueue:
+		Type: Infantry.Slave
+		Group: Infantry
+		LowPowerModifier: 200
+		ReadyAudio: UnitReady
+		ReadyTextNotification: notification-unit-ready
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: notification-unable-to-comply-building-in-progress
+		QueuedAudio: Training
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+	ProductionBar@Shared:
+		ProductionType: Infantry.Shared
+	ProductionBar:
+		ProductionType: Infantry.Slave
+	GrantConditionOnPrerequisite@multiqueue:
+		Condition: multiqueue
+		Prerequisites: global-multiqueue
+	FreeActor@Dummy:
+		Actor: QueueUpdaterDummy
+		RequiresCondition: updatequeue
+	GrantConditionAfterDelay:
+		Delay: 1
+		Condition: updatequeue
+		ShowSelectionBar: false
+	RallyPoint:
+		Path: 2,2
+	Exit@1Shared:
+		SpawnOffset: 0,512,0
+		ExitCell: 2, 1
+		Facing: 128
+		ProductionTypes: Infantry.Shared, Slave
+		RequiresCondition: !multiqueue
+	Exit@2Shared:
+		SpawnOffset: 0,512,0
+		ExitCell: 1, 2
+		Facing: 128
+		ProductionTypes: Infantry.Shared, Slave
+		RequiresCondition: !multiqueue
+	Exit@1:
+		SpawnOffset: 0,512,0
+		ExitCell: 2, 1
+		Facing: 128
+		RequiresCondition: multiqueue
+	Exit@2:
+		SpawnOffset: 0,512,0
+		ExitCell: 1, 2
+		Facing: 128
+		RequiresCondition: multiqueue
+	-GivesBuildableArea:
+	Transforms:
+		Facing: 896
+		IntoActor: smin
+		DeployCursor: undeploy
+		Voice: Undeploy
+		PauseOnCondition: chronodisable
+		RequiresCondition: !build-incomplete
+	TransformsIntoMobile:
+		RequiresCondition: !build-incomplete && !chronodisable
+		Locomotor: tracked
+		Voice: Move
+		RequiresForceMove: true
+	TransformsIntoRepairable:
+		RequiresCondition: !build-incomplete && !chronodisable
+		RepairActors: gadept, nadept, nadepb, yadept, yadepb, caoutp, caoutb
+		Voice: Move
+		RequiresForceMove: true
+	TransformsIntoPassenger:
+		RequiresCondition: !build-incomplete && !chronodisable
+		CargoType: Vehicle
+		Voice: Move
+		RequiresForceMove: true
+	TransferTimedExternalConditionOnTransform@INVULNERABILITY:
+		Condition: invulnerability
+	TransferTimedExternalConditionOnTransform@INVISIBILITY:
+		Condition: invisibility
+	ExternalCondition@INVISIBILITY:
+		Condition: invisibility
+	InfiltrateForCash:
+		Percentage: 50
+		InfiltratedNotification: CashStolen
+		InfiltrationNotification: BuildingInfiltratedCashStolen
+		Minimum: 500
+	WithIdleOverlay@processing:
+		Sequence: idle-processing
+		PauseOnCondition: chronodisable
+		RequiresCondition: !build-incomplete
+	Turreted:
+		TurnSpeed: 20
+		InitialFacing: 128
+		Offset: 640,0,0
+	Armament@primary:
+		Weapon: 20mmrapid
+		Damage: 30
+		LocalOffset: 512,0,1132
+		MuzzleSequence: muzzle
+	#	RequiresCondition: !rank-elite
+	# Armament@elite:
+	#	Weapon: 20mmrapidE
+	#	Damage: 50
+	#	LocalOffset: 512,0,1132
+	#	MuzzleSequence: muzzle
+	#	RequiresCondition: rank-elite
+	AttackTurreted:
+		Voice: Attack
+		PauseOnCondition: chronodisable
+		RequiresCondition: !build-incomplete
+	WithMuzzleOverlay:
+	RenderSprites:
+		Image: yarefn
+	RenderVoxels:
+		Image: smin
+		Scale: 11.7
+		LightYaw: 800
+		LightPitch: 150
+		LightAmbientColor: -0.5,-0.5,-0.5
+		LightDiffuseColor: 1.3,1.3,1.3
+	WithVoxelTurret:
+		RequiresCondition: !build-incomplete
+	Targetable:
+		TargetTypes: Ground, C4, DetonateAttack, Structure, Defense, NonGarrisonableStructure, SpyInfiltrate
+	Targetable@Water:
+		TargetTypes: Ground, Water, WaterStructure, Defense, C4, SpyInfiltrate
+	-SpawnActorsOnSell@allies:
+	-SpawnActorsOnSell@soviets:
+	-SpawnActorsOnSell@psicorps:
+	Voiced:
+		VoiceSet: SlaveMinerVoice
+	StoresPlayerResources:
+		Capacity: 1000
+	Explodes:
+		RequiresCondition: !spawn-ore
+	Explodes@Ore:
+		Type: Footprint
+		Weapon: RefineryExplode
+		RequiresCondition: spawn-ore
+	GrantConditionOnPlayerResources:
+		Condition: spawn-ore
+	RangedGpsDot:
+		Sequence: Harvester
+	WithResourceStoragePipsDecoration:
+		FullSequence: pip-building-yellow
+		EmptySequence: pip-building-empty
+		Palette: ra
+		Margin: 8, 2
+		PipStride: 4, 2
+		Position: BottomLeft
+		RequiresSelection: true
+		PipCount: 15
+	IsometricSelectable:
+		DecorationHeight: 45
+	ActorStatValues:
+		Upgrades: upgrade.grinder_treads, upgrade.chaos_tank_compensators
+	ActorStatValues:
+		Stats: Armor, Sight, None, Damage, ReloadDelay, MaxRange
+
+yarfn2:
+	Inherits: ^Refinery
+	Buildable:
+		Queue: Building.Shared, Building.Yuri
+		Prerequisites: ~building.yuri, power, ~!global-megawealth, ~techlevel.1, ~AIantiRush
+	ProvidesPrerequisite@psirefn:
+		Prerequisite: psirefn
+	FreeActor:
+		Actor: gmin
+	-WithDockedOverlay:
+	SmokeParticleEmitter@refinerysmoke1:
+		Offset: -416,-416,3648
+	SmokeParticleEmitter@refinerysmoke2:
+		Offset: -960,-960,3648
+	PlaceBuildingVariants:
+		Actors: yarfnb #, yarfnc, yarfnd
+		Facings: 640, 384 #, 128, 896
+	IsometricSelectable:
+		Class: yarfn2
+		DecorationHeight: 105
+
+yaweap:
+	Inherits: ^WarFactory
+	Buildable:
+		Queue: Building.Shared, Building.Yuri
+		Description: actor-yaweap.description
+		Prerequisites: ~building.yuri, refinery, ~techlevel.1
+	ProvidesPrerequisite@buildingname:
+		Prerequisite: yaweap
+	ProvidesPrerequisite@vehicle.yuri:
+		Prerequisite: vehicle.yuri
+	ProvidesPrerequisite@vehicle.psicorps:
+		Prerequisite: vehicle.psicorps
+		Factions: psicorps
+	ProvidesPrerequisite@vehicle.psitrans:
+		Prerequisite: vehicle.psitrans
+		Factions: psitrans
+	ProvidesPrerequisite@vehicleorship.yuri:
+		Prerequisite: vehicleorship.yuri
+	Production:
+		Produces: Vehicle.Yuri, Vehicle.Psi, Vehicle.Trans
+	ProductionQueue:
+		Type: Vehicle.Yuri
+		DisplayOrder: 19
+		Factions: america, germany, england, france, korea, japan, belarus, poland, ukraine, aussie, china, turkey, canada, cuba, iraq, libya, russia, vietnam, chile, mexico, mongolia, psinepal, psisouth, psimoon, transcaucus, turkmen, tuva, russianfed, serbia
+	ProductionQueue@Psi:
+		Type: Vehicle.Psi
+		Group: Vehicle
+		DisplayOrder: 19
+		LowPowerModifier: 200
+		Factions: psicorps
+		ReadyAudio: UnitReady
+		ReadyTextNotification: notification-unit-ready
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: notification-unable-to-comply-building-in-progress
+		QueuedAudio: Training
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+	ProductionQueue@Trans:
+		Type: Vehicle.Trans
+		Group: Vehicle
+		DisplayOrder: 19
+		LowPowerModifier: 200
+		Factions: psitrans
+		ReadyAudio: UnitReady
+		ReadyTextNotification: notification-unit-ready
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: notification-unable-to-comply-building-in-progress
+		QueuedAudio: Training
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+	ProductionBar:
+		ProductionType: Vehicle.Yuri
+	ProductionBar@Psi:
+		ProductionType: Vehicle.Psi
+	ProductionBar@Trans:
+		ProductionType: Vehicle.Trans
+	WithIdleOverlay@lights:
+		Sequence: idle-lights
+		PauseOnCondition: chronodisable
+		RequiresCondition: !build-incomplete
+	PlaceBuildingVariants:
+		Actors: yaweab #, yaweac, yawead
+	IsometricSelectable:
+		Class: yaweap
+		DecorationHeight: 75
+
+yayard:
+	Inherits: ^Shipyard
+	Tooltip:
+		Name: actor-yayard.name
+	Tooltip@NoRow:
+		Name: actor-yayard.name
+	Buildable:
+		Queue: Building.Shared, Building.Yuri
+		Prerequisites: ~building.yuri, refinery, ~techlevel.1
+		Description: actor-yayard.description
+	ProvidesPrerequisite@buildingname:
+	ProvidesPrerequisite@ship.yuri:
+		Prerequisite: ship.yuri
+	ProvidesPrerequisite@vehicleorship.yuri:
+		Prerequisite: vehicleorship.yuri
+	Production:
+		Produces: Ship.Yuri
+	ProductionQueue:
+		Type: Ship.Yuri
+		DisplayOrder: 23
+	ProductionBar:
+		ProductionType: Ship.Yuri
+	ParatroopersPower@sensorbuoy:
+		OrderName: PsiCorpsSensorBuoy
+		PauseOnCondition: disabled || chronodisable
+		Prerequisites:
+			1: disabled # yayard
+		Icons:
+			1: buoy
+		ChargeInterval: 9000
+		Names:
+			1: Sensor Buoy
+		Descriptions:
+			1: A Toxin Bomber paradrops a Sensor Buoy\nanywhere on the map.
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+		EndChargeSpeechNotification: ParatroopersReady
+		EndChargeTextNotification: notification-paratroopers-ready
+		DropItems:
+			1: buoy
+		SquadSizes:
+			1: 1
+		SquadOffset: -2048, 2048, 0
+		QuantizedFacings: 8
+		UnitTypes:
+			1: txbmbdrop
+		CameraActor: camera
+		DisplayBeacon: True
+		BeaconPosters:
+			1: buoyicon
+		ArrowSequence: arrow
+		ClockSequence: clock
+		UseDirectionalTarget: True
+		DirectionArrowAnimation: swdirection
+		DirectionArrowPalette: mouse
+	IsometricSelectable:
+		DecorationHeight: 120
+
+yadept:
+	Inherits: ^ServiceDepot
+	HitShape:
+		TargetableOffsets: 0,0,0, -360,360,0, 360,-360,0, -1080,1080,0, -360,1800,0, -1800,360,0, 360,1080,0, -360,-1080,0, 1080,360,0, -1080,-360,0
+	Buildable:
+		Queue: Building.Unused # Building.Shared, Building.Yuri
+		Prerequisites: ~building.yuri, yaweap, ~techlevel.1
+		Description: actor-yadept.description
+	ProvidesPrerequisite@default:
+		Prerequisite: yadept
+	WithIdleOverlay@normal:
+		Sequence: idle-normal
+		PauseOnCondition: chronodisable
+		RequiresCondition: !build-incomplete
+	PlaceBuildingVariants:
+		Actors: yadepb
+	IsometricSelectable:
+		Class: yadept
+		DecorationHeight: 105
+
+yagrnd:
+	Inherits: ^BaseBuilding
+	Inherits@MC: ^MindControllableBuilding
+	Inherits@SHAPE: ^3x3Shape
+	Buildable:
+		Queue: Building.Shared, Building.Yuri
+		BuildPaletteOrder: 110
+		Prerequisites: ~building.yuri, yaweap, prerequisite.grinder, ~techlevel.1
+		Description: actor-yagrnd.description
+		BuildDuration: 125
+		BuildDurationModifier: 100
+	Health:
+		HP: 90000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 8c0
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: actor-yagrnd.name
+	Tooltip@NoRow:
+		Name: actor-yagrnd.name
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 6c0
+	ProvidesPrerequisite@default:
+	ProvidesPrerequisite@repairpad:
+		Prerequisite: repairpad
+	AcceptsDeliveredCash:
+	WithAcceptDeliveredCashAnimation:
+		Sequence: grind
+	WithAcceptDeliveredCashSound:
+		Sound: bgrinda.wav
+	WithIdleOverlay@waves:
+		Sequence: idle-waves
+		RequiresCondition: in_water
+	Power:
+		Amount: -50
+		RequiresCondition: !chronodisable
+	IsometricSelectable:
+		DecorationHeight: 75
+	Voiced:
+		VoiceSet: GrinderVoice
+		Volume: 0.8
+	ActorStatValues:
+		Stats: Armor, Sight, Power
+
+yadome:
+	Inherits: ^Radar
+	Inherits@SHAPE: ^2x2Shape
+	Inherits@AI: ^AIMicroManagable
+	Buildable:
+		Queue: Building.Shared, Building.Yuri
+		Prerequisites: ~building.yuri, power, psirefn, ~techlevel.2, ~!ai.yadome
+		Description: actor-yadome.description
+	ProvidesPrerequisite@AIbuildinglimit:
+		RequiresCondition: ai-control
+		Prerequisite: ai.yadome
+	Tooltip:
+		Name: actor-yadome.name
+	Tooltip@NoRow:
+		Name: actor-yadome.name
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	ProvidesPrerequisite@psicorps:
+		Prerequisite: radar.psicorps
+		Factions: psicorps
+	ProvidesPrerequisite@psinepal:
+		Prerequisite: radar.psinepal
+		Factions: psinepal
+	ProvidesPrerequisite@psisouth:
+		Prerequisite: radar.psisouth
+		Factions: psisouth
+	ProvidesPrerequisite@psitrans:
+		Prerequisite: radar.psitrans
+		Factions: psitrans
+	ProvidesPrerequisite@psimoon:
+		Prerequisite: radar.psimoon
+		Factions: psimoon
+	ProvidesPrerequisite@upgrade.psicorps:
+		Prerequisite: upgrade.psicorps
+		Factions: psicorps
+	ProvidesPrerequisite@upgrade.psinepal:
+		Prerequisite: upgrade.psinepal
+		Factions: psinepal
+	ProvidesPrerequisite@upgrade.psisouth:
+		Prerequisite: upgrade.psisouth
+		Factions: psisouth
+	ProvidesPrerequisite@upgrade.psitrans:
+		Prerequisite: upgrade.psitrans
+		Factions: psitrans
+	ProvidesPrerequisite@upgrade.psimoon:
+		Prerequisite: upgrade.psimoon
+		Factions: psimoon
+	ProvidesPrerequisite@upgrade.yuri:
+		Prerequisite: upgrade.yuri
+	ParatroopersPower@psiops:
+		OrderName: YurigradPsiOps
+		PauseOnCondition: disabled || chronodisable
+		Prerequisites:
+			1: radar.psicorps
+		Icons:
+			1: psiops
+		ChargeInterval: 6000
+		Names:
+			1: Psi-Ops Drop
+		Descriptions:
+			1: A Cargo Plane drops 3 Yuri Clones\nanywhere on the map.
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+		EndChargeSpeechNotification: ParatroopersReady
+		EndChargeTextNotification: notification-paratroopers-ready
+		DropItems:
+			1: yuripsi, yuripsi, yuripsi
+		SquadSizes:
+			1: 1
+		QuantizedFacings: 8
+		UnitTypes:
+			1: pcplane
+		CameraActor: camera
+		DisplayBeacon: True
+		BeaconPosters:
+			1: yclnicon
+		ArrowSequence: arrow
+		ClockSequence: clock
+		UseDirectionalTarget: True
+		DirectionArrowAnimation: swdirection
+		DirectionArrowPalette: mouse
+	AirstrikePower@chaosgas:
+		OrderName: YurigradChaosDrop
+		PauseOnCondition: disabled || chronodisable
+		Prerequisites:
+			1: disabled
+		Icons:
+			1: xxicon
+		ChargeInterval: 7500
+		Names:
+			1: Chaos Gas Drop
+		Descriptions:
+			1: A Cargo Plane drops a trail of Chaos\nGas anywhere on the map.
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+		UnitTypes:
+			1: pdplane.chaos
+		SquadSizes:
+			1: 1
+		QuantizedFacings: 8
+		CameraActor: CAMERA
+		CameraRemoveDelay: 100
+		DisplayBeacon: True
+		BeaconPosters:
+			1: xxicon
+		ArrowSequence: arrow
+		ClockSequence: clock
+		UseDirectionalTarget: True
+		DirectionArrowAnimation: swdirection
+		DirectionArrowPalette: mouse
+	DetonateWeaponPower@hologram:
+		OrderName: LazarusHologramArmy
+		PauseOnCondition: disabled || chronodisable
+		Prerequisites:
+			1: radar.psinepal
+		Icons:
+			1: hologram
+		ChargeInterval: 4500
+		Names:
+			1: Hologram Army
+		Descriptions:
+			1: Spawns a large group of hologram infantry and vehicles\nanywhere on the map.\n\nHolograms stay for 20 seconds.
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+		Weapons:
+			1: HologramSpawner
+		ActivationSequence:
+	GrantExternalConditionPower@pointdefensedrones:
+		OrderName: AntarcticaPointDefenseDrones
+		PauseOnCondition: disabled || chronodisable
+		Prerequisites:
+			1: radar.psisouth
+		Icons:
+			1: pointdefense
+		ChargeInterval: 3000
+		Names:
+			1: Point Defense Drones
+		Descriptions:
+			1: Gives a group of vehicles Point Defense Drones which reduces the taken damage.\nDrones regenerate over time.
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+		OnFireSound: ironcur9.aud
+		Durations:
+			1: -1
+		Conditions:
+			1: pointdefense
+		Dimensions:
+			1: 3,3
+		Footprints:
+			1: xxx xxx xxx
+	DetonateWeaponPower@lethocerusswarm:
+		OrderName: TransylvaniaLethocerusSwarm
+		PauseOnCondition: disabled || chronodisable
+		Prerequisites:
+			1: radar.psitrans
+		Icons:
+			1: lethocerus
+		ChargeInterval: 6000
+		Names:
+			1: Lethocerus Swarm
+		Descriptions:
+			1: Spawns 3 Lethocerus Platforms\nanywhere on the map.
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+		Weapons:
+			1: LethocerusSpawnerSpawnerSpawner
+		ActivationSequence:
+	IonCannonPower@ioncanon:
+		OrderName: LunarIonCannon
+		# Cursor: ioncannon
+		PauseOnCondition: disabled || chronodisable
+		Prerequisites:
+			1: radar.psimoon
+		Icons:
+			1: ioncannon
+		Effect: dot
+		WeaponDelay: 0
+		ChargeInterval: 6000
+		Names:
+			1: Ion Cannon
+		Descriptions:
+			1: Initiate an Ion Cannon strike.\nApplies instant damage to a small area.
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+		DisplayRadarPing: True
+		CameraActor: camera
+		CameraRemoveDelay: 100
+		OnFireSound: ion1.aud
+	WithIdleOverlay@light:
+		Sequence: idle-light
+		PauseOnCondition: disabled || chronodisable
+		RequiresCondition: !build-incomplete
+	WithIdleOverlay@panels:
+		Sequence: idle-panels
+		PauseOnCondition: disabled || chronodisable
+		RequiresCondition: !build-incomplete
+	IsometricSelectable:
+		DecorationHeight: 75
+
+yadisk:
+	Inherits: ^Helipad
+	Buildable:
+		Queue: Building.Shared, Building.Yuri
+		Prerequisites: ~building.yuri, yadome, ~techlevel.2
+		Description: actor-yadisk.description
+	Tooltip:
+		Name: actor-yadisk.name
+	Tooltip@NoRow:
+		Name: actor-yadisk.name
+	Production:
+		Produces: Aircraft.Yuri, Aircraft.Lazarus
+	ProductionQueue:
+		Type: Aircraft.Yuri
+		DisplayOrder: 27
+		Factions: america, germany, england, france, korea, japan, belarus, poland, ukraine, aussie, china, turkey, canada, cuba, iraq, libya, russia, vietnam, chile, mexico, mongolia, psicorps, psisouth, psitrans, psimoon, transcaucus, turkmen, tuva, russianfed, serbia
+	ProductionQueue@Lazarus:
+		Type: Aircraft.Lazarus
+		Group: Aircraft
+		DisplayOrder: 27
+		LowPowerModifier: 200
+		Factions: psinepal
+		ReadyAudio: UnitReady
+		ReadyTextNotification: notification-unit-ready
+		BlockedAudio: NoBuild
+		BlockedTextNotification: notification-unable-to-build-more
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: notification-unable-to-comply-building-in-progress
+		QueuedAudio: Training
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+	ProductionBar:
+		ProductionType: Aircraft.Yuri
+	ProductionBar@Lazarus:
+		ProductionType: Aircraft.Lazarus
+	ProvidesPrerequisite@buildingname:
+	ProvidesPrerequisite@aircraft.yuri:
+		Prerequisite: aircraft.yuri
+	ProvidesPrerequisite@aircraft.psinepal:
+		Prerequisite: aircraft.psinepal
+		Factions: psinepal
+	RenderSprites:
+		Image: yarock
+	IsometricSelectable:
+		DecorationHeight: 30
+
+yatech:
+	Inherits: ^BattleLab
+	Inherits@SHAPE: ^3x2Shape
+	Buildable:
+		Queue: Building.Shared, Building.Yuri
+		Prerequisites: ~building.yuri, production, yadome, ~techlevel.3, ~!ai.yatech
+	ProvidesPrerequisite@yatech:
+		Prerequisite: yatech
+	ProvidesPrerequisite@upgrade.yuri:
+		Prerequisite: upgrade.yuri
+	ProvidesPrerequisite@upgrade.psicorps:
+		Prerequisite: upgrade.psicorps
+		Factions: psicorps
+	ProvidesPrerequisite@upgrade.psinepal:
+		Prerequisite: upgrade.psinepal
+		Factions: psinepal
+	ProvidesPrerequisite@upgrade.psisouth:
+		Prerequisite: upgrade.psisouth
+		Factions: psisouth
+	ProvidesPrerequisite@upgrade.psitrans:
+		Prerequisite: upgrade.psitrans
+		Factions: psitrans
+	ProvidesPrerequisite@upgrade.psimoon:
+		Prerequisite: upgrade.psimoon
+		Factions: psimoon
+	ProvidesPrerequisite@AIbuildinglimit:
+		RequiresCondition: ai-control
+		Prerequisite: ai.yatech
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	WithIdleOverlay@lift:
+		Sequence: idle-lift
+		PauseOnCondition: chronodisable
+		RequiresCondition: !build-incomplete
+	WithIdleOverlay@waves:
+		RequiresCondition: !build-incomplete && in_water
+	InfiltrateForSupportPower:
+		Proxy: yuri.tech.infiltrated
+	Targetable:
+		TargetTypes: Ground, C4, DetonateAttack, Structure, NonGarrisonableStructure, SpyInfiltrate, HijackerInfiltrate, DiskInfiltrateYuri
+	Targetable@Water:
+		TargetTypes: Ground, Water, WaterStructure, C4, SpyInfiltrate, HijackerInfiltrate, DiskInfiltrateYuri
+	PlaceBuildingVariants:
+		Actors: yatecb
+	IsometricSelectable:
+		Class: yatech
+		DecorationHeight: 180
+	Voiced:
+		VoiceSet: TechCenterVoice
+		Volume: 0.8
+
+yapsis:
+	Inherits: ^BaseBuilding
+	Inherits@EMPULSE: ^DisabledByEMP
+	Inherits@LOWPOWER: ^DisableOnLowPowerOrPowerDown
+	Inherits@MC: ^MindControllableBuilding
+	Inherits@SHAPE: ^2x2Shape
+	Buildable:
+		Queue: Building.Shared, Building.Yuri
+		BuildPaletteOrder: 120
+		Prerequisites: ~building.yuri, yatech, ~techlevel.4
+		Description: actor-yapsis.description
+		BuildDuration: 1000
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: actor-yapsis.name
+	Tooltip@NoRow:
+		Name: actor-yapsis.name
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 50000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 10c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 6c0
+	RangedGpsProvider:
+		Range: 25c0
+		RequiresCondition: !build-incomplete && !disabled && !chronodisable
+	RenderDetectionCircle:
+	WithRangeCircle:
+		Range: 25c0
+		Type: sensor
+	DetectCloaked:
+		DetectionTypes: Cloak, Underwater
+		Range: 25c0
+	WithIdleOverlay@spin:
+		Sequence: idle-spin
+		PauseOnCondition: disabled || chronodisable
+		RequiresCondition: !build-incomplete
+	WithIdleOverlay@waves:
+		Sequence: idle-waves
+		RequiresCondition: in_water
+	Power:
+		Amount: -200
+		RequiresCondition: !chronodisable
+	GrantCondition@IDISABLE:
+		RequiresCondition: lowpower || powerdown || emp
+	IsometricSelectable:
+		DecorationHeight: 120
+	Voiced:
+		VoiceSet: PsychicSensorVoice
+		Volume: 0.8
+	ActorStatValues:
+		Stats: Armor, Sight, Power
+
+yaclon:
+	Inherits: ^BaseBuilding
+	Inherits@EMPULSE: ^DisabledByEMP
+	Inherits@MC: ^MindControllableBuilding
+	Inherits@SHAPE: ^2x2Shape
+	Buildable:
+		Queue: Building.Shared, Building.Yuri
+		BuildPaletteOrder: 130
+		Prerequisites: ~building.yuri, yatech, ~techlevel.4
+		Description: actor-yaclon.description
+		BuildLimit: 1
+		BuildDuration: 1250
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: actor-yaclon.name
+	Tooltip@NoRow:
+		Name: actor-yaclon.name
+	Building:
+		Footprint: xx xx
+		Dimensions: 2, 2
+		-SecondaryTerrainTypes:
+	Health:
+		HP: 75000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 6c0
+	Power:
+		Amount: -200
+		RequiresCondition: !chronodisable
+	ExitsDebugOverlay:
+	Exit@1:
+		SpawnOffset: -640,640,0
+		ExitCell: 1,2
+		Priority: 2
+	Exit@2:
+		SpawnOffset: -640,640,0
+		ExitCell: 0,2
+		Priority: 2
+	Exit@fallback1:
+		SpawnOffset: 0,724,0
+		ExitCell: 2,2
+	Exit@fallback2:
+		SpawnOffset: 0,724,0
+		ExitCell: 2,1
+	Exit@fallback3:
+		SpawnOffset: 724,0,0
+		ExitCell: 2,0
+	Exit@fallback4:
+		SpawnOffset: 724,0,0
+		ExitCell: 2,-1
+	Exit@fallback5:
+		SpawnOffset: 724,0,0
+		ExitCell: 1,-1
+	Exit@fallback6:
+		SpawnOffset: 0,-724,0
+		ExitCell: 0,-1
+	Exit@fallback7:
+		SpawnOffset: 0,-724,0
+		ExitCell: -1,-1
+	Exit@fallback8:
+		SpawnOffset: 0,-724,0
+		ExitCell: -1,0
+	Exit@fallback9:
+		SpawnOffset: -724,0,0
+		ExitCell: -1,1
+	Exit@fallback10:
+		SpawnOffset: -724,0,0
+		ExitCell: -1,2
+	WithSpriteBody:
+		PauseOnCondition: chronodisable
+	Production:
+		Produces: Clone.Yuri
+		PauseOnCondition: chronodisable || disabled
+	RallyPoint:
+		Path: 3,3
+		Palette: mouse
+		IsPlayerPalette: false
+	CommandBarBlacklist:
+		DisableStop: false
+	ClonesProducedUnits:
+		CloneableTypes: Infantry
+		ProductionType: Clone.Yuri
+	IsometricSelectable:
+		DecorationHeight: 90
+	Voiced:
+		VoiceSet: CloningVatsVoice
+		Volume: 0.8
+	ActorStatValues:
+		Stats: Armor, Sight, Power
+
+yawall:
+	Inherits: ^Wall
+	Buildable:
+		Queue: Support.Shared, Support.Yuri, Support.Antarctica
+		Prerequisites: ~building.yuri, ~techlevel.1
+		BuildPaletteOrder: 10
+		Description: actor-yawall.description
+	Tooltip:
+		Name: actor-yawall.name
+	Tooltip@NoRow:
+		Name: actor-yawall.name
+	LineBuild:
+		NodeTypes: yawall
+	LineBuildNode:
+		Types: yawall
+	WithWallSpriteBody:
+		Type: yawall
+	Replaceable:
+		Types: YuriGate
+
+yaggun:
+	Inherits: ^VoxelLighting
+	Inherits@AUTOTARGET: ^AutoTargetAll
+	Inherits@CHAINGUNS: ^AffectedByChainguns
+	Inherits@DRAIN: ^DiskDrainable
+	Inherits@EMPULSE: ^DisabledByEMP
+	Inherits@LOWPOWER: ^DisableOnLowPowerOrPowerDown
+	Inherits@MC: ^MindControllableBuilding
+	Buildable:
+		Queue: Support.Shared, Support.Yuri, Support.Antarctica
+		BuildPaletteOrder: 40
+		Prerequisites: ~building.yuri, yabrck, ~techlevel.1
+		Description: actor-yaggun.description
+		BuildDuration: 375
+		BuildDurationModifier: 100
+	Health:
+		HP: 60000
+	Armor:
+		Type: Steel
+	RevealsShroud:
+		Range: 8c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 8c0
+	Building:
+		Footprint: x
+		Dimensions: 1, 1
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: actor-yaggun.name
+	Tooltip@NoRow:
+		Name: actor-yaggun.name
+	Turreted:
+		TurnSpeed: 40
+		InitialFacing: 896
+		RealignDelay: -1
+	AttackTurreted:
+		PauseOnCondition: build-incomplete || disabled || chronodisable
+	Armament@ag-0:
+		Weapon: AGGattCann
+		LocalOffset: 640,240,1024, 640,-240,1024
+		MuzzleSequence: muzzle
+		ReloadingCondition: reload-ground
+		PauseOnCondition: reload-air
+		RequiresCondition: !gatling
+	Armament@ag-1:
+		Weapon: AGGattCann2
+		LocalOffset: 640,240,1024, 640,-240,1024
+		MuzzleSequence: muzzle-1
+		ReloadingCondition: reload-ground
+		PauseOnCondition: reload-air
+		RequiresCondition: gatling == 1
+	Armament@ag-2:
+		Weapon: AGGattCann3
+		LocalOffset: 640,240,1024, 640,-240,1024
+		MuzzleSequence: muzzle-2
+		ReloadingCondition: reload-ground
+		PauseOnCondition: reload-air
+		RequiresCondition: gatling >= 2
+	Armament@ag-line-0:
+		Name: secondary
+		Weapon: AGGattCannLine
+		LocalOffset: 640,240,1024, 640,-240,1024
+		ReloadingCondition: reload-line-ground
+		PauseOnCondition: reload-line-air
+		RequiresCondition: !gatling && chainguns
+	Armament@ag-line-1:
+		Name: secondary
+		Weapon: AGGattCannLine2
+		LocalOffset: 640,240,1024, 640,-240,1024
+		ReloadingCondition: reload-line-ground
+		PauseOnCondition: reload-line-air
+		RequiresCondition: gatling == 1 && chainguns
+	Armament@ag-line-2:
+		Name: secondary
+		Weapon: AGGattCannLine3
+		LocalOffset: 640,240,1024, 640,-240,1024
+		ReloadingCondition: reload-line-ground
+		PauseOnCondition: reload-line-air
+		RequiresCondition: gatling >= 2 && chainguns
+	Armament@aa-0:
+		Weapon: AAGattCann
+		LocalOffset: 640,240,1024, 640,-240,1024
+		MuzzleSequence: muzzle
+		ReloadingCondition: reload-air
+		PauseOnCondition: reload-ground
+		RequiresCondition: !gatling
+	Armament@aa-1:
+		Weapon: AAGattCann2
+		LocalOffset: 640,240,1024, 640,-240,1024
+		MuzzleSequence: muzzle-1
+		ReloadingCondition: reload-air
+		PauseOnCondition: reload-ground
+		RequiresCondition: gatling == 1
+	Armament@aa-2:
+		Weapon: AAGattCann3
+		LocalOffset: 640,240,1024, 640,-240,1024
+		MuzzleSequence: muzzle-2
+		ReloadingCondition: reload-air
+		PauseOnCondition: reload-ground
+		RequiresCondition: gatling >= 2
+	Armament@aa-line-0:
+		Name: secondary
+		Weapon: AAGattCannLine
+		LocalOffset: 640,240,1024, 640,-240,1024
+		MuzzleSequence: muzzle
+		ReloadingCondition: reload-line-air
+		PauseOnCondition: reload-line-ground
+		RequiresCondition: !gatling && chainguns
+	Armament@aa-line-1:
+		Name: secondary
+		Weapon: AAGattCannLine2
+		LocalOffset: 640,240,1024, 640,-240,1024
+		MuzzleSequence: muzzle-1
+		ReloadingCondition: reload-line-air
+		PauseOnCondition: reload-line-ground
+		RequiresCondition: gatling == 1 && chainguns
+	Armament@aa-line-2:
+		Name: secondary
+		Weapon: AAGattCannLine3
+		LocalOffset: 640,240,1024, 640,-240,1024
+		MuzzleSequence: muzzle-2
+		ReloadingCondition: reload-line-air
+		PauseOnCondition: reload-line-ground
+		RequiresCondition: gatling >= 2 && chainguns
+	GrantConditionOnAttack:
+		Condition: gatling
+		RequiredShotsPerInstance: 12, 24
+		MaximumInstances: 2
+		RevokeDelay: 25
+		RevokeAll: true
+		IsCyclic: false
+		RevokeOnNewTarget: false
+	BodyOrientation:
+		QuantizedFacings: 16
+	RenderVoxels:
+		Scale: 18
+	WithMuzzleOverlay:
+	WithVoxelTurret:
+		RequiresCondition: !build-incomplete
+	WithRangeCircle:
+		Range: 5c0
+		Type: pillbox
+	WithRangeCircle@AA:
+		Range: 12c0
+		Type: aa
+	Power:
+		Amount: -40
+		RequiresCondition: !chronodisable
+	GrantCondition@IDISABLE:
+		RequiresCondition: lowpower || powerdown || emp || diskdrain
+	IsometricSelectable:
+		Class: yaggun
+		DecorationHeight: 45
+	DetectCloaked:
+		Range: 5c0
+		RequiresCondition: !disabled
+	RenderDetectionCircle:
+	WithIdleOverlay@waves:
+		Sequence: idle-waves
+		RequiresCondition: in_water
+	Voiced:
+		VoiceSet: GatlingCannonVoice
+		Volume: 0.8
+	ActorStatValues:
+		Stats: Armor, Sight, Power, Damage, ReloadDelay, MinRange, None, MaxRange
+		Damage: 30
+
+natbnk:
+	Inherits: ^SupportBuilding
+	Inherits@AUTOTARGET: ^AutoTargetAll
+	Inherits@EMPULSE: ^DisabledByEMP
+	Inherits@MC: ^MindControllableBuilding
+	Inherits@SHAPE: ^2x2Shape
+	WithColoredOverlay@ChronoDisable:
+		Color: 00204040
+		RequiresCondition: chronodisable && loaded
+	WithColoredOverlay@ChronoDisableEmpty:
+		Color: 0060C040
+		RequiresCondition: chronodisable && !loaded
+	Buildable:
+		Queue: Support.Shared, Support.Yuri, Support.Antarctica
+		BuildPaletteOrder: 50
+		Prerequisites: ~building.yuri, yaweap, ~techlevel.1
+		Description: actor-natbnk.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: actor-natbnk.name
+	Tooltip@NoRow:
+		Name: actor-natbnk.name
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+		-SecondaryTerrainTypes:
+	Health:
+		HP: 100000
+	Armor:
+		Type: Steel
+	Cargo:
+		Types: GarrisonerVehicle
+		MaxWeight: 3
+		AfterLoadDelay: 0
+		BeforeUnloadDelay: 0
+		AfterUnloadDelay: 0
+		EjectOnDeathDamage: 0
+		LoadedCondition: loaded
+	WithCargoSounds:
+		EnterSounds: btanupa.wav
+		ExitSounds: btandowa.wav
+	WithCargoBuilding:
+		Facing: 384
+		DisplayTypes: GarrisonerVehicle
+	-SpawnActorsOnSell@allies:
+	-SpawnActorsOnSell@soviets:
+	-SpawnActorsOnSell@psicorps:
+	WithSpriteBody:
+	WithIdleOverlay@Garrisoned:
+		Sequence: idle-garrisoned
+		RequiresCondition: !build-incomplete && loaded
+	WithIdleOverlay@GarrisonedFront:
+		Sequence: idle-garrisoned-front
+		RequiresCondition: !build-incomplete && loaded
+	Targetable@loaded:
+		TargetTypes: LoadedTankBunker
+		RequiresCondition: loaded
+	AttackGarrisoned:
+		Armaments: primary, primary2, elite, elite2, primary-uranium, primary2-uranium, elite-uranium, elite2-uranium, primary-uranium-orange, primary2-uranium-orange, elite-uranium-orange, elite2-uranium-orange, primary-cryo, primary2-cryo, elite-cryo, elite2-cryo, secondary, gatling
+		PortOffsets: 768,0,1024, 448,-682,1024, -448,-682,1024, -768,0,1024, -448,682,1024, 448,682,1024
+		PortYaws: 0, 176, 341, 512, 682, 853
+		PortCones: 88, 88, 88, 88, 88, 88
+		PauseOnCondition: build-incomplete || chronodisable || disabled
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 6c0
+	IsometricSelectable:
+		Class: natbnk
+		DecorationHeight: 45
+	RenderSprites:
+		Image: natbnk
+	Voiced:
+		VoiceSet: TankBunkerVoice
+		Volume: 0.8
+	ActorStatValues:
+		Stats: Armor, Sight, Cargo
+
+yapsyt:
+	Inherits: ^SupportBuilding
+	Inherits@DRAIN: ^DiskDrainable
+	Inherits@EMPULSE: ^DisabledByEMP
+	Inherits@LOWPOWER: ^DisableOnLowPowerOrPowerDown
+	Buildable:
+		Queue: Support.Shared, Support.Yuri, Support.Antarctica
+		BuildPaletteOrder: 60
+		Prerequisites: ~building.yuri, yadome, ~techlevel.3
+		Description: actor-yapsyt.description
+		BuildDuration: 625
+		BuildDurationModifier: 100
+	Health:
+		HP: 60000
+	Armor:
+		Type: Steel
+	RevealsShroud:
+		Range: 8c0
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: actor-yapsyt.name
+	Tooltip@NoRow:
+		Name: actor-yapsyt.name
+	AttackTurreted:
+		PauseOnCondition: build-incomplete || disabled || chronodisable
+	Turreted:
+		TurnSpeed: 1023
+	WithIdleOverlay@top:
+		Sequence: idle-top
+		PauseOnCondition: disabled || chronodisable
+		RequiresCondition: !build-incomplete
+	Armament:
+		Weapon: TowerMindControl
+		MuzzleSequence: muzzle
+		LocalOffset: 0,0,960
+	WithMuzzleOverlay:
+	MindController:
+		Capacity: 3
+		ControllingCondition: controlling
+		Sounds: iyurat1a.wav
+		RequiresCondition: !disabled && !chronodisable
+	WithMindControllerPipsDecoration:
+		FullSequence: pip-building-green
+		EmptySequence: pip-building-empty
+		Palette: ra
+		Margin: 8, 2
+		PipStride: 4, 2
+		Position: BottomLeft
+		RequiresSelection: true
+	WithMindControlArc:
+		UsePlayerColor: true
+		Offset: 0,0,960
+	AutoTarget:
+	AutoTargetPriority@DEFAULT:
+		ValidTargets: MindControl
+		RequiresCondition: controlling < 3
+	Power:
+		Amount: -100
+		RequiresCondition: !chronodisable
+	GrantCondition@IDISABLE:
+		RequiresCondition: lowpower || powerdown || emp || diskdrain
+	IsometricSelectable:
+		Class: yapsyt
+		DecorationHeight: 120
+	DetectCloaked:
+		Range: 6c0
+		RequiresCondition: !disabled
+	RenderDetectionCircle:
+	WithIdleOverlay@waves:
+		Sequence: idle-waves
+		RequiresCondition: in_water
+	Voiced:
+		VoiceSet: PsychicTowerVoice
+		Volume: 0.8
+	ActorStatValues:
+		Stats: Armor, Sight, Power, MindControl, ReloadDelay, MaxRange
+
+yasgen:
+	Inherits: ^SupportBuilding
+	Inherits@DRAIN: ^DiskDrainable
+	Inherits@EMPULSE: ^DisabledByEMP
+	Inherits@LAZARUSPRIME: ^AffectedByLazarusPrime
+	Inherits@LOWPOWER: ^DisableOnLowPowerOrPowerDown
+	Inherits@MC: ^MindControllableBuilding
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: actor-yasgen.name
+	Tooltip@NoRow:
+		Name: actor-yasgen.name
+	Buildable:
+		Queue: Support.Shared, Support.Yuri, Support.Antarctica
+		BuildPaletteOrder: 80
+		Prerequisites: ~building.yuri, yatech, ~techlevel.3
+		Description: actor-yasgen.description
+		BuildDuration: 250
+		BuildDurationModifier: 100
+	Health:
+		HP: 60000
+	Armor:
+		Type: Steel
+	RevealsShroud:
+		Range: 6c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 6c0
+	Capturable:
+		Types: building
+		RequiresCondition: !build-incomplete && !invulnerability && !forceshield
+	CaptureNotification:
+	ProximityExternalCondition@INVISIBILITY-GENERATOR:
+		Condition: invisibility-generator
+		Range: 9c0
+		RequiresCondition: !disabled
+	WithRangeCircle:
+		Range: 9c0
+		Type: invisibility
+		RequiresCondition: !disabled
+	Targetable:
+		TargetTypes: Ground, C4, DetonateAttack, Structure, NonGarrisonableStructure
+	Targetable@Water:
+		TargetTypes: Ground, Water, WaterStructure, C4
+	WithSpriteBody:
+		PauseOnCondition: disabled || chronodisable
+	WithIdleOverlay@waves:
+		Sequence: idle-waves
+		RequiresCondition: in_water
+	Power:
+		Amount: -100
+		RequiresCondition: !chronodisable
+	GrantCondition@IDISABLE:
+		RequiresCondition: lowpower || powerdown || emp || diskdrain
+	MustBeDestroyed:
+		RequiredForShortGame: false
+	Cloak@stealth-generator:
+		RequiresCondition: lazarus_prime && !disabled && !chronodisable
+	-ExternalCondition@INVISIBILITY-GENERATOR:
+	RangedGpsDot:
+		Sequence: Structure
+	IsometricSelectable:
+		DecorationHeight: 60
+	Voiced:
+		VoiceSet: StealthGeneratorVoice
+		Volume: 0.8
+	ActorStatValues:
+		Stats: Armor, Sight, Power
+
+yagntc:
+	Inherits: ^SecondarySuperWeapon
+	Buildable:
+		Queue: Support.Shared, Support.Yuri, Support.Antarctica
+		Prerequisites: ~building.yuri, yatech, !enoughlazarus, ~techlevel.5
+		Description: actor-yagntc.description
+	Tooltip:
+		Name: actor-yagntc.name
+	Tooltip@NoRow:
+		Name: actor-yagntc.name
+	GrantExternalConditionPower@LAZARUSSHIELD:
+		Icons:
+			1: invis
+		Prerequisites:
+			1: yagntc
+		# Cursor: iron-curtain
+		ChargeInterval: 6000
+		Names:
+			1: Invisibility
+		Descriptions:
+			1: Makes a group of units invisibile\nunless they are firing.\n\nKills infantry.
+		AllowMultiple: true
+		Durations:
+			1: -1
+		Conditions:
+			1: invisibility
+		Dimensions:
+			1: 3,3
+		Footprints:
+			1: xxx xxx xxx
+		ValidRelationships: Ally, Neutral, Enemy
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+		EndChargeSpeechNotification: GeneticMutatorReady # LazarusShieldReady
+		EndChargeTextNotification: notification-lazarus-shield-ready
+		LaunchSpeechNotification: GeneticMutatorActivated # LazarusShieldActivated
+		LaunchTextNotification: notification-lazarus-shield-activated
+		IncomingSpeechNotification: GeneticMutatorActivated # LazarusShieldActivated
+		IncomingTextNotification: notification-lazarus-shield-activated
+		EndChargeSound: sgenopen.wav
+		OnFireSound: slazarus.wav
+		EffectImage: explosion
+		EffectSequence: spherewave
+		EffectPalette: jascpurplealpha
+		DisplayTimerRelationships: Ally, Neutral, Enemy
+		DisplayRadarPing: True
+		PauseOnCondition: disabled || chronodisable
+	ProvidesPrerequisite@swlimit:
+		Prerequisite: enoughlazarus
+	NotificationAnnouncement:
+		Notification: GeneticMutatorDetected # LazarusShieldDetected
+		TextNotification: notification-lazarus-shield-generator-detected
+	WithIdleOverlay@top:
+		Sequence: idle-top
+		PauseOnCondition: chronodisable
+		RequiresCondition: !build-incomplete
+	IsometricSelectable:
+		DecorationHeight: 120
+	Voiced:
+		VoiceSet: LazarusGeneratorVoice
+		Volume: 0.8
+
+yappet:
+	Inherits: ^PrimarySuperWeapon
+	Buildable:
+		Queue: Support.Shared, Support.Yuri, Support.Antarctica
+		Prerequisites: ~building.yuri, yatech, !enoughdominator, ~techlevel.5
+		Description: actor-yappet.description
+	Tooltip:
+		Name: actor-yappet.name
+	Tooltip@NoRow:
+		Name: actor-yappet.name
+	DetonateWeaponPower:
+		OrderName: PsiPsychicDomination
+		PauseOnCondition: disabled || chronodisable
+		CameraRange: 8c0
+		CameraRemoveDelay: 100
+		SpawnCameraAtGround: true
+		Prerequisites:
+			1: yappet
+		Icons:
+			1: domination
+		ChargeInterval: 9000
+		Names:
+			1: Psychic Domination
+		Descriptions:
+			1: Release powerful energy that damages structures and mind controls units.\n\nCan be applied on ally units to\nmake them immune to mind control.
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: notification-select-target
+		EndChargeSpeechNotification: PsychicDominatorReady
+		EndChargeTextNotification: notification-psychic-dominator-ready
+		# LaunchSpeechNotification: PsychicDominatorActivated
+		LaunchTextNotification: notification-psychic-dominator-activated
+		# IncomingSpeechNotification: PsychicDominatorActivated # doesn't exist
+		IncomingTextNotification: notification-psychic-dominator-activated
+		EndChargeSound: spsyopen.wav
+		Weapons:
+			1: PsychicDomination
+		ActivationSequence:
+		DisplayTimerRelationships: Ally, Neutral, Enemy
+		DisplayRadarPing: True
+	ProvidesPrerequisite@swlimit:
+		Prerequisite: enoughdominator
+	NotificationAnnouncement:
+		Notification: PsychicDominatorDetected
+		TextNotification: notification-psychic-dominator-detected
+	IsometricSelectable:
+		DecorationHeight: 120
+	Voiced:
+		VoiceSet: PsychicDominatorVoice
+		Volume: 0.8
+
+yacomd:
+	Inherits: ^CivBuilding
+	Inherits@SHAPE: ^4x4Shape
+	Tooltip:
+		Name: actor-yacomd.name
+	Tooltip@NoRow:
+		Name: actor-yacomd.name
+	Armor:
+		Type: Concrete
+	RevealsShroud:
+		Range: 8c0
+	Health:
+		HP: 100000
+	Building:
+		Dimensions: 4,4
+		Footprint: xxxx xxxx xxxx xxxx
+	SpawnActorOnDeath:
+		DeathType: NonTemporal
+		Actor: yacomd.rubble
+	IsometricSelectable:
+		DecorationHeight: 180
+
+yacomd.rubble:
+	Inherits: ^Rubble
+	Building:
+		Dimensions: 4,4
+		Footprint: ____ ____ ____ ____
+	RenderSprites:
+		Image: yacomd
+
+yapppt:
+	Inherits: ^CivBuilding
+	Inherits@SHAPE: ^3x3Shape
+	Tooltip:
+		Name: actor-yapppt.name
+	Tooltip@NoRow:
+		Name: actor-yapppt.name
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 6c0
+	Health:
+		HP: 100000
+	Building:
+		Dimensions: 3,3
+		Footprint: xxx xxx xxx
+	IsometricSelectable:
+		DecorationHeight: 75
+
+yarock:
+	Inherits: ^CivBuilding
+	Inherits@SHAPE: ^3x3Shape
+	Tooltip:
+		Name: actor-yarock.name
+	Tooltip@NoRow:
+		Name: actor-yarock.name
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 6c0
+	Health:
+		HP: 70000
+	Building:
+		Dimensions: 3,3
+		Footprint: xxx xxx xxx
+		SecondaryTerrainTypes: Water
+	WithIdleOverlay@waves:
+		Sequence: idle-waves
+		RequiresCondition: in_water
+	Targetable:
+		RequiresCondition: !in_water
+	Targetable@Water:
+		TargetTypes: Ground, Water, WaterStructure, C4
+		RequiresCondition: in_water
+	GrantConditionOnTerrain@Water:
+		TerrainTypes: Water, Beach
+		Condition: in_water
+	IsometricSelectable:
+		DecorationHeight: 120
+
+yapsyb:
+	Inherits: ^CivBuilding
+	Inherits@SHAPE: ^2x2Shape
+	Tooltip:
+		Name: actor-yapsyb.name
+	Tooltip@NoRow:
+		Name: actor-yapsyb.name
+	Armor:
+		Type: Wood
+	Health:
+		HP: 75000
+	Building:
+		Dimensions: 2,2
+		Footprint: xx xx
+		SecondaryTerrainTypes: Water
+	WithIdleOverlay@spin:
+		Sequence: idle-spin
+		PauseOnCondition: chronodisable
+	WithIdleOverlay@waves:
+		Sequence: idle-waves
+		RequiresCondition: in_water
+	Targetable:
+		RequiresCondition: !in_water
+	Targetable@Water:
+		TargetTypes: Ground, Water, WaterStructure, C4
+		RequiresCondition: in_water
+	GrantConditionOnTerrain@Water:
+		TerrainTypes: Water, Beach
+		Condition: in_water
+	Power:
+		Amount: -100
+		RequiresCondition: !chronodisable
+	# AmbientSound@Ambient:
+	#	SoundFiles: gpsyampa.wav, gpsyampb.wav, gpsyampc.wav
+	#	Volume: 0.5
+	#	RequiresCondition: !chronodisable
+	IsometricSelectable:
+		DecorationHeight: 120
+
+caeast02:
+	Inherits: ^CivBuilding
+	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@CAPACITORS: ^AffectedByLaserCapacitors
+	Inherits@DRAIN: ^DiskDrainable
+	Inherits@EMPULSE: ^DisabledByEMP
+	Inherits@LOWPOWER: ^DisableOnLowPowerOrPowerDown
+	Inherits@MC: ^MindControllableBuilding
+	Inherits@SHAPE: ^2x2Shape
+	Tooltip:
+		Name: actor-yaeast02.name
+	Tooltip@NoRow:
+		Name: actor-yaeast02.name
+	Armor:
+		Type: Steel
+	Health:
+		HP: 300000
+	Building:
+		Dimensions: 2,2
+		Footprint: xx xx
+		SecondaryTerrainTypes: Water
+	Armament:
+		Weapon: LaserShot
+		LocalOffset: 512,-256,1024, 512,256,1024
+		RequiresCondition: !capacitors
+	Armament@CAPACITORS:
+		Weapon: LaserShotUpg
+		LocalOffset: 512,-256,1024, 512,256,1024
+		RequiresCondition: capacitors
+	AttackTurreted:
+		PauseOnCondition: disabled || chronodisable
+	Turreted:
+		TurnSpeed: 12
+		Offset: 0,0,3096
+		InitialFacing: 640
+		RealignDelay: -1
+	GrantConditionOnDamageState@DAMAGED:
+		Condition: damaged
+		ValidDamageStates: Heavy, Critical
+	WithVoxelTurret:
+		RequiresCondition: !damaged
+	WithVoxelTurret@damaged:
+		Sequence: turret-damaged
+		RequiresCondition: damaged
+	WithIdleOverlay@waves:
+		Sequence: idle-waves
+		RequiresCondition: in_water
+	Targetable:
+		RequiresCondition: !in_water
+	Targetable@Water:
+		TargetTypes: Ground, Water, WaterStructure, C4
+		RequiresCondition: in_water
+	GrantConditionOnTerrain@Water:
+		TerrainTypes: Water, Beach
+		Condition: in_water
+	RenderVoxels:
+		Image: cahead
+		Scale: 1.17
+		LightYaw: 800
+		LightPitch: 150
+		LightAmbientColor: -0.5,-0.5,-0.5
+		LightDiffuseColor: 1.3,1.3,1.3
+	Power:
+		Amount: -100
+		RequiresCondition: !chronodisable
+	GrantCondition@IDISABLE:
+		RequiresCondition: lowpower || powerdown || emp || diskdrain
+	SpawnActorOnDeath:
+		DeathType: NonTemporal
+		Actor: caeast02.rubble
+	IsometricSelectable:
+		DecorationHeight: 135
+	Voiced:
+		VoiceSet: YuriStatueVoice
+		Volume: 0.8
+	ActorStatValues:
+		Stats: Armor, Sight, Power, Damage, ReloadDelay, MaxRange
+		Damage: 300
+
+caeast02.rubble:
+	Inherits: ^Rubble
+	Building:
+		Dimensions: 2,2
+		Footprint: __ __
+	RenderSprites:
+		Image: caeast02
+
+yaeast02:
+	Inherits: ^VoxelLighting
+	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@CAPACITORS: ^AffectedByLaserCapacitors
+	Inherits@DRAIN: ^DiskDrainable
+	Inherits@EMPULSE: ^DisabledByEMP
+	Inherits@LOWPOWER: ^DisableOnLowPowerOrPowerDown
+	Inherits@MC: ^MindControllableBuilding
+	Inherits@SHAPE: ^2x2Shape
+	Buildable:
+		Queue: Support.Shared, Support.Antarctica
+		BuildPaletteOrder: 70
+		Prerequisites: ~building.yuri, yadome, ~techlevel.2
+		Description: actor-yaeast02.description
+		BuildDuration: 1000
+		BuildDurationModifier: 100
+	Health:
+		HP: 110000
+	Armor:
+		Type: Steel
+	RevealsShroud:
+		Range: 8c0
+	# RevealsShroudToIntelligenceOwner:
+	#	Types: SatelliteScan
+	#	Range: 8c0
+	Building:
+		Dimensions: 2,2
+		Footprint: xx xx
+	Valued:
+		Cost: 2500
+	Tooltip:
+		Name: actor-yaeast02.name
+	Tooltip@NoRow:
+		Name: actor-yaeast02.name
+	Turreted:
+		TurnSpeed: 12
+		Offset: 0,0,3096
+		InitialFacing: 640
+		RealignDelay: -1
+	AttackTurreted:
+		PauseOnCondition: build-incomplete || disabled || chronodisable
+	Armament:
+		Weapon: LaserShot
+		LocalOffset: 512,-256,1024, 512,256,1024
+		RequiresCondition: !capacitors
+	Armament@CAPACITORS:
+		Weapon: LaserShotUpg
+		LocalOffset: 512,-256,1024, 512,256,1024
+		RequiresCondition: capacitors
+	RenderVoxels:
+		Image: cahead
+		Scale: 1.17
+	RenderSprites:
+		Image: caeast02
+	GrantConditionOnDamageState@DAMAGED:
+		Condition: damaged
+		ValidDamageStates: Heavy, Critical
+	WithVoxelTurret:
+		RequiresCondition: !damaged && !build-incomplete
+	WithVoxelTurret@damaged:
+		Sequence: turret-damaged
+		RequiresCondition: damaged && !build-incomplete
+	WithIdleOverlay@waves:
+		Sequence: idle-waves
+		RequiresCondition: in_water
+	WithRangeCircle:
+		Range: 9c0
+		Type: yuristatue
+	Power:
+		Amount: -100
+		RequiresCondition: !chronodisable
+	GrantCondition@IDISABLE:
+		RequiresCondition: lowpower || powerdown || emp || diskdrain
+	IsometricSelectable:
+		DecorationHeight: 135
+	DetectCloaked:
+		Range: 5c0
+		RequiresCondition: !disabled
+	RenderDetectionCircle:
+	Voiced:
+		VoiceSet: YuriStatueVoice
+		Volume: 0.8
+	ActorStatValues:
+		Stats: Armor, Sight, Power, Damage, ReloadDelay, MaxRange
+		Damage: 300
+
+# Custom Structures
+yagatea:
+	Inherits: ^Gate_A
+	Buildable:
+		Queue: Support.Shared, Support.Yuri, Support.Antarctica
+		Prerequisites: ~building.yuri, ~techlevel.1
+		BuildPaletteOrder: 20
+		BuildDuration: 125
+		BuildDurationModifier: 100
+	Tooltip:
+		Name: actor-yagate.name
+	Tooltip@NoRow:
+		Name: actor-yagate.name
+	LineBuildNode:
+		Types: yawall
+	WithGateSpriteBody:
+		Type: yawall
+	Replacement:
+		ReplaceableTypes: YuriGate
+	PlaceBuildingVariants:
+		Actors: yagateb
+	IsometricSelectable:
+		Class: yagate
+
+yagateb:
+	Inherits: ^Gate_B
+	-Buildable:
+	Tooltip:
+		Name: actor-yagate.name
+	Tooltip@NoRow:
+		Name: actor-yagate.name
+	LineBuildNode:
+		Types: yawall
+	WithGateSpriteBody:
+		Type: yawall
+	Replacement:
+		ReplaceableTypes: YuriGate
+	IsometricSelectable:
+		Class: yagate
+
+yasilo:
+	Inherits: ^Silo
+	Buildable:
+		Queue: Support.Shared, Support.Yuri, Support.Antarctica
+		Prerequisites: ~building.yuri, refinery, ~!global-megawealth, ~techlevel.1
+
+yaexpn:
+	Inherits: ^ExpansionNode
+	# Transforms:
+	#	IntoActor: expy
+	RenderSprites:
+		Image: gaexpn
+	Voiced:
+		VoiceSet: YuriExpansionNodeVoice
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
+		TooltipActor: expy
+
+yabrcb:
+	Inherits: yabrck
+	Inherits@SHAPE: ^3x2Shape
+	-Buildable:
+	-PlaceBuildingVariants:
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	RallyPoint:
+		Path: 1,2
+	Exit@1Shared:
+		SpawnOffset: -724,362,0
+		ExitCell: 2,2
+	Exit@2Shared:
+		SpawnOffset: -724,362,0
+		ExitCell: 1,2
+	Exit@fallback1Shared:
+		SpawnOffset: -724,362,0
+		ExitCell: 0,2
+	Exit@fallback2Shared:
+		SpawnOffset: 384,768,0
+		ExitCell: 3,1
+	Exit@fallback3Shared:
+		SpawnOffset: 1086,362,0
+		ExitCell: 3,0
+	Exit@fallback4Shared:
+		SpawnOffset: 1086,362,0
+		ExitCell: 3,-1
+	Exit@fallback5Shared:
+		SpawnOffset: 1086,362,0
+		ExitCell: 2,-1
+	Exit@fallback6Shared:
+		SpawnOffset: 362,-362,0
+		ExitCell: 1,-1
+	Exit@fallback7Shared:
+		SpawnOffset: -362,-1086,0
+		ExitCell: 0,-1
+	Exit@fallback8Shared:
+		SpawnOffset: -362,-1086,0
+		ExitCell: -1,-1
+	Exit@fallback9Shared:
+		SpawnOffset: -362,-1086,0
+		ExitCell: -1,0
+	Exit@fallback10Shared:
+		SpawnOffset: -1086,-362,0
+		ExitCell: -1,1
+	Exit@fallback11Shared:
+		SpawnOffset: -1086,-362,0
+		ExitCell: -1,2
+	Exit@fallback12Shared:
+		SpawnOffset: 362,1086,0
+		ExitCell: 3,2
+	Exit@1:
+		SpawnOffset: -724,362,0
+		ExitCell: 2,2
+	Exit@2:
+		SpawnOffset: -724,362,0
+		ExitCell: 1,2
+	Exit@fallback1:
+		SpawnOffset: -724,362,0
+		ExitCell: 0,2
+	Exit@fallback2:
+		SpawnOffset: 384,768,0
+		ExitCell: 3,1
+	Exit@fallback3:
+		SpawnOffset: 1086,362,0
+		ExitCell: 3,0
+	Exit@fallback4:
+		SpawnOffset: 1086,362,0
+		ExitCell: 3,-1
+	Exit@fallback5:
+		SpawnOffset: 1086,362,0
+		ExitCell: 2,-1
+	Exit@fallback6:
+		SpawnOffset: 362,-362,0
+		ExitCell: 1,-1
+	Exit@fallback7:
+		SpawnOffset: -362,-1086,0
+		ExitCell: 0,-1
+	Exit@fallback8:
+		SpawnOffset: -362,-1086,0
+		ExitCell: -1,-1
+	Exit@fallback9:
+		SpawnOffset: -362,-1086,0
+		ExitCell: -1,0
+	Exit@fallback10:
+		SpawnOffset: -1086,-362,0
+		ExitCell: -1,1
+	Exit@fallback11:
+		SpawnOffset: -1086,-362,0
+		ExitCell: -1,2
+	Exit@fallback12:
+		SpawnOffset: 362,1086,0
+		ExitCell: 3,2
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
+		TooltipActor: yabrck
+
+yarfnb:
+	Inherits: ^RefineryB
+	FreeActor:
+		Actor: gmin
+	-WithDockedOverlay:
+	ProvidesPrerequisite@yarfn2:
+		Prerequisite: yarfn2
+	ProvidesPrerequisite@psirefn:
+		Prerequisite: psirefn
+	SmokeParticleEmitter@refinerysmoke1:
+		Offset: 416,-416,3648
+	SmokeParticleEmitter@refinerysmoke2:
+		Offset: 960,-960,3648
+	IsometricSelectable:
+		Class: yarfn2
+		DecorationHeight: 105
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
+		TooltipActor: yarfn2
+
+yarfnc:
+	Inherits: ^RefineryC
+	FreeActor:
+		Actor: gmin
+	ProvidesPrerequisite@yarfn2:
+		Prerequisite: yarfn2
+	ProvidesPrerequisite@psirefn:
+		Prerequisite: psirefn
+	SmokeParticleEmitter@refinerysmoke1:
+		Offset: 416,416,3648
+	SmokeParticleEmitter@refinerysmoke2:
+		Offset: 960,960,3648
+	IsometricSelectable:
+		Class: yarfn2
+		DecorationHeight: 105
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
+		TooltipActor: yarfn2
+
+yarfnd:
+	Inherits: ^RefineryD
+	FreeActor:
+		Actor: gmin
+	ProvidesPrerequisite@yarfn2:
+		Prerequisite: yarfn2
+	ProvidesPrerequisite@psirefn:
+		Prerequisite: psirefn
+	SmokeParticleEmitter@refinerysmoke1:
+		Offset: -416,416,3648
+	SmokeParticleEmitter@refinerysmoke2:
+		Offset: -960,960,3648
+	IsometricSelectable:
+		Class: yarfn2
+		DecorationHeight: 105
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
+		TooltipActor: yarfn2
+
+yaweab:
+	Inherits: yaweap
+	Inherits@SHAPE: ^FlippedFactoryXShape
+	-Buildable:
+	-PlaceBuildingVariants:
+	Building:
+		Footprint: xxx xxx xxx xxx +++
+		Dimensions: 3,5
+	RallyPoint:
+		Path: 1,6
+	Exit@1:
+		ExitCell: 1,4
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
+		TooltipActor: yaweap
+
+yaweac:
+	Inherits: yaweap
+	Inherits@SHAPE: ^FlippedFactoryShape
+	-Buildable:
+	-PlaceBuildingVariants:
+	-WithExitOverlay@front:
+	-WithExitOverlay@top:
+	-WithIdleOverlay@lights:
+	Building:
+		Footprint: +xxxx +xxxx +xxxx
+	RallyPoint:
+		Path: -2,1
+	Exit@1:
+		ExitCell: 0,1
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
+		TooltipActor: yaweap
+
+yawead:
+	Inherits: yaweab
+	Inherits@SHAPE: ^FlippedFactoryYShape
+	-WithExitOverlay@front:
+	-WithExitOverlay@top:
+	-WithIdleOverlay@lights:
+	Building:
+		Footprint: +++ xxx xxx xxx xxx
+	RallyPoint:
+		Path: 1,-2
+	Exit@1:
+		ExitCell: 1,0
+
+yadepb:
+	Inherits: yadept
+	Inherits@SHAPE: ^3x4Shape
+	HitShape:
+		TargetableOffsets: 0,0,0, 360,360,0, -360,-360,0, -1080,-1080,0, -360,-1800,0, -1800,-360,0, 360,-1080,0, -360,1080,0, -1080,360,0, 1080,-360,0
+	-Buildable:
+	-PlaceBuildingVariants:
+	Building:
+		Footprint: xxx +++ +++ +++
+		Dimensions: 3,4
+	RallyPoint:
+		Path: 1,4
+	SpawnNeighboringActors:
+		Locations: 0,1, 1,1, 2,1, 0,2, 1,2, 2,2, 0,3, 1,3, 2,3
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
+		TooltipActor: yadept
+
+yatecb:
+	Inherits: yatech
+	Inherits@SHAPE: ^2x3Shape
+	-Buildable:
+	-PlaceBuildingVariants:
+	Building:
+		Footprint: xx xx xx
+		Dimensions: 2,3
+	ActorStatValues:
+		Icon: icon
+		IconPalette: chrome
+		TooltipActor: yatech
+
+psirefn:
+	AlwaysVisible:
+	Interactable:
+	Tooltip:
+		Name: actor-psirefn.name

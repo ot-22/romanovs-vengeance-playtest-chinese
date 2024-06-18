@@ -1,0 +1,83 @@
+Player:
+	-ConquestVictoryConditions:
+	PlayerResources:
+		ResourceValues:
+			Ore: 0
+			Gems: 0
+
+World:
+	-CrateSpawner:
+	-SpawnStartingUnits:
+	-MapStartingLocations:
+	MusicPlaylist:
+		StartingMusic: grinder
+		DisableWorldSounds: true
+	LuaScript:
+		Scripts: shellmap.lua
+	-StartGameNotification:
+
+crate:
+	Crate:
+		Duration: 0
+
+^NeutralAircraft:
+	Aircraft:
+		TakeOffOnCreation: false
+
+gapowr:
+	Power:
+		Amount: 300
+
+garefn:
+	-FreeActor:
+
+gaairc:
+	DroneSpawnerMaster:
+		SpawnOffset: -1024,1024,0, 0,0,0, 1024,1024,0
+		GatherCell: 2,1, 1,1, 1,2
+
+orca:
+	Aircraft:
+		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ore, Gems
+
+camsc12:
+	Targetable:
+		TargetTypes: Ground, Infantry
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,64,512
+	DamageMultiplier:
+		Modifier: 0
+
+camsc13:
+	DamageMultiplier:
+		Modifier: 0
+
+e1:
+	-TurnOnIdle:
+	ExternalCondition@VET:
+		Condition: rank-veteran
+
+ggi:
+	-TurnOnIdle:
+
+ghost:
+	-TurnOnIdle:
+
+engineer:
+	-TurnOnIdle:
+
+dog:
+	-TurnOnIdle:
+
+snipe:
+	-TurnOnIdle:
+
+ssrv:
+	-TurnOnIdle:
+
+pentgen:
+	Inherits@EXPERIENCE: ^GainsExperience
+	-TurnOnIdle:
+	ExternalCondition@VET:
+		Condition: rank-veteran

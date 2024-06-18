@@ -1,0 +1,687 @@
+^Palettes:
+	PaletteFromFile@terrain-temperate:
+		Name: terrain
+		Tileset: TEMPERATE
+		Filename: isotem.pal
+		ShadowIndex: 1
+	PaletteFromFile@terrain-snow:
+		Name: terrain
+		Tileset: SNOW
+		Filename: isosno.pal
+		ShadowIndex: 1
+	PaletteFromFile@terrain-urban:
+		Name: terrain
+		Tileset: URBAN
+		Filename: isourb.pal
+		ShadowIndex: 1
+	PaletteFromFile@terrain-newurban:
+		Name: terrain
+		Tileset: NEWURBAN
+		Filename: isoubn.pal
+		ShadowIndex: 1
+	PaletteFromFile@terrain-desert:
+		Name: terrain
+		Tileset: DESERT
+		Filename: isodes.pal
+		ShadowIndex: 1
+	PaletteFromFile@terrain-lunar:
+		Name: terrain
+		Tileset: LUNAR
+		Filename: isolun.pal
+		ShadowIndex: 1
+	PaletteFromFile@terrain-dune:
+		Name: terrain
+		Tileset: DUNE
+		Filename: isodes.pal
+		ShadowIndex: 1
+	#VXL2SHP stuff - see OpenRA/OpenRA#15807 why isn't placed at bottom
+	PaletteFromFile@terrain-simpleterrain:
+		Name: terrain
+		Filename: isosimple.pal
+		Tileset: SIMPLETERRAIN
+		ShadowIndex: 1
+	PaletteFromFile@rubble-temperate:
+		Name: rubble
+		Tileset: TEMPERATE
+		Filename: isotem.pal
+		ShadowIndex: 1
+	PaletteFromFile@rubble-snow:
+		Name: rubble
+		Tileset: SNOW
+		Filename: isosno.pal
+		ShadowIndex: 1
+	PaletteFromFile@rubble-urban:
+		Name: rubble
+		Tileset: URBAN
+		Filename: isourb.pal
+		ShadowIndex: 1
+	PaletteFromFile@rubble-newurban:
+		Name: rubble
+		Tileset: NEWURBAN
+		Filename: isoubn.pal
+		ShadowIndex: 1
+	PaletteFromFile@rubble-desert:
+		Name: rubble
+		Tileset: DESERT
+		Filename: isodes.pal
+		ShadowIndex: 1
+	PaletteFromFile@rubble-lunar:
+		Name: rubble
+		Tileset: LUNAR
+		Filename: isotem.pal
+		ShadowIndex: 1
+	PaletteFromFile@rubble-dune:
+		Name: rubble
+		Tileset: DUNE
+		Filename: isodes.pal
+		ShadowIndex: 1
+	PaletteFromFile@rubble-temperate-set:
+		Name: rubble-temperate
+		Filename: isotem.pal
+		ShadowIndex: 1
+	PaletteFromFile@rubble-snow-set:
+		Name: rubble-snow
+		Filename: isosno.pal
+		ShadowIndex: 1
+	PaletteFromFile@rubble-urban-set:
+		Name: rubble-urban
+		Filename: isourb.pal
+		ShadowIndex: 1
+	PaletteFromFile@rubble-newurban-set:
+		Name: rubble-newurban
+		Filename: isoubn.pal
+		ShadowIndex: 1
+	PlayerColorPalette:
+		BasePalette: player
+		RemapIndex: 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31
+	PlayerColorPalette@Infantry:
+		BaseName: infantry
+		BasePalette: infantry
+		RemapIndex: 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31
+	PlayerColorPalette@Black:
+		BaseName: black
+		BasePalette: black
+		RemapIndex: 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31
+	PaletteFromFile@playertem:
+		Name: player
+		Tileset: TEMPERATE
+		Filename: unittem.pal
+		ShadowIndex: 1
+	PaletteFromFile@temperatecity:
+		Name: city
+		Tileset: TEMPERATE
+		Filename: citytem.pal
+		ShadowIndex: 1
+	PaletteFromFile@snowcity:
+		Name: city
+		Tileset: SNOW
+		Filename: citysno.pal
+		ShadowIndex: 1
+	PaletteFromFile@urbancity:
+		Name: city
+		Tileset: URBAN
+		Filename: cityurb.pal
+		ShadowIndex: 1
+	PaletteFromFile@newurbancity:
+		Name: city
+		Tileset: NEWURBAN
+		Filename: cityurb.pal
+		ShadowIndex: 1
+	PaletteFromFile@desertcity:
+		Name: city
+		Tileset: DESERT
+		Filename: cityurb.pal
+		ShadowIndex: 1
+	PaletteFromFile@lunarcity:
+		Name: city
+		Tileset: LUNAR
+		Filename: cityurb.pal
+		ShadowIndex: 1
+	PaletteFromFile@temperateliberty:
+		Name: liberty
+		Tileset: TEMPERATE
+		Filename: libtem.pal
+		ShadowIndex: 1
+	PaletteFromFile@snowliberty:
+		Name: liberty
+		Tileset: SNOW
+		Filename: libsno.pal
+		ShadowIndex: 1
+	PaletteFromFile@urbanliberty:
+		Name: liberty
+		Tileset: URBAN
+		Filename: liburb.pal
+		ShadowIndex: 1
+	PaletteFromFile@newurbanliberty:
+		Name: liberty
+		Tileset: NEWURBAN
+		Filename: libubn.pal
+		ShadowIndex: 1
+	PaletteFromFile@desertliberty:
+		Name: liberty
+		Tileset: DESERT
+		Filename: libdes.pal
+		ShadowIndex: 1
+	PaletteFromFile@lunarliberty:
+		Name: liberty
+		Tileset: LUNAR
+		Filename: liblun.pal
+		ShadowIndex: 1
+	PaletteFromFile@duneliberty:
+		Name: liberty
+		Tileset: DUNE
+		Filename: libdes.pal
+		ShadowIndex: 1
+	PaletteFromFile@playerurb:
+		Name: player
+		Tileset: URBAN
+		Filename: uniturb.pal
+		ShadowIndex: 1
+	PaletteFromFile@playerubn:
+		Name: player
+		Tileset: NEWURBAN
+		Filename: unitubn.pal
+		ShadowIndex: 1
+	PaletteFromFile@playersno:
+		Name: player
+		Tileset: SNOW
+		Filename: unitsno.pal
+		ShadowIndex: 1
+	PaletteFromFile@playerdes:
+		Name: player
+		Tileset: DESERT
+		Filename: unitdes.pal
+		ShadowIndex: 1
+	PaletteFromFile@playerlun:
+		Name: player
+		Tileset: LUNAR
+		Filename: unitlun.pal
+		ShadowIndex: 1
+	PaletteFromFile@playerdun:
+		Name: player
+		Tileset: DUNE
+		Filename: unitdes.pal
+		ShadowIndex: 1
+	PaletteFromFile@playersimple:
+		Name: player
+		Tileset: SIMPLETERRAIN
+		Filename: unittem.pal
+		ShadowIndex: 1
+	PaletteFromFile@inftem:
+		Name: infantry
+		Tileset: TEMPERATE
+		Filename: unittem.pal
+		ShadowIndex: 1,12
+	PaletteFromFile@infurb:
+		Name: infantry
+		Tileset: URBAN
+		Filename: uniturb.pal
+		ShadowIndex: 1,12
+	PaletteFromFile@infubn:
+		Name: infantry
+		Tileset: NEWURBAN
+		Filename: unitubn.pal
+		ShadowIndex: 1,12
+	PaletteFromFile@infsno:
+		Name: infantry
+		Tileset: SNOW
+		Filename: unitsno.pal
+		ShadowIndex: 1,12
+	PaletteFromFile@infdes:
+		Name: infantry
+		Tileset: DESERT
+		Filename: unitdes.pal
+		ShadowIndex: 1,12
+	PaletteFromFile@influn:
+		Name: infantry
+		Tileset: LUNAR
+		Filename: unitlun.pal
+		ShadowIndex: 1,12
+	PaletteFromFile@infdun:
+		Name: infantry
+		Tileset: DUNE
+		Filename: unitdes.pal
+		ShadowIndex: 1,12
+	PaletteFromPaletteWithAlpha@terrainalpha:
+		BasePalette: terrain
+		Name: terrainalpha
+		Alpha: 0.55
+	PaletteFromFile@chrome:
+		Name: chrome
+		Filename: cameo.pal
+		AllowModifiers: false
+		ShadowIndex: 242
+	PaletteFromFile@ts-chrome:
+		Name: ts-chrome
+		Filename: tscameo.pal
+		AllowModifiers: false
+		ShadowIndex: 242
+	PaletteFromPng@cameo-chevron:
+		Name: cameo-chevron
+		Filename: bits/cameos/cameo-chevron.png
+		AllowModifiers: false
+	PaletteFromPng@magnetic-beam-cameo:
+		Name: mgnbicon
+		Filename: bits/cameos/mgnb1icon.png
+		AllowModifiers: false
+	PaletteFromPng@albanian-flag:
+		Name: albania
+		Filename: bits/structures/flags/cgalfgl_a.png
+	PaletteFromPng@armenian-ssr-flag:
+		Name: armenia
+		Filename: bits/structures/flags/cgarfgl_a.png
+	PaletteFromPng@azerbaijan-ssr-flag:
+		Name: azerbaijan
+		Filename: bits/structures/flags/cgazfgl_a.png
+	PaletteFromPng@burmese-flag:
+		Name: burma
+		Filename: bits/structures/flags/cgbmfgl_a.png
+	PaletteFromPng@chilean-flag:
+		Name: chile
+		Filename: bits/structures/flags/cgclfgl_a.png
+	PaletteFromPng@congolese-flag:
+		Name: congo
+		Filename: bits/structures/flags/cgcgfgl_a.png
+	PaletteFromPng@cuban-flag:
+		Name: cuba
+		Filename: bits/structures/flags/cgcufgl_a.png
+	PaletteFromPng@iraqi-flag:
+		Name: iraq
+		Filename: bits/structures/flags/cgirfgl_a.png
+	PaletteFromPng@georgian-ssr-flag:
+		Name: georgia
+		Filename: bits/structures/flags/cggofgl_a.png
+	PaletteFromPng@kampuchean-flag:
+		Name: kampuchea
+		Filename: bits/structures/flags/cgkmfgl_a.png
+	PaletteFromPng@kazakh-ssr-flag:
+		Name: kazakhstan
+		Filename: bits/structures/flags/cgkzfgl_a.png
+	PaletteFromPng@kyrgyz-ssr-flag:
+		Name: kyrgyzstan
+		Filename: bits/structures/flags/cgkyfgl_a.png
+	PaletteFromPng@laotian-flag:
+		Name: laos
+		Filename: bits/structures/flags/cglofgl_a.png
+	PaletteFromPng@libyan-flag:
+		Name: libya
+		Filename: bits/structures/flags/cglbfgl_a.png
+	PaletteFromPng@mexican-flag:
+		Name: mexico
+		Filename: bits/structures/flags/cgmxfgl_a.png
+	PaletteFromPng@mongolian-flag:
+		Name: mongolia
+		Filename: bits/structures/flags/cgmofgl_a.png
+	PaletteFromPng@nicaraguan-flag:
+		Name: nicaragua
+		Filename: bits/structures/flags/cgncfgl_a.png
+	PaletteFromPng@peruvian-flag:
+		Name: peru
+		Filename: bits/structures/flags/cgprfgl_a.png
+	PaletteFromPng@russian-ssr-flag:
+		Name: russianssr
+		Filename: bits/structures/flags/cgrsfgl_a.png
+	PaletteFromPng@somalian-flag:
+		Name: somalia
+		Filename: bits/structures/flags/cgsofgl_a.png
+	PaletteFromPng@syrian-flag:
+		Name: syria
+		Filename: bits/structures/flags/cgsyfgl_a.png
+	PaletteFromPng@tajik-ssr-flag:
+		Name: tajikistan
+		Filename: bits/structures/flags/cgtjfgl_a.png
+	PaletteFromPng@soviet-flag:
+		Name: ussr
+		Filename: bits/structures/flags/cgrufgl_a.png
+	PaletteFromPng@uzbek-ssr-flag:
+		Name: uzbekistan
+		Filename: bits/structures/flags/cguzfgl_a.png
+	PaletteFromPng@vietnamese-flag:
+		Name: vietnam
+		Filename: bits/structures/flags/cgvnfgl_a.png
+	PaletteFromPng@yemeni-flag:
+		Name: yemen
+		Filename: bits/structures/flags/cgymfgl_a.png
+	PaletteFromPng@bhutanese-flag:
+		Name: bhutan
+		Filename: bits/structures/flags/cgbhfgl_a.png
+	PaletteFromPng@bulgarian-flag:
+		Name: bulgaria
+		Filename: bits/structures/flags/cgbufgl_a.png
+	PaletteFromPng@bulgarian-naval-flag:
+		Name: bulgaria-naval
+		Filename: bits/structures/flags/cgbunfgl_a.png
+	PaletteFromPng@jordanian-flag:
+		Name: jordan
+		Filename: bits/structures/flags/cgjrfgl_a.png
+	PaletteFromPng@icelandic-flag:
+		Name: iceland
+		Filename: bits/structures/flags/cgicfgl_a.png
+	PaletteFromPng@nigerian-flag:
+		Name: nigeria
+		Filename: bits/structures/flags/cgngfgl_a.png
+	PaletteFromPng@panamanian-flag:
+		Name: panama
+		Filename: bits/structures/flags/cgpnfgl_a.png
+	PaletteFromPng@portuguese-flag:
+		Name: portugal
+		Filename: bits/structures/flags/cgpgfgl_a.png
+	PaletteFromPng@swedish-flag:
+		Name: sweden
+		Filename: bits/structures/flags/cgswfgl_a.png
+	PaletteFromPng@swiss-flag:
+		Name: switzerland
+		Filename: bits/structures/flags/cgszfgl_a.png
+	PaletteFromPng@australian-flag:
+		Name: australia
+		Filename: bits/structures/flags/cgaufgl_a.png
+	PaletteFromPng@austrian-flag:
+		Name: austria
+		Filename: bits/structures/flags/cgatfgl_a.png
+	PaletteFromPng@american-flag:
+		Name: america
+		Filename: bits/structures/flags/cgusfgl_a.png
+	PaletteFromPng@belarusian-flag:
+		Name: belarus
+		Filename: bits/structures/flags/cgblfgl_a.png
+	PaletteFromPng@belgian-flag:
+		Name: belgium
+		Filename: bits/structures/flags/cgbefgl_a.png
+	PaletteFromPng@brazilian-flag:
+		Name: brazil
+		Filename: bits/structures/flags/cgbrfgl_a.png
+	PaletteFromPng@british-flag:
+		Name: britain
+		Filename: bits/structures/flags/cgukfgl_a.png
+	PaletteFromPng@canadian-flag:
+		Name: canada
+		Filename: bits/structures/flags/cgcnfgl_a.png
+	PaletteFromPng@chinese-flag:
+		Name: china
+		Filename: bits/structures/flags/cgchfgl_a.png
+	PaletteFromPng@cypriot-flag:
+		Name: cyprus
+		Filename: bits/structures/flags/cgcyfgl_a.png
+	PaletteFromPng@czechoslovak-flag:
+		Name: czechoslovakia
+		Filename: bits/structures/flags/cgczfgl_a.png
+	PaletteFromPng@danish-flag:
+		Name: denmark
+		Filename: bits/structures/flags/cgdnfgl_a.png
+	PaletteFromPng@estonian-flag:
+		Name: estonia
+		Filename: bits/structures/flags/cgesfgl_a.png
+	PaletteFromPng@finnish-flag:
+		Name: finland
+		Filename: bits/structures/flags/cgfifgl_a.png
+	PaletteFromPng@french-flag:
+		Name: france
+		Filename: bits/structures/flags/cgfrfgl_a.png
+	PaletteFromPng@german-flag:
+		Name: germany
+		Filename: bits/structures/flags/cggefgl_a.png
+	PaletteFromPng@greek-flag:
+		Name: greece
+		Filename: bits/structures/flags/cggrfgl_a.png
+	PaletteFromPng@hungarian-flag:
+		Name: hungary
+		Filename: bits/structures/flags/cghufgl_a.png
+	PaletteFromPng@indonesian-flag:
+		Name: indonesia
+		Filename: bits/structures/flags/cginfgl_a.png
+	PaletteFromPng@irish-flag:
+		Name: ireland
+		Filename: bits/structures/flags/cgeifgl_a.png
+	PaletteFromPng@italian-flag:
+		Name: italy
+		Filename: bits/structures/flags/cgitfgl_a.png
+	PaletteFromPng@japanese-flag:
+		Name: japan
+		Filename: bits/structures/flags/cgjpfgl_a.png
+	PaletteFromPng@korean-flag:
+		Name: korea
+		Filename: bits/structures/flags/cgskfgl_a.png
+	PaletteFromPng@latvian-flag:
+		Name: latvia
+		Filename: bits/structures/flags/cglafgl_a.png
+	PaletteFromPng@lebanese-flag:
+		Name: lebanon
+		Filename: bits/structures/flags/cglefgl_a.png
+	PaletteFromPng@lithuanian-flag:
+		Name: lithuania
+		Filename: bits/structures/flags/cglifgl_a.png
+	PaletteFromPng@luxembourgish-flag:
+		Name: luxembourg
+		Filename: bits/structures/flags/cglxfgl_a.png
+	PaletteFromPng@moroccan-flag:
+		Name: morocco
+		Filename: bits/structures/flags/cgmrfgl_a.png
+	PaletteFromPng@maltese-flag:
+		Name: malta
+		Filename: bits/structures/flags/cgmlfgl_a.png
+	PaletteFromPng@dutch-flag:
+		Name: netherlands
+		Filename: bits/structures/flags/cgnlfgl_a.png
+	PaletteFromPng@new-zealander-flag:
+		Name: newzealand
+		Filename: bits/structures/flags/cgnzfgl_a.png
+	PaletteFromPng@norwegian-flag:
+		Name: norway
+		Filename: bits/structures/flags/cgnwfgl_a.png
+	PaletteFromPng@omani-flag:
+		Name: oman
+		Filename: bits/structures/flags/cgomfgl_a.png
+	PaletteFromPng@polish-flag:
+		Name: poland
+		Filename: bits/structures/flags/cgpofgl_a.png
+	PaletteFromPng@filipino-flag:
+		Name: philippines
+		Filename: bits/structures/flags/cgphfgl_a.png
+	PaletteFromPng@slovenian-flag:
+		Name: slovenia
+		Filename: bits/structures/flags/cgslfgl_a.png
+	PaletteFromPng@spanish-flag:
+		Name: spain
+		Filename: bits/structures/flags/cgspfgl_a.png
+	PaletteFromPng@turkish-flag:
+		Name: turkey
+		Filename: bits/structures/flags/cgtrfgl_a.png
+	PaletteFromPng@ukrainian-flag:
+		Name: ukraine
+		Filename: bits/structures/flags/cguafgl_a.png
+	PaletteFromPng@zairian-flag:
+		Name: zaire
+		Filename: bits/structures/flags/cgzafgl_a.png
+	PaletteFromPng@psi-corps-aussie-flag:
+		Name: psiaussie
+		Filename: bits/structures/flags/cgpafgl_a.png
+	PaletteFromPng@yurigrad-flag:
+		Name: psicorps
+		Filename: bits/structures/flags/cgpcfgl_a.png
+	PaletteFromPng@lazarus-corps-flag:
+		Name: psinepal
+		Filename: bits/structures/flags/cgplfgl_a.png
+	PaletteFromPng@antarctic-flag:
+		Name: antarctica
+		Filename: bits/structures/flags/cgpsfgl_a.png
+	PaletteFromPng@lunar-eclipse-flag:
+		Name: psimoon
+		Filename: bits/structures/flags/cgpmfgl_a.png
+	PaletteFromPng@transylvanian-flag:
+		Name: transylvania
+		Filename: bits/structures/flags/cgptfgl_a.png
+	PaletteFromPng@transcaucasian-flag:
+		Name: transcaucasia
+		Filename: bits/structures/flags/cgtcfgl_a.png
+	PaletteFromPng@turkmen-flag:
+		Name: turkmenistan
+		Filename: bits/structures/flags/cgtmfgl_a.png
+	PaletteFromPng@tuvan-flag:
+		Name: tuva
+		Filename: bits/structures/flags/cgtvfgl_a.png
+	PaletteFromPng@russian-flag:
+		Name: russia
+		Filename: bits/structures/flags/cgrffgl_a.png
+	PaletteFromPng@serbo-montenegrin-flag:
+		Name: serbia
+		Filename: bits/structures/flags/cgsmfgl_a.png
+	PaletteFromPng@angriverian-flag:
+		Name: angriver
+		Filename: bits/structures/flags/cghlfgl_a.png
+	PaletteFromPng@equestrian-flag:
+		Name: equestria
+		Filename: bits/structures/flags/cgeqfgl_a.png
+	PaletteFromPng@herzlander-flag:
+		Name: herzland
+		Filename: bits/structures/flags/cghlfgl_c.png
+	PaletteFromPng@ponyvillian-flag:
+		Name: ponyville
+		Filename: bits/structures/flags/cgpvfgl_a.png
+	PaletteFromPng@allied-conyard-flags:
+		Name: allcyardflags
+		Filename: bits/structures/allcyardflags.png
+	PaletteFromFile@pips:
+		Name: pips
+		Filename: palette.pal
+		AllowModifiers: false
+		ShadowIndex: 4
+	PaletteFromFile@black:
+		Name: black
+		Filename: blacktem.pal
+		ShadowIndex: 1
+	PaletteFromFile@ra:
+		Name: ra
+		Filename: palette.pal
+		ShadowIndex: 4
+	PaletteFromFile@effect:
+		Name: effect
+		Filename: anim.pal
+	PaletteFromPaletteWithAlpha@player50alpha:
+		Name: player50alpha
+		BasePalette: player
+		Alpha: 0.5
+	PaletteFromPaletteWithAlpha@effect50alpha:
+		Name: effect50alpha
+		BasePalette: effect
+		Alpha: 0.5
+	PaletteFromPaletteWithAlpha@effect75alpha:
+		Name: effect75alpha
+		BasePalette: effect
+		Alpha: 0.75
+	PaletteFromFile@tseffect:
+		Name: tseffect
+		Filename: tsanim.pal
+	PaletteFromPaletteWithAlpha@tseffect50alpha:
+		Name: tseffect50alpha
+		BasePalette: tseffect
+		Alpha: 0.5
+	PaletteFromPaletteWithAlpha@placebuilding:
+		Name: placefootprint
+		BasePalette: ra
+		Alpha: 0.7
+	PaletteFromPlayerPaletteWithAlpha@player50alpha:
+		BaseName: player50alpha
+		BasePalette: player
+		Alpha: 0.5
+	PaletteFromFile@mousepal:
+		Name: mouse
+		Filename: mousepal.pal
+		CursorPalette: true
+	PaletteFromFile@ts-mousepal:
+		Name: ts-mouse
+		Filename: ts-mousepal.pal
+	ColorPickerPalette@colorpicker:
+		Name: colorpicker
+		BasePalette: player
+		RemapIndex: 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31
+		AllowModifiers: false
+	PaletteFromFile@resource:
+		Name: resource
+		Filename: temperat.pal
+		ShadowIndex: 1
+	PaletteFromFile@flameguy:
+		Name: flameguy
+		Filename: anim.pal
+		ShadowIndex: 254
+	PaletteFromRGBA@shadow:
+		Name: shadow
+		R: 0
+		G: 0
+		B: 0
+		A: 140
+	PaletteFromPlayerPaletteWithAlpha@cloak:
+		BaseName: cloak
+		BasePalette: player
+		Alpha: 0.50
+	ColorAlphaFlashPaletteEffect@cloak:
+		AffectedPalette: cloak
+		IsAffectedPalettePlayerColor: true
+		EndIndex: 32
+		Alpha: 0.95, 0.9, 0.85, 0.8, 0.75, 0.8, 0.85, 0.9, 0.95
+	PaletteFromRGBA@highlight:
+		Name: highlight
+		R: 255
+		G: 255
+		B: 255
+		A: 128
+	PaletteFromRGBA@moveflash:
+		Name: moveflash
+		R: 255
+		G: 255
+		B: 255
+		A: 64
+	TSShroudPalette@shroud:
+		Name: shroud
+	ShroudRenderer:
+		Index: 255, 16, 32, 48, 64, 80, 96, 112, 128, 144, 160, 176, 192, 208, 224, 240, 20, 40, 56, 65, 97, 130, 148, 194, 24, 33, 66, 132, 28, 41, 67, 134, 1, 2, 4, 8, 3, 6, 12, 9, 7, 14, 13, 11, 5, 10, 15, 255
+		UseExtendedIndex: true
+		ShroudPalette: shroud
+		FogPalette: shroud
+	VoxelNormalsPalette@normals:
+		Name: normals
+		Type: RedAlert2
+	VoxelNormalsPalette@ts-normals:
+		Name: ts-normals
+		Type: TiberianSun
+	MenuPostProcessEffect:
+	PaletteFromPaletteWithAlpha@ra75alpha:
+		Name: ra75alpha
+		BasePalette: ra
+		Alpha: 0.75
+	FlashPostProcessEffect@NUKE:
+		Type: Nuke
+		Length: 90
+	#VXL2SHP stuff
+	PaletteFromFile@infsimple:
+		Name: infantry
+		Tileset: SIMPLETERRAIN
+		Filename: unittem.pal
+		ShadowIndex: 1,12
+	PaletteFromFile@simplecity:
+		Name: city
+		Tileset: SIMPLETERRAIN
+		Filename: citytem.pal
+		ShadowIndex: 1
+	PaletteFromFile@simpleliberty:
+		Name: liberty
+		Tileset: SIMPLETERRAIN
+		Filename: libtem.pal
+		ShadowIndex: 1
+	PaletteFromFile@apolra2i:
+		Name: apolra2i
+		Filename: apolra2i.pal
+	PaletteFromGimpOrJascFile@cyanjascpal:
+		Name: cyanjascpal
+		Filename: cyanjascpal.pal
+		Premultiply: true
+		AllowModifiers: false
+	PaletteFromGimpOrJascFile@jascpurplealpha:
+		Name: jascpurplealpha
+		Filename: jascpurplealpha.pal
+		Premultiply: true
+		AllowModifiers: false
+	PaletteFromGimpOrJascFile@jascredalpha:
+		Name: jascredalpha
+		Filename: jascredalpha.pal
+		Premultiply: true
+		AllowModifiers: false

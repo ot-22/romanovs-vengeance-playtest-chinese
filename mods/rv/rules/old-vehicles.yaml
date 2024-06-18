@@ -1,0 +1,532 @@
+1tnk:
+	Inherits: ^Vehicle
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@BUNKER: ^TankBunkerable
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@CHAOS: ^BerserkableArmed
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@NOGUNNER: ^GunnerKillable
+	Inherits@RADIATON: ^DamagedByRadiation10Percent
+	Valued:
+		Cost: 700
+	DeliversCash:
+		Payload: 700
+		Voice: Move
+	Buildable:
+		Queue: Vehicle.Civilian
+	Tooltip:
+		Name: actor-1tnk.name
+	Tooltip@NoRow:
+		Name: actor-1tnk.name
+	Health:
+		HP: 25000
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 120
+		Locomotor: heavytracked
+	Turreted:
+		TurnSpeed: 30
+	Armament:
+		Weapon: 75mm
+		Damage: 65
+	AttackTurreted:
+		Voice: Attack
+		PauseOnCondition: chronodisable || emp || nogunner || parachute
+	WithVoxelBody:
+	WithVoxelTurret:
+	WithVoxelBarrel:
+	RenderSprites:
+	RenderVoxels:
+		NormalsPalette: ts-normals
+		Scale: 16
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+
+2tnk:
+	Inherits: ^Vehicle
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@BUNKER: ^TankBunkerable
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@CHAOS: ^BerserkableArmed
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@NOGUNNER: ^GunnerKillable
+	Inherits@RADIATON: ^DamagedByRadiation10Percent
+	Valued:
+		Cost: 800
+	DeliversCash:
+		Payload: 800
+		Voice: Move
+	Buildable:
+		Queue: Vehicle.Civilian
+	Tooltip:
+		Name: actor-2tnk.name
+	Tooltip@NoRow:
+		Name: actor-2tnk.name
+	Health:
+		HP: 35000
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 105
+		Locomotor: heavytracked
+	Turreted:
+		TurnSpeed: 28
+	Armament:
+		Weapon: 90mm
+		Damage: 50
+	AttackTurreted:
+		Voice: Attack
+		PauseOnCondition: chronodisable || emp || nogunner || parachute
+	WithVoxelBody:
+	WithVoxelTurret:
+	WithVoxelBarrel:
+	RenderSprites:
+	RenderVoxels:
+		NormalsPalette: ts-normals
+		Scale: 16
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+
+3tnk:
+	Inherits: ^Vehicle
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@BUNKER: ^TankBunkerable
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@CHAOS: ^BerserkableArmed
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@NOGUNNER: ^GunnerKillable
+	Inherits@RADIATON: ^DamagedByRadiation10Percent
+	Valued:
+		Cost: 950
+	DeliversCash:
+		Payload: 950
+		Voice: Move
+	Buildable:
+		Queue: Vehicle.Civilian
+	Tooltip:
+		Name: actor-3tnk.name
+	Tooltip@NoRow:
+		Name: actor-3tnk.name
+	Health:
+		HP: 40000
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 90
+		Locomotor: heavytracked
+	Turreted:
+		TurnSpeed: 28
+	Armament@primary:
+		Weapon: 105mmx
+		Damage: 50
+		Recoil: 87
+		RecoilRecovery: 12
+		MuzzleSequence: muzzle
+		LocalOffset: 1024,-128,640
+	Armament@primary2:
+		Name: primary2
+		Weapon: 105mmx
+		Damage: 50
+		FireDelay: 5
+		Recoil: 87
+		RecoilRecovery: 12
+		MuzzleSequence: muzzle
+		LocalOffset: 1024,128,640
+	AttackTurreted:
+		Voice: Attack
+		Armaments: primary, primary2
+		PauseOnCondition: chronodisable || emp || nogunner || parachute
+	WithMuzzleOverlay:
+	WithVoxelBody:
+	WithVoxelTurret:
+	WithVoxelBarrel:
+	WithVoxelBarrel@2:
+		Sequence: barrel2
+		Armament: primary2
+	RenderSprites:
+	RenderVoxels:
+		NormalsPalette: ts-normals
+		Scale: 13
+	Voiced:
+		VoiceSet: SovietVehicleVoice
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+
+4tnk:
+	Inherits: ^Vehicle
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@BUNKER: ^TankBunkerable
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@CHAOS: ^BerserkableArmed
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@NOGUNNER: ^GunnerKillable
+	Inherits@RADIATON: ^DamagedByRadiation10Percent
+	Valued:
+		Cost: 1700
+	DeliversCash:
+		Payload: 1700
+		Voice: Move
+	Buildable:
+		Queue: Vehicle.Civilian
+	Tooltip:
+		Name: actor-4tnk.name
+	Tooltip@NoRow:
+		Name: actor-4tnk.name
+	Health:
+		HP: 60000
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 60
+		Locomotor: omnicrusher
+	Turreted:
+		Offset: -256,0,0
+		TurnSpeed: 16
+	Armament:
+		Weapon: 120mm
+		Damage: 90
+	AttackTurreted:
+		Voice: Attack
+		PauseOnCondition: chronodisable || emp || nogunner || parachute
+	WithVoxelBody:
+	WithVoxelTurret:
+	WithVoxelBarrel:
+	RenderSprites:
+	RenderVoxels:
+		NormalsPalette: ts-normals
+		Scale: 16
+	Voiced:
+		VoiceSet: ApocalypseVoice
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+
+arty:
+	Inherits: ^Vehicle
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@CHAOS: ^BerserkableArmed
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@NOGUNNER: ^GunnerKillable
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Valued:
+		Cost: 600
+	DeliversCash:
+		Payload: 600
+		Voice: Move
+	Buildable:
+		Queue: Vehicle.Civilian
+	Tooltip:
+		Name: actor-arty.name
+	Tooltip@NoRow:
+		Name: actor-arty.name
+	Health:
+		HP: 20000
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 75
+	Turreted:
+		Offset: -500,0,0
+		TurnSpeed: 32
+	Armament:
+		Weapon: HowiCannon
+		Damage: 175
+	AttackFollowFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+		MustFaceTarget: true
+		PauseOnCondition: chronodisable || emp || nogunner
+	WithVoxelBody:
+	WithVoxelTurret:
+	RenderSprites:
+	RenderVoxels:
+		NormalsPalette: ts-normals
+		Scale: 16
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+
+ftnktd:
+	Inherits: ^Vehicle
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@CHAOS: ^BerserkableArmed
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@NOGUNNER: ^GunnerKillable
+	Inherits@RADIATON: ^DamagedByRadiation10Percent
+	Valued:
+		Cost: 800
+	DeliversCash:
+		Payload: 800
+		Voice: Move
+	Buildable:
+		Queue: Vehicle.Civilian
+	Tooltip:
+		Name: actor-ftnktd.name
+	Tooltip@NoRow:
+		Name: actor-ftnktd.name
+	Health:
+		HP: 40000
+	Armor:
+		Type: Heavy
+	Armament@primary:
+		Weapon: TankFlamer
+		Damage: 100
+		LocalOffset: 768,-128,384, 768,128,384
+		RequiresCondition: !rank-elite
+	AttackFollowFrontal:
+		Voice: Attack
+		FacingTolerance: 2
+		MustFaceTarget: true
+		PauseOnCondition: chronodisable || emp || nogunner
+	WithVoxelBody:
+	RenderSprites:
+	RenderVoxels:
+		NormalsPalette: ts-normals
+		Scale: 16
+	Voiced:
+		VoiceSet: FlameTankVoice
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+
+hmve:
+	Inherits: ^Vehicle
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@BUNKER: ^TankBunkerable
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@CHAOS: ^BerserkableArmed
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@NOGUNNER: ^GunnerKillable
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Valued:
+		Cost: 400
+	DeliversCash:
+		Payload: 400
+		Voice: Move
+	Buildable:
+		Queue: Vehicle.Civilian
+	Tooltip:
+		Name: actor-hmve.name
+	Tooltip@NoRow:
+		Name: actor-hmve.name
+	Health:
+		HP: 15000
+	Armor:
+		Type: Light
+	Turreted:
+		TurnSpeed: 30
+	Armament:
+		Weapon: M1CarbineE
+		Damage: 20
+	AttackTurreted:
+		Voice: Attack
+		PauseOnCondition: chronodisable || emp || nogunner || parachute
+	WithVoxelBody:
+	WithVoxelTurret:
+	RenderSprites:
+	RenderVoxels:
+		NormalsPalette: ts-normals
+		Scale: 16
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+
+m113:
+	Inherits: ^Vehicle
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@BUNKER: ^TankBunkerable
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@CHAOS: ^BerserkableArmed
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@NOGUNNER: ^GunnerKillable
+	Inherits@RADIATON: ^DamagedByRadiation10Percent
+	Valued:
+		Cost: 700
+	DeliversCash:
+		Payload: 700
+		Voice: Move
+	Buildable:
+		Queue: Vehicle.Civilian
+	Tooltip:
+		Name: actor-m113.name
+	Tooltip@NoRow:
+		Name: actor-m113.name
+	Health:
+		HP: 35000
+	Armor:
+		Type: Heavy
+	Turreted:
+		TurnSpeed: 30
+	Mobile:
+		RequiresCondition: !notmobile && !chronodisable && !emp && !magnefreeze && !beingterrordroned && !being-captured
+	Armament:
+		Weapon: M1CarbineE
+		Damage: 20
+	AttackTurreted:
+		Voice: Attack
+		PauseOnCondition: chronodisable || emp || nogunner || parachute
+	WithVoxelBody:
+	WithVoxelTurret:
+	Cargo:
+		Types: Infantry, Garrisoner, SmallVehicle
+		MaxWeight: 5
+		AfterLoadDelay: 0
+		BeforeUnloadDelay: 0
+		AfterUnloadDelay: 0
+		PassengerFacing: 0
+		UnloadVoice: Move
+		LoadingCondition: notmobile
+	WithCargoSounds:
+		EnterSounds: genter1a.wav
+		ExitSounds: gexit1a.wav
+	WithCargoPipsDecoration:
+		Margin: 4, 3
+		Palette: ra
+		Position: BottomLeft
+		RequiresSelection: true
+		CustomPipSequences:
+			gray: pip-gray
+			yellow: pip-yellow
+			blue: pip-blue
+			red: pip-red
+	RenderSprites:
+	RenderVoxels:
+		NormalsPalette: ts-normals
+		Scale: 16
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, Cargo
+
+mlrs:
+	Inherits: ^Vehicle
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@CHAOS: ^BerserkableArmed
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@NOGUNNER: ^GunnerKillable
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Valued:
+		Cost: 800
+	DeliversCash:
+		Payload: 800
+		Voice: Move
+	Buildable:
+		Queue: Vehicle.Civilian
+	Tooltip:
+		Name: actor-mlrs.name
+	Tooltip@NoRow:
+		Name: actor-mlrs.name
+	Health:
+		HP: 15000
+	Armor:
+		Type: Light
+	Turreted:
+		Offset: -256,0,0
+		TurnSpeed: 28
+	Armament:
+		Weapon: APTusk
+		Damage: 200
+		LocalOffset: 256,160,768, 256,-160,768
+	AttackTurreted:
+		Voice: Attack
+		TargetFrozenActors: true
+		PauseOnCondition: chronodisable || emp || nogunner || parachute
+	WithVoxelBody:
+	WithVoxelTurret:
+	RenderSprites:
+	RenderVoxels:
+		NormalsPalette: ts-normals
+		Scale: 16
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange
+
+mnly:
+	Inherits: ^Vehicle
+	Inherits@CHAOS: ^Berserkable
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation10Percent
+	Valued:
+		Cost: 800
+	DeliversCash:
+		Payload: 800
+		Voice: Move
+	Buildable:
+		Queue: Vehicle.Civilian
+	Tooltip:
+		Name: actor-mnly.name
+	Tooltip@NoRow:
+		Name: actor-mnly.name
+	Health:
+		HP: 40000
+	Armor:
+		Type: Heavy
+	Minelayer:
+		Mine: mine
+		TileUnknownName: build-valid
+		Voice: Attack
+	MineImmune:
+	AmmoPool:
+		Ammo: 5
+		RearmSound: minelay1.aud
+	Rearmable:
+		RearmActors: gadept, nadept, nadepb, yadept, yadepb, caoutp, caoutb
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
+	WithVoxelBody:
+	RenderSprites:
+	RenderVoxels:
+		NormalsPalette: ts-normals
+		Scale: 16
+	WithAmmoPipsDecoration:
+		Margin: 4, 3
+		Palette: ra
+		Position: BottomLeft
+		RequiresSelection: true
+	ActorStatValues:
+		Stats: Armor, Sight, Speed
+
+mrj:
+	Inherits: ^Vehicle
+	Inherits@CHAOS: ^Berserkable
+	Inherits@MC: ^MindControllableDisabledWithIC
+	Inherits@RADIATON: ^DamagedByRadiation50Percent
+	Valued:
+		Cost: 1000
+	DeliversCash:
+		Payload: 1000
+		Voice: Move
+	Buildable:
+		Queue: Vehicle.Civilian
+	Tooltip:
+		Name: actor-mrj.name
+	Tooltip@NoRow:
+		Name: actor-mrj.name
+	Health:
+		HP: 40000
+	Armor:
+		Type: Light
+	ProximityExternalCondition@DISABLERADAR:
+		Range: 20c0
+		ValidRelationships: Enemy, Neutral
+		Condition: disableradar
+	DetectCloaked:
+		DetectionTypes: Cloak
+		Range: 10c0
+	JamsMissiles:
+		Range: 5c0
+		DeflectionRelationships: Enemy, Neutral
+	WithRangeCircle@JAMMER:
+		Type: jammer
+		Range: 20c0
+		Color: 0000FF80
+	RenderDetectionCircle:
+	RenderJammerCircle:
+	Turreted:
+		Offset: -256,0,-128
+		TurnSpeed: 30
+	WithVoxelBody:
+	WithVoxelTurret:
+	RenderSprites:
+	RenderVoxels:
+		Scale: 16
+	ActorStatValues:
+		Stats: Armor, Sight, Speed

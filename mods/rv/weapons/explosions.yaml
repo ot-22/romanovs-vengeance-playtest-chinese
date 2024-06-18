@@ -1,0 +1,895 @@
+LargeBarrelExplode:
+	Inherits@1: ^BreakPointDefenseDrones
+	ReloadDelay: 20
+	Range: 4c0
+	Report: gexpbara.wav, gexpbarb.wav, gexpbarc.wav
+	Projectile: BulletAS
+		Speed: 1c682
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c768
+		Damage: 45000 # 22500
+		Falloff: 100, 73, 47, 20, 0
+		Versus:
+			None: 150
+			Flak: 100
+			Plate: 100
+			Light: 90
+			Medium: 50
+			Heavy: 50
+			Wood: 100
+			Steel: 150
+			Concrete: 30
+			Drone: 100
+			Rocket: 100
+		AffectsParent: true
+		DamageTypes: Prone70Percent, TriggerProne, FlameDeath, SuppressTerrorDrone, NonTemporal
+	Warhead@2Eff: CreateEffect
+		Explosions: large_barrel_explosion
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air
+	Warhead@3Smu: LeaveSmudge
+		SmudgeType: MediumCrater, MediumScorch
+
+SmallBarrelExplode:
+	Inherits: LargeBarrelExplode
+	Warhead@2Eff: CreateEffect
+		Explosions: small_barrel_explosion
+	Warhead@3Smu: LeaveSmudge
+		SmudgeType: SmallCrater
+
+LargeChronobombExplode:
+	Inherits: LargeBarrelExplode
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c512
+		Damage: 20000
+		Versus:
+			None: 100
+			Flak: 100
+			Plate: 100
+			Light: 100
+			Medium: 100
+			Heavy: 100
+			Wood: 75
+			Steel: 100
+			Concrete: 65
+
+SmallChronobombExplode:
+	Inherits: SmallBarrelExplode
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c512
+		Damage: 20000
+		Versus:
+			None: 100
+			Flak: 100
+			Plate: 100
+			Light: 100
+			Medium: 100
+			Heavy: 100
+			Wood: 75
+			Steel: 100
+			Concrete: 65
+
+RadCrateExplode:
+	Inherits: SmallBarrelExplode
+	Warhead@1Dam: SpreadDamage
+		Damage: 30000
+		DamageTypes: Prone70Percent, TriggerProne, RadiationDeath, SuppressTerrorDrone, NonTemporal
+	Warhead@4Radiation: CreateTintedCells
+		Spread: 3c0
+		Falloff: 100, 100
+		Level: 750
+		MaxLevel: 750
+
+GasCrateExplode:
+	Inherits: SmallBarrelExplode
+	Warhead@1Dam: SpreadDamage
+		Damage: 30000
+		DamageTypes: Prone70Percent, TriggerProne, VirusDeath, SuppressTerrorDrone, NonTemporal
+	Warhead@2Eff: CreateEffect
+		Explosions: medium_toxin_explosion
+		ExplosionPalette: player
+	Warhead@3Par: SpawnSmokeParticle
+		ValidTargets: Ground, Air, Water
+		Image: txgasg
+		Sequences: idle
+		Palette: effect
+		Weapon: CloudDamage
+		Count: 5
+		Duration: 400
+		Speed: 0, 25
+		TurnRate: 10
+
+DerrickExplode:
+	Inherits: LargeBarrelExplode
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c768
+	Warhead@2Eff: CreateEffect
+		Explosions: large_twlt, large_bang, large_brnl, verylarge_clsn, large_tumu
+	Warhead@3Smu: LeaveSmudge
+		SmudgeType: MediumCrater, MediumScorch
+
+UnitExplode:
+	Warhead@1Eff: CreateEffect
+		Explosions: large_twlt, large_bang, large_brnl, large_tumu, verylarge_clsn
+		ImpactSounds: gexp11a.wav, gexp14b.wav, gexp14c.wav, gexp14d.wav
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air
+	Warhead@DebrisSpawn: FireShrapnel
+		Weapon: SmallDebris
+		Amount: 1,4
+		AffectsParent: true
+
+UnitSink:
+	ValidTargets: Water
+	Warhead@DebrisSpawn: FireShrapnel
+		Weapon: UnitSinkSharpnel
+		Amount: 8,12
+		AffectsParent: true
+		ValidTargets: Water
+	Warhead@1Eff: CreateEffect
+		ImpactSounds: gnavsina.wav
+		ValidTargets: Water
+
+UnitSinkSharpnel:
+	Range: 1c0
+	ValidTargets: Water
+	Projectile: BulletAS
+		Speed: 5c0
+		Inaccuracy: 1c0
+	Warhead@1Eff: CreateEffect
+		Image: wake
+		Explosions: idle
+		ExplosionPalette: effect50alpha
+		ValidTargets: Water
+
+UnitExplodeSmall:
+	Inherits: UnitExplode
+	Warhead@1Eff: CreateEffect
+		Explosions: medium_brnl
+		ImpactSounds: gexp06a.wav, gexp07a.wav
+		ValidTargets: Ground, Water, Air
+	Warhead@3Smu: LeaveSmudge
+		SmudgeType: SmallCrater
+
+V3AmmunitionExplode:
+	Inherits: UnitExplodeSmall
+	Warhead@1Eff: CreateEffect
+		Explosions: terrorist_explosion
+	Warhead@3Smu: LeaveSmudge
+		SmudgeType: MediumCrater, MediumScorch
+
+BuildingExplode:
+	Inherits: UnitExplodeSmall
+	Warhead@1Eff: CreateEffect
+		Explosions: large_twlt, large_bang, large_brnl, verylarge_clsn, large_tumu
+	Warhead@DebrisSpawn: FireShrapnel
+		Weapon: LargeDebris
+	Warhead@3Smu: LeaveSmudge
+		SmudgeType: MediumCrater, MediumScorch
+
+ReactorExplode:
+	Inherits: BuildingExplode
+	Warhead@1Eff: CreateEffect
+		Explosions: powerplant_explosion
+		ImpactSounds: bpowdiea.wav, bpowdieb.wav
+
+TeslaReactorExplode:
+	Inherits: ReactorExplode
+	Warhead@1Eff: CreateEffect
+		Explosions: tesla_explosion
+
+KirovExplode:
+	Inherits: UnitExplode
+	Inherits@1: ^BreakPointDefenseDrones
+	Warhead@2Dam: SpreadDamage
+		Spread: 0c512
+		Damage: 75000 # 25000
+		Falloff: 100, 83, 67, 50, 0
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, SuppressTerrorDrone, NonTemporal
+	Warhead@3Smu: LeaveSmudge
+		SmudgeType: MediumCrater
+
+ApocExplode:
+	Inherits: KirovExplode
+	Warhead@1Eff: CreateEffect
+		ImpactSounds: gexpapoa.wav, gexpapob.wav, gexpapoc.wav
+	Warhead@2Dam: SpreadDamage
+		Damage: 4000
+
+FlameTankExplode:
+	Inherits: KirovExplode
+	Warhead@1Eff: CreateEffect
+		ImpactSounds: gexpbara.wav, gexpbarb.wav, gexpbarc.wav
+	Warhead@2Dam: SpreadDamage
+		Damage: 10000
+		Versus:
+			None: 100
+			Flak: 100
+			Plate: 100
+			Light: 70
+			Medium: 35
+			Heavy: 35
+			Wood: 70
+			Steel: 35
+			Concrete: 60
+			Drone: 100
+			Rocket: 100
+		Spread: 0c768
+	Warhead@2Eff: CreateEffect
+		Explosions: terrorist_explosion
+		ValidTargets: Ground, Water, Air
+	Warhead@3Smu: LeaveSmudge
+		SmudgeType: MediumScorch
+
+NuclearEngineExplode:
+	Inherits: FlameTankExplode
+	Warhead@1Eff: CreateEffect
+		Explosions: demotruck_explosion
+		ImpactSounds: vdemdiea.wav
+	Warhead@2Dam: SpreadDamage
+		Damage: 12500
+			Medium: 20
+			Heavy: 20
+	-Warhead@2Eff:
+	Warhead@3Radiation: CreateTintedCells
+		Spread: 2c0
+		Falloff: 100, 100
+		Level: 100
+
+NuclearEngineExplodeOrange:
+	Inherits: NuclearEngineExplode
+	Warhead@1Eff: CreateEffect
+		Explosions: demotruck_explosion_orange
+	Warhead@3Radiation: CreateTintedCells
+		LayerName: radioactivityorange
+
+PlaneExplode:
+	Inherits: KirovExplode
+	Warhead@2Dam: SpreadDamage
+		Damage: 10000
+
+B2Explode:
+	Inherits: PlaneExplode
+	Warhead@2Dam: SpreadDamage
+		Damage: 20000
+
+HornetExplode:
+	Inherits: KirovExplode
+	Warhead@2Dam: SpreadDamage
+		Damage: 200
+
+InfantryExplode:
+	Inherits: UnitExplode
+	Warhead@1Eff: CreateEffect
+		Explosions: medium_bang
+		ImpactSounds: igenexpa.wav
+		ValidTargets: Ground, Water, Air
+	-Warhead@DebrisSpawn:
+
+MinerExplode:
+	Inherits: UnitExplodeSmall
+	Warhead@2Res: CreateResource
+		AddsResourceType: Ore
+		Size: 1,1
+
+RefineryExplode:
+	Inherits: BuildingExplode
+	Warhead@2Res: CreateResource
+		AddsResourceType: Ore
+		Size: 1,1
+
+HoloExplode:
+	Warhead@1Eff: CreateEffect
+		Explosions: holodis
+		ExplosionPalette: apolra2i
+		ValidTargets: Ground, Water, Air
+
+TemporalExplode:
+	Warhead@1Eff: CreateEffect
+		Explosions: temporal_explosion
+		ValidTargets: Ground, Water, Air
+
+IvanBomber:
+	Inherits@1: ^BreakPointDefenseDrones
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c384
+		Damage: 60000
+		Falloff: 100, 75, 50, 25, 0
+		ValidTargets: Ground, Water, Air
+		Versus:
+			None: 100
+			Flak: 100
+			Plate: 100
+			Light: 100
+			Medium: 100
+			Heavy: 100
+			Wood: 100
+			Steel: 100
+			Concrete: 100
+			Drone: 100
+			Rocket: 100
+		DamageTypes: PsychicDeath, Prone100Percent, SuppressTerrorDrone, NonTemporal
+	Warhead@2Eff: CreateEffect
+		Explosions: ivan_explosion
+		ImpactSounds: gexpcraa.wav
+		ValidTargets: Ground, Water, Air
+	Warhead@3Smu: LeaveSmudge
+		SmudgeType: MediumCrater, MediumScorch
+
+IvanBomberE:
+	Inherits: IvanBomber
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c512
+		Damage: 150000
+	Warhead@2Eff: CreateEffect
+		Explosions: ivan_explosionE
+
+TargetedIvanBomber:
+	Inherits: IvanBomber
+	Warhead@1Dam: SpreadDamage
+		ValidRelationships: Neutral, Enemy
+
+TargetedIvanBomberE:
+	Inherits: IvanBomberE
+	Warhead@1Dam: SpreadDamage
+		ValidRelationships: Neutral, Enemy
+
+TanyaC4:
+	Inherits: IvanBomber
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c32
+		Damage: 10000000
+		Versus:
+			None: 0
+			Flak: 0
+			Plate: 0
+			Light: 100
+			Medium: 100
+			Heavy: 100
+			Wood: 0
+			Steel: 0
+			Concrete: 0
+			Drone: 100
+			Rocket: 0
+		DamageTypes: PsychicDeath, Prone100Percent, SuppressTerrorDrone, NonTemporal
+	Warhead@2Eff: CreateEffect
+		Explosions: c4explosion
+		ExplosionPalette: tseffect
+		ImpactSounds: iseaexpa.wav
+
+SealC4:
+	Inherits: TanyaC4
+	Warhead@1Dam: SpreadDamage
+		Damage: 40000
+		Versus:
+			Wood: 100
+			Steel: 100
+			Concrete: 75
+
+SealC4E:
+	Inherits: SealC4
+	Warhead@1Dam: SpreadDamage
+		Damage: 100000
+
+TeslaBomb:
+	Inherits: SealC4
+	Warhead@1Dam: SpreadDamage
+		Damage: 55000
+	Warhead@2Eff: CreateEffect
+		Explosions: kirovtesla
+		ExplosionPalette: effect
+		ImpactSounds: gexpapoa.wav
+
+TeslaBombE:
+	Inherits: TeslaBomb
+	Warhead@1Dam: SpreadDamage
+		Damage: 130000
+
+ToxinTrooperBomb:
+	Inherits: SealC4
+	Warhead@1Dam: SpreadDamage
+		Damage: 47500
+	Warhead@2Eff: CreateEffect
+		Explosions: medium_toxin_explosion
+		ExplosionPalette: player
+		ImpactSounds: gexpapoa.wav
+	Warhead@3Shr: FireShrapnel
+		Weapon: ToxinSplash
+		AffectsParent: true
+		Amount: 3
+	Warhead@4Par: SpawnSmokeParticle
+		ValidTargets: Ground, Air, Water
+		Image: txgasg
+		Sequences: idle
+		Palette: effect
+		Weapon: CloudDamage
+		Duration: 400
+		Speed: 0, 25
+		TurnRate: 10
+	Warhead@5Par: SpawnSmokeParticle
+		ValidTargets: Ground, Air, Water
+		Image: txgasg
+		Sequences: idle
+		Palette: effect
+		Weapon: CloudDamage
+		Duration: 400
+		Speed: 0, 25
+		TurnRate: 10
+
+ToxinTrooperBombE:
+	Inherits: ToxinTrooperBomb
+	Warhead@1Dam: SpreadDamage
+		Damage: 115000
+	Warhead@2Eff: CreateEffect
+		Explosions: large_toxin_explosion
+	Warhead@3Shr: FireShrapnel
+		Amount: 6
+	Warhead@6Par: SpawnSmokeParticle
+		ValidTargets: Ground, Air, Water
+		Image: txgasg
+		Sequences: idle
+		Palette: effect
+		Weapon: CloudDamage
+		Duration: 400
+		Speed: 0, 25
+		TurnRate: 10
+	Warhead@7Par: SpawnSmokeParticle
+		ValidTargets: Ground, Air, Water
+		Image: txgasg
+		Sequences: idle
+		Palette: effect
+		Weapon: CloudDamage
+		Duration: 400
+		Speed: 0, 25
+		TurnRate: 10
+
+TerrorBomb:
+	Inherits@1: ^BreakPointDefenseDrones
+	ReloadDelay: 20
+	Range: 4c0
+	Report: gexpbara.wav, gexpbarb.wav, gexpbarc.wav
+	Projectile: BulletAS
+		Speed: 1c682
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c512
+		Damage: 45000 # 22500
+		Falloff: 100, 73, 47, 20, 0
+		Versus:
+			None: 150
+			Flak: 100
+			Plate: 100
+			Light: 90
+			Medium: 50
+			Heavy: 50
+			Wood: 100
+			Steel: 150
+			Concrete: 30
+			Drone: 100
+			Rocket: 100
+		AffectsParent: true
+		DamageTypes: Prone70Percent, TriggerProne, FlameDeath, SuppressTerrorDrone, NonTemporal
+	Warhead@2Eff: CreateEffect
+		Explosions: terrorist_explosion
+		ImpactSounds: gexpapoa.wav
+		ValidTargets: Ground, Water, Air
+	Warhead@3Smu: LeaveSmudge
+		SmudgeType: SmallCrater
+
+TargetedTerrorBomb:
+	Inherits: TerrorBomb
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c768
+		ValidRelationships: Enemy, Neutral
+
+DeathBombExplode:
+	Inherits: TerrorBomb
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Ground, Water, Air
+
+TargetedDeathBombExplode:
+	Inherits: TargetedTerrorBomb
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Ground, Water, Air
+
+DevastatorExplosion:
+	Inherits: TerrorBomb
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c768
+		Damage: 100000 # 50000
+	Warhead@4Radiation: CreateTintedCells
+		Spread: 4c0
+		Falloff: 100, 100
+		Level: 250
+	Warhead@3Smu: LeaveSmudge
+		SmudgeType: MediumCrater, MediumScorch
+
+DevastatorExplosionOrange:
+	Inherits: DevastatorExplosion
+	Warhead@4Radiation: CreateTintedCells
+		LayerName: radioactivityorange
+
+NukePayload:
+	Inherits@1: ^BreakPointDefenseDrones
+	ValidTargets: Ground, Water
+	Warhead@1Dam_impact: SpreadDamage
+		Spread: 1c0
+		Damage: 100000 # 20000
+		Falloff: 100, 90, 80, 70, 60, 50, 40, 30, 20, 10, 0
+		ValidTargets: Ground, Water
+		Versus:
+			None: 100
+			Flak: 100
+			Plate: 100
+			Light: 200
+			Medium: 100
+			Heavy: 100
+			Wood: 60
+			Steel: 100
+			Concrete: 30 # 8
+			Drone: 100
+			Rocket: 100
+		AffectsParent: true
+		DamageTypes: Prone50Percent, TriggerProne, RadiationDeath, SuppressTerrorDrone, NonTemporal
+	Warhead@2Eff_impact: CreateEffect
+		Explosions: nuke_explosion
+		ImpactSounds: snukexpl.wav
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air
+	Warhead@3Radiation: CreateTintedCells
+		Spread: 10c0
+		Falloff: 100, 100
+		Level: 500
+	Warhead@4Smu: LeaveSmudge
+		SmudgeType: LargeCrater, LargeScorch
+
+NukePayloadOrange:
+	Inherits: NukePayload
+	Warhead@1Dam_impact: SpreadDamage
+		DamageTypes: Prone50Percent, TriggerProne, OrangeRadiationDeath, SuppressTerrorDrone, NonTemporal
+	Warhead@3Radiation: CreateTintedCells
+		LayerName: radioactivityorange
+
+atomic:
+	Inherits: NukePayload
+	ValidTargets: Ground, Water, Air
+	Warhead@0Eff_impact: CreateEffect
+		Explosions: nuke_ball
+		ImpactSounds: snukintr.wav
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air
+	Warhead@1Dam_impact: SpreadDamage
+		Damage: 200000 # 40000
+		Versus:
+			Wood: 100
+			Concrete: 30
+		DamageTypes: RadiationDeath, SuppressTerrorDrone, NonTemporal
+		Delay: 25
+	Warhead@2Eff_impact: CreateEffect
+		Delay: 25
+		ValidTargets: Ground, Water, Air
+	Warhead@3Radiation: CreateTintedCells
+		Delay: 25
+	Warhead@5Shake: ShakeScreen
+		Duration: 20
+		Intensity: 5
+		Multiplier: 1,1
+
+atomicOrange:
+	Inherits: atomic
+	Warhead@1Dam_impact: SpreadDamage
+		DamageTypes: OrangeRadiationDeath, SuppressTerrorDrone, NonTemporal
+	Warhead@3Radiation: CreateTintedCells
+		LayerName: radioactivityorange
+
+demobomb:
+	Inherits: NukePayload
+	ValidTargets: Ground, Water
+	Warhead@1Dam_impact: SpreadDamage
+		Spread: 2c0
+		Damage: 120000 # 30000
+		Falloff: 100, 70, 40, 10, 0
+		ValidTargets: Ground, Water
+		Versus:
+			Light: 100
+			Medium: 50
+			Heavy: 50
+			Wood: 80
+			Steel: 150
+			Concrete: 80 # 10
+	Warhead@2Eff_impact: CreateEffect
+		Explosions: demotruck_explosion
+		ImpactSounds: vdemdiea.wav
+	Warhead@3Radiation: CreateTintedCells
+		Spread: 6c0
+		Level: 100
+	Warhead@4Smu: LeaveSmudge
+		SmudgeType: MediumCrater, MediumScorch
+
+demobombOrange:
+	Inherits: demobomb
+	Warhead@1Dam_impact: SpreadDamage
+		DamageTypes: OrangeRadiationDeath, SuppressTerrorDrone, NonTemporal
+	Warhead@2Eff_impact: CreateEffect
+		Explosions: demotruck_explosion_orange
+	Warhead@3Radiation: CreateTintedCells
+		LayerName: radioactivityorange
+
+ClusterMissile:
+	Warhead@Cluster: FireCluster
+		Weapon: ClusterMissileCluster
+		Dimensions: 5,5
+		Footprint: __X__ _XXX_ XXXXX _XXX_ __X__
+	Warhead@2Eff: CreateEffect
+		Explosions: verylarge_clsn
+		ImpactSounds: gexpapoa.wav
+		ImpactActors: false
+		ValidTargets: Air, Ground, Water
+	Warhead@21Shake: ShakeScreen
+		Duration: 20
+		Intensity: 3
+		Multiplier: 1,1
+
+ClusterMissileCluster:
+	Inherits@1: ^BreakPointDefenseDrones
+	Range: 7c0
+	Projectile: Bullet
+		Image: 160mm
+		Palette: ra
+		Speed: 196
+		LaunchAngle: 0, 32
+		Inaccuracy: 1c512
+	Warhead@1Dam: SpreadDamage
+		Damage: 10000
+		Spread: 2c0
+		Versus:
+			None: 100
+			Flak: 100
+			Plate: 80
+			Light: 100
+			Medium: 70
+			Heavy: 70
+			Wood: 100
+			Steel: 100
+			Concrete: 90
+			Drone: 100
+			Rocket: 0
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath, SuppressTerrorDrone, NonTemporal
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: MediumCrater, MediumScorch
+		InvalidTargets: Vehicle, Structure, Barrel, Mine, Wall
+	Warhead@3Eff: CreateEffect
+		Explosions: large_twlt
+		ImpactSounds: gexpapoa.wav
+		ImpactActors: false
+
+Demolish:
+	Warhead@1Dam: SpreadDamage
+		DamageTypes: DefaultDeath, NonTemporal
+	Warhead@2Eff: CreateEffect
+		Explosions: large_twlt
+		ImpactSounds: expnew09.wav
+
+V3Weapon:
+	Inherits@1: ^BreakPointDefenseDrones
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c768
+		Damage: 20000
+		ValidTargets: Ground, Water
+		Versus:
+			None: 100
+			Flak: 100
+			Plate: 80
+			Light: 100
+			Medium: 70
+			Heavy: 70
+			Wood: 100
+			Steel: 100
+			Concrete: 90
+			Drone: 100
+			Rocket: 0
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath, SuppressTerrorDrone, NonTemporal
+	Warhead@2Eff: CreateEffect
+		Explosions: medium_clsn
+		ImpactSounds: gexp14a.wav
+		ValidTargets: Ground, Air
+	Warhead@3EffWater: CreateEffect
+		Explosions: small_watersplash
+		ImpactSounds: gexpwasa.wav
+		ValidTargets: Water
+	Warhead@4Smu: LeaveSmudge
+		SmudgeType: MediumCrater, MediumScorch
+
+V3WeaponE:
+	Inherits: V3Weapon
+	Warhead@1Dam: SpreadDamage
+		Spread: 1c0
+	Warhead@2Eff: CreateEffect
+		Explosions: terrorist_explosion
+		ImpactSounds: gexpapoa.wav
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air
+	-Warhead@3EffWater:
+
+V3WeaponRad:
+	Inherits: V3Weapon
+	Warhead@4Radiation: CreateTintedCells
+		Spread: 2c0
+		Falloff: 100, 100
+		Level: 500
+		MaxLevel: 500
+	Warhead@2Eff: CreateEffect
+		Explosions: demotruck_explosion
+
+V3WeaponRadE:
+	Inherits: V3WeaponE
+	Warhead@4Radiation: CreateTintedCells
+		Spread: 3c0
+		Falloff: 100, 100
+		Level: 750
+		MaxLevel: 750
+
+V3WeaponRadOrange:
+	Inherits: V3WeaponRad
+	Warhead@2Eff: CreateEffect
+		Explosions: demotruck_explosion_orange
+	Warhead@4Radiation: CreateTintedCells
+		LayerName: radioactivityorange
+
+V3WeaponRadOrangeE:
+	Inherits: V3WeaponRadE
+	Warhead@4Radiation: CreateTintedCells
+		LayerName: radioactivityorange
+
+V3WeaponCryo:
+	Inherits: V3Weapon
+	Warhead@5Con: GrantExternalCondition
+		Range: 2c0
+		Duration: 250
+		Condition: cryo
+		ValidTargets: Ground, Water
+		InvalidTargets: IronCurtained, ForceShielded
+	Warhead@2Eff: CreateEffect
+		Explosions: kirovtesla
+
+V3WeaponCryoE:
+	Inherits: V3WeaponE
+	Warhead@5Con: GrantExternalCondition
+		Range: 3c0
+		Duration: 375
+		Condition: cryo
+		ValidTargets: Ground, Water
+		InvalidTargets: IronCurtained, ForceShielded
+
+DredWeapon:
+	Inherits: V3Weapon
+	Warhead@1Dam: SpreadDamage
+		Spread: 1c0
+		Damage: 20000
+
+DredWeaponE:
+	Inherits: V3WeaponE
+	Warhead@1Dam: SpreadDamage
+		Spread: 1c0
+		Damage: 20000
+
+DredWeaponRad:
+	Inherits: DredWeapon
+	Warhead@4Radiation: CreateTintedCells
+		Spread: 2c0
+		Falloff: 100, 100
+		Level: 500
+		MaxLevel: 500
+	Warhead@2Eff: CreateEffect
+		Explosions: demotruck_explosion
+
+DredWeaponRadE:
+	Inherits: DredWeaponE
+	Warhead@4Radiation: CreateTintedCells
+		Spread: 3c0
+		Falloff: 100, 100
+		Level: 750
+		MaxLevel: 750
+
+DredWeaponRadOrange:
+	Inherits: DredWeaponRad
+	Warhead@2Eff: CreateEffect
+		Explosions: demotruck_explosion_orange
+	Warhead@4Radiation: CreateTintedCells
+		LayerName: radioactivityorange
+
+DredWeaponRadOrangeE:
+	Inherits: DredWeaponRadE
+	Warhead@4Radiation: CreateTintedCells
+		LayerName: radioactivityorange
+
+DredWeaponCryo:
+	Inherits: DredWeapon
+	Warhead@5Con: GrantExternalCondition
+		Range: 2c0
+		Duration: 250
+		Condition: cryo
+		ValidTargets: Ground, Water
+		InvalidTargets: IronCurtained, ForceShielded
+	Warhead@2Eff: CreateEffect
+		Explosions: kirovtesla
+
+DredWeaponCryoE:
+	Inherits: DredWeaponE
+	Warhead@5Con: GrantExternalCondition
+		Range: 3c0
+		Duration: 375
+		Condition: cryo
+		ValidTargets: Ground, Water
+		InvalidTargets: IronCurtained, ForceShielded
+
+CruiseWeapon:
+	Inherits: DredWeapon
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c410
+		Damage: 15000
+
+CruiseWeaponE:
+	Inherits: DredWeaponE
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c410
+		Damage: 15000
+
+RadiationMissile:
+	Inherits@1: ^BreakPointDefenseDrones
+	Warhead@1Dam: SpreadDamage
+		Spread: 1c512
+		Damage: 25000
+		Versus:
+			None: 100
+			Flak: 100
+			Plate: 100
+			Light: 90
+			Medium: 70
+			Heavy: 70
+			Wood: 100
+			Steel: 60
+			Concrete: 90
+			Drone: 80
+			Rocket: 0
+		DamageTypes: Prone70Percent, TriggerProne, RadiationDeath, SuppressTerrorDrone, NonTemporal
+	Warhead@2Eff: CreateEffect
+		Explosions: demotruck_explosion
+		ImpactSounds: vdemdiea.wav
+	Warhead@3Radiation: CreateTintedCells
+		Spread: 4c0
+		Falloff: 100, 100
+		Level: 1500
+		MaxLevel: 1500
+	Warhead@4Smu: LeaveSmudge
+		SmudgeType: MediumCrater, MediumScorch
+
+RadiationMissileOrange:
+	Inherits: RadiationMissile
+		DamageTypes: Prone70Percent, TriggerProne, OrangeRadiationDeath, SuppressTerrorDrone, NonTemporal
+	Warhead@1Dam: SpreadDamage
+	Warhead@2Eff: CreateEffect
+		Explosions: demotruck_explosion_orange
+	Warhead@3Radiation: CreateTintedCells
+		LayerName: radioactivityorange
+
+MineExplosion:
+	Inherits@1: ^BreakPointDefenseDrones
+	Warhead@1Dam: SpreadDamage
+		Spread: 256
+		Damage: 40000
+		AffectsParent: true
+		InvalidTargets: Structure, WaterStructure, Barrel, Mine, Wall, Trees
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, SuppressTerrorDrone, NonTemporal
+	Warhead@2Eff: CreateEffect
+		Explosions: mine_explosion
+		ExplosionPalette: tseffect
+		ImpactSounds: mine1.aud, mineblo1.aud
+	Warhead@Smu: LeaveSmudge
+		SmudgeType: MediumCrater, MediumScorch
+		InvalidTargets: Structure, Barrel, Mine, Wall, Trees
+
+NavalMineExplosion:
+	Inherits@1: MineExplosion
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Water, Underwater
+		InvalidTargets: Structure, WaterStructure, Barrel, Mine, Wall, Trees

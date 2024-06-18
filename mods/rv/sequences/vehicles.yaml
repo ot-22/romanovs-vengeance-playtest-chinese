@@ -1,0 +1,641 @@
+amcv:
+	icon:
+		Filename: cameo|mcvicon.shp
+
+aegis:
+	icon:
+		Filename: cameo|agisicon.shp
+
+bus:
+	icon:
+		Filename: cameo|xxicon.shp
+
+car:
+	icon:
+		Filename: cameo|xxicon.shp
+
+carrier:
+	icon:
+		Filename: cameo|carricon.shp
+
+cdest:
+	Inherits@MUZZLE: ^WithCannonMuzzle
+	icon:
+		Filename: cameo|desticon.shp
+
+cona:
+	icon:
+		Filename: bits/cameos/conaicon.shp
+
+cop:
+	icon:
+		Filename: bits/cameos/copicon.shp
+
+cmin:
+	harvest:
+		Filename: conquer|oregath.shp
+		Length: 15
+		Facings: 8
+	warpin:
+		Filename: conquer|warpin.shp
+	warpout:
+		Filename: conquer|warpout.shp
+		Length: 20
+	icon:
+		Filename: cameo|ahrvicon.shp
+
+cruise:
+	icon:
+		Filename: cameo|xxicon.shp
+
+dest:
+	Inherits@MUZZLE: ^WithCannonMuzzle
+	icon:
+		Filename: cameo|desticon.shp
+
+dred:
+	icon:
+		Filename: cameo|dredicon.shp
+
+dron:
+	Defaults:
+		Filename: dron.shp
+	stand:
+		Start: 48
+		ShadowStart: 136
+		Facings: -8
+	run:
+		Start: 0
+		ShadowStart: 88
+		Length: 6
+		Facings: -8
+		Tick: 80
+	jump:
+		Start: 56
+		ShadowStart: 144
+		Length: 4
+		Facings: -8
+	shoot:
+		Filename: dronp.shp
+		Length: 1
+		Facings: 32
+	icon:
+		Filename: cameo|dronicon.shp
+
+euroc:
+	icon:
+		Filename: cameo|xxicon.shp
+
+flata:
+	icon:
+		Filename: cameo|xxicon.shp
+
+fv:
+	muzzle:
+		Combine:
+			0:
+				Filename: mgun-n.shp
+				Length: 3
+			1:
+				Filename: mgun-nw.shp
+				Length: 3
+			2:
+				Filename: mgun-w.shp
+				Length: 3
+			3:
+				Filename: mgun-sw.shp
+				Length: 3
+			4:
+				Filename: mgun-s.shp
+				Length: 3
+			5:
+				Filename: mgun-se.shp
+				Length: 3
+			6:
+				Filename: mgun-e.shp
+				Length: 3
+			7:
+				Filename: mgun-ne.shp
+				Length: 3
+		Facings: 8
+		Length: 3
+	muzzle-1:
+		Filename: gunfire.shp
+		Length: *
+	muzzle-2:
+		Filename: vtmuzzle.shp
+		Length: *
+	icon:
+		Filename: cameo|fvicon.shp
+
+mgtk:
+	Inherits@MUZZLE: ^WithMirageMuzzle
+	idle: # this is required because the WithSpriteBody constructor initializes before the Mirage trait is activated
+		Filename: null.shp
+	icon:
+		Filename: cameo|rtnkicon.shp
+
+mtnk:
+	Inherits@MUZZLE: ^WithCannonMuzzle
+	icon:
+		Filename: cameo|gtnkicon.shp
+
+harv:
+	Inherits@MUZZLE: ^WithMachineGunMuzzle
+	harvest:
+		Filename: conquer|oregath.shp
+		Length: 15
+		Facings: 8
+	icon:
+		Filename: cameo|harvicon.shp
+	muzzle:
+		Filename: harv.shp
+
+htk:
+	Inherits@MUZZLE: ^WithFlakMuzzle
+	icon:
+		Filename: cameo|htkicon.shp
+
+htnk:
+	Inherits@MUZZLE: ^WithCannonMuzzle
+	icon:
+		Filename: cameo|htnkicon.shp
+
+howi:
+	Inherits@MUZZLE: ^WithCannonMuzzle
+	icon:
+		Filename: cameo|xxicon.shp
+
+hyd:
+	Inherits@MUZZLE: ^WithFlakMuzzle
+	icon:
+		Filename: cameo|hovricon.shp
+
+lcrf:
+	icon:
+		Filename: cameo|landicon.shp
+
+limo:
+	icon:
+		Filename: cameo|xxicon.shp
+
+oltnk:
+	icon:
+		Filename: cameo|xxicon.shp
+
+apoc:
+	Inherits@MUZZLE: ^WithApocMuzzle
+	icon:
+		Filename: bits/cameos/mtnkicon.shp
+
+pick:
+	icon:
+		Filename: cameo|xxicon.shp
+
+propa:
+	icon:
+		Filename: cameo|xxicon.shp
+
+ptruck:
+	icon:
+		Filename: cameo|xxicon.shp
+
+rtnk:
+	Inherits@MUZZLE: ^WithCannonMuzzle
+	icon:
+		Filename: cameo|rtnkicon.shp
+
+smcv:
+	icon:
+		Filename: cameo|smcvicon.shp
+
+sref:
+	icon:
+		Filename: cameo|sreficon.shp
+
+stang:
+	icon:
+		Filename: cameo|xxicon.shp
+
+sub:
+	icon:
+		Filename: cameo|subicon.shp
+
+suvb:
+	icon:
+		Filename: cameo|xxicon.shp
+
+suvw:
+	icon:
+		Filename: cameo|xxicon.shp
+
+taxi:
+	icon:
+		Filename: cameo|xxicon.shp
+
+tnkd:
+	Inherits@MUZZLE: ^WithCannonMuzzle
+	icon:
+		Filename: cameo|tnkdicon.shp
+
+tractor:
+	icon:
+		Filename: cameo|xxicon.shp
+
+sapc:
+	icon:
+		Filename: cameo|sapcicon.shp
+
+dtruck:
+	icon:
+		Filename: cameo|trkaicon.shp
+
+trucka:
+	icon:
+		Filename: cameo|xxicon.shp
+
+truckb:
+	icon:
+		Filename: cameo|xxicon.shp
+
+ttnk:
+	icon:
+		Filename: cameo|ttnkicon.shp
+
+tug:
+	icon:
+		Filename: cameo|xxicon.shp
+
+v3:
+	icon:
+		Filename: cameo|v3icon.shp
+
+vlad:
+	icon:
+		Filename: cameo|dredicon.shp
+
+wini:
+	icon:
+		Filename: cameo|xxicon.shp
+
+#Old TD/RA1 Vehicles
+1tnk:
+	icon:
+		Filename: bits/cameos/oltnkicon.shp
+
+2tnk:
+	icon:
+		Filename: bits/cameos/2tnkicon.png
+
+3tnk:
+	Inherits@MUZZLE: ^WithCannonMuzzle
+	muzzle-mg:
+		Combine:
+			0:
+				Filename: mgun-n.shp
+				Length: 6
+			1:
+				Filename: mgun-nw.shp
+				Length: 6
+			2:
+				Filename: mgun-w.shp
+				Length: 6
+			3:
+				Filename: mgun-sw.shp
+				Length: 6
+			4:
+				Filename: mgun-s.shp
+				Length: 6
+			5:
+				Filename: mgun-se.shp
+				Length: 6
+			6:
+				Filename: mgun-e.shp
+				Length: 6
+			7:
+				Filename: mgun-ne.shp
+				Length: 6
+		Facings: 8
+		Length: 6
+		Offset: 0, 0
+	icon:
+		Filename: bits/cameos/3tnkicon.png
+	icon-hydra:
+		Filename: bits/cameos/hytkicon.png
+
+4tnk:
+	icon:
+		Filename: bits/cameos/4tnkicon.png
+
+arty:
+	icon:
+		Filename: bits/cameos/artyicon.png
+
+ftnktd:
+	icon:
+		Filename: cameo|xxicon.shp
+
+hmve:
+	icon:
+		Filename: cameo|xxicon.shp
+
+m113:
+	icon:
+		Filename: bits/cameos/m113icon.shp
+
+mlrs:
+	icon:
+		Filename: cameo|xxicon.shp
+
+mnly:
+	icon:
+		Filename: bits/cameos/mlyricon.shp
+
+mrj:
+	icon:
+		Filename: bits/cameos/mrjicon.shp
+
+#Yuri's Revenge Vehicles
+ambu:
+	icon:
+		Filename: cameo|xxicon.shp
+
+bcab:
+	icon:
+		Filename: cameo|xxicon.shp
+
+cblc:
+	icon:
+		Filename: cameo|xxicon.shp
+
+ddbx:
+	icon:
+		Filename: cameo|xxicon.shp
+
+doly:
+	icon:
+		Filename: cameo|xxicon.shp
+
+ftrk:
+	icon:
+		Filename: cameo|xxicon.shp
+
+jeep:
+	icon:
+		Filename: cameo|xxicon.shp
+
+ycab:
+	icon:
+		Filename: cameo|xxicon.shp
+
+civp:
+	icon:
+		Filename: cameo|xxicon.shp
+
+bfrt:
+	icon:
+		Filename: cameomd|bfrticon.shp
+
+robo:
+	Inherits@MUZZLE: ^WithMachineGunMuzzle
+	icon:
+		Filename: cameomd|roboicon.shp
+	muzzle:
+		Filename: robo.shp
+
+pcv:
+	icon:
+		Filename: cameomd|ypcvicon.shp
+
+yhvr:
+	icon:
+		Filename: bits/cameos/yhvricon.shp
+
+ltnk:
+	Inherits@MUZZLE: ^WithCannonMuzzle
+	icon:
+		Filename: cameomd|ltnkicon.shp
+
+mind:
+	icon:
+		Filename: cameomd|mindicon.shp
+
+tele:
+	icon:
+		Filename: cameomd|teleicon.shp
+
+ytnk:
+	Inherits@MUZZLE: ^WithGatlingMuzzle
+	icon:
+		Filename: bits/cameos/ytnkicon.shp
+	muzzle:
+		Filename: ytnk.shp
+
+caos:
+	icon:
+		Filename: cameomd|caosicon.shp
+
+bsub:
+	icon:
+		Filename: cameomd|bsubicon.shp
+
+smin:
+	Inherits@MUZZLE: ^WithMachineGunMuzzle
+	icon:
+		Filename: cameomd|sminicon.shp
+	muzzle:
+		Filename: smin.shp
+
+# Custom Vehicles
+deva:
+	Inherits@MUZZLE: ^WithApocMuzzle
+	icon:
+		Filename: bits/cameos/devaicon.shp
+
+ctnk:
+	icon:
+		Filename: bits/cameos/ctnkicon.shp
+
+expn:
+	icon:
+		Filename: bits/cameos/expnicon.shp
+
+ftnk:
+	icon:
+		Filename: bits/cameos/ftnkicon.shp
+
+yhtnk:
+	icon:
+		Filename: bits/cameos/yhtnkicon.png
+
+kamaz:
+	icon:
+		Filename: bits/cameos/kamazicon.png
+
+grtk:
+	icon:
+		Filename: bits/cameos/grtkicon.shp
+
+tric:
+	Inherits@MUZZLE: ^WithCannonMuzzle
+	icon:
+		Filename: bits/cameos/tricicon.shp
+
+gatsub:
+	Inherits@MUZZLE: ^WithGatlingMuzzle
+	icon:
+		Filename: bits/cameos/gatsubicon.png
+	muzzle:
+		Filename: gatsub.shp
+
+gmin:
+	harvest:
+		Filename: conquer|oregath.shp
+		Length: 15
+		Facings: 8
+	icon:
+		Filename: bits/cameos/gminicon.shp
+
+mlyr:
+	icon:
+		Filename: bits/cameos/mlyricon.shp
+
+hwtz:
+	Inherits@MUZZLE: ^WithCannonMuzzle
+	icon:
+		Filename: bits/cameos/hwtzicon.shp
+
+#reapercab:
+#	Defaults: bits/vehicles/reapercab
+#	stand:
+#		Facings: -8
+#		ShadowStart: 117
+#	run:
+#		Start: 8
+#		Tick: 60
+#		Length: 12
+#		Facings: -8
+#		ShadowStart: 125
+#	die1:
+#		Start: 104
+#		Length: 13
+#		ShadowStart: 221
+#	shoot:
+#		Facings: -8
+#		ShadowStart: 117
+#	icon: bits/cameos/reapercabicon
+
+spider:
+	Defaults:
+		Filename: bits/vehicles/spider.shp
+	stand:
+		Facings: 8
+		ShadowStart: 194
+	run:
+		Start: 8
+		ShadowStart: 202
+		Length: 8
+		Facings: 8
+	spit:
+		Start: 72
+		ShadowStart: 266
+		Length: 7
+		Facings: 8
+	web:
+		Start: 128
+		ShadowStart: 322
+		Length: 5
+		Facings: 8
+	die1:
+		Start: 169
+		ShadowStart: 363
+		Length: 13
+	die2:
+		Start: 182
+		ShadowStart: 376
+		Length: 12
+	icon:
+		Filename: bits/cameos/spidericon.png
+
+aambu:
+	icon:
+		Filename: bits/cameos/aambicon.shp
+
+buoy:
+	idle:
+		Filename: conquer|wake1.shp
+		Length: *
+		Tick: 180
+		ZOffset: -512
+		ZRamp: 1
+		Offset: 2, 0, 1
+
+piranha:
+	Inherits@MUZZLE: ^WithCannonMuzzle
+	icon:
+		Filename: bits/cameos/piranhaicon.png
+
+truckc:
+	icon:
+		Filename: cameo|xxicon.shp
+
+car2:
+	icon:
+		Filename: cameo|xxicon.shp
+
+car3:
+	icon:
+		Filename: cameo|xxicon.shp
+
+mixer:
+	icon:
+		Filename: cameo|xxicon.shp
+
+qyzyl:
+	icon:
+		Filename: cameo|xxicon.shp
+
+smrj:
+	icon:
+		Filename: bits/cameos/smrjicon.shp
+
+sray:
+	icon:
+		Filename: bits/cameos/srayicon.shp
+
+adest:
+	Inherits@MUZZLE: ^WithCannonMuzzle
+	icon:
+		Filename: bits/cameos/adesticon.shp
+
+strt:
+	Inherits@MUZZLE: ^WithCannonMuzzle
+	icon:
+		Filename: bits/cameos/strticon.shp
+
+flata:
+	icon:
+		Filename: cameo|xxicon.shp
+
+flatb:
+	icon:
+		Filename: cameo|xxicon.shp
+
+lart:
+	icon:
+		Filename: bits/cameos/larticon.png
+
+grad:
+	icon:
+		Filename: bits/cameos/gradicon.shp
+
+hydf:
+	icon:
+		Filename: cameo|xxicon.shp
+
+send:
+	Inherits@MUZZLE: ^WithMachineGunMuzzle
+	icon:
+		Filename: bits/cameos/sendicon.png
+	muzzle:
+		Filename: send.shp

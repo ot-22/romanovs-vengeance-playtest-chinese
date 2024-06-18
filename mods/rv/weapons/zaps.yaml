@@ -1,0 +1,1501 @@
+ElectricBolt:
+	Inherits: ^TeslaZap
+	Range: 4c0
+	ReloadDelay: 60
+	Warhead@1Dam: SpreadDamage
+		Spread: 120
+		Damage: 5000
+		Versus:
+			Light: 100
+			Heavy: 75
+			Steel: 65
+	Warhead@3Smu: LeaveSmudge
+		SmudgeType: SmallScorch
+
+ElectricBoltE:
+	Inherits: ElectricBolt
+	Range: 5c0
+	Report: itesat2a.wav, itesat2b.wav
+	Warhead@2Shr: FireShrapnel
+		Weapon: TeslaFragment
+		Amount: 2
+		AimChance: 100
+		AimTargetStances: Enemy, Neutral
+		ValidTargets: Infantry, Vehicle, TerrorDrone, Ship, Tree
+
+UCElectricBolt:
+	Inherits: ElectricBolt
+	Range: 7c0
+
+UCElectricBoltE:
+	Inherits: ElectricBoltE
+	Range: 7c0
+
+ElectricBoltCharged:
+	Inherits: ElectricBolt
+	Warhead@1Dis: GrantExternalCondition
+		Range: 0c512
+		Duration: 15
+		Condition: emp
+		ValidTargets: EMPulse
+		InvalidTargets: Structure
+
+ElectricBoltChargedE:
+	Inherits: ElectricBoltE
+	Warhead@1Dis: GrantExternalCondition
+		Range: 0c512
+		Duration: 30
+		Condition: emp
+		ValidTargets: EMPulse
+		InvalidTargets: Structure
+	Warhead@2Shr: FireShrapnel
+		Weapon: TeslaFragmentCharged
+
+UCElectricBoltCharged:
+	Inherits: ElectricBoltCharged
+	Range: 7c0
+
+UCElectricBoltChargedE:
+	Inherits: ElectricBoltChargedE
+	Range: 7c0
+
+ElectricBoltCommando:
+	Inherits: ElectricBoltE
+	Range: 5c0
+	InvalidTargets: TeslaBomb, TeslaBombCleaner
+	Warhead@1Dam: SpreadDamage
+		Damage: 10000
+	Warhead@2Shr: FireShrapnel
+		Weapon: TeslaFragmentCommando
+
+ElectricBoltCommandoE:
+	Inherits: ElectricBoltCommando
+	Range: 6c0
+	Warhead@1Dam: SpreadDamage
+		Damage: 15000
+
+UCElectricBoltCommando:
+	Inherits: ElectricBoltCommando
+	Range: 7c0
+
+UCElectricBoltCommandoE:
+	Inherits: ElectricBoltCommandoE
+	Range: 7c0
+
+ElectricBoltCommandoCharged:
+	Inherits: ElectricBoltCommando
+	Warhead@1Dis: GrantExternalCondition
+		Range: 0c512
+		Duration: 30
+		Condition: emp
+		ValidTargets: EMPulse
+		InvalidTargets: Structure
+
+ElectricBoltCommandoChargedE:
+	Inherits: ElectricBoltCommandoE
+	Warhead@1Dis: GrantExternalCondition
+		Range: 0c512
+		Duration: 45
+		Condition: emp
+		ValidTargets: EMPulse
+		InvalidTargets: Structure
+	Warhead@2Shr: FireShrapnel
+		Weapon: TeslaFragmentCommandoCharged
+
+UCElectricBoltCommandoCharged:
+	Inherits: ElectricBoltCommandoCharged
+	Range: 7c0
+
+UCElectricBoltCommandoChargedE:
+	Inherits: ElectricBoltCommandoChargedE
+	Range: 7c0
+
+ElectricBoltVolkov:
+	Inherits: ElectricBoltE
+	Range: 6c0
+	Warhead@1Dam: SpreadDamage
+		Damage: 12500
+	Warhead@2Shr: FireShrapnel
+		Weapon: TeslaFragmentCommando
+
+ElectricBoltVolkovE:
+	Inherits: ElectricBoltVolkov
+	Range: 6c0
+	Warhead@1Dam: SpreadDamage
+		Damage: 17500
+
+UCElectricBoltVolkov:
+	Inherits: ElectricBoltVolkov
+	Range: 7c0
+
+UCElectricBoltVolkovE:
+	Inherits: ElectricBoltVolkovE
+	Range: 7c0
+
+ElectricBoltVolkovCharged:
+	Inherits: ElectricBoltVolkov
+	Warhead@1Dis: GrantExternalCondition
+		Range: 0c512
+		Duration: 45
+		Condition: emp
+		ValidTargets: EMPulse
+		InvalidTargets: Structure
+	Warhead@2Shr: FireShrapnel
+		Weapon: TeslaFragmentCommandoCharged
+
+ElectricBoltVolkovChargedE:
+	Inherits: ElectricBoltVolkovE
+	Warhead@1Dis: GrantExternalCondition
+		Range: 0c512
+		Duration: 45
+		Condition: emp
+		ValidTargets: EMPulse
+		InvalidTargets: Structure
+	Warhead@2Shr: FireShrapnel
+		Weapon: TeslaFragmentCommandoCharged
+
+UCElectricBoltVolkovCharged:
+	Inherits: ElectricBoltVolkovCharged
+	Range: 7c0
+
+UCElectricBoltVolkovChargedE:
+	Inherits: ElectricBoltVolkovChargedE
+	Range: 7c0
+
+AssaultBolt:
+	ReloadDelay: 70
+	Range: 2c0
+	# Report: iteschaa.wav # Move this back after adding Volume to WeaponInfo
+	ValidTargets: TeslaBoost
+	Projectile: TeslaZap
+		Image: litningupg
+	Warhead@charge: GrantExternalCondition
+		Range: 42
+		Duration: 71
+		Condition: charged
+		ValidRelationships: Ally
+		ValidTargets: TeslaBoost
+	Warhead@2Eff: CreateEffect
+		ImpactSounds: iteschaa.wav
+		Volume: 0.15
+
+CoilBolt:
+	Inherits: ^TeslaZap
+	ReloadDelay: 3
+	Range: 8c0
+	Report: btesat1a.wav
+	Warhead@1Dam: SpreadDamage
+		Spread: 42
+		Damage: 7500
+		Versus:
+			None: 1000
+			Flak: 1000
+			Plate: 1000
+			Light: 100
+			Medium: 100
+			Heavy: 100
+			Wood: 100
+			Steel: 100
+			Concrete: 90
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: SmallScorch
+
+OPCoilBolt:
+	Inherits: CoilBolt
+	Range: 8c512
+	Report: btesat2a.wav
+	Projectile: TeslaZap
+		Image: litningupg
+	Warhead@1Dam: SpreadDamage
+		Damage: 10000
+
+OPerCoilBolt:
+	Inherits: OPCoilBolt
+	Range: 9c0
+	Warhead@1Dam: SpreadDamage
+		Damage: 12500
+
+OPestCoilBolt:
+	Inherits: OPerCoilBolt
+	Range: 9c512
+	Warhead@1Dam: SpreadDamage
+		Damage: 15000
+
+CoilBoltCharged:
+	Inherits: CoilBolt
+	Warhead@1Dis: GrantExternalCondition
+		Range: 0c512
+		Duration: 75
+		Condition: emp
+		ValidTargets: EMPulse
+		InvalidTargets: Structure
+
+OPCoilBoltCharged:
+	Inherits: CoilBoltCharged
+	Range: 8c512
+	Report: btesat2a.wav
+	Projectile: TeslaZap
+		Image: litningupg
+	Warhead@1Dam: SpreadDamage
+		Damage: 10000
+
+OPerCoilBoltCharged:
+	Inherits: OPCoilBolt
+	Range: 9c0
+	Warhead@1Dam: SpreadDamage
+		Damage: 12500
+
+OPestCoilBoltCharged:
+	Inherits: OPerCoilBolt
+	Range: 9c512
+	Warhead@1Dam: SpreadDamage
+		Damage: 15000
+
+PostBolt:
+	Inherits: ^TeslaZap
+	ReloadDelay: 3
+	Range: 3c0
+	Report: btesat1a.wav
+	Warhead@1Dam: SpreadDamage
+		Spread: 42
+		Damage: 5000
+		Versus:
+			None: 100
+			Flak: 100
+			Plate: 100
+			Light: 100
+			Medium: 100
+			Heavy: 100
+			Wood: 100
+			Steel: 100
+			Concrete: 90
+			Drone: 100
+			Rocket: 100
+	Warhead@3Smu: LeaveSmudge
+		SmudgeType: SmallScorch
+
+OPPostBolt:
+	Inherits: PostBolt
+	Range: 3c512
+	Report: btesat2a.wav
+	Projectile: TeslaZap
+		Image: litningupg
+	Warhead@1Dam: SpreadDamage
+		Damage: 6500
+
+OPerPostBolt:
+	Inherits: OPPostBolt
+	Range: 4c0
+	Warhead@1Dam: SpreadDamage
+		Damage: 8000
+
+OPestPostBolt:
+	Inherits: OPerPostBolt
+	Range: 4c512
+	Warhead@1Dam: SpreadDamage
+		Damage: 9500
+
+PostBoltCharged:
+	Inherits: PostBolt
+	Warhead@1Dis: GrantExternalCondition
+		Range: 0c512
+		Duration: 30
+		Condition: emp
+		ValidTargets: EMPulse
+		InvalidTargets: Structure
+
+OPPostBoltCharged:
+	Inherits: CoilBoltCharged
+	Range: 3c512
+	Report: btesat2a.wav
+	Projectile: TeslaZap
+		Image: litningupg
+	Warhead@1Dam: SpreadDamage
+		Damage: 6500
+
+OPerPostBoltCharged:
+	Inherits: OPCoilBolt
+	Range: 4c0
+	Warhead@1Dam: SpreadDamage
+		Damage: 8000
+
+OPestPostBoltCharged:
+	Inherits: OPerCoilBolt
+	Range: 4c512
+	Warhead@1Dam: SpreadDamage
+		Damage: 9500
+
+TankBolt:
+	Inherits: ^TeslaZap
+	Range: 5c0
+	ReloadDelay: 75
+	Burst: 2
+	BurstDelays: 10
+	Report: vtesatta.wav, vtesattb.wav
+	Warhead@1Dam: SpreadDamage
+		Damage: 7000
+		Versus:
+			None: 1000
+			Flak: 1000
+			Plate: 1000
+			Heavy: 75
+	Warhead@3Smu: LeaveSmudge
+		SmudgeType: SmallScorch
+
+TankBoltE:
+	Inherits: TankBolt
+	Range: 6c0
+	ReloadDelay: 60
+	Warhead@1Dam: SpreadDamage
+		Damage: 8000
+	Warhead@2Shr: FireShrapnel
+		Weapon: TeslaFragment
+		Amount: 2
+		AimChance: 100
+		AimTargetStances: Enemy, Neutral
+		ValidTargets: Infantry, Vehicle, TerrorDrone, Ship, Tree
+
+TankBoltCharged:
+	Inherits: TankBolt
+	Warhead@1Dis: GrantExternalCondition
+		Range: 0c512
+		Duration: 30
+		Condition: emp
+		ValidTargets: EMPulse
+		InvalidTargets: Structure
+
+TankBoltChargedE:
+	Inherits: TankBoltE
+	Warhead@1Dis: GrantExternalCondition
+		Range: 0c512
+		Duration: 45
+		Condition: emp
+		ValidTargets: EMPulse
+		InvalidTargets: Structure
+	Warhead@2Shr: FireShrapnel
+		Weapon: TeslaFragmentCharged
+
+BoatBolt:
+	Inherits: ^TeslaZap
+	Range: 5c0
+	ReloadDelay: 75
+	Report: vtesatta.wav, vtesattb.wav
+	Warhead@1Dam: SpreadDamage
+		Damage: 14000
+		Versus:
+			None: 1000
+			Flak: 1000
+			Plate: 1000
+			Heavy: 75
+	Warhead@3Smu: LeaveSmudge
+		SmudgeType: SmallScorch
+
+BoatBoltE:
+	Inherits: BoatBolt
+	Range: 6c0
+	ReloadDelay: 60
+	Warhead@2Shr: FireShrapnel
+		Weapon: TeslaFragment
+		Amount: 2
+		AimChance: 100
+		AimTargetStances: Enemy, Neutral
+		ValidTargets: Infantry, Vehicle, TerrorDrone, Ship, Tree
+
+BoatBoltCharged:
+	Inherits: BoatBolt
+	Warhead@1Dis: GrantExternalCondition
+		Range: 0c512
+		Duration: 30
+		Condition: emp
+		ValidTargets: EMPulse
+		InvalidTargets: Structure
+
+BoatBoltChargedE:
+	Inherits: BoatBoltE
+	Warhead@1Dis: GrantExternalCondition
+		Range: 0c512
+		Duration: 45
+		Condition: emp
+		ValidTargets: EMPulse
+		InvalidTargets: Structure
+	Warhead@2Shr: FireShrapnel
+		Weapon: TeslaFragmentCharged
+
+TeslaFragment:
+	Inherits: TankBolt
+	Range: 3c0
+	ValidTargets: Infantry, Vehicle, TerrorDrone, Ship, Structure, Barrel, Mine, Wall
+	Warhead@1Dam: SpreadDamage
+		Damage: 3000
+		Versus:
+			None: 100
+			Flak: 100
+			Plate: 100
+
+TeslaFragmentCommando:
+	Inherits: TeslaFragment
+	Warhead@1Dam: SpreadDamage
+		Damage: 6000
+
+TeslaFragmentCharged:
+	Inherits: TeslaFragment
+	Warhead@1Dis: GrantExternalCondition
+		Range: 0c512
+		Duration: 30
+		Condition: emp
+		ValidTargets: EMPulse
+		InvalidTargets: Structure
+
+TeslaFragmentCommandoCharged:
+	Inherits: TeslaFragmentCommando
+	Warhead@1Dis: GrantExternalCondition
+		Range: 0c512
+		Duration: 45
+		Condition: emp
+		ValidTargets: EMPulse
+		InvalidTargets: Structure
+
+SonicZap:
+	Inherits@1: ^BreakPointDefenseDrones
+	ReloadDelay: 40
+	Range: 5c0
+	Report: vdolatta.wav
+	ValidTargets: Water, Underwater
+	Projectile: AreaBeam
+		Speed: 0c256
+		Duration: 5
+		DamageInterval: 1
+		Width: 0c512
+		Shape: Flat
+		ZOffset: 2047
+		BeyondTargetRange: 0c256
+		Blockable: true
+		Color: 50F5FF45
+	Warhead@1Dam: SpreadDamage
+		Range: 0, 32
+		Falloff: 100, 100
+		Damage: 350
+		AffectsParent: false
+		ValidRelationships: Neutral, Enemy
+		Versus:
+			Concrete: 60
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, SuppressTerrorDrone, RemovesSquid, NonTemporal
+		ValidTargets: Water, Underwater
+	Warhead@2Dam: SpreadDamage
+		Range: 0, 32
+		Falloff: 50, 50
+		Damage: 350
+		AffectsParent: false
+		ValidRelationships: Ally
+		Versus:
+			Concrete: 60
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, SuppressTerrorDrone, RemovesSquid, NonTemporal
+		ValidTargets: Water, Underwater
+		InvalidTargets: ImmuneToAllySonic
+
+SonicZapE:
+	Inherits: SonicZap
+	Warhead@1Dam: SpreadDamage
+		Damage: 500
+
+PrismShot:
+	Inherits@1: ^BreakPointDefenseDrones
+	ReloadDelay: 1
+	Range: 8c0
+	Report: bpriat1a.wav
+	Projectile: LaserZap
+		Width: 70
+		UsePlayerColor: true
+	Warhead@1Dam: SpreadDamage
+		Spread: 42
+		Damage: 15000
+		Versus:
+			None: 1000
+			Flak: 1000
+			Plate: 1000
+			Light: 100
+			Medium: 100
+			Heavy: 100
+			Wood: 100
+			Steel: 100
+			Concrete: 90
+			Drone: 200
+			Rocket: 100
+		DamageTypes: ElectroDeath, TriggerProne, SuppressTerrorDrone, NonTemporal
+	Warhead@2Shr: FireShrapnel
+		Weapon: PrismFragment
+		Amount: 3
+		AimChance: 100
+		AimTargetStances: Enemy, Neutral
+		ValidTargets: Infantry, Vehicle, TerrorDrone, Ship, Tree
+	Warhead@2Eff: CreateEffect
+		Explosions: prism_explosion
+		ExplosionPalette: player
+		UsePlayerPalette: true
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air
+	Warhead@4Smu: LeaveSmudge
+		SmudgeType: SmallScorch
+
+PrismFragment:
+	Inherits: Comet
+	Range: 3c0
+	-Report:
+	Warhead@1Dam: SpreadDamage
+		Damage: 3000
+	-Warhead@2Shr:
+
+PrismSupport:
+	Inherits: PrismShot
+	ValidTargets: Ground, Water
+	Warhead@1Dam: SpreadDamage
+		Damage: 0
+	-Warhead@2Shr:
+	-Warhead@2Eff:
+	-Warhead@4Smu:
+	AirThreshold: 5000
+
+Comet:
+	Inherits@1: ^BreakPointDefenseDrones
+	ValidTargets: Ground, Water
+	ReloadDelay: 100
+	Range: 10c0
+	Report: vpriatta.wav
+	Projectile: LaserZap
+		Width: 50
+		Duration: 15
+		UsePlayerColor: true
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c128
+		Damage: 10000
+		Versus:
+			None: 100
+			Flak: 100
+			Plate: 100
+			Light: 75
+			Medium: 35
+			Heavy: 35
+			Wood: 100
+			Steel: 100
+			Concrete: 90
+			Drone: 100
+			Rocket: 100
+		DamageTypes: Prone50Percent, TriggerProne, ElectroDeath, SuppressTerrorDrone, NonTemporal
+	Warhead@2Shr: FireShrapnel
+		Weapon: CometFragment
+		Amount: 5
+		AimChance: 100
+		AimTargetStances: Enemy, Neutral
+		ValidTargets: Infantry, Vehicle, TerrorDrone, Ship, Tree
+	Warhead@2Eff: CreateEffect
+		Explosions: prism_explosion
+		ExplosionPalette: player
+		UsePlayerPalette: true
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air
+	Warhead@4Smu: LeaveSmudge
+		SmudgeType: SmallScorch
+
+SuperComet:
+	Inherits: Comet
+	Warhead@1Dam: SpreadDamage
+		Damage: 15000
+	Warhead@2Shr: FireShrapnel
+		Weapon: SuperCometFragment
+
+CometFragment:
+	Inherits: Comet
+	Range: 3c0
+	Warhead@1Dam: SpreadDamage
+		Damage: 3000
+	-Warhead@2Shr:
+
+SuperCometFragment:
+	Inherits: CometFragment
+	Range: 5c0
+	Warhead@1Dam: SpreadDamage
+		Damage: 5000
+
+RadBeamWeapon:
+	Inherits@1: ^BreakPointDefenseDrones
+	ValidTargets: Ground
+	Range: 6c0
+	ReloadDelay: 100
+	Report: idesat1a.wav
+	InvalidTargets: Structure, Barrel, Mine, Wall, ImmuneToRadiation
+	Projectile: RadBeam
+		Amplitude: 476
+		WaveLength: 384
+	Warhead@1Dam: SpreadDamage
+		Spread: 42
+		Damage: 12500
+		Versus:
+			None: 100
+			Flak: 100
+			Plate: 100
+			Light: 70
+			Medium: 15
+			Heavy: 15
+			Wood: 0
+			Steel: 0
+			Concrete: 0
+			Drone: 40
+			Rocket: 100
+		InvalidTargets: Structure, Barrel, Mine, Wall, ImmuneToRadiation
+		DamageTypes: RadiationDeath, NonTemporal
+
+RadBeamWeaponE:
+	Inherits: RadBeamWeapon
+	Range: 8c0
+	Warhead@1Dam: SpreadDamage
+		Damage: 20000
+
+UCRadBeamWeapon:
+	Inherits: RadBeamWeapon
+	Range: 7c0
+
+UCRadBeamWeaponE:
+	Inherits: RadBeamWeaponE
+
+RadBeamWeaponOrange:
+	Inherits: RadBeamWeapon
+	Projectile: RadBeam
+		Color: FF7F0080
+	Warhead@1Dam: SpreadDamage
+		Damage: 18750
+		DamageTypes: OrangeRadiationDeath, NonTemporal
+
+RadBeamWeaponOrangeE:
+	Inherits: RadBeamWeaponE
+	Projectile: RadBeam
+		Color: FF7F0080
+	Warhead@1Dam: SpreadDamage
+		Damage: 30000
+		DamageTypes: OrangeRadiationDeath, NonTemporal
+
+UCRadBeamWeaponOrange:
+	Inherits: RadBeamWeaponOrange
+	Range: 7c0
+
+UCRadBeamWeaponOrangeE:
+	Inherits: RadBeamWeaponOrangeE
+
+NeutronRifle:
+	ReloadDelay: 1
+	Range: 5c0
+	TargetActorCenter: true
+	ValidTargets: ChronoDisable
+	InvalidTargets: Air
+	Projectile: TeslaZap
+		Palette: highlight
+	Warhead@Damage: Temporal
+		Damage: 800
+		Spread: 1
+		ValidTargets: ChronoDisable
+		InvalidTargets: Air
+		DamageTypes: Temporal
+	Warhead@Stars: CreateEffect
+		Explosions: chronosk
+		ValidTargets: Ground, Water
+
+NeutronRifleE:
+	Inherits: NeutronRifle
+	Warhead@Damage: Temporal
+		Damage: 1600
+
+NeutronRifleSound:
+	ReloadDelay: 120
+	Range: 5c0
+	Report: ichratta.wav
+	TargetActorCenter: true
+	ValidTargets: ChronoDisable
+	InvalidTargets: Air
+	Projectile: InstantHit
+	Warhead@Target: TargetDamage
+		ValidTargets: ChronoDisable
+		InvalidTargets: Air
+
+UCNeutronRifle:
+	Inherits: NeutronRifle
+	Range: 7c0
+
+UCNeutronRifleE:
+	Inherits: NeutronRifleE
+	Range: 7c0
+
+UCNeutronRifleSound:
+	Inherits: NeutronRifleSound
+	Range: 7c0
+
+CurtainRifle:
+	ReloadDelay: 75
+	Range: 6c0
+	Report: siroon.wav
+	TargetActorCenter: true
+	ValidTargets: IronCurtainable
+	InvalidTargets: Infantry, Air, Structure, Barrel, Mine
+	Projectile: TeslaZap
+		Image: litningred
+	Warhead@Condition: GrantExternalCondition
+		Condition: invulnerability
+		Range: 0c512
+		Duration: 75
+		ValidRelationships: Ally
+		ValidTargets: IronCurtainable
+		InvalidTargets: Infantry, Air, Structure, Barrel, Mine
+	Warhead@Stars: CreateEffect
+		Explosions: iron_fx
+		ValidTargets: Ground, Water
+
+CurtainRifleAP:
+	Inherits@1: ^BreakPointDefenseDrones
+	ReloadDelay: 75
+	Range: 6c0
+	Report: siroon.wav
+	TargetActorCenter: true
+	ValidTargets: Infantry
+	InvalidTargets: IronCurtainImmune
+	Projectile: TeslaZap
+		Image: litningred
+	Warhead@Damage: SpreadDamage
+		Spread: 0c768
+		Falloff: 100, 100
+		Damage: 50000
+			Versus:
+				Heavy: 25
+		ValidTargets: Infantry
+		InvalidTargets: IronCurtainImmune
+		DamageTypes: Prone70Percent, TriggerProne, FlameDeath, NonTemporal
+	Warhead@Stars: CreateEffect
+		Explosions: iron_fx
+		ValidTargets: Ground, Water
+
+CurtainRifleE:
+	Inherits: CurtainRifle
+	Range: 7c0
+
+CurtainRifleAPE:
+	Inherits: CurtainRifleAP
+	Range: 7c0
+	Warhead@Damage: SpreadDamage
+		Spread: 1c0
+
+UCCurtainRifle:
+	Inherits: CurtainRifle
+	Range: 7c0
+
+UCCurtainRifleAP:
+	Inherits: CurtainRifleAP
+	Range: 7c0
+
+UCCurtainRifleE:
+	Inherits: CurtainRifleE
+
+UCCurtainRifleAPE:
+	Inherits: CurtainRifleAPE
+
+TeslaFence:
+	TargetActorCenter: true
+	Projectile: InstantHit
+	Warhead@1Dam: TargetDamage
+		DebugOverlayColor: FF0000
+		Damage: 10000000
+		DamageTypes: ElectroDeath, SuppressTerrorDrone, NonTemporal
+
+MagneShake:
+	ReloadDelay: 110
+	Range: 10c0
+	Report: vmagat2a.wav
+	ValidTargets: Ground, MagneFreezable, Structure, Barrel, Mine
+	InvalidTargets: Infantry
+	Projectile: LaserZap
+		Duration: 110
+		Width: 384
+		Shape: Flat
+		ZOffset: 2047
+		Color: FF50F545
+		UsePlayerColor: false
+	Warhead@1Dam: SpreadDamage
+		Range: 0, 32
+		Falloff: 100, 100
+		Damage: 8000
+		AffectsParent: false
+		ValidTargets: Structure, Barrel, Mine
+		DamageTypes: NonTemporal
+	Warhead@2Dam: TargetDamage
+		Damage: 0
+		ValidTargets: Ground, MagneFreezable, Structure, Barrel, Mine
+		InvalidTargets: Infantry
+
+MagneShakeE:
+	Inherits: MagneShake
+	Warhead@1Dam: SpreadDamage
+		Damage: 12000
+
+MagneFreeze:
+	ReloadDelay: 110
+	Range: 10c0
+	Report: vmagat1a.wav
+	ValidTargets: Ground, MagneFreezable, Structure, Barrel, Mine
+	InvalidTargets: Infantry
+	Projectile: LaserZap
+		Duration: 50
+		Width: 384
+		Shape: Flat
+		ZOffset: 2047
+		Color: FF50F545
+		UsePlayerColor: false
+	Warhead@1Con: GrantExternalCondition
+		Condition: magnefreeze
+		Duration: 110
+		Range: 0c128
+		ValidRelationships: Neutral, Enemy
+		ValidTargets: MagneFreezable
+
+MagneShakeAdv:
+	Inherits: MagneShake
+	Range: 12c0
+	Projectile: LaserZap
+		Width: 320
+		Color: FF50F545
+		SecondaryBeam: true
+		SecondaryBeamWidth: 384
+		SecondaryBeamColor: FF505045
+	Warhead@1Dam: SpreadDamage
+		Damage: 10000
+
+MagneShakeAdvE:
+	Inherits: MagneShakeAdv
+	Warhead@1Dam: SpreadDamage
+		Damage: 15000
+
+MagneFreezeAdv:
+	Inherits: MagneFreeze
+	Range: 12c0
+	Projectile: LaserZap
+		Width: 320
+		Color: FF50F545
+		SecondaryBeam: true
+		SecondaryBeamWidth: 384
+		SecondaryBeamColor: FF505045
+	Warhead@1Dam: SpreadDamage
+		Range: 0, 32
+		Falloff: 100, 100
+		Damage: 5000
+		AffectsParent: false
+		ValidTargets: MagneFreezable
+		ValidRelationships: Neutral, Enemy
+		DamageTypes: NonTemporal
+
+MagneFreezeAdvE:
+	Inherits: MagneFreezeAdv
+	Warhead@1Dam: SpreadDamage
+		Damage: 7500
+
+DiskMagneShake:
+	Inherits: MagneShake
+	ReloadDelay: 100
+	Range: 8c0
+	Projectile: LaserZap
+		Shape: Cylindrical
+
+DiskMagneShakeE:
+	Inherits: DiskMagneShake
+	Warhead@1Dam: SpreadDamage
+		Damage: 9000
+
+DiskMagneFreeze:
+	Inherits: MagneFreeze
+	ReloadDelay: 100
+	Range: 8c0
+	Projectile: LaserZap
+		Shape: Cylindrical
+	Warhead@1Con: GrantExternalCondition
+		Duration: 100
+
+DiskLaser:
+	Inherits: Comet
+	ReloadDelay: 80
+	Range: 6c0
+	Report: vfloatta.wav
+	InvalidTargets: DiskDrain, DiskSteal, DiskInfiltrateAllied, DiskInfiltrateSoviet, DiskInfiltrateYuri
+	Projectile: LaserZap
+		Width: 75
+		Duration: 15
+		Color: AA799080
+		SecondaryBeam: true
+		SecondaryBeamWidth: 20
+		SecondaryBeamZOffset: 2047
+		SecondaryBeamColor: FFFFFF80
+		UsePlayerColor: false
+	Warhead@1Dam: SpreadDamage
+		Damage: 7500
+		InvalidTargets: LoadedTankBunker
+		DamageTypes: RadiationDeath, SuppressTerrorDrone, NonTemporal
+	Warhead@1Gar: OpenToppedDamage
+		ValidTargets: LoadedTankBunker
+		InvalidTargets: IronCurtained, ForceShielded
+		Spread: 0c128
+		Damage: 7500
+		Versus:
+			None: 100
+			Flak: 100
+			Plate: 100
+			Light: 100
+			Medium: 100
+			Heavy: 100
+			Wood: 100
+			Steel: 100
+			Concrete: 100
+			Drone: 100
+			Rocket: 100
+		DamageTypes: Prone50Percent, TriggerProne, ElectroDeath, SuppressTerrorDrone, NonTemporal
+	-Warhead@2Shr:
+	Warhead@2Eff: CreateEffect
+		Explosions: laser_explosion
+		ExplosionPalette: effect
+		UsePlayerPalette: false
+
+DiskLaserE:
+	Inherits: DiskLaser
+	Range: 8c0
+	Projectile: LaserZap
+		Color: FF000080
+	Warhead@1Dam: SpreadDamage
+		Damage: 10000
+	Warhead@1Gar: OpenToppedDamage
+		Damage: 10000
+	Warhead@2Eff: CreateEffect
+		Explosions: laser_explosion_red
+		ExplosionPalette: player
+
+DiskLaserAA:
+	Inherits: DiskLaser
+	ValidTargets: Air
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Air
+	-Warhead@1Gar:
+
+DiskLaserAAE:
+	Inherits: DiskLaserE
+	ValidTargets: Air
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Air
+	-Warhead@1Gar:
+
+DiskLaserUpg:
+	Inherits: DiskLaser
+	Projectile: LaserZap
+		Width: 100
+		Color: DD666680
+		SecondaryBeamWidth: 40
+		SecondaryBeamColor: AA799080
+
+DiskLaserUpgE:
+	Inherits: DiskLaserE
+	Projectile: LaserZap
+		Width: 100
+		Color: FFDD0080
+		SecondaryBeamWidth: 40
+		SecondaryBeamColor: FF000080
+
+DiskLaserAAUpg:
+	Inherits: DiskLaserAA
+	Projectile: LaserZap
+		Width: 100
+		Color: DD666680
+		SecondaryBeamWidth: 40
+		SecondaryBeamColor: AA799080
+
+DiskLaserAAUpgE:
+	Inherits: DiskLaserAAE
+	Projectile: LaserZap
+		Width: 100
+		Color: FFDD0080
+		SecondaryBeamWidth: 40
+		SecondaryBeamColor: FF000080
+
+DoomLaser:
+	Inherits: Comet
+	ReloadDelay: 80
+	Range: 7c512
+	Report: vlazatta.aud
+	Projectile: LaserZap
+		Duration: 15
+		Width: 100
+		ZOffset: 2047
+		Color: AA799080
+		SecondaryBeam: true
+		SecondaryBeamWidth: 25
+		SecondaryBeamZOffset: 2047
+		SecondaryBeamColor: FFFFFF80
+		UsePlayerColor: false
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c48
+		Damage: 10000
+		Versus:
+			None: 100
+			Flak: 100
+			Plate: 100
+			Light: 100
+			Medium: 100
+			Heavy: 100
+			Wood: 100
+			Steel: 100
+			Concrete: 100
+			Drone: 100
+			Rocket: 100
+		DamageTypes: Prone50Percent, TriggerProne, RadiationDeath, SuppressTerrorDrone, NonTemporal
+	-Warhead@2Shr:
+	Warhead@2Eff: CreateEffect
+		Explosions: laser_explosion
+		ExplosionPalette: effect
+		UsePlayerPalette: false
+
+DoomLaserE:
+	Inherits: DoomLaser
+	Range: 8c512
+	Projectile: LaserZap
+		Color: FF000080
+	Warhead@1Dam: SpreadDamage
+		Damage: 15000
+	Warhead@2Eff: CreateEffect
+		Explosions: laser_explosion_red
+		ExplosionPalette: player
+
+DoomLaserUpg:
+	Inherits: DoomLaser
+	Projectile: LaserZap
+		Width: 125
+		Color: DD666680
+		SecondaryBeamWidth: 50
+		SecondaryBeamColor: AA799080
+
+DoomLaserUpgE:
+	Inherits: DoomLaserE
+	Projectile: LaserZap
+		Width: 125
+		Color: FFDD0080
+		SecondaryBeamWidth: 50
+		SecondaryBeamColor: FF000080
+
+ATLASER:
+	Inherits: ATGUN
+	Report: vlazatta.aud
+	-Projectile:
+	Projectile: LaserZap
+		Duration: 15
+		Width: 125
+		ZOffset: 2047
+		Color: DD666680
+		SecondaryBeam: true
+		SecondaryBeamWidth: 50
+		SecondaryBeamZOffset: 2047
+		SecondaryBeamColor: AA799080
+		UsePlayerColor: false
+	Warhead@1Dam: SpreadDamage
+		Versus:
+			None: 100
+			Flak: 100
+			Plate: 100
+			Heavy: 100
+			Wood: 100
+			Steel: 100
+			Concrete: 100
+			Drone: 100
+		DamageTypes: Prone50Percent, TriggerProne, RadiationDeath, SuppressTerrorDrone, NonTemporal
+	Warhead@2Eff: CreateEffect
+		Explosions: laser_explosion
+		ExplosionPalette: effect
+		UsePlayerPalette: false
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air
+	-Warhead@3EffWater:
+	Warhead@4Smu: LeaveSmudge
+		SmudgeType: SmallScorch
+
+ATLASERE:
+	Inherits: ATGUNE
+	Report: vlazatta.aud
+	-Projectile:
+	Projectile: LaserZap
+		Duration: 15
+		Width: 125
+		ZOffset: 2047
+		Color: FFDD0080
+		SecondaryBeam: true
+		SecondaryBeamWidth: 50
+		SecondaryBeamZOffset: 2047
+		SecondaryBeamColor: FF000080
+		UsePlayerColor: false
+	Warhead@1Dam: SpreadDamage
+		Versus:
+			None: 100
+			Flak: 100
+			Plate: 100
+			Heavy: 100
+			Wood: 100
+			Steel: 100
+			Concrete: 100
+			Drone: 100
+		DamageTypes: RadiationDeath, SuppressTerrorDrone, NonTemporal
+	Warhead@2Eff: CreateEffect
+		Explosions: laser_explosion_red
+		ExplosionPalette: player
+		-ImpactSounds:
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air
+	-Warhead@3EffWater:
+	Warhead@4Smu: LeaveSmudge
+		SmudgeType: MediumScorch
+
+ATLASERAuto:
+	Inherits: ATLASER
+	Burst: 2
+
+ATLASERAutoE:
+	Inherits: ATLASERE
+	Burst: 4
+
+ATLASERHolo:
+	Inherits: ATLASER
+	Warhead@1Dam: SpreadDamage
+		Damage: 0
+
+ATLASERHoloE:
+	Inherits: ATLASERE
+	Warhead@1Dam: SpreadDamage
+		Damage: 0
+
+ATLASERHoloAuto:
+	Inherits: ATLASERAuto
+	Warhead@1Dam: SpreadDamage
+		Damage: 0
+
+ATLASERHoloAutoE:
+	Inherits: ATLASERAutoE
+	Warhead@1Dam: SpreadDamage
+		Damage: 0
+
+AnniLaserCharge:
+	ReloadDelay: 51
+	Range: 11c0
+	Report: annicharge01.aud
+	ValidTargets: Ground, Water
+	Projectile: InstantExplode
+	Warhead@1Dam: TargetDamage
+		ValidTargets: Ground, Water
+
+AnniLaserChargeE:
+	Inherits: AnniLaserCharge
+	Range: 12c0
+
+AnniLaser:
+	Inherits: DoomLaser
+	ReloadDelay: 100
+	Range: 11c0
+	MinRange: 1c768
+	Report: obelray1.aud
+	SoundVolume: 2
+	Projectile: LaserZap
+		Duration: 45
+		Width: 300
+		SecondaryBeam: true
+		SecondaryBeamWidth: 60
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c768
+		Damage: 15000
+
+AnniLaserE:
+	Inherits: AnniLaser
+	Range: 12c0
+	Projectile: LaserZap
+		Color: FF000080
+	Warhead@1Dam: SpreadDamage
+		Damage: 20000
+	Warhead@2Eff: CreateEffect
+		Explosions: laser_explosion_red
+		ExplosionPalette: player
+
+AnniLaserUpg:
+	Inherits: AnniLaser
+	Projectile: LaserZap
+		Width: 375
+		Color: DD666680
+		SecondaryBeamWidth: 150
+		SecondaryBeamColor: AA799080
+
+AnniLaserUpgE:
+	Inherits: AnniLaserE
+	Projectile: LaserZap
+		Width: 375
+		Color: FFDD0080
+		SecondaryBeamWidth: 150
+		SecondaryBeamColor: FF000080
+
+LunarLaser:
+	Inherits: Comet
+	ReloadDelay: 30
+	Range: 4c0
+	Report: ilasatta.wav
+	Projectile: LaserZap
+		Duration: 15
+		Width: 75
+		ZOffset: 2047
+		Color: AA799080
+		SecondaryBeam: true
+		SecondaryBeamWidth: 20
+		SecondaryBeamZOffset: 2047
+		SecondaryBeamColor: FFFFFF80
+		UsePlayerColor: false
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c48
+		Damage: 2000
+		Versus:
+			None: 100
+			Flak: 100
+			Plate: 100
+			Light: 100
+			Medium: 100
+			Heavy: 100
+			Wood: 100
+			Steel: 100
+			Concrete: 100
+			Drone: 100
+			Rocket: 100
+		DamageTypes: Prone50Percent, TriggerProne, RadiationDeath, SuppressTerrorDrone, NonTemporal
+	-Warhead@2Shr:
+	Warhead@2Eff: CreateEffect
+		Explosions: laser_explosion
+		ExplosionPalette: effect
+		UsePlayerPalette: false
+
+LunarLaserE:
+	Inherits: LunarLaser
+	Projectile: LaserZap
+		Color: FF000080
+	Burst: 2
+	Warhead@2Eff: CreateEffect
+		Explosions: laser_explosion_red
+		ExplosionPalette: player
+
+LunarLaserAA:
+	Inherits: LunarLaser
+	Range: 5c0
+	ValidTargets: Air
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Air
+
+LunarLaserAAE:
+	Inherits: LunarLaserE
+	Range: 5c0
+	ValidTargets: Air
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Air
+
+LunarLaserUpg:
+	Inherits: LunarLaser
+	Projectile: LaserZap
+		Width: 100
+		Color: DD666680
+		SecondaryBeamWidth: 40
+		SecondaryBeamColor: AA799080
+
+LunarLaserUpgE:
+	Inherits: LunarLaserE
+	Projectile: LaserZap
+		Width: 100
+		Color: FFDD0080
+		SecondaryBeamWidth: 40
+		SecondaryBeamColor: FF000080
+
+LunarLaserAAUpg:
+	Inherits: LunarLaserAA
+	Projectile: LaserZap
+		Width: 100
+		Color: DD666680
+		SecondaryBeamWidth: 40
+		SecondaryBeamColor: AA799080
+
+LunarLaserAAUpgE:
+	Inherits: LunarLaserAAE
+	Projectile: LaserZap
+		Width: 100
+		Color: FFDD0080
+		SecondaryBeamWidth: 40
+		SecondaryBeamColor: FF000080
+
+LaserShot:
+	Inherits: DoomLaser
+	ReloadDelay: 80
+	Range: 9c0
+	Burst: 2
+	BurstDelays: 10
+	Report: obelray1.aud
+	Projectile: LaserZap
+		Width: 200
+		SecondaryBeamWidth: 50
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c128
+		Damage: 30000
+
+LaserShotUpg:
+	Inherits: LaserShot
+	Projectile: LaserZap
+		Width: 250
+		Color: DD666680
+		SecondaryBeamWidth: 100
+		SecondaryBeamColor: AA799080
+
+IonCannon:
+	Inherits@1: ^BreakPointDefenseDrones
+	ValidTargets: Ground, Water, Air
+	Projectile: InstantExplode
+	Warhead@1Dam_impact: SpreadDamage
+		Spread: 1c0
+		Damage: 3000
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		Delay: 75
+		ValidTargets: Ground, Water, Air
+		DamageTypes: Prone100Percent, TriggerProne, FlameDeath, NonTemporal
+	Warhead@2Dam_area: SpreadDamage
+		Spread: 1c0
+		Damage: 25000
+		Falloff: 100, 50, 25, 0
+		Delay: 78
+		ValidTargets: Ground, Water, Air
+		DamageTypes: Prone50Percent, TriggerProne, FlameDeath, NonTemporal
+	Warhead@3Smu_area: LeaveSmudge
+		SmudgeType: SmallScorch
+		InvalidTargets: Vehicle, Building, Wall
+		Size: 2
+		Delay: 78
+	Warhead@4Effect: CreateEffect
+		Delay: 75
+		Explosions: ionring
+		ExplosionPalette: effect50alpha
+		ImpactSounds: ion1.aud
+		ImpactActors: false
+	Warhead@5Effect: CreateEffect
+		Delay: 75
+		Explosions: ionbeam
+		ExplosionPalette: effect50alpha
+		ImpactActors: false
+	Warhead@6Effect: CreateEffect
+		Delay: 75
+		Explosions: ionbeam2
+		ExplosionPalette: effect50alpha
+		ImpactActors: false
+	Warhead@7Effect: CreateEffect
+		Delay: 75
+		Explosions: ionbeam3
+		ExplosionPalette: effect50alpha
+		ImpactActors: false
+	Warhead@8Effect: CreateEffect
+		Delay: 75
+		Explosions: ionbeam4
+		ExplosionPalette: effect50alpha
+		ImpactActors: false
+	Warhead@9Effect: CreateEffect
+		Delay: 75
+		Explosions: ionbeam5
+		ExplosionPalette: effect50alpha
+		ImpactActors: false
+	Warhead@10Effect: CreateEffect
+		Delay: 75
+		Explosions: ionbeam6
+		ExplosionPalette: effect50alpha
+		ImpactActors: false
+
+BloodSuck:
+	Inherits: ^MG
+	ReloadDelay: 120
+	Range: 5c0
+	Report: itesat2a.wav
+	Projectile: TeslaZap
+		Image: scrlitning
+		Duration: 6
+		DimZaps: 1
+	Warhead@1Dam: TargetDamage
+		Damage: 4500
+		Versus:
+			None: 1000
+			Flak: 1000
+			Plate: 1000
+		DamageTypes: Prone70Percent, TriggerProne, NonTemporal, ElectroDeath
+	Warhead@bloodback: BackFireShrapnel
+		Weapon: BloodBack
+		ValidTargets: Infantry, SeaAnimal
+	Warhead@materialback: BackFireShrapnel
+		Weapon: MaterialBack
+		ValidTargets: Vehicle, Structure, WaterStructure, Defence, Ship
+	-Warhead@2Eff:
+
+BloodSuckE:
+	Inherits: BloodSuck
+	Range: 7c0
+	Warhead@1Dam: TargetDamage
+		Damage: 6000
+
+BloodBack:
+	TargetActorCenter: true
+	Projectile: MissileTA
+		CruiseAltitude: 6000
+		Acceleration: 0
+		MinimumLaunchAngle: 200
+		MaximumLaunchAngle: 200
+		Image: explosion
+		Sequences: tissue
+		Shadow: true
+		Palette: player
+		HorizontalRateOfTurn: 60
+		RangeLimit: 15c0
+		Speed: 300
+		Inaccuracy: 0c0
+		Blockable: false
+		TerrainHeightAware: true
+		AllowSnapping: true
+		ExplodeUnderThisAltitude: -3c0
+		RangeLimit: 40c0
+		Gravity: 0
+		ContrailDelay: 0
+		ContrailStartColor: CC000060
+		ContrailLength: 3
+		ContrailStartWidth: 32
+	Warhead@charge: GrantExternalCondition
+		Range: 299
+		Duration: 1
+		Condition: bloodsucked
+		ValidRelationships: Ally
+		AffectsParent: true
+		ValidTargets: Air
+		AirThreshold: 9c0
+
+MaterialBack:
+	TargetActorCenter: true
+	Projectile: MissileTA
+		CruiseAltitude: 6000
+		Acceleration: 0
+		MinimumLaunchAngle: 200
+		MaximumLaunchAngle: 200
+		Image: debris
+		Sequences: small1, small2, small3, small4, small5, small6, small7, small8, small9, large1, large2, large3, large4, large5, large6, large7, large8, large9, large10
+		Shadow: true
+		Palette: effect
+		HorizontalRateOfTurn: 60
+		RangeLimit: 15c0
+		Speed: 300
+		Inaccuracy: 0c0
+		Blockable: false
+		TerrainHeightAware: true
+		AllowSnapping: true
+		ExplodeUnderThisAltitude: -3c0
+		RangeLimit: 40c0
+		Gravity: 0
+	Warhead@1Dam: SpreadDamage
+		Damage: -750
+		Falloff: 100,100
+		ValidRelationships: Ally
+		AffectsParent: true
+		ValidTargets: Air
+		AirThreshold: 9c0

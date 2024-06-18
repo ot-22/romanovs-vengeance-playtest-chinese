@@ -1,0 +1,211 @@
+{
+    "mod": "rv",
+    "modversion": "playtest-20240218",
+    "map": "d49a0f6c6ea3b96a838aaa9e49321846b083d551",
+    "allowspectators": true,
+	"modtitle": "Red Alert 2: Romanov's Vengeance",
+    "modwebsite": "https://github.com/MustaphaTR/Romanovs-Vengeance",
+    "modicon32": "https://raw.githubusercontent.com/MustaphaTR/Romanovs-Vengeance/master/packaging/artwork/icon_32x32.png",
+    "dedicated": true,
+    "allowversionmismatch": false,
+    "enablesingleplayer": true,
+    "enablesyncreports": true,
+    "options": {
+        "startingcash": {
+            "value": 10000,
+            "preferredvalue": 10000,
+            "locked": false
+        },
+        "cheats": {
+            "value": false,
+            "preferredvalue": false,
+            "locked": false
+        },
+        "explored": {
+            "value": true,
+            "preferredvalue": false,
+            "locked": false
+        },
+        "fog": {
+            "value": true,
+            "preferredvalue": true,
+            "locked": false
+        },
+        "creeps": {
+            "value": true,
+            "preferredvalue": true,
+            "locked": false
+        },
+        "allybuild": {
+            "value": true,
+            "preferredvalue": true,
+            "locked": false
+        },
+        "buildradius": {
+            "value": true,
+            "preferredvalue": true,
+            "locked": false
+        },
+        "shortgame": {
+            "value": true,
+            "preferredvalue": true,
+            "locked": false
+        },
+        "techlevel": {
+            "value": "unrestricted",
+            "preferredvalue": "unrestricted",
+            "locked": false
+        },
+        "gamespeed": {
+            "value": "default",
+            "preferredvalue": "default",
+            "locked": false
+        },
+        "startingunits": {
+            "value": "none",
+            "preferredvalue": "none",
+            "locked": false
+        },
+        "crates": {
+            "value": false,
+            "preferredvalue": false,
+            "locked": false
+        },
+        "separateteamspawns": {
+            "value": false,
+            "preferredvalue": false,
+            "locked": false
+        },
+        "factundeploy": {
+            "value": true,
+            "preferredvalue": true,
+            "locked": false
+        },
+        "taunts": {
+            "value": true,
+            "preferredvalue": true,
+            "locked": false
+        },
+        "techbuildarea": {
+            "value": false,
+            "preferredvalue": false,
+            "locked": false
+        },
+        "swlimit": {
+            "value": true,
+            "preferredvalue": true,
+            "locked": false
+        },
+        "instantcapture": {
+            "value": false,
+            "preferredvalue": false,
+            "locked": false
+        },
+        "freeradar": {
+            "value": true,
+            "preferredvalue": true,
+            "locked": false
+        },
+        "timelimit": {
+            "value": 0,
+            "preferredvalue": 0,
+            "locked": false
+        },
+        "cpmodifier": {
+            "value": "normal",
+            "preferredvalue": "normal",
+            "locked": false
+        },
+        "showownername": {
+            "value": true,
+            "preferredvalue": true,
+            "locked": false
+        },
+        "megawealth": {
+            "value": false,
+            "preferredvalue": false,
+            "locked": false
+        },
+        "domination": {
+            "value": false,
+            "preferredvalue": false,
+            "locked": false
+        },
+        "koth": {
+            "value": false,
+            "preferredvalue": false,
+            "locked": false
+        },
+        "regicide": {
+            "value": false,
+            "preferredvalue": false,
+            "locked": false
+        },
+        "suddendeath": {
+            "value": false,
+            "preferredvalue": false,
+            "locked": false
+        },
+        "multiqueue": {
+            "value": true,
+            "preferredvalue": true,
+            "locked": false
+        },
+        "upgrades": {
+            "value": true,
+            "preferredvalue": true,
+            "locked": false
+        }
+    },
+    "gamespeed": {
+        "slowest": {
+            "timestep": 80,
+            "minOrderDelay": 0,
+            "maxOrderDelay": 15,
+            "legacyOrderDelay": 6,
+            "legacyTimestep": 80
+        },
+        "slower": {
+            "timestep": 50,
+            "minOrderDelay": 0,
+            "maxOrderDelay": 15,
+            "legacyOrderDelay": 9,
+            "legacyTimestep": 50
+        },
+        "default": {
+            "timestep": 40,
+            "minOrderDelay": 0,
+            "maxOrderDelay": 15,
+            "legacyOrderDelay": 9,
+            "legacyTimestep": 40
+        },
+        "fast": {
+            "timestep": 35,
+            "minOrderDelay": 0,
+            "maxOrderDelay": 15,
+            "legacyOrderDelay": 12,
+            "legacyTimestep": 35
+        },
+        "faster": {
+            "timestep": 30,
+            "minOrderDelay": 0,
+            "maxOrderDelay": 15,
+            "legacyOrderDelay": 12,
+            "legacyTimestep": 30
+        },
+        "fastest": {
+            "timestep": 20,
+            "minOrderDelay": 0,
+            "maxOrderDelay": 18,
+            "legacyOrderDelay": 18,
+            "legacyTimestep": 20
+        },
+        "ludicrous": {
+            "timestep": 5,
+            "minOrderDelay": 0,
+            "maxOrderDelay": 30,
+            "legacyOrderDelay": 27,
+            "legacyTimestep": 5
+        }
+    }
+}
